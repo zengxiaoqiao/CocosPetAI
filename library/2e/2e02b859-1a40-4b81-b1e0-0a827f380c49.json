@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteAtlas",
+  "content": {
+    "name": "cat07",
+    "spriteFrames": [
+      "Artboard 1",
+      "2e02b859-1a40-4b81-b1e0-0a827f380c49@4a9f6",
+      "Artboard 11",
+      "2e02b859-1a40-4b81-b1e0-0a827f380c49@2c04c",
+      "Artboard 13",
+      "2e02b859-1a40-4b81-b1e0-0a827f380c49@4c1bc",
+      "Artboard 15",
+      "2e02b859-1a40-4b81-b1e0-0a827f380c49@ccd66",
+      "Artboard 17",
+      "2e02b859-1a40-4b81-b1e0-0a827f380c49@34767",
+      "Artboard 19",
+      "2e02b859-1a40-4b81-b1e0-0a827f380c49@dfc99",
+      "Artboard 3",
+      "2e02b859-1a40-4b81-b1e0-0a827f380c49@ca13a",
+      "Artboard 5",
+      "2e02b859-1a40-4b81-b1e0-0a827f380c49@3f37d",
+      "Artboard 7",
+      "2e02b859-1a40-4b81-b1e0-0a827f380c49@31c7c",
+      "Artboard 9",
+      "2e02b859-1a40-4b81-b1e0-0a827f380c49@13590"
+    ]
+  }
+}

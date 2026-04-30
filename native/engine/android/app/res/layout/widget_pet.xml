@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="8dp"
+    android:background="@android:color/transparent">
+
+    <!-- 文案在宠物头顶：体力/亲密 或 天气，放在对话框气泡背景里（由 TextView 自适应宽度） -->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginBottom="4dp">
+
+        <TextView
+            android:id="@+id/widget_hp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/widget_bubble"
+            android:textSize="13sp"
+            android:textColor="#FFFFFFFF"
+            android:shadowColor="#80000000"
+            android:shadowDx="1"
+            android:shadowDy="1"
+            android:shadowRadius="2" />
+
+        <TextView
+            android:id="@+id/widget_sep"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" / "
+            android:textSize="13sp"
+            android:textColor="#FFFFFFFF" />
+
+        <TextView
+            android:id="@+id/widget_intimacy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="13sp"
+            android:textColor="#FFFFFFFF"
+            android:shadowColor="#80000000"
+            android:shadowDx="1"
+            android:shadowDy="1"
+            android:shadowRadius="2" />
+    </LinearLayout>
+
+    <!-- 宠物形象区域：底层是宠物动画，上面可叠加充电/网络等 overlay 动图 -->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:clipChildren="false">
+
+        <ImageView
+            android:id="@+id/widget_pet_image"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="fitCenter"
+            android:contentDescription="@string/widget_pet_desc" />
+
+        <!-- 充电 overlay 动图（可选） -->
+        <ImageView
+            android:id="@+id/widget_overlay_charge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right|top"
+            android:visibility="gone" />
+
+        <!-- 流量/网络 overlay 动图（可选） -->
+        <ImageView
+            android:id="@+id/widget_overlay_network"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right|top"
+            android:visibility="gone" />
+    </FrameLayout>
+</LinearLayout>

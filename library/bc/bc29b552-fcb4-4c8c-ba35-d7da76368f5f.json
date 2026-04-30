@@ -1,0 +1,30 @@
+{
+  "__type__": "cc.SpriteAtlas",
+  "content": {
+    "name": "cat06",
+    "spriteFrames": [
+      "Artboard 11_400x400",
+      "bc29b552-fcb4-4c8c-ba35-d7da76368f5f@36f12",
+      "Artboard 13_400x400",
+      "bc29b552-fcb4-4c8c-ba35-d7da76368f5f@801dd",
+      "Artboard 15_400x400",
+      "bc29b552-fcb4-4c8c-ba35-d7da76368f5f@ac56e",
+      "Artboard 17_400x400",
+      "bc29b552-fcb4-4c8c-ba35-d7da76368f5f@38f65",
+      "Artboard 19_400x400",
+      "bc29b552-fcb4-4c8c-ba35-d7da76368f5f@19a0f",
+      "Artboard 1_400x400",
+      "bc29b552-fcb4-4c8c-ba35-d7da76368f5f@b207f",
+      "Artboard 20_400x400",
+      "bc29b552-fcb4-4c8c-ba35-d7da76368f5f@263d1",
+      "Artboard 3_400x400",
+      "bc29b552-fcb4-4c8c-ba35-d7da76368f5f@54705",
+      "Artboard 5_400x400",
+      "bc29b552-fcb4-4c8c-ba35-d7da76368f5f@4e2d3",
+      "Artboard 7_400x400",
+      "bc29b552-fcb4-4c8c-ba35-d7da76368f5f@be130",
+      "Artboard 9_400x400",
+      "bc29b552-fcb4-4c8c-ba35-d7da76368f5f@d908c"
+    ]
+  }
+}

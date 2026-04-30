@@ -1,0 +1,108 @@
+{
+  "__version__": "3.0.9",
+  "builder": {
+    "options": {
+      "web-desktop": {
+        "configID": "12fad8",
+        "services": []
+      },
+      "android": {
+        "configID": "12fad8",
+        "services": []
+      },
+      "web-mobile": {
+        "configID": "12fad8",
+        "services": []
+      },
+      "ios": {
+        "configID": "12fad8",
+        "services": []
+      },
+      "wechatgame": {
+        "configID": "12fad8",
+        "services": []
+      },
+      "mac": {
+        "configID": "12fad8",
+        "services": []
+      }
+    },
+    "taskOptionsMap": {
+      "1769591589198": {
+        "configID": "12fad8",
+        "services": [],
+        "__version__": "3.0.9"
+      },
+      "1769672058981": {
+        "configID": "12fad8",
+        "services": [],
+        "__version__": "3.0.9"
+      },
+      "1770262834307": {
+        "configID": "12fad8",
+        "services": [],
+        "__version__": "3.0.9"
+      },
+      "1770280012491": {
+        "configID": "12fad8",
+        "services": [],
+        "__version__": "3.0.9"
+      },
+      "1770345735057": {
+        "configID": "12fad8",
+        "services": [],
+        "__version__": "3.0.9"
+      },
+      "1770345799621": {
+        "configID": "12fad8",
+        "services": [],
+        "__version__": "3.0.9"
+      },
+      "1770357601795": {
+        "configID": "12fad8",
+        "services": [],
+        "__version__": "3.0.9"
+      },
+      "1770357763576": {
+        "configID": "12fad8",
+        "services": [],
+        "__version__": "3.0.9"
+      },
+      "1770370806601": {
+        "configID": "12fad8",
+        "services": [],
+        "__version__": "3.0.9"
+      },
+      "1770384799762": {
+        "configID": "12fad8",
+        "services": [],
+        "__version__": "3.0.9"
+      },
+      "1770615839719": {
+        "configID": "12fad8",
+        "services": [],
+        "__version__": "3.0.9"
+      },
+      "1772271744456": {
+        "configID": "12fad8",
+        "services": []
+      },
+      "1775194925202": {
+        "configID": "12fad8",
+        "services": [],
+        "__version__": "3.0.9"
+      },
+      "1777428964905": {
+        "configID": "12fad8",
+        "services": [],
+        "__version__": "3.0.9"
+      }
+    },
+    "__version__": "1.3.9"
+  },
+  "builder-options": {
+    "configID": "12fad8",
+    "services": [],
+    "__version__": "3.0.9"
+  }
+}

@@ -1,0 +1,635 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PetBar Pet Widget & Customization</title>
+  <style>
+    :root {
+      --bg: #fcfcfd;
+      --card: #ffffff;
+      --text: #2b2d31;
+      --muted: #6b7078;
+      --heading: #1f2125;
+      --brand: #ff6b57;
+      --brand-dark: #e5533d;
+      --line: #eceef1;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Inter", "SF Pro Text", -apple-system, BlinkMacSystemFont, "Segoe UI",
+        "Helvetica Neue", Arial, sans-serif;
+      background:
+        radial-gradient(circle at 15% 0%, #f7f8fb 0%, rgba(247, 248, 251, 0) 35%),
+        radial-gradient(circle at 85% 0%, #faf8f7 0%, rgba(250, 248, 247, 0) 38%),
+        var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      text-rendering: optimizeLegibility;
+    }
+
+    .container {
+      width: min(720px, 88vw);
+      margin: 0 auto;
+    }
+
+    .hero {
+      padding: 64px 0 44px;
+      text-align: center;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: #7a8088;
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+
+    .badge::before,
+    .badge::after {
+      content: "";
+      width: 24px;
+      height: 1px;
+      background: #d4d8de;
+    }
+
+    h1 {
+      margin: 16px 0 14px;
+      font-size: clamp(26px, 4.2vw, 38px);
+      line-height: 1.24;
+      letter-spacing: 0.01em;
+      font-family: "Avenir Next", "Nunito", "SF Pro Rounded", "Inter", "Segoe UI", sans-serif;
+      font-weight: 560;
+      color: var(--heading);
+    }
+
+    h2 {
+      margin: 0;
+      font-size: clamp(21px, 2.8vw, 28px);
+      line-height: 1.3;
+      letter-spacing: 0.008em;
+      font-family: "Avenir Next", "Nunito", "SF Pro Rounded", "Inter", "Segoe UI", sans-serif;
+      font-weight: 560;
+      color: var(--heading);
+    }
+
+    .lead {
+      margin: 0 auto 20px;
+      max-width: 36em;
+      color: var(--muted);
+      font-size: 16px;
+    }
+
+    .hero-demo {
+      position: relative;
+      margin-top: 8px;
+      width: 100%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .hero-demo-image {
+      width: 100%;
+      border-radius: 18px;
+      border: 1px solid var(--line);
+      display: block;
+      background: #fff;
+      box-shadow: 0 16px 40px rgba(164, 120, 94, 0.16);
+    }
+
+    .hero-overlay-actions {
+      position: absolute;
+      left: 50%;
+      bottom: 18px;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      justify-content: center;
+      width: calc(100% - 24px);
+      pointer-events: none;
+    }
+
+    .hero-overlay-actions .btn {
+      pointer-events: auto;
+      box-shadow: 0 8px 24px rgba(37, 23, 14, 0.2);
+    }
+
+    .btn {
+      border: 0;
+      border-radius: 12px;
+      padding: 12px 20px;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
+    }
+
+    .btn-primary {
+      background: var(--brand);
+      color: #fff;
+    }
+
+    .btn-primary:hover {
+      background: var(--brand-dark);
+    }
+
+    .btn-secondary {
+      background: #fff;
+      color: var(--text);
+      border: 1px solid var(--line);
+    }
+
+    section {
+      padding: 28px 0;
+    }
+
+    main {
+      text-align: left;
+      padding: 0 0 36px;
+    }
+
+    main section > h2 {
+      text-align: left;
+      margin: 0 0 14px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid rgba(240, 227, 216, 0.95);
+    }
+
+    main section > h2 + .form-note,
+    main section > h2 + .origin-card,
+    main section > h2 + .cards {
+      margin-top: 0;
+    }
+
+    .origin-card .compare-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6px;
+      max-width: 220px;
+      margin: 18px 0 0;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 14px;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 19px;
+      box-shadow: 0 8px 24px rgba(34, 41, 53, 0.06);
+    }
+
+    .card h3 {
+      margin: 0 0 8px;
+      font-size: 18px;
+    }
+
+    .card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .highlight-card {
+      border: 2px solid #ead7d4;
+      background: #fff;
+      border-radius: 16px;
+      padding: 20px;
+    }
+
+    .price {
+      font-size: 36px;
+      font-weight: 700;
+      margin: 6px 0 10px;
+    }
+
+    ul {
+      margin: 10px 0 0;
+      padding-left: 18px;
+      color: var(--muted);
+    }
+
+    .form-note {
+      margin-top: 10px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    footer {
+      text-align: center;
+      color: #777;
+      padding: 34px 0 40px;
+      font-size: 13px;
+    }
+
+    .case-meta {
+      font-size: 12px;
+      color: #858b95;
+      margin: 0 0 10px;
+      letter-spacing: 0.02em;
+    }
+
+    .case-speaker {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin: 0 0 10px;
+    }
+
+    .case-avatar {
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      font-weight: 700;
+      color: #6f6060;
+      background: #f3eded;
+      border: 1px solid #e6dbdb;
+      flex-shrink: 0;
+    }
+
+    .case-quote {
+      margin: 0;
+      font-size: 15px;
+      color: var(--text);
+      line-height: 1.72;
+    }
+
+    .stories-grid {
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    }
+
+    .stories-wall {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      grid-auto-rows: 78px;
+      gap: 8px;
+      margin: 0 0 14px;
+    }
+
+    .stories-wall figure {
+      margin: 0;
+      min-height: 0;
+    }
+
+    .stories-wall-photo {
+      position: relative;
+      height: 100%;
+      border-radius: 14px;
+      overflow: hidden;
+    }
+
+    .stories-wall img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      border: 1px solid #eceef1;
+      background: #ffffff;
+      object-fit: cover;
+      box-shadow: 0 6px 16px rgba(34, 41, 53, 0.06);
+    }
+
+    .stories-wall-label {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      padding: 7px 8px;
+      background: linear-gradient(180deg, rgba(18, 15, 12, 0) 0%, rgba(18, 15, 12, 0.72) 100%);
+      color: #fff;
+      font-size: 11px;
+      line-height: 1.35;
+      font-weight: 600;
+      text-shadow: 0 1px 3px rgba(0, 0, 0, 0.28);
+    }
+
+    .stories-wall figure:nth-child(1) {
+      grid-column: span 2;
+      grid-row: span 3;
+    }
+
+    .stories-wall figure:nth-child(2) {
+      grid-row: span 2;
+    }
+
+    .stories-wall figure:nth-child(4) {
+      grid-column: span 2;
+      grid-row: span 2;
+    }
+
+    .stories-wall figure:nth-child(5) {
+      grid-row: span 3;
+    }
+
+    .stories-wall figure:nth-child(7) {
+      grid-column: span 2;
+      grid-row: span 2;
+    }
+
+    .origin-card {
+      background: #ffffff;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 22px 24px;
+      width: 100%;
+      max-width: none;
+      box-shadow: 0 8px 20px rgba(34, 41, 53, 0.05);
+    }
+
+    .origin-card p {
+      margin: 0 0 14px;
+      color: var(--text);
+      font-size: 15px;
+      line-height: 1.75;
+    }
+
+    .origin-card p:last-child {
+      margin-bottom: 0;
+    }
+
+    .compare-card {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 5px;
+      box-shadow: 0 4px 12px rgba(34, 41, 53, 0.05);
+    }
+
+    .compare-card img {
+      width: 100%;
+      display: block;
+      border-radius: 6px;
+      border: 1px solid #eceef1;
+      background: #ffffff;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+    }
+
+    .demo-shot {
+      width: 100%;
+      border-radius: 14px;
+      border: 1px solid var(--line);
+      display: block;
+      margin: 12px auto 0;
+      background: #fff;
+    }
+
+    @media (max-width: 640px) {
+      .hero {
+        padding: 52px 0 34px;
+      }
+
+      .hero-overlay-actions {
+        bottom: 12px;
+      }
+
+      .hero-overlay-actions .btn {
+        width: 100%;
+        max-width: 260px;
+      }
+
+      .origin-card .compare-grid {
+        max-width: 200px;
+      }
+
+      .stories-wall {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        grid-auto-rows: 72px;
+      }
+
+      .stories-wall figure:nth-child(1),
+      .stories-wall figure:nth-child(4),
+      .stories-wall figure:nth-child(7) {
+        grid-column: span 2;
+      }
+
+      .stories-wall figure:nth-child(5) {
+        grid-row: span 2;
+      }
+    }
+
+  </style>
+</head>
+<body>
+  <header class="hero container">
+    <span class="badge">PetBar · Heartfelt Pet Customization</span>
+    <h1>Let Them Stay With You, Every Day</h1>
+    <div class="hero-demo" aria-label="Pet widget preview">
+      <img
+        class="hero-demo-image"
+        src="landing-img/PetBar.png"
+        alt="Pet widget product preview image"
+      />
+      <div class="hero-overlay-actions">
+        <a class="btn btn-secondary" href="landing-img/PetBar.png" target="_blank" rel="noopener noreferrer">View Product Demo</a>
+        <a class="btn btn-primary" href="customize.html">Bring Them Closer (Starting at $69)</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section id="origin">
+      <h2>How It Started</h2>
+      <div class="origin-card">
+        <p>
+          PetBar started from my own experience. Like many pet parents, after losing a dog who had been with me for years, I wanted to keep a piece of her in a place I open every day. So I kept refining the idea until she became a desktop pet widget on my Mac. That feeling of turning on the screen and sensing she is still somehow there convinced me this emotion deserves to be treated with care.
+        </p>
+        <p>
+          For memorial and companionship requests, I choose a softer, stylized look by default. It keeps the expression and details you know, while creating just enough emotional distance from painful realism. The goal is not to make them look different, but to leave space for your heart: you still recognize them instantly, without reliving the hardest moment each time you look.
+        </p>
+        <div
+          class="compare-grid"
+          role="group"
+          aria-label="Origin story: real photo and widget comparison"
+        >
+          <article class="compare-card">
+            <img
+              src="landing-img/OriginDog-Real.png"
+              alt="Real photo of the dog in the origin story"
+            />
+          </article>
+          <article class="compare-card">
+            <img
+              src="landing-img/OriginDog-Widget.png"
+              alt="Stylized widget version of the same dog"
+            />
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="stories">
+      <h2>Many of these stories begin after a goodbye.</h2>
+      <div class="stories-wall" aria-label="Stylized pet portrait wall">
+        <figure>
+          <div class="stories-wall-photo">
+            <img src="landing-img/story-01-widget.png" alt="Stylized portrait of Dafu" />
+            <div class="stories-wall-label">Dafu · Golden Retriever</div>
+          </div>
+        </figure>
+        <figure>
+          <div class="stories-wall-photo">
+            <img src="landing-img/story-02-widget.png" alt="Stylized portrait of Mili" />
+            <div class="stories-wall-label">Mili · Maltese</div>
+          </div>
+        </figure>
+        <figure>
+          <div class="stories-wall-photo">
+            <img src="landing-img/story-03-widget.png" alt="Stylized portrait of Mochi" />
+            <div class="stories-wall-label">Mochi · Netherland Dwarf Rabbit</div>
+          </div>
+        </figure>
+        <figure>
+          <div class="stories-wall-photo">
+            <img src="landing-img/story-04-widget.png" alt="Stylized portrait of Qiqi" />
+            <div class="stories-wall-label">Qiqi · Golden Retriever</div>
+          </div>
+        </figure>
+        <figure>
+          <div class="stories-wall-photo">
+            <img src="landing-img/story-05-widget.png" alt="Stylized portrait of Doudou" />
+            <div class="stories-wall-label">Doudou · Border Collie</div>
+          </div>
+        </figure>
+        <figure>
+          <div class="stories-wall-photo">
+            <img src="landing-img/story-06-widget.png" alt="Stylized portrait of Tuanzi" />
+            <div class="stories-wall-label">Tuanzi · Corgi</div>
+          </div>
+        </figure>
+        <figure>
+          <div class="stories-wall-photo">
+            <img src="landing-img/story-07-widget.png" alt="Stylized portrait of Lucky" />
+            <div class="stories-wall-label">Lucky · Shiba Inu</div>
+          </div>
+        </figure>
+        <figure>
+          <div class="stories-wall-photo">
+            <img src="landing-img/story-08-widget.png" alt="Stylized portrait of Naitang" />
+            <div class="stories-wall-label">Naitang · Samoyed</div>
+          </div>
+        </figure>
+      </div>
+      <div class="cards stories-grid">
+        <article class="card">
+          <div class="case-speaker">
+            <span class="case-avatar" aria-hidden="true">ML</span>
+            <p class="case-meta">Ms. Lin · Hangzhou, China</p>
+          </div>
+          <p class="case-quote">
+            After she passed, I could not open her photos often, but I could not delete them either. Turning her into a widget made every screen wake-up feel like she was still sitting nearby, not as a sharp reminder, but as quiet company.
+          </p>
+        </article>
+        <article class="card">
+          <div class="case-speaker">
+            <span class="case-avatar" aria-hidden="true">MZ</span>
+            <p class="case-meta">Mr. Zhang · Shanghai, China</p>
+          </div>
+          <p class="case-quote">
+            What I miss most is that little white patch on her profile and her half-squinting eyes. I hoped those details could stay, so when I open PetBar, I instantly know it is our dog.
+          </p>
+        </article>
+        <article class="card">
+          <div class="case-speaker">
+            <span class="case-avatar" aria-hidden="true">ZH</span>
+            <p class="case-meta">Zhou · Chengdu, China</p>
+          </div>
+          <p class="case-quote">
+            I cannot keep another pet right now, but I wanted a gentle way to carry the memory into everyday life. The widget feels like a small memorial corner that helps me steady myself on hard days.
+          </p>
+        </article>
+        <article class="card">
+          <div class="case-speaker">
+            <span class="case-avatar" aria-hidden="true">MC</span>
+            <p class="case-meta">Ms. Chen · Nanjing, China</p>
+          </div>
+          <p class="case-quote">
+            We kept her leash at home, but rarely talked about her. After making a stylized widget, my mom started sharing stories again, like sadness was slowly turning into something we could remember together.
+          </p>
+        </article>
+        <article class="card">
+          <div class="case-speaker">
+            <span class="case-avatar" aria-hidden="true">MH</span>
+            <p class="case-meta">Mr. He · Shenzhen, China</p>
+          </div>
+          <p class="case-quote">
+            Because of a work relocation, my dog is temporarily staying with family in another city. Watching only camera feeds felt distant; the custom widget made daily life feel connected again while waiting to reunite.
+          </p>
+        </article>
+        <article class="card">
+          <div class="case-speaker">
+            <span class="case-avatar" aria-hidden="true">MZ</span>
+            <p class="case-meta">Ms. Zhao · Guangzhou, China</p>
+          </div>
+          <p class="case-quote">
+            At first I wanted maximum realism, but then realized it was too painful to look at. A softer stylized version still kept her expression recognizable, without pulling me back into the sharpest grief each time.
+          </p>
+        </article>
+        <article class="card">
+          <div class="case-speaker">
+            <span class="case-avatar" aria-hidden="true">WU</span>
+            <p class="case-meta">Wu · Boston, USA</p>
+          </div>
+          <p class="case-quote">
+            Before moving home after graduation, I left my dog with a close friend. I was afraid my days would suddenly feel empty. The widget became a small daily signal: he is still out there living well, and I can keep moving forward too.
+          </p>
+        </article>
+        <article class="card">
+          <div class="case-speaker">
+            <span class="case-avatar" aria-hidden="true">MP</span>
+            <p class="case-meta">Ms. Pan · Toronto, Canada</p>
+          </div>
+          <p class="case-quote">
+            Our child kept asking where she went. The gentle stylized widget helped us say that love can stay without constant tears. Now our kid says hello to the widget every day; it feels like a kinder way to say goodbye.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section>
+      <h2>Why Heartfelt Customization + Stylized Art</h2>
+      <div class="cards">
+        <article class="card">
+          <h3>A practical pain point came first</h3>
+          <p>This product began with a simple frustration: there was no reliable, easy way to bring your own pet into a polished everyday product. We wanted to fill that gap, so your pet can live beyond the photo album and stay present in your daily rhythm.</p>
+        </article>
+        <article class="card">
+          <h3>Stylization creates emotional breathing room</h3>
+          <p>You may still want their company in everyday life, but pure realism can feel too heavy. Stylized art is not about losing likeness; it is about preserving recognition while softening the emotional impact, so remembrance can feel gentler and more sustainable.</p>
+        </article>
+        <article class="card">
+          <h3>Recognition still matters</h3>
+          <p>Within softer shapes, we still prioritize the familiar markers you know by heart, such as coat patterns, eye shape, and body proportions. It should feel like a quiet greeting, not an emotional shock.</p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    © 2026 PetBar Studio · Heartfelt Custom Pet Widgets · Gentle Remembrance
+  </footer>
+</body>
+</html>

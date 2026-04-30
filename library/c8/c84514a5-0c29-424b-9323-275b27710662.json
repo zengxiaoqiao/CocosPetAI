@@ -1,0 +1,12 @@
+{
+  "__type__": "cc.SpriteAtlas",
+  "content": {
+    "name": "bg",
+    "spriteFrames": [
+      "bg_cat",
+      "c84514a5-0c29-424b-9323-275b27710662@16982",
+      "bg_dog",
+      "c84514a5-0c29-424b-9323-275b27710662@88120"
+    ]
+  }
+}

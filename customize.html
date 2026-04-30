@@ -1,0 +1,356 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PetBar 定制通道（仅 Mac）</title>
+  <style>
+    :root {
+      --bg: #fffaf6;
+      --card: #ffffff;
+      --text: #222222;
+      --muted: #666666;
+      --brand: #ff8a5b;
+      --brand-dark: #f26d3d;
+      --line: #f0e3d8;
+      --ok: #2d9c68;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
+        "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+      background:
+        radial-gradient(circle at 12% 0%, #fff1e8 0%, rgba(255, 241, 232, 0) 32%),
+        radial-gradient(circle at 88% 0%, #ffeadd 0%, rgba(255, 234, 221, 0) 36%),
+        var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    .container {
+      width: min(1100px, 92vw);
+      margin: 0 auto;
+    }
+
+    main {
+      text-align: left;
+      padding: 0 0 40px;
+    }
+
+    h2 {
+      margin: 0 0 18px;
+      font-size: clamp(22px, 3vw, 28px);
+      font-weight: 700;
+      line-height: 1.3;
+      letter-spacing: 0.01em;
+      padding-bottom: 14px;
+      border-bottom: 1px solid rgba(240, 227, 216, 0.95);
+    }
+
+    .top {
+      padding: 44px 0 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 12px;
+      flex-wrap: wrap;
+      border-bottom: 1px solid rgba(240, 227, 216, 0.95);
+      margin-bottom: 8px;
+    }
+
+    .top h1 {
+      margin: 0;
+      font-size: clamp(26px, 4vw, 38px);
+      font-weight: 700;
+      letter-spacing: 0.01em;
+      text-align: left;
+    }
+
+    .btn {
+      border: 0;
+      border-radius: 10px;
+      padding: 10px 16px;
+      font-size: 14px;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .btn-secondary {
+      background: #fff;
+      color: var(--text);
+      border: 1px solid var(--line);
+    }
+
+    .btn-primary {
+      background: var(--brand);
+      color: #fff;
+    }
+
+    .btn-primary:hover { background: var(--brand-dark); }
+
+    section { padding: 28px 0; }
+
+    .layout {
+      display: grid;
+      gap: 16px;
+    }
+
+    .layout:not(.layout-3) {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .layout-3 {
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 18px;
+      box-shadow: 0 6px 22px rgba(113, 86, 69, 0.08);
+    }
+
+    .card h3 {
+      margin: 0 0 8px;
+      font-size: 18px;
+    }
+
+    .muted {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .custom-preamble {
+      margin: 0 0 4px;
+      max-width: 52em;
+      line-height: 1.75;
+    }
+
+    ul {
+      margin: 8px 0 0;
+      padding-left: 18px;
+      color: var(--muted);
+    }
+
+    .price {
+      font-size: 34px;
+      margin: 4px 0 8px;
+      font-weight: 700;
+    }
+
+    .price-note {
+      margin: -2px 0 10px;
+      font-size: 13px;
+      color: #9a6f57;
+    }
+
+    .plan-action {
+      margin-top: 12px;
+    }
+
+    label {
+      font-size: 14px;
+      font-weight: 600;
+      display: block;
+      margin-bottom: 6px;
+    }
+
+    .field { margin-bottom: 14px; }
+
+    input, textarea, select {
+      width: 100%;
+      border: 1px solid #e7d8cc;
+      border-radius: 10px;
+      padding: 10px 12px;
+      font-size: 14px;
+      font-family: inherit;
+      background: #fff;
+    }
+
+    textarea {
+      min-height: 98px;
+      resize: vertical;
+    }
+
+    .success {
+      color: var(--ok);
+      font-size: 13px;
+      min-height: 20px;
+      margin-top: 8px;
+    }
+
+    .form-note {
+      margin-top: 8px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    footer {
+      text-align: center;
+      color: #777;
+      padding: 26px 0 34px;
+      font-size: 13px;
+    }
+
+    @media (max-width: 900px) {
+      .layout:not(.layout-3) {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="container">
+    <header class="top">
+      <h1>PetBar 定制通道（仅 Mac）</h1>
+      <a class="btn btn-secondary" href="landing-page.html">返回首页</a>
+    </header>
+
+    <p class="muted custom-preamble">
+      本通道主打<strong>温情定制</strong>，当前仅支持 <strong>Mac / macOS</strong>。默认采用<strong>Q 版风格</strong>：在保留辨认度的同时，与过分写实、容易反复触发离别之痛的表现拉开距离——更适合把思念安放在日常里，慢慢怀念。若你强烈偏好偏写实，请先与客服沟通预期与情绪感受。
+    </p>
+
+    <section>
+      <h2>定制套餐</h2>
+      <div class="layout">
+        <article class="card">
+          <h3>纪念头像（一个姿态）</h3>
+          <div class="price">$69 <span style="font-size: 18px; font-weight: 600;">首发</span></div>
+          <p class="price-note">原价 $99 · 首发限量名额</p>
+          <ul>
+            <li>1 只狗狗</li>
+            <li>1 个 <strong>Q 版</strong>风格化专属形象（单姿态）</li>
+            <li>交付周期：2-4 天</li>
+          </ul>
+          <a class="btn btn-primary plan-action" href="#submit-request">选这个：纪念头像（$69 首发）</a>
+        </article>
+        <article class="card">
+          <h3>9 帧纪念挂件（主推）</h3>
+          <div class="price">$149 <span style="font-size: 18px; font-weight: 600;">首发</span></div>
+          <p class="price-note">原价 $199 · 首发限量名额</p>
+          <ul>
+            <li>1 只狗狗</li>
+            <li>9 帧静态序列，适合完整挂机表现</li>
+            <li>交付周期：3-6 天</li>
+          </ul>
+          <a class="btn btn-primary plan-action" href="#submit-request">选这个：9帧纪念挂件（$149 首发）</a>
+        </article>
+      </div>
+    </section>
+
+    <section>
+      <h2>规则与流程</h2>
+      <div class="layout layout-3">
+        <article class="card">
+          <h3>修改频次与边界</h3>
+          <ul>
+            <li>包含 1 次免费微调（颜色与局部特征）</li>
+            <li>超出 1 次或大改风格将按项收费</li>
+            <li>本服务为风格化还原，不承诺 100% 写实复刻；<strong>纪念向默认 Q 版</strong></li>
+            <li>若坚持极度写实，请提前说明：可能影响情绪体验与交付节奏</li>
+            <li>默认个人使用，不含商用授权与买断</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>提交要求</h3>
+          <ul>
+            <li>请提供 3-8 张清晰照片（正面 / 侧面 / 全身）</li>
+            <li>标注明显特征（花纹、毛色、眼周识别点）</li>
+            <li>风格默认 <strong>Q 版治愈</strong>；选偏写实请说明，并与客服确认心理预期</li>
+            <li>如需加急，请先联系确认排期</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>定制流程</h3>
+          <ul>
+            <li>步骤 1：提交需求信息和参考照片</li>
+            <li>步骤 2：创作者打磨定制并给出预览</li>
+            <li>步骤 3：按规则完成微调后正式交付</li>
+          </ul>
+          <p class="form-note">客服建议：微信 `PetBar-Studio` ｜ 邮箱 `hello@petbar.studio`</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="submit-request">
+      <h2>提交定制需求</h2>
+      <article class="card">
+        <p class="muted">填写后点击按钮，会自动复制标准需求文本，直接发给客服即可。若主要为离别后的纪念，建议在备注里写一句，便于我们把握分寸。</p>
+        <form id="customForm">
+          <div class="field">
+            <label for="name">你的称呼</label>
+            <input id="name" name="name" placeholder="例如：小周" required />
+          </div>
+          <div class="field">
+            <label for="contact">联系方式（微信 / 邮箱）</label>
+            <input id="contact" name="contact" placeholder="例如：wechat_xxx 或 you@email.com" required />
+          </div>
+          <div class="field">
+            <label for="petName">狗狗名字</label>
+            <input id="petName" name="petName" placeholder="例如：布丁" required />
+          </div>
+          <div class="field">
+            <label for="features">明显特征</label>
+            <textarea id="features" name="features" placeholder="例如：右眼旁有黑斑、白袜子、短毛柴犬"></textarea>
+          </div>
+          <div class="field">
+            <label for="style">偏好风格</label>
+            <select id="style" name="style">
+              <option value="Q版治愈">Q版治愈</option>
+              <option value="偏写实">偏写实</option>
+              <option value="由创作者判断">由创作者判断</option>
+            </select>
+          </div>
+          <button type="submit" class="btn btn-primary">复制需求内容</button>
+          <div class="success" id="successMsg"></div>
+        </form>
+      </article>
+    </section>
+  </main>
+
+  <footer>© 2026 PetBar Studio · 温情定制的狗狗数字挂件（仅 Mac）· 温柔纪念</footer>
+
+  <script>
+    const form = document.getElementById("customForm");
+    const successMsg = document.getElementById("successMsg");
+
+    form.addEventListener("submit", async (event) => {
+      event.preventDefault();
+      const name = document.getElementById("name").value.trim();
+      const contact = document.getElementById("contact").value.trim();
+      const petName = document.getElementById("petName").value.trim();
+      const features = document.getElementById("features").value.trim() || "未填写";
+      const style = document.getElementById("style").value;
+
+      const text =
+        "【PetBar狗狗挂件定制需求（仅Mac）】\n" +
+        "称呼：" + name + "\n" +
+        "联系方式：" + contact + "\n" +
+        "狗狗名字：" + petName + "\n" +
+        "明显特征：" + features + "\n" +
+        "偏好风格：" + style + "\n" +
+        "照片数量：\n" +
+        "备注：";
+
+      try {
+        await navigator.clipboard.writeText(text);
+        successMsg.textContent = "已复制需求文本，直接粘贴发送给客服即可。";
+      } catch (err) {
+        successMsg.textContent = "复制失败，请手动复制后发送客服。";
+        const temp = document.createElement("textarea");
+        temp.value = text;
+        document.body.appendChild(temp);
+        temp.select();
+        document.execCommand("copy");
+        document.body.removeChild(temp);
+      }
+    });
+  </script>
+</body>
+</html>

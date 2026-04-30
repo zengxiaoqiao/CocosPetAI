@@ -1,0 +1,131 @@
+{
+  "data": {
+    "path": {
+      "textures\\4-cat10.plist": [
+        "textures\\4-cat10.png"
+      ],
+      "textures\\4-dog10.plist": [
+        "textures\\4-dog10.png"
+      ],
+      "textures\\4-dog11.plist": [
+        "textures\\4-dog11.png"
+      ],
+      "textures\\4-cat09.plist": [
+        "textures\\4-cat09.png"
+      ],
+      "textures\\4-cat11.plist": [
+        "textures\\4-cat11.png"
+      ],
+      "textures\\4-dog09.plist": [
+        "textures\\4-dog09.png"
+      ],
+      "textures\\cat0.plist": [
+        "textures\\cat0.png"
+      ],
+      "textures\\bg.plist": [
+        "textures\\bg.png"
+      ],
+      "textures\\cat01.plist": [
+        "textures\\cat01.png"
+      ],
+      "textures\\cat02.plist": [
+        "textures\\cat02.png"
+      ],
+      "textures\\cat03.plist": [
+        "textures\\cat03.png"
+      ],
+      "textures\\cat04.plist": [
+        "textures\\cat04.png"
+      ],
+      "textures\\cat05.plist": [
+        "textures\\cat05.png"
+      ],
+      "textures\\cat06.plist": [
+        "textures\\cat06.png"
+      ],
+      "textures\\cat07.plist": [
+        "textures\\cat07.png"
+      ],
+      "textures\\cat08.plist": [
+        "textures\\cat08.png"
+      ],
+      "textures\\cat09.plist": [
+        "textures\\cat09.png"
+      ],
+      "textures\\cat10.plist": [
+        "textures\\cat10.png"
+      ],
+      "textures\\cat11.plist": [
+        "textures\\cat11.png"
+      ],
+      "textures\\cat12.plist": [
+        "textures\\cat12.png"
+      ],
+      "textures\\cat13.plist": [
+        "textures\\cat13.png"
+      ],
+      "textures\\cat14.plist": [
+        "textures\\cat14.png"
+      ],
+      "textures\\cat15.plist": [
+        "textures\\cat15.png"
+      ],
+      "textures\\c_large_01.plist": [
+        "textures\\c_large_01.png"
+      ],
+      "textures\\dog01.plist": [
+        "textures\\dog01.png"
+      ],
+      "textures\\dog02.plist": [
+        "textures\\dog02.png"
+      ],
+      "textures\\dog03.plist": [
+        "textures\\dog03.png"
+      ],
+      "textures\\dog04.plist": [
+        "textures\\dog04.png"
+      ],
+      "textures\\dog05.plist": [
+        "textures\\dog05.png"
+      ],
+      "textures\\dog06.plist": [
+        "textures\\dog06.png"
+      ],
+      "textures\\dog07.plist": [
+        "textures\\dog07.png"
+      ],
+      "textures\\dog08.plist": [
+        "textures\\dog08.png"
+      ],
+      "textures\\dog09.plist": [
+        "textures\\dog09.png"
+      ],
+      "textures\\dog10.plist": [
+        "textures\\dog10.png"
+      ],
+      "textures\\dog12.plist": [
+        "textures\\dog12.png"
+      ],
+      "textures\\dog11.plist": [
+        "textures\\dog11.png"
+      ],
+      "textures\\dog13.plist": [
+        "textures\\dog13.png"
+      ],
+      "textures\\dog14.plist": [
+        "textures\\dog14.png"
+      ],
+      "textures\\dog15.plist": [
+        "textures\\dog15.png"
+      ],
+      "textures\\d_large_01.plist": [
+        "textures\\d_large_01.png"
+      ],
+      "textures\\ui.plist": [
+        "textures\\ui.png"
+      ]
+    },
+    "uuid": {}
+  },
+  "version": "1.0.0"
+}

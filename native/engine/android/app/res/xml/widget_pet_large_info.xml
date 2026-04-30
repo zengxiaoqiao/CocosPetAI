@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 大号 widget：minWidth 320dp 保证在「添加组件」列表里可见；示意图对应 res/drawable/widget_preview_large.png -->
+<appwidget-provider xmlns:android="http://schemas.android.com/apk/res/android"
+    android:minWidth="320dp"
+    android:minHeight="100dp"
+    android:previewImage="@drawable/widget_preview_large"
+    android:updatePeriodMillis="1800000"
+    android:initialLayout="@layout/widget_pet_large"
+    android:resizeMode="horizontal|vertical" />
+

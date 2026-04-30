@@ -1,0 +1,30 @@
+{
+  "__type__": "cc.SpriteAtlas",
+  "content": {
+    "name": "dog06",
+    "spriteFrames": [
+      "Artboard 10_400x400",
+      "151ec486-9a07-44db-a2af-32492cc49101@97719",
+      "Artboard 12_400x400",
+      "151ec486-9a07-44db-a2af-32492cc49101@4db77",
+      "Artboard 14_400x400",
+      "151ec486-9a07-44db-a2af-32492cc49101@3807f",
+      "Artboard 16_400x400",
+      "151ec486-9a07-44db-a2af-32492cc49101@644d8",
+      "Artboard 18_400x400",
+      "151ec486-9a07-44db-a2af-32492cc49101@a1f90",
+      "Artboard 1_400x400",
+      "151ec486-9a07-44db-a2af-32492cc49101@b207f",
+      "Artboard 20_400x400",
+      "151ec486-9a07-44db-a2af-32492cc49101@263d1",
+      "Artboard 21_400x400",
+      "151ec486-9a07-44db-a2af-32492cc49101@5fba6",
+      "Artboard 4_400x400",
+      "151ec486-9a07-44db-a2af-32492cc49101@e3d00",
+      "Artboard 6_400x400",
+      "151ec486-9a07-44db-a2af-32492cc49101@2ddf5",
+      "Artboard 8_400x400",
+      "151ec486-9a07-44db-a2af-32492cc49101@81800"
+    ]
+  }
+}

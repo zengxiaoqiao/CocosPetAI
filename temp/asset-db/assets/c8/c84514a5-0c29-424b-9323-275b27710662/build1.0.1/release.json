@@ -1,0 +1,41 @@
+[
+    1,
+    [
+        "c8RRSlDClCS5MjJ1sncQZi@16982",
+        "c8RRSlDClCS5MjJ1sncQZi@88120"
+    ],
+    [
+        "_textureSource"
+    ],
+    [
+        "cc.SpriteAtlas"
+    ],
+    0,
+    [
+        {
+            "name": "bg",
+            "spriteFrames": [
+                "bg_cat",
+                "c8RRSlDClCS5MjJ1sncQZi@16982",
+                "bg_dog",
+                "c8RRSlDClCS5MjJ1sncQZi@88120"
+            ]
+        }
+    ],
+    [
+        0
+    ],
+    0,
+    [
+        0,
+        0
+    ],
+    [
+        0,
+        0
+    ],
+    [
+        0,
+        1
+    ]
+]

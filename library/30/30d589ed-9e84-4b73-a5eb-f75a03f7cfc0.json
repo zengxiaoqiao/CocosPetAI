@@ -1,0 +1,30 @@
+{
+  "__type__": "cc.SpriteAtlas",
+  "content": {
+    "name": "d_large_01",
+    "spriteFrames": [
+      "widget_large_dog_01_0",
+      "30d589ed-9e84-4b73-a5eb-f75a03f7cfc0@24207",
+      "widget_large_dog_01_1",
+      "30d589ed-9e84-4b73-a5eb-f75a03f7cfc0@f5893",
+      "widget_large_dog_01_10",
+      "30d589ed-9e84-4b73-a5eb-f75a03f7cfc0@9f288",
+      "widget_large_dog_01_2",
+      "30d589ed-9e84-4b73-a5eb-f75a03f7cfc0@55408",
+      "widget_large_dog_01_3",
+      "30d589ed-9e84-4b73-a5eb-f75a03f7cfc0@a5e75",
+      "widget_large_dog_01_4",
+      "30d589ed-9e84-4b73-a5eb-f75a03f7cfc0@07808",
+      "widget_large_dog_01_5",
+      "30d589ed-9e84-4b73-a5eb-f75a03f7cfc0@db6e8",
+      "widget_large_dog_01_6",
+      "30d589ed-9e84-4b73-a5eb-f75a03f7cfc0@6fe19",
+      "widget_large_dog_01_7",
+      "30d589ed-9e84-4b73-a5eb-f75a03f7cfc0@4f371",
+      "widget_large_dog_01_8",
+      "30d589ed-9e84-4b73-a5eb-f75a03f7cfc0@43443",
+      "widget_large_dog_01_9",
+      "30d589ed-9e84-4b73-a5eb-f75a03f7cfc0@e82d0"
+    ]
+  }
+}

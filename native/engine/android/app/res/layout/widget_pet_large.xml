@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="top"
+    android:paddingLeft="0dp"
+    android:paddingRight="0dp"
+    android:paddingTop="8dp"
+    android:paddingBottom="0dp"
+    android:background="@android:color/transparent">
+
+    <!-- 顶部一行文案：提示句（天气 / 网络 等），放在对话框气泡背景里（由 TextView 自适应宽度） -->
+    <TextView
+        android:id="@+id/widget_hp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="4dp"
+        android:background="@drawable/widget_bubble"
+        android:textSize="13sp"
+        android:textColor="#FFFFFFFF"
+        android:shadowColor="#80000000"
+        android:shadowDx="1"
+        android:shadowDy="1"
+        android:shadowRadius="2" />
+
+    <!-- 分隔与亲密度在大号样式中隐藏，由 Java 里控制 GONE -->
+    <TextView
+        android:id="@+id/widget_sep"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/widget_intimacy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone" />
+
+    <!-- 大号宠物形象区域：外层 FrameLayout 占满宽度，内部容器包住宠物+覆盖层，便于整体平移 -->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:paddingRight="36dp"
+        android:clipChildren="true">
+        <FrameLayout
+            android:id="@+id/widget_pet_container"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left|center_vertical">
+
+            <ImageView
+                android:id="@+id/widget_pet_image"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:layout_gravity="center_vertical"
+                android:scaleType="fitCenter"
+                android:contentDescription="@string/widget_pet_desc" />
+
+            <!-- 充电 overlay 动图（可选），叠加在宠物头顶中央位置 -->
+            <ImageView
+                android:id="@+id/widget_overlay_charge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal|top"
+                android:visibility="gone" />
+
+            <!-- 流量/网络 overlay 动图（可选），叠加在宠物头顶中央位置 -->
+            <ImageView
+                android:id="@+id/widget_overlay_network"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal|top"
+                android:visibility="gone" />
+        </FrameLayout>
+    </FrameLayout>
+</LinearLayout>
+

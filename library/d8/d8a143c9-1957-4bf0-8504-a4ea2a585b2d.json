@@ -1,0 +1,40 @@
+{
+  "__type__": "cc.SpriteAtlas",
+  "content": {
+    "name": "cat13",
+    "spriteFrames": [
+      "Artboard 11_400x400",
+      "d8a143c9-1957-4bf0-8504-a4ea2a585b2d@36f12",
+      "Artboard 13_400x400",
+      "d8a143c9-1957-4bf0-8504-a4ea2a585b2d@801dd",
+      "Artboard 15_400x400",
+      "d8a143c9-1957-4bf0-8504-a4ea2a585b2d@ac56e",
+      "Artboard 17_400x400",
+      "d8a143c9-1957-4bf0-8504-a4ea2a585b2d@38f65",
+      "Artboard 19_400x400",
+      "d8a143c9-1957-4bf0-8504-a4ea2a585b2d@19a0f",
+      "Artboard 1_400x400",
+      "d8a143c9-1957-4bf0-8504-a4ea2a585b2d@b207f",
+      "Artboard 21_400x400",
+      "d8a143c9-1957-4bf0-8504-a4ea2a585b2d@5fba6",
+      "Artboard 23_400x400",
+      "d8a143c9-1957-4bf0-8504-a4ea2a585b2d@aae57",
+      "Artboard 25_400x400",
+      "d8a143c9-1957-4bf0-8504-a4ea2a585b2d@2639a",
+      "Artboard 27_400x400",
+      "d8a143c9-1957-4bf0-8504-a4ea2a585b2d@c5a89",
+      "Artboard 29_400x400",
+      "d8a143c9-1957-4bf0-8504-a4ea2a585b2d@cc522",
+      "Artboard 30_400x400",
+      "d8a143c9-1957-4bf0-8504-a4ea2a585b2d@efff3",
+      "Artboard 3_400x400",
+      "d8a143c9-1957-4bf0-8504-a4ea2a585b2d@54705",
+      "Artboard 5_400x400",
+      "d8a143c9-1957-4bf0-8504-a4ea2a585b2d@4e2d3",
+      "Artboard 7_400x400",
+      "d8a143c9-1957-4bf0-8504-a4ea2a585b2d@be130",
+      "Artboard 9_400x400",
+      "d8a143c9-1957-4bf0-8504-a4ea2a585b2d@d908c"
+    ]
+  }
+}

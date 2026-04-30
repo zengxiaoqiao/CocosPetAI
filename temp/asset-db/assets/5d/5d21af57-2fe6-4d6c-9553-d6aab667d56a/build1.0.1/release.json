@@ -1,0 +1,89 @@
+[
+    1,
+    [
+        "5dIa9XL+ZNbJVT1qq2Z9Vq@4a9f6",
+        "5dIa9XL+ZNbJVT1qq2Z9Vq@776dc",
+        "5dIa9XL+ZNbJVT1qq2Z9Vq@fb87d",
+        "5dIa9XL+ZNbJVT1qq2Z9Vq@ca13a",
+        "5dIa9XL+ZNbJVT1qq2Z9Vq@bad00",
+        "5dIa9XL+ZNbJVT1qq2Z9Vq@3f37d",
+        "5dIa9XL+ZNbJVT1qq2Z9Vq@35bf3",
+        "5dIa9XL+ZNbJVT1qq2Z9Vq@31c7c",
+        "5dIa9XL+ZNbJVT1qq2Z9Vq@ae567",
+        "5dIa9XL+ZNbJVT1qq2Z9Vq@13590"
+    ],
+    [
+        "_textureSource"
+    ],
+    [
+        "cc.SpriteAtlas"
+    ],
+    0,
+    [
+        {
+            "name": "c_large_01",
+            "spriteFrames": [
+                "Artboard 1",
+                "5dIa9XL+ZNbJVT1qq2Z9Vq@4a9f6",
+                "Artboard 10",
+                "5dIa9XL+ZNbJVT1qq2Z9Vq@776dc",
+                "Artboard 2",
+                "5dIa9XL+ZNbJVT1qq2Z9Vq@fb87d",
+                "Artboard 3",
+                "5dIa9XL+ZNbJVT1qq2Z9Vq@ca13a",
+                "Artboard 4",
+                "5dIa9XL+ZNbJVT1qq2Z9Vq@bad00",
+                "Artboard 5",
+                "5dIa9XL+ZNbJVT1qq2Z9Vq@3f37d",
+                "Artboard 6",
+                "5dIa9XL+ZNbJVT1qq2Z9Vq@35bf3",
+                "Artboard 7",
+                "5dIa9XL+ZNbJVT1qq2Z9Vq@31c7c",
+                "Artboard 8",
+                "5dIa9XL+ZNbJVT1qq2Z9Vq@ae567",
+                "Artboard 9",
+                "5dIa9XL+ZNbJVT1qq2Z9Vq@13590"
+            ]
+        }
+    ],
+    [
+        0
+    ],
+    0,
+    [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+    ],
+    [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+    ],
+    [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+    ]
+]

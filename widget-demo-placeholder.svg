@@ -1,0 +1,35 @@
+<svg width="1200" height="520" viewBox="0 0 1200 520" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="520" rx="28" fill="#FFF5EE"/>
+  <rect x="24" y="24" width="1152" height="472" rx="22" fill="#FFFFFF" stroke="#F0E3D8" stroke-width="2"/>
+  <text x="600" y="130" text-anchor="middle" font-size="34" font-family="Arial, PingFang SC, Microsoft YaHei, sans-serif" fill="#CC724A">
+    �U::�`M	
+  </text>
+  <text x="600" y="172" text-anchor="middle" font-size="20" font-family="Arial, PingFang SC, Microsoft YaHei, sans-serif" fill="#A17158">
+    ���b:�����(�� � A� � B� � C� � `���
+  </text>
+
+  <g fill="#FFE6D8" stroke="#F3CFBC" stroke-width="2">
+    <rect x="105" y="228" width="170" height="190" rx="16"/>
+    <rect x="305" y="228" width="170" height="190" rx="16"/>
+    <rect x="505" y="228" width="170" height="190" rx="16"/>
+    <rect x="705" y="228" width="170" height="190" rx="16"/>
+    <rect x="905" y="228" width="170" height="190" rx="16"/>
+  </g>
+
+  <g font-family="Arial, PingFang SC, Microsoft YaHei, sans-serif" text-anchor="middle" fill="#8E5F48">
+    <text x="190" y="340" font-size="44">=6</text>
+    <text x="190" y="382" font-size="16">�(��</text>
+
+    <text x="390" y="340" font-size="44">A</text>
+    <text x="390" y="382" font-size="16">A�</text>
+
+    <text x="590" y="340" font-size="44">B</text>
+    <text x="590" y="382" font-size="16">B�</text>
+
+    <text x="790" y="340" font-size="44">C</text>
+    <text x="790" y="382" font-size="16">C�</text>
+
+    <text x="990" y="340" font-size="30">`���</text>
+    <text x="990" y="382" font-size="16">^�6</text>
+  </g>
+</svg>
