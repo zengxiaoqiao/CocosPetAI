@@ -27,6 +27,10 @@ android {
         versionCode 5
         versionName "1.0.1"
 
+        // Creator 构建时可能未带入 gradle.properties 中的 PROP_APP_CHANNEL，需 findProperty + 默认
+        def petaiChannel = project.findProperty('PROP_APP_CHANNEL')?.toString()?.trim()
+        manifestPlaceholders = [PETAI_CHANNEL: (petaiChannel ? petaiChannel : 'GP_PET')]
+
         externalNativeBuild {
             cmake {
                 targets "cocos"

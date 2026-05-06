@@ -28,11 +28,14 @@ import android.Manifest;
 import android.appwidget.AppWidgetManager;
 import android.content.ComponentName;
 import android.content.Context;
+import android.content.pm.ApplicationInfo;
+import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.location.LocationManager;
 import android.os.Build;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.content.BroadcastReceiver;
 import android.content.Intent;
 import android.content.IntentFilter;
@@ -456,6 +459,81 @@ public class AppActivity extends CocosActivity {
         if (ctx == null) return "";
         try {
             return ctx.getPackageManager().getPackageInfo(ctx.getPackageName(), 0).versionName;
+        } catch (Exception ignored) {
+            return "";
+        }
+    }
+
+    /**
+     * 供 JS 读取：应用 versionCode（字符串，兼容 longVersionCode）。
+     */
+    public static String getAppVersionCodeString() {
+        Context ctx = getAppContext();
+        if (ctx == null) return "";
+        try {
+            PackageInfo pi = ctx.getPackageManager().getPackageInfo(ctx.getPackageName(), 0);
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
+                return String.valueOf(pi.getLongVersionCode());
+            }
+            return String.valueOf(pi.versionCode);
+        } catch (Exception ignored) {
+            return "";
+        }
+    }
+
+    /**
+     * 供 JS 读取：应用包名。
+     */
+    public static String getAppPackageName() {
+        Context ctx = getAppContext();
+        if (ctx == null) return "";
+        try {
+            return ctx.getPackageName();
+        } catch (Exception ignored) {
+            return "";
+        }
+    }
+
+    /**
+     * 供 JS 读取：设备厂商（小写），用于配置上报 device 字段。
+     */
+    public static String getDeviceManufacturerLower() {
+        String m = Build.MANUFACTURER;
+        if (m == null) return "";
+        return m.trim().toLowerCase(Locale.US);
+    }
+
+    /**
+     * 供 JS 读取：配置接口 uid（ANDROID_ID，应用+设备维度稳定 id）。
+     */
+    public static String getConfigUid() {
+        Context ctx = getAppContext();
+        if (ctx == null) return "";
+        try {
+            String id = Settings.Secure.getString(ctx.getContentResolver(), Settings.Secure.ANDROID_ID);
+            return id != null ? id : "";
+        } catch (Exception ignored) {
+            return "";
+        }
+    }
+
+    /**
+     * 供 JS 读取：分发渠道（来自 manifest meta-data PETAI_DISTRIBUTION_CHANNEL，构建时由 Gradle 注入）。
+     */
+    public static String getDistributionChannel() {
+        Context ctx = getAppContext();
+        if (ctx == null) return "";
+        try {
+            ApplicationInfo ai = ctx.getPackageManager().getApplicationInfo(
+                    ctx.getPackageName(),
+                    PackageManager.GET_META_DATA);
+            if (ai.metaData == null) return "";
+            String v = ai.metaData.getString("PETAI_DISTRIBUTION_CHANNEL");
+            if (v != null) {
+                v = v.trim();
+                if (!v.isEmpty()) return v;
+            }
+            return "";
         } catch (Exception ignored) {
             return "";
         }

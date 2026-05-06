@@ -1,17 +1,59 @@
+import { sys } from 'cc';
 import { ChatContextStore, ChatMessage } from './ChatContextStore';
+import { fetchLlmRemoteConfig } from './LlmRemoteConfig';
+import { LLM_HTTP_TIMEOUT_MS } from './HttpTimeouts';
+import { xhrPost } from './NativeXhrHttp';
 
 /**
  * New LLM service for abroad.tokit.ai.
  * Keeps recent 10 context messages in localStorage.
  */
 export class TokitChatService {
+    /** 远程配置失败时的兜底（首包会话内成功拉取后会被接口返回值覆盖）。 */
     static apiUrl: string = 'https://abroad.tokit.ai/v1/chat/completions';
     static apiKey: string = 'sk-mI03UA7q7Ch10GZlnq4l6QPQdZCyFjEiF2JqENFhHSONWE1x';
     static model: string = 'gpt-4o-mini';
-    static requestTimeoutMs: number = 60000;
+    /** 与 {@link LLM_HTTP_TIMEOUT_MS} 一致；原生 XHR 底层超时依赖此值。 */
+    static requestTimeoutMs: number = LLM_HTTP_TIMEOUT_MS;
     private static readonly STORAGE_KEY_PET = 'petai_pet_choice';
 
+    /** 本次进程内配置拉取（成功则一直复用，失败置空以便发消息时再试）。 */
+    private static _launchConfigPromise: Promise<void> | null = null;
+
+    /**
+     * 应用冷启动时调用（例如主界面 onLoad）：每次新进程都会发起一次配置请求。
+     * 与 {@link sendMessage} 共用同一 Promise，避免并发重复请求。
+     */
+    static startRemoteConfigOnLaunch(): void {
+        if (TokitChatService._launchConfigPromise) return;
+        TokitChatService._launchConfigPromise = TokitChatService._fetchAndApplyRemoteConfig();
+    }
+
+    private static async _fetchAndApplyRemoteConfig(): Promise<void> {
+        try {
+            const cfg = await fetchLlmRemoteConfig();
+            if (cfg.apiUrl) TokitChatService.apiUrl = cfg.apiUrl;
+            if (cfg.apiKey) TokitChatService.apiKey = cfg.apiKey;
+            if (cfg.model) TokitChatService.model = cfg.model;
+            console.log('[TokitChatService] remote config applied');
+        } catch (e) {
+            const msg = e instanceof Error ? e.message : String(e);
+            console.warn(`[TokitChatService] remote config skipped ${JSON.stringify({ error: msg })}`);
+            TokitChatService._launchConfigPromise = null;
+        }
+    }
+
+    /** 发消息前确保已拉过配置（若启动未调或上次失败，会在此补拉）。 */
+    private static ensureRemoteConfig(): Promise<void> {
+        if (!TokitChatService._launchConfigPromise) {
+            TokitChatService._launchConfigPromise = TokitChatService._fetchAndApplyRemoteConfig();
+        }
+        return TokitChatService._launchConfigPromise;
+    }
+
     static async sendMessage(userMessage: string): Promise<string> {
+        await TokitChatService.ensureRemoteConfig();
+
         const text = (userMessage || '').trim();
         if (!text) return '';
 
@@ -27,8 +69,7 @@ export class TokitChatService {
         };
 
         const startedAt = Date.now();
-        const hasAbortController = typeof (globalThis as any).AbortController === 'function';
-        const controller = hasAbortController ? new (globalThis as any).AbortController() : null;
+        const timeoutMs = TokitChatService.requestTimeoutMs;
 
         try {
             console.log(`[TokitChatService] request start ${JSON.stringify({
@@ -38,42 +79,66 @@ export class TokitChatService {
                     'Content-Type': 'application/json',
                 },
                 payload: requestPayload,
-                timeoutMs: TokitChatService.requestTimeoutMs,
+                timeoutMs,
             })}`);
 
-            const fetchPromise = fetch(TokitChatService.apiUrl, {
-                method: 'POST',
-                headers: {
-                    'Authorization': `Bearer ${TokitChatService.apiKey}`,
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(requestPayload),
-                ...(controller ? { signal: controller.signal } : {}),
-            });
+            let rawResponseText: string;
+            let httpOk: boolean;
+            let httpStatus: number;
 
-            const timeoutPromise = new Promise<Response>((_, reject) => {
-                setTimeout(() => {
-                    if (controller) {
-                        try { controller.abort(); } catch {
-                            // ignore
+            if (sys.isNative) {
+                const r = await xhrPost(
+                    TokitChatService.apiUrl,
+                    JSON.stringify(requestPayload),
+                    {
+                        'Authorization': `Bearer ${TokitChatService.apiKey}`,
+                        'Content-Type': 'application/json',
+                    },
+                    timeoutMs,
+                );
+                rawResponseText = r.text;
+                httpOk = r.ok;
+                httpStatus = r.status;
+            } else {
+                const hasAbortController = typeof (globalThis as any).AbortController === 'function';
+                const controller = hasAbortController ? new (globalThis as any).AbortController() : null;
+
+                const fetchPromise = fetch(TokitChatService.apiUrl, {
+                    method: 'POST',
+                    headers: {
+                        'Authorization': `Bearer ${TokitChatService.apiKey}`,
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(requestPayload),
+                    ...(controller ? { signal: controller.signal } : {}),
+                });
+
+                const timeoutPromise = new Promise<Response>((_, reject) => {
+                    setTimeout(() => {
+                        if (controller) {
+                            try { controller.abort(); } catch {
+                                // ignore
+                            }
                         }
-                    }
-                    reject(new Error('Tokit 请求超时'));
-                }, TokitChatService.requestTimeoutMs);
-            });
+                        reject(new Error('Tokit 请求超时'));
+                    }, timeoutMs);
+                });
 
-            const res = await Promise.race([fetchPromise, timeoutPromise]) as Response;
+                const res = await Promise.race([fetchPromise, timeoutPromise]) as Response;
+                rawResponseText = await res.text();
+                httpOk = res.ok;
+                httpStatus = res.status;
+            }
 
-            const rawResponseText = await res.text();
             console.log(`[TokitChatService] response raw ${JSON.stringify({
-                status: res.status,
-                ok: res.ok,
+                status: httpStatus,
+                ok: httpOk,
                 elapsedMs: Date.now() - startedAt,
                 body: rawResponseText,
             })}`);
 
-            if (!res.ok) {
-                throw new Error(`Tokit 请求失败：${res.status} ${rawResponseText}`);
+            if (!httpOk) {
+                throw new Error(`Tokit 请求失败：${httpStatus} ${rawResponseText}`);
             }
 
             let data: any = null;

@@ -1,113 +1,64 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:installLocation="auto">
-
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-    <uses-permission android:name="android.permission.RECORD_AUDIO" />
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
-    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_SPECIAL_USE" />
-    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM"/>
-    <uses-permission
-        android:name="com.android.vending.BILLING"
-        tools:node="remove" />
-
-    <application
-        android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
-        android:resizeableActivity="true"
-        android:usesCleartextTraffic="true">
-        <meta-data
-            android:name="android.app.lib_name"
-            android:value="cocos" />
-
-        <activity
-            android:name="com.cocos.game.AppActivity"
-            android:configChanges="orientation|keyboardHidden|screenSize|screenLayout|smallestScreenSize"
-            android:exported="true"
-            android:label="@string/app_name"
-            android:launchMode="singleTask"
-            android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.NoTitleBar">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity
-            android:name="com.cocos.lib.CocosEditBoxActivity"
-            android:configChanges="orientation|keyboardHidden|screenSize|screenLayout|smallestScreenSize"
-            android:screenOrientation="behind"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen" />
-
-        <receiver
-            android:name="com.cocos.game.PetWidgetBatteryReceiver"
-            android:exported="false">
-            <intent-filter>
-                <action android:name="android.intent.action.POWER_CONNECTED" />
-                <action android:name="android.intent.action.POWER_DISCONNECTED" />
-                <action android:name="android.intent.action.BATTERY_CHANGED" />
-            </intent-filter>
-        </receiver>
-        <receiver
-            android:name="com.cocos.game.PetWidgetNetworkReceiver"
-            android:exported="false">
-            <intent-filter>
-                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
-            </intent-filter>
-        </receiver>
-        <receiver
-            android:name="com.cocos.game.PetWidgetProvider"
-            android:exported="true"
-            android:label="@string/widget_pet_desc">
-            <intent-filter>
-                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
-                <action android:name="com.cocos.game.petwidget.ANIM_TICK" />
-                <action android:name="com.cocos.game.petwidget.STATE_REFRESH" />
-                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
-            </intent-filter>
-            <meta-data
-                android:name="android.appwidget.provider"
-                android:resource="@xml/widget_pet_info" />
-        </receiver>
-        <receiver
-            android:name="com.cocos.game.PetWidgetLargeProvider"
-            android:exported="true"
-            android:label="@string/widget_pet_large_desc">
-            <intent-filter>
-                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
-                <action android:name="com.cocos.game.petwidget.ANIM_TICK_LARGE" />
-                <action android:name="com.cocos.game.petwidget.STATE_REFRESH_LARGE" />
-                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
-            </intent-filter>
-            <meta-data
-                android:name="android.appwidget.provider"
-                android:resource="@xml/widget_pet_large_info" />
-        </receiver>
-
-        <service
-            android:name="com.cocos.game.PetWidgetAnimService"
-            android:exported="false"
-            android:foregroundServiceType="specialUse">
-            <property
-                android:name="android.app.PROPERTY_SPECIAL_USE_FGS_SUBTYPE"
-                android:value="Widget animation refresh" />
-        </service>
-        <service
-            android:name="com.cocos.game.PetNotificationListenerService"
-            android:exported="true"
-            android:label="@string/app_name"
-            android:permission="android.permission.BIND_NOTIFICATION_LISTENER_SERVICE">
-            <intent-filter>
-                <action android:name="android.service.notification.NotificationListenerService" />
-            </intent-filter>
-        </service>
-    </application>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools" android:installLocation="auto">
+  <uses-permission android:name="android.permission.INTERNET"/>
+  <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+  <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+  <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+  <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+  <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+  <uses-permission android:name="android.permission.FOREGROUND_SERVICE_SPECIAL_USE"/>
+  <uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>
+  <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+  <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+  <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM"/>
+  <uses-permission android:name="com.android.vending.BILLING" tools:node="remove"/>
+  <application android:allowBackup="true" android:icon="@mipmap/ic_launcher" android:label="@string/app_name" android:resizeableActivity="true" android:usesCleartextTraffic="true">
+    <meta-data android:name="android.app.lib_name" android:value="cocos"/>
+    <meta-data android:name="PETAI_DISTRIBUTION_CHANNEL" android:value="${PETAI_CHANNEL}"/>
+    <activity android:name="com.cocos.game.AppActivity" android:configChanges="orientation|keyboardHidden|screenSize|screenLayout|smallestScreenSize" android:exported="true" android:label="@string/app_name" android:launchMode="singleTask" android:screenOrientation="portrait" android:theme="@android:style/Theme.NoTitleBar">
+      <intent-filter>
+        <action android:name="android.intent.action.MAIN"/>
+        <category android:name="android.intent.category.LAUNCHER"/>
+      </intent-filter>
+    </activity>
+    <activity android:name="com.cocos.lib.CocosEditBoxActivity" android:configChanges="orientation|keyboardHidden|screenSize|screenLayout|smallestScreenSize" android:screenOrientation="behind" android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen"/>
+    <receiver android:name="com.cocos.game.PetWidgetBatteryReceiver" android:exported="false">
+      <intent-filter>
+        <action android:name="android.intent.action.POWER_CONNECTED"/>
+        <action android:name="android.intent.action.POWER_DISCONNECTED"/>
+        <action android:name="android.intent.action.BATTERY_CHANGED"/>
+      </intent-filter>
+    </receiver>
+    <receiver android:name="com.cocos.game.PetWidgetNetworkReceiver" android:exported="false">
+      <intent-filter>
+        <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+      </intent-filter>
+    </receiver>
+    <receiver android:name="com.cocos.game.PetWidgetProvider" android:exported="true" android:label="@string/widget_pet_desc">
+      <intent-filter>
+        <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+        <action android:name="com.cocos.game.petwidget.ANIM_TICK"/>
+        <action android:name="com.cocos.game.petwidget.STATE_REFRESH"/>
+        <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+      </intent-filter>
+      <meta-data android:name="android.appwidget.provider" android:resource="@xml/widget_pet_info"/>
+    </receiver>
+    <receiver android:name="com.cocos.game.PetWidgetLargeProvider" android:exported="true" android:label="@string/widget_pet_large_desc">
+      <intent-filter>
+        <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+        <action android:name="com.cocos.game.petwidget.ANIM_TICK_LARGE"/>
+        <action android:name="com.cocos.game.petwidget.STATE_REFRESH_LARGE"/>
+        <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+      </intent-filter>
+      <meta-data android:name="android.appwidget.provider" android:resource="@xml/widget_pet_large_info"/>
+    </receiver>
+    <service android:name="com.cocos.game.PetWidgetAnimService" android:exported="false" android:foregroundServiceType="specialUse">
+      <property android:name="android.app.PROPERTY_SPECIAL_USE_FGS_SUBTYPE" android:value="Widget animation refresh"/>
+    </service>
+    <service android:name="com.cocos.game.PetNotificationListenerService" android:exported="true" android:label="@string/app_name" android:permission="android.permission.BIND_NOTIFICATION_LISTENER_SERVICE">
+      <intent-filter>
+        <action android:name="android.service.notification.NotificationListenerService"/>
+      </intent-filter>
+    </service>
+  </application>
 </manifest>

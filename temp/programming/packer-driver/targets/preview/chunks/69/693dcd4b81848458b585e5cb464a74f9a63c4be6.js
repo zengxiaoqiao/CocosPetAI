@@ -1,0 +1,842 @@
+System.register(["__unresolved_0", "cc", "__unresolved_1", "__unresolved_2", "__unresolved_3", "__unresolved_4", "__unresolved_5", "__unresolved_6", "__unresolved_7", "__unresolved_8"], function (_export, _context) {
+  "use strict";
+
+  var _reporterNs, _cclegacy, __checkObsolete__, __checkObsoleteInNamespace__, _decorator, Component, Label, sys, Node, tween, Vec3, UITransform, UIOpacity, Color, find, ProgressBar, game, Game, SharedBtnCounts, AudioManager, BtnAdGuard, AdButton, syncWidgetFromStorage, syncWidgetWeather, clearWidgetWeather, getLocalDateString, PetInfoBar, getHpZeroTip, getIntimacyZeroTip, _dec, _dec2, _dec3, _dec4, _dec5, _dec6, _class, _class2, _descriptor, _descriptor2, _descriptor3, _descriptor4, _descriptor5, _class3, _crd, ccclass, property, STORAGE_KEY_HP, STORAGE_KEY_INTIMACY, STORAGE_KEY_LAST, STORAGE_KEY_TODAY_PET_DATE, STORAGE_KEY_TODAY_PET_COUNT, STORAGE_KEY_FIRST_RUN_DONE, MS_PER_HOUR, DECREASE_HP_PER_HOUR, DECREASE_INTIMACY_PER_HOUR, MAX_VALUE, IS_FIRST_SESSION, PetValue;
+
+  function _initializerDefineProperty(target, property, descriptor, context) { if (!descriptor) return; Object.defineProperty(target, property, { enumerable: descriptor.enumerable, configurable: descriptor.configurable, writable: descriptor.writable, value: descriptor.initializer ? descriptor.initializer.call(context) : void 0 }); }
+
+  function _applyDecoratedDescriptor(target, property, decorators, descriptor, context) { var desc = {}; Object.keys(descriptor).forEach(function (key) { desc[key] = descriptor[key]; }); desc.enumerable = !!desc.enumerable; desc.configurable = !!desc.configurable; if ('value' in desc || desc.initializer) { desc.writable = true; } desc = decorators.slice().reverse().reduce(function (desc, decorator) { return decorator(target, property, desc) || desc; }, desc); if (context && desc.initializer !== void 0) { desc.value = desc.initializer ? desc.initializer.call(context) : void 0; desc.initializer = undefined; } if (desc.initializer === void 0) { Object.defineProperty(target, property, desc); desc = null; } return desc; }
+
+  function _initializerWarningHelper(descriptor, context) { throw new Error('Decorating class property failed. Please ensure that ' + 'transform-class-properties is enabled and runs after the decorators transform.'); }
+
+  /** 距离下一个本地整点的毫秒数 */
+  function getMsUntilNextFullHour() {
+    var now = new Date();
+    var msIntoHour = (now.getMinutes() * 60 + now.getSeconds()) * 1000 + now.getMilliseconds();
+    return MS_PER_HOUR - msIntoHour;
+  }
+  /**
+   * 体力/亲密度：持久化，范围 [0, MAX_VALUE]，每个整点（设备本地）体力扣 3、亲密度扣 3；按钮点击时 applyBtn1/2/3 更新并保存。
+   */
+
+
+  function _reportPossibleCrUseOfSharedBtnCounts(extras) {
+    _reporterNs.report("SharedBtnCounts", "./SharedBtnCounts", _context.meta, extras);
+  }
+
+  function _reportPossibleCrUseOfAudioManager(extras) {
+    _reporterNs.report("AudioManager", "./AudioManager", _context.meta, extras);
+  }
+
+  function _reportPossibleCrUseOfBtnAdGuard(extras) {
+    _reporterNs.report("BtnAdGuard", "./BtnAdGuard", _context.meta, extras);
+  }
+
+  function _reportPossibleCrUseOfAdButton(extras) {
+    _reporterNs.report("AdButton", "./AdButton", _context.meta, extras);
+  }
+
+  function _reportPossibleCrUseOfsyncWidgetFromStorage(extras) {
+    _reporterNs.report("syncWidgetFromStorage", "./WidgetSync", _context.meta, extras);
+  }
+
+  function _reportPossibleCrUseOfsyncWidgetWeather(extras) {
+    _reporterNs.report("syncWidgetWeather", "./WidgetSync", _context.meta, extras);
+  }
+
+  function _reportPossibleCrUseOfclearWidgetWeather(extras) {
+    _reporterNs.report("clearWidgetWeather", "./WidgetSync", _context.meta, extras);
+  }
+
+  function _reportPossibleCrUseOfgetLocalDateString(extras) {
+    _reporterNs.report("getLocalDateString", "./DateUtil", _context.meta, extras);
+  }
+
+  function _reportPossibleCrUseOfPetInfoBar(extras) {
+    _reporterNs.report("PetInfoBar", "./PetInfoBar", _context.meta, extras);
+  }
+
+  function _reportPossibleCrUseOfgetHpZeroTip(extras) {
+    _reporterNs.report("getHpZeroTip", "./TipCopy", _context.meta, extras);
+  }
+
+  function _reportPossibleCrUseOfgetIntimacyZeroTip(extras) {
+    _reporterNs.report("getIntimacyZeroTip", "./TipCopy", _context.meta, extras);
+  }
+
+  return {
+    setters: [function (_unresolved_) {
+      _reporterNs = _unresolved_;
+    }, function (_cc) {
+      _cclegacy = _cc.cclegacy;
+      __checkObsolete__ = _cc.__checkObsolete__;
+      __checkObsoleteInNamespace__ = _cc.__checkObsoleteInNamespace__;
+      _decorator = _cc._decorator;
+      Component = _cc.Component;
+      Label = _cc.Label;
+      sys = _cc.sys;
+      Node = _cc.Node;
+      tween = _cc.tween;
+      Vec3 = _cc.Vec3;
+      UITransform = _cc.UITransform;
+      UIOpacity = _cc.UIOpacity;
+      Color = _cc.Color;
+      find = _cc.find;
+      ProgressBar = _cc.ProgressBar;
+      game = _cc.game;
+      Game = _cc.Game;
+    }, function (_unresolved_2) {
+      SharedBtnCounts = _unresolved_2.SharedBtnCounts;
+    }, function (_unresolved_3) {
+      AudioManager = _unresolved_3.AudioManager;
+    }, function (_unresolved_4) {
+      BtnAdGuard = _unresolved_4.BtnAdGuard;
+    }, function (_unresolved_5) {
+      AdButton = _unresolved_5.AdButton;
+    }, function (_unresolved_6) {
+      syncWidgetFromStorage = _unresolved_6.syncWidgetFromStorage;
+      syncWidgetWeather = _unresolved_6.syncWidgetWeather;
+      clearWidgetWeather = _unresolved_6.clearWidgetWeather;
+    }, function (_unresolved_7) {
+      getLocalDateString = _unresolved_7.getLocalDateString;
+    }, function (_unresolved_8) {
+      PetInfoBar = _unresolved_8.PetInfoBar;
+    }, function (_unresolved_9) {
+      getHpZeroTip = _unresolved_9.getHpZeroTip;
+      getIntimacyZeroTip = _unresolved_9.getIntimacyZeroTip;
+    }],
+    execute: function () {
+      _crd = true;
+
+      _cclegacy._RF.push({}, "59c2bpNQJxOBItmHocOWefS", "PetValue", undefined);
+
+      __checkObsolete__(['_decorator', 'Component', 'Label', 'sys', 'Node', 'tween', 'Vec3', 'UITransform', 'UIOpacity', 'Color', 'find', 'director', 'ProgressBar', 'game', 'Game']);
+
+      ({
+        ccclass,
+        property
+      } = _decorator);
+      STORAGE_KEY_HP = 'petai_hp';
+      STORAGE_KEY_INTIMACY = 'petai_intimacy';
+      STORAGE_KEY_LAST = 'petai_last_update';
+      STORAGE_KEY_TODAY_PET_DATE = 'petai_today_pet_date';
+      STORAGE_KEY_TODAY_PET_COUNT = 'petai_today_pet_count';
+      /** 仅首次运行后设为 '1'，用于区分真正首次安装与已有存档 */
+
+      STORAGE_KEY_FIRST_RUN_DONE = 'petai_first_run_done';
+      MS_PER_HOUR = 3600000;
+      DECREASE_HP_PER_HOUR = 3;
+      DECREASE_INTIMACY_PER_HOUR = 3;
+      MAX_VALUE = 100;
+      /** 是否为本次安装后的首个会话（仅当前进程内为 true，一旦保存过 FIRST_RUN_DONE，后续重启即为 false） */
+
+      _export("IS_FIRST_SESSION", IS_FIRST_SESSION = sys.localStorage.getItem(STORAGE_KEY_FIRST_RUN_DONE) !== '1');
+
+      _export("PetValue", PetValue = (_dec = ccclass('PetValue'), _dec2 = property(Label), _dec3 = property(Label), _dec4 = property(ProgressBar), _dec5 = property(ProgressBar), _dec6 = property(Node), _dec(_class = (_class2 = (_class3 = class PetValue extends Component {
+        constructor() {
+          super(...arguments);
+
+          _initializerDefineProperty(this, "hpLabel", _descriptor, this);
+
+          _initializerDefineProperty(this, "intimacyLabel", _descriptor2, this);
+
+          _initializerDefineProperty(this, "hpBar", _descriptor3, this);
+
+          _initializerDefineProperty(this, "intimacyBar", _descriptor4, this);
+
+          /** 亲密度 > 80 时显示的节点（如 home 下的 highintimate），未绑定时按 Canvas/highintimate 查找 */
+          _initializerDefineProperty(this, "highIntimateNode", _descriptor5, this);
+
+          // 初始体力/亲密度，上限 MAX_VALUE
+          this._hp = 50;
+          this._intimacy = 50;
+
+          /** 上一帧是否处于体力/心情低状态，用于在恢复后清空 Widget 文案 */
+          this._prevHpLow = false;
+          this._prevIntimacyLow = false;
+        }
+
+        onLoad() {
+          (_crd && SharedBtnCounts === void 0 ? (_reportPossibleCrUseOfSharedBtnCounts({
+            error: Error()
+          }), SharedBtnCounts) : SharedBtnCounts).init(); // Check-in 仅通过点击 ad 节点弹出，不再自动弹出
+
+          var firstRunDone = sys.localStorage.getItem(STORAGE_KEY_FIRST_RUN_DONE) === '1';
+          var savedHp = sys.localStorage.getItem(STORAGE_KEY_HP);
+          var savedIntimacy = sys.localStorage.getItem(STORAGE_KEY_INTIMACY);
+          var savedLast = sys.localStorage.getItem(STORAGE_KEY_LAST); // 仅非首次安装且存在有效存储值时才从存档覆盖；首次安装固定 50/50，避免被 "" 或异常值解析成 0
+
+          if (firstRunDone) {
+            if (savedHp != null && savedHp !== '') this._hp = Math.max(0, Math.min(MAX_VALUE, parseInt(savedHp, 10) || 0));
+            if (savedIntimacy != null && savedIntimacy !== '') this._intimacy = Math.max(0, Math.min(MAX_VALUE, parseInt(savedIntimacy, 10) || 0));
+          }
+
+          this._applyHourlyCatchUp(savedLast, firstRunDone);
+
+          this._save(true);
+
+          this._updateLabels(); // 确保数量为 0 时 Button1/2/3 仍能跳转 AD
+
+
+          var canvas = find('Canvas');
+          if (canvas && !canvas.getComponent(_crd && BtnAdGuard === void 0 ? (_reportPossibleCrUseOfBtnAdGuard({
+            error: Error()
+          }), BtnAdGuard) : BtnAdGuard)) canvas.addComponent(_crd && BtnAdGuard === void 0 ? (_reportPossibleCrUseOfBtnAdGuard({
+            error: Error()
+          }), BtnAdGuard) : BtnAdGuard); // ad 节点：点击后弹出 Check-in，可领取数量与规则不变
+
+          var adNode = find('Canvas/ad');
+          if (adNode && !adNode.getComponent(_crd && AdButton === void 0 ? (_reportPossibleCrUseOfAdButton({
+            error: Error()
+          }), AdButton) : AdButton)) adNode.addComponent(_crd && AdButton === void 0 ? (_reportPossibleCrUseOfAdButton({
+            error: Error()
+          }), AdButton) : AdButton); // 调试：打印节点与 Label 绑定情况
+
+          var childNames = this.node.children.map(c => c.name);
+          console.log('[PetValue] onLoad node =', this.node.name, 'children =', childNames, 'hpLabel?', !!this.hpLabel, 'intimacyLabel?', !!this.intimacyLabel); // 定时任务：每个整点扣减（体力 -3，亲密度 -3）
+
+          var delayMs = getMsUntilNextFullHour();
+          var delaySeconds = Math.max(1, Math.floor(delayMs / 1000));
+          this.scheduleOnce(() => {
+            this._tickHourly(); // 之后每 1 小时执行一次；不传 repeat 参数表示一直循环
+
+
+            this.schedule(this._tickHourly, 3600); // 每 1 小时
+          }, delaySeconds);
+          game.on(Game.EVENT_SHOW, this._onGameShow, this);
+        }
+
+        onEnable() {
+          PetValue.instance = this;
+        }
+
+        onDisable() {
+          if (PetValue.instance === this) PetValue.instance = null;
+          this.unschedule(this._tickHourly);
+          game.off(Game.EVENT_SHOW, this._onGameShow, this);
+        }
+        /** 从后台回到前台时执行：按距上次整点经过的小时数补扣体力/亲密度，避免长时间挂后台不扣减 */
+
+
+        _onGameShow() {
+          if (!this.isValid) return;
+          var savedLast = sys.localStorage.getItem(STORAGE_KEY_LAST);
+
+          this._applyHourlyCatchUp(savedLast, true);
+
+          this._save(true);
+
+          this._updateLabels();
+        }
+        /**
+         * 按「上次整点」与「当前整点」的经过小时数扣减体力/亲密度（仅扣减，不写入 LAST；由调用方 _save(true)）。
+         * @param savedLast 本地存的 petai_last_update
+         * @param doCatchUp 是否执行扣减（首次安装或无 LAST 时不扣）
+         */
+
+
+        _applyHourlyCatchUp(savedLast, doCatchUp) {
+          if (!doCatchUp || savedLast == null || savedLast === '') return;
+          var now = Date.now();
+          var currentHourStart = Math.floor(now / MS_PER_HOUR) * MS_PER_HOUR;
+          var lastTickHourStart;
+
+          if (/^\d{4}-\d{2}-\d{2}$/.test(savedLast)) {
+            var [y, m, d] = savedLast.split('-').map(Number);
+            lastTickHourStart = new Date(y, m - 1, d).getTime();
+          } else {
+            lastTickHourStart = parseInt(savedLast, 10) || 0;
+          }
+
+          var elapsedHours = Math.max(0, Math.floor((currentHourStart - lastTickHourStart) / MS_PER_HOUR));
+
+          if (elapsedHours > 0) {
+            this._hp = Math.max(0, Math.min(MAX_VALUE, this._hp - elapsedHours * DECREASE_HP_PER_HOUR));
+            this._intimacy = Math.max(0, Math.min(MAX_VALUE, this._intimacy - elapsedHours * DECREASE_INTIMACY_PER_HOUR));
+          }
+        }
+        /** 增加体力，上限 MAX_VALUE */
+
+
+        addHp(amount) {
+          if (amount <= 0) return;
+          this._hp = Math.min(MAX_VALUE, this._hp + amount);
+
+          this._save();
+
+          this._updateLabels();
+        }
+
+        _tickHourly() {
+          this._hp = Math.max(0, Math.min(MAX_VALUE, this._hp - DECREASE_HP_PER_HOUR));
+          this._intimacy = Math.max(0, Math.min(MAX_VALUE, this._intimacy - DECREASE_INTIMACY_PER_HOUR));
+
+          this._save(true);
+
+          this._updateLabels();
+        }
+        /** @param updateLastTick 仅在做整点扣减（或 onLoad 补扣）后传 true，其它保存不更新上次整点 */
+
+
+        _save(updateLastTick) {
+          if (updateLastTick === void 0) {
+            updateLastTick = false;
+          }
+
+          try {
+            sys.localStorage.setItem(STORAGE_KEY_HP, String(this._hp));
+            sys.localStorage.setItem(STORAGE_KEY_INTIMACY, String(this._intimacy));
+            sys.localStorage.setItem(STORAGE_KEY_FIRST_RUN_DONE, '1');
+
+            if (updateLastTick) {
+              var hourStart = Math.floor(Date.now() / MS_PER_HOUR) * MS_PER_HOUR;
+              sys.localStorage.setItem(STORAGE_KEY_LAST, String(hourStart));
+            }
+
+            (_crd && syncWidgetFromStorage === void 0 ? (_reportPossibleCrUseOfsyncWidgetFromStorage({
+              error: Error()
+            }), syncWidgetFromStorage) : syncWidgetFromStorage)();
+          } catch (e) {
+            console.warn('[PetValue] 保存失败', e);
+          }
+        }
+
+        _updateLabels() {
+          this._ensureLabels();
+
+          this._ensureBars();
+
+          if (this.hpLabel) this.hpLabel.string = String(this._hp);
+          if (this.intimacyLabel) this.intimacyLabel.string = String(this._intimacy);
+          if (this.hpBar) this.hpBar.progress = this._hp / MAX_VALUE;
+          if (this.intimacyBar) this.intimacyBar.progress = this._intimacy / MAX_VALUE; // 亲密度 > 80 时显示 highintimate 节点（冒爱心）；优先低值：体力或心情任一低于 20 时不显示
+
+          var highNode = this._ensureHighIntimateNode();
+
+          if (highNode) highNode.active = this.isIntimacyHigh() && !this.isHpLow() && !this.isIntimacyLow(); // 体力和心情变化后刷新 pet_info_bar 文案（低于 20 时显示「没力气啦」/「心情很差」）
+
+          if ((_crd && PetInfoBar === void 0 ? (_reportPossibleCrUseOfPetInfoBar({
+            error: Error()
+          }), PetInfoBar) : PetInfoBar).instance) (_crd && PetInfoBar === void 0 ? (_reportPossibleCrUseOfPetInfoBar({
+            error: Error()
+          }), PetInfoBar) : PetInfoBar).instance.refreshTip(); // 体力或心情低于 20 时同步对应提示到 Widget（与 pet_info_bar 一致）
+
+          var hpLow = this.isHpLow();
+          var intimacyLow = this.isIntimacyLow();
+
+          if (sys.platform === sys.Platform.ANDROID && sys.isNative) {
+            if (hpLow) {
+              (_crd && syncWidgetWeather === void 0 ? (_reportPossibleCrUseOfsyncWidgetWeather({
+                error: Error()
+              }), syncWidgetWeather) : syncWidgetWeather)((_crd && getHpZeroTip === void 0 ? (_reportPossibleCrUseOfgetHpZeroTip({
+                error: Error()
+              }), getHpZeroTip) : getHpZeroTip)());
+            } else if (intimacyLow) {
+              (_crd && syncWidgetWeather === void 0 ? (_reportPossibleCrUseOfsyncWidgetWeather({
+                error: Error()
+              }), syncWidgetWeather) : syncWidgetWeather)((_crd && getIntimacyZeroTip === void 0 ? (_reportPossibleCrUseOfgetIntimacyZeroTip({
+                error: Error()
+              }), getIntimacyZeroTip) : getIntimacyZeroTip)());
+            } else if (this._prevHpLow || this._prevIntimacyLow) {
+              // 从「体力/心情低」恢复到正常时，清空 Widget 上的对应提示
+              (_crd && clearWidgetWeather === void 0 ? (_reportPossibleCrUseOfclearWidgetWeather({
+                error: Error()
+              }), clearWidgetWeather) : clearWidgetWeather)();
+            }
+          }
+
+          this._prevHpLow = hpLow;
+          this._prevIntimacyLow = intimacyLow;
+        }
+        /** 兜底：Inspector 未绑定进度条时，按 pet_value 下两栏（第一栏体力、第二栏亲密）自动查找 ProgressBar */
+
+
+        _ensureBars() {
+          if (!this.hpBar && this.node.children.length > 0) {
+            var first = this.node.children[0];
+            this.hpBar = first.getComponent(ProgressBar) || first.getComponentInChildren(ProgressBar) || null;
+          }
+
+          if (!this.intimacyBar && this.node.children.length > 1) {
+            var second = this.node.children[1];
+            this.intimacyBar = second.getComponent(ProgressBar) || second.getComponentInChildren(ProgressBar) || null;
+          }
+        }
+
+        _ensureHighIntimateNode() {
+          if (this.highIntimateNode) return this.highIntimateNode;
+          var canvas = this.node.parent;
+
+          if (canvas) {
+            this.highIntimateNode = canvas.getChildByName('highintimate') || null;
+          }
+
+          if (!this.highIntimateNode) {
+            this.highIntimateNode = find('Canvas/highintimate') || null;
+          }
+
+          return this.highIntimateNode;
+        }
+        /** 麦克风可用条件：体力与心情均 ≥ 60 */
+
+
+        canUseMicro() {
+          return this._hp >= 60 && this._intimacy >= 60;
+        }
+        /** 体力是否低于麦克风门槛（< 60），用于麦克风按钮文案 */
+
+
+        isHpLowForMicro() {
+          return this._hp < 60;
+        }
+        /** 心情（亲密度）是否低于麦克风门槛（< 60），用于麦克风按钮文案 */
+
+
+        isIntimacyLowForMicro() {
+          return this._intimacy < 60;
+        }
+
+        isHpZero() {
+          return this._hp <= 0;
+        }
+        /** 体力偏低（没力气）：用于动画切换等，阈值 < 20；提示「没力气啦」仍用 isHpZero。 */
+
+
+        isHpLow() {
+          return this._hp < 20;
+        }
+
+        isIntimacyZero() {
+          return this._intimacy <= 0;
+        }
+        /** 亲密度偏低（心情差）：用于除麦克风以外的「心情为 0」判断，阈值 < 20。 */
+
+
+        isIntimacyLow() {
+          return this._intimacy < 20;
+        }
+        /** 亲密度高（> 80）：用于冒爱心等表现，需与 isHpLow/isIntimacyLow 一起判断以优先低值。 */
+
+
+        isIntimacyHigh() {
+          return this._intimacy > 80;
+        }
+        /**
+         * 兜底：如果 Inspector 里没有手动绑定 hpLabel/intimacyLabel，
+         * 则根据当前节点下的子节点名称自动查找（hp / pet_hp / fs）。
+         * 已经在 Inspector 绑定好的情况下不会覆盖。
+         */
+
+        /** 飘字飞抵后，原数值标签做缩放弹跳效果（缩放两次，更明显） */
+
+
+        _playTargetScale(target) {
+          var n = target.node;
+          n.setScale(1, 1, 1);
+          tween(n).to(0.1, {
+            scale: new Vec3(1.5, 1.5, 1)
+          }).to(0.12, {
+            scale: new Vec3(1, 1, 1)
+          }, {
+            easing: 'backOut'
+          }).to(0.1, {
+            scale: new Vec3(1.4, 1.4, 1)
+          }).to(0.12, {
+            scale: new Vec3(1, 1, 1)
+          }, {
+            easing: 'backOut'
+          }).start();
+        }
+
+        _ensureLabels() {
+          if (!this.hpLabel) {
+            var _this$hpLabel$node$na, _this$hpLabel;
+
+            var hpNode = this.node.getChildByName('hp');
+
+            if (hpNode) {
+              this.hpLabel = hpNode.getComponent(Label) || hpNode.getComponentInChildren(Label);
+            }
+
+            if (!this.hpLabel) {
+              var petHpNode = this.node.getChildByName('pet_hp');
+
+              if (petHpNode) {
+                this.hpLabel = petHpNode.getComponent(Label) || petHpNode.getComponentInChildren(Label);
+              }
+            }
+
+            console.log('[PetValue] _ensureLabels hpLabel set to', (_this$hpLabel$node$na = (_this$hpLabel = this.hpLabel) == null ? void 0 : _this$hpLabel.node.name) != null ? _this$hpLabel$node$na : 'null');
+          }
+
+          if (!this.intimacyLabel) {
+            var _this$intimacyLabel$n, _this$intimacyLabel;
+
+            var fsNode = this.node.getChildByName('fs');
+
+            if (fsNode) {
+              this.intimacyLabel = fsNode.getComponent(Label) || fsNode.getComponentInChildren(Label);
+            }
+
+            console.log('[PetValue] _ensureLabels intimacyLabel set to', (_this$intimacyLabel$n = (_this$intimacyLabel = this.intimacyLabel) == null ? void 0 : _this$intimacyLabel.node.name) != null ? _this$intimacyLabel$n : 'null');
+          }
+        }
+        /**
+         * 飘字动画：起始于宠物节点顶端靠下 100px，0.4 秒后到达宠物节点顶端，停留指定时间后沿轨迹飘向原数值标签。
+         * @param target 目标数值标签（hp 或 intimacy）
+         * @param delta 增减数值
+         * @param petNode 宠物节点（狗/猫），用于确定飘字起始位置；不传则退化为在 target 附近起始
+         * @param offsetX 起始位置水平偏移（用于 Button2 同时两个飘字时左右错开，避免叠在一起）
+         * @param stayDuration 停留时间（秒），默认 3 秒
+         * @param onArrive 飘字飞抵原数值标签后回调（用于延后更新原数值显示）
+         */
+
+
+        _spawnDeltaLabel(target, delta, petNode, offsetX, stayDuration, onArrive) {
+          if (offsetX === void 0) {
+            offsetX = 0;
+          }
+
+          if (stayDuration === void 0) {
+            stayDuration = 3;
+          }
+
+          if (!target || !delta) return;
+          var canvas = this.node.parent;
+          if (!canvas) return;
+          var deltaNode = new Node('DeltaLabel');
+          deltaNode.addComponent(UITransform);
+          var label = deltaNode.addComponent(Label);
+          label.string = "" + (delta > 0 ? '+' : '') + delta; // 字体稍微放大、加粗
+
+          var scaleFactor = 1.2;
+          label.fontSize = target.fontSize * scaleFactor;
+          label.lineHeight = target.lineHeight * scaleFactor;
+          label.isBold = true; // 根据是体力还是亲密度设置颜色：体力黄色，亲密桃红
+
+          if (target === this.hpLabel) {
+            label.color = new Color(255, 236, 61, 255); // 明亮黄色
+          } else if (target === this.intimacyLabel) {
+            label.color = new Color(255, 105, 180, 255); // 桃红色
+          } // 通过 UIOpacity 控制整体透明度（开始时透明）
+
+
+          var opacity = deltaNode.addComponent(UIOpacity);
+          opacity.opacity = 0;
+          canvas.addChild(deltaNode);
+          var canvasUIT = canvas.getComponent(UITransform);
+          var targetUIT = target.node.getComponent(UITransform);
+
+          if (!canvasUIT || !targetUIT) {
+            deltaNode.destroy();
+            return;
+          }
+
+          var targetWorldPos = targetUIT.convertToWorldSpaceAR(new Vec3(0, 0, 0));
+          var startLocalPos;
+          var floatUpEndLocalPos;
+
+          if (petNode) {
+            var petUIT = petNode.getComponent(UITransform);
+
+            if (petUIT) {
+              var petH = Math.max(petUIT.contentSize.height, 200);
+              var petTopLocal = new Vec3(0, petH / 2, 0);
+              var petStartLocal = new Vec3(0, petH / 2 - 100, 0);
+              startLocalPos = canvasUIT.convertToNodeSpaceAR(petUIT.convertToWorldSpaceAR(petStartLocal));
+              floatUpEndLocalPos = canvasUIT.convertToNodeSpaceAR(petUIT.convertToWorldSpaceAR(petTopLocal));
+            } else {
+              startLocalPos = canvasUIT.convertToNodeSpaceAR(targetWorldPos);
+              floatUpEndLocalPos = startLocalPos.clone();
+            }
+          } else {
+            startLocalPos = canvasUIT.convertToNodeSpaceAR(targetWorldPos);
+            floatUpEndLocalPos = startLocalPos.clone();
+          }
+
+          var endLocalPos = canvasUIT.convertToNodeSpaceAR(targetWorldPos);
+          deltaNode.setPosition(startLocalPos.x + offsetX, startLocalPos.y, startLocalPos.z);
+          var flyDuration = 0.5;
+          var arcHeight = 30;
+          var flyStartX = floatUpEndLocalPos.x + offsetX;
+          var flyStartY = floatUpEndLocalPos.y;
+          var flyStartZ = floatUpEndLocalPos.z;
+          tween(deltaNode).to(0.4, {
+            position: new Vec3(floatUpEndLocalPos.x + offsetX, floatUpEndLocalPos.y, floatUpEndLocalPos.z)
+          }).call(() => {
+            tween(deltaNode).to(0.15, {
+              scale: new Vec3(1.25, 1.25, 1)
+            }).start();
+          }).delay(stayDuration).call(() => {
+            var proxy = {
+              t: 0
+            };
+            tween(proxy).to(flyDuration, {
+              t: 1
+            }, {
+              easing: 'sineOut',
+              onUpdate: () => {
+                var k = proxy.t;
+                var x = flyStartX + (endLocalPos.x - flyStartX) * k;
+                var y = flyStartY + (endLocalPos.y - flyStartY) * k + 2 * arcHeight * k * (1 - k);
+                deltaNode.setPosition(x, y, flyStartZ);
+              }
+            }).call(() => {
+              deltaNode.destroy();
+              (_crd && AudioManager === void 0 ? (_reportPossibleCrUseOfAudioManager({
+                error: Error()
+              }), AudioManager) : AudioManager).playValueIncreaseSound();
+
+              if (onArrive) {
+                onArrive();
+              }
+
+              this._playTargetScale(target);
+            }).start();
+          }).start(); // 同步做 0 → 0.4 秒的渐显
+
+          tween(opacity).to(0.4, {
+            opacity: 255
+          }).start();
+        }
+        /**
+         * 飘字直接飞向目标（无停留）：用于 Check-in 领取时数字飞向 button1/2/3
+         */
+
+
+        spawnFlyingLabelDirect(startNode, target, delta, color, onArrive) {
+          if (!target || !delta) return;
+          var canvas = this.node.parent;
+          if (!canvas) return;
+          var deltaNode = new Node('DeltaLabel');
+          deltaNode.addComponent(UITransform);
+          var label = deltaNode.addComponent(Label);
+          label.string = "" + (delta > 0 ? '+' : '') + delta;
+          var scaleFactor = 1.2;
+          label.fontSize = target.fontSize * scaleFactor;
+          label.lineHeight = target.lineHeight * scaleFactor;
+          label.isBold = true;
+          label.color = color || new Color(255, 236, 61, 255);
+          var opacity = deltaNode.addComponent(UIOpacity);
+          opacity.opacity = 0;
+          canvas.addChild(deltaNode);
+          var canvasUIT = canvas.getComponent(UITransform);
+          var targetUIT = target.node.getComponent(UITransform);
+          var startUIT = startNode.getComponent(UITransform);
+
+          if (!canvasUIT || !targetUIT || !startUIT) {
+            deltaNode.destroy();
+            return;
+          }
+
+          var startLocalPos = canvasUIT.convertToNodeSpaceAR(startUIT.convertToWorldSpaceAR(new Vec3(0, 0, 0)));
+          var endLocalPos = canvasUIT.convertToNodeSpaceAR(targetUIT.convertToWorldSpaceAR(new Vec3(0, 0, 0)));
+          deltaNode.setPosition(startLocalPos);
+          var flyDuration = 0.5;
+          var arcHeight = 25;
+          tween(opacity).to(0.15, {
+            opacity: 255
+          }).start();
+          var proxy = {
+            t: 0
+          };
+          tween(proxy).to(flyDuration, {
+            t: 1
+          }, {
+            easing: 'sineOut',
+            onUpdate: () => {
+              var k = proxy.t;
+              var x = startLocalPos.x + (endLocalPos.x - startLocalPos.x) * k;
+              var y = startLocalPos.y + (endLocalPos.y - startLocalPos.y) * k + 2 * arcHeight * k * (1 - k);
+              deltaNode.setPosition(x, y, startLocalPos.z);
+            }
+          }).call(() => {
+            deltaNode.destroy();
+            (_crd && AudioManager === void 0 ? (_reportPossibleCrUseOfAudioManager({
+              error: Error()
+            }), AudioManager) : AudioManager).playValueIncreaseSound();
+            if (onArrive) onArrive();
+
+            this._playTargetScale(target);
+          }).start();
+        }
+        /** Button1：体力 +20，亲密 +5；飘字显示本次加多少（+20/+5），飞抵后数值上限 100 */
+
+
+        applyBtn1(petNode) {
+          var addHp = 20;
+          var addIntimacy = 5;
+          this._hp = Math.min(MAX_VALUE, this._hp + addHp);
+          this._intimacy = Math.min(MAX_VALUE, this._intimacy + addIntimacy);
+
+          this._save();
+
+          var syncLabels = () => this._updateLabels();
+
+          if (this.hpLabel || this.intimacyLabel) {
+            if (this.hpLabel) {
+              this._spawnDeltaLabel(this.hpLabel, addHp, petNode, -40);
+            }
+
+            if (this.intimacyLabel) {
+              this._spawnDeltaLabel(this.intimacyLabel, addIntimacy, petNode, 40, 3, syncLabels);
+            } else {
+              syncLabels();
+            }
+          } else {
+            this._updateLabels();
+          }
+        }
+        /** Button2：亲密 +20；飘字显示本次加多少（+20），飞抵后数值上限 100 */
+
+
+        applyBtn2(petNode) {
+          var addIntimacy = 20;
+          this._intimacy = Math.min(MAX_VALUE, this._intimacy + addIntimacy);
+
+          this._save();
+
+          var syncLabels = () => this._updateLabels();
+
+          if (this.intimacyLabel) {
+            this._spawnDeltaLabel(this.intimacyLabel, addIntimacy, petNode, 0, 3, syncLabels);
+          } else {
+            this._updateLabels();
+          }
+        }
+        /** Button3：亲密 +20；飘字显示本次加多少（+20），飞抵后数值上限 100 */
+
+
+        applyBtn3(petNode) {
+          var addIntimacy = 20;
+          this._intimacy = Math.min(MAX_VALUE, this._intimacy + addIntimacy);
+
+          this._save();
+
+          var syncLabels = () => this._updateLabels();
+
+          if (this.intimacyLabel) {
+            this._spawnDeltaLabel(this.intimacyLabel, addIntimacy, petNode, 0, 3, syncLabels);
+          } else {
+            this._updateLabels();
+          }
+        }
+        /** 今日撸猫/逗狗次数 +1（按设备本地 0 点日期，跨日清零） */
+
+
+        static incrementTodayPetCount() {
+          var today = (_crd && getLocalDateString === void 0 ? (_reportPossibleCrUseOfgetLocalDateString({
+            error: Error()
+          }), getLocalDateString) : getLocalDateString)();
+          var lastDate = sys.localStorage.getItem(STORAGE_KEY_TODAY_PET_DATE) || '';
+          var count = lastDate === today ? (parseInt(sys.localStorage.getItem(STORAGE_KEY_TODAY_PET_COUNT) || '0', 10) || 0) + 1 : 1;
+          sys.localStorage.setItem(STORAGE_KEY_TODAY_PET_DATE, today);
+          sys.localStorage.setItem(STORAGE_KEY_TODAY_PET_COUNT, String(count));
+        }
+        /** Button0：随机加体力或亲密 +2；飘字显示本次加多少（+2），飞抵后数值上限 100 */
+
+
+        applyBtn0(petNode) {
+          PetValue.incrementTodayPetCount();
+          var add = 2;
+          var isHp = Math.random() < 0.5;
+
+          if (isHp) {
+            this._hp = Math.min(MAX_VALUE, this._hp + add);
+
+            this._save();
+
+            var syncLabels = () => this._updateLabels();
+
+            if (this.hpLabel) {
+              this._spawnDeltaLabel(this.hpLabel, add, petNode, 0, 0.5, syncLabels);
+            } else {
+              this._updateLabels();
+            }
+          } else {
+            this._intimacy = Math.min(MAX_VALUE, this._intimacy + add);
+
+            this._save();
+
+            var _syncLabels = () => this._updateLabels();
+
+            if (this.intimacyLabel) {
+              this._spawnDeltaLabel(this.intimacyLabel, add, petNode, 0, 0.5, _syncLabels);
+            } else {
+              this._updateLabels();
+            }
+          }
+        }
+        /** 滑动：亲密 +5；飘字显示本次加多少（+5），飞抵后数值上限 100 */
+
+
+        applySwipe(petNode) {
+          PetValue.incrementTodayPetCount();
+          var addIntimacy = 5;
+          this._intimacy = Math.min(MAX_VALUE, this._intimacy + addIntimacy);
+
+          this._save();
+
+          var syncLabels = () => this._updateLabels();
+
+          if (this.intimacyLabel) {
+            this._spawnDeltaLabel(this.intimacyLabel, addIntimacy, petNode, 0, 0.5, syncLabels);
+          } else {
+            this._updateLabels();
+          }
+        }
+        /** 每分钟 3 次上限时的提示：交给 pet_info_bar 节点上的 PetInfoBar 显示，约 2 秒后恢复原文案 */
+
+
+        showPerMinuteLimitHint(text, _petNode) {
+          var _instance;
+
+          (_instance = (_crd && PetInfoBar === void 0 ? (_reportPossibleCrUseOfPetInfoBar({
+            error: Error()
+          }), PetInfoBar) : PetInfoBar).instance) == null || _instance.showPerMinuteLimitHint(text);
+        }
+
+      }, _class3.instance = null, _class3), (_descriptor = _applyDecoratedDescriptor(_class2.prototype, "hpLabel", [_dec2], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: function initializer() {
+          return null;
+        }
+      }), _descriptor2 = _applyDecoratedDescriptor(_class2.prototype, "intimacyLabel", [_dec3], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: function initializer() {
+          return null;
+        }
+      }), _descriptor3 = _applyDecoratedDescriptor(_class2.prototype, "hpBar", [_dec4], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: function initializer() {
+          return null;
+        }
+      }), _descriptor4 = _applyDecoratedDescriptor(_class2.prototype, "intimacyBar", [_dec5], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: function initializer() {
+          return null;
+        }
+      }), _descriptor5 = _applyDecoratedDescriptor(_class2.prototype, "highIntimateNode", [_dec6], {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        initializer: function initializer() {
+          return null;
+        }
+      })), _class2)) || _class));
+
+      _cclegacy._RF.pop();
+
+      _crd = false;
+    }
+  };
+});
+//# sourceMappingURL=693dcd4b81848458b585e5cb464a74f9a63c4be6.js.map

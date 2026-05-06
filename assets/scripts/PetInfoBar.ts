@@ -4,6 +4,7 @@ import { syncWidgetWeather, clearWidgetWeather } from './WidgetSync';
 import { getTimeRules, getBatteryLowTexts, getFirstOpenTip, getFirstOpenTipSecond, getFirstOpenTipThird, getFirstOpenTipFourth, getFirstOpenTipFifth, isWeatherGoodForGreeting, getNetworkTipsNone, getHpZeroTip, getIntimacyZeroTip, getNotAgainTip } from './TipCopy';
 import { PetValue, IS_FIRST_SESSION } from './PetValue';
 import { getLocalDateString } from './DateUtil';
+import { TokitChatService } from './llm_v2/TokitChatService';
 
 const { ccclass, property } = _decorator;
 
@@ -93,6 +94,7 @@ export class PetInfoBar extends Component {
 
     onLoad() {
         PetInfoBar.instance = this;
+        TokitChatService.startRemoteConfigOnLaunch();
         const firstOpenDone = !!sys.localStorage.getItem(STORAGE_KEY_FIRST_OPEN_DONE);
         if (!firstOpenDone) {
             // 首次安装：延迟到 start 里再初始化提示句，避免被权限弹窗挡住

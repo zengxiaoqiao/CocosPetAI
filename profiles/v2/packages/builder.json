@@ -1,7 +1,7 @@
 {
   "__version__": "1.3.9",
   "log": {
-    "level": 1
+    "level": 2
   },
   "common": {
     "binGroupConfig": {
@@ -12,7 +12,7 @@
       "asyncFunctions": true
     },
     "buildPath": "project://build",
-    "outputName": "android-004",
+    "outputName": "android003",
     "mainBundleCompressionType": "merge_dep",
     "platform": "android",
     "useSplashScreen": true,
@@ -118,10 +118,10 @@
         "type": "build",
         "id": "1777428964905",
         "progress": 1,
-        "state": "success",
+        "state": "failure",
         "stage": "build",
-        "message": "2026-4-30 18:18:56 build success in 27 s!",
-        "detailMessage": "build task(android-001) in 26873!\r",
+        "message": "2026-5-4 21:12:08 build task failed! Error: Can’t find the Android NDK/SDK path, please go to Preferences -> External Programs to set\n    at generateOptions (/Applications/Cocos/Creator/3.8.8/CocosCreator.app/Contents/Resources/app.asar/modules/platform-extensions/extensions/android/dist/builder/hooks.ccc:1:2268)\n    at BuildTask.onAfterInit (/Applications/Cocos/Creator/3.8.8/CocosCreator.app/Contents/Resources/app.asar/modules/platform-extensions/extensions/android/dist/builder/hooks.ccc:1:2367)\n    at BuildTask.handleHook (/Applications/Cocos/Creator/3.8.8/CocosCreator.app/Contents/Resources/app.asar/builtin/builder/dist/worker/builder/index.ccc:1:14094)\n    at BuildTask.runPluginTask (/Applications/Cocos/Creator/3.8.8/CocosCreator.app/Contents/Resources/app.asar/builtin/builder/dist/worker/builder/manager/task-base.ccc:1:1233)\n    at BuildTask.run (/Applications/Cocos/Creator/3.8.8/CocosCreator.app/Contents/Resources/app.asar/builtin/builder/dist/worker/builder/index.ccc:1:3903)\n    at build (/Applications/Cocos/Creator/3.8.8/CocosCreator.app/Contents/Resources/app.asar/builtin/builder/dist/worker/index.ccc:1:4763)\n    at Ipc.<anonymous> (/Applications/Cocos/Creator/3.8.8/CocosCreator.app/Contents/Resources/app.asar/builtin/builder/dist/worker/msg-util.ccc:1:210)",
+        "detailMessage": "",
         "options": {
           "name": "PetAI",
           "server": "",
@@ -190,7 +190,86 @@
           "__version__": "1.3.9",
           "logDest": "project://temp/builder/log/android2026-4-29 10-16.log"
         },
-        "time": "2026-4-30 18:18:28",
+        "time": "5-4-2026 21:12:08",
+        "dirty": false
+      },
+      "1777902016803": {
+        "type": "build",
+        "id": "1777902016803",
+        "progress": 1,
+        "state": "success",
+        "stage": "build",
+        "message": "2026-5-6 14:15:30 build success in 3 s!",
+        "detailMessage": "Generate import-map..., progress: 21%\r",
+        "options": {
+          "name": "PetAI",
+          "server": "",
+          "engineModulesConfigKey": "defaultConfig",
+          "platform": "android",
+          "buildPath": "project://build",
+          "debug": false,
+          "buildMode": "normal",
+          "mangleProperties": false,
+          "md5Cache": false,
+          "skipCompressTexture": false,
+          "sourceMaps": false,
+          "overwriteProjectSettings": {
+            "macroConfig": {
+              "cleanupImageCache": "inherit-project-setting"
+            },
+            "includeModules": {
+              "physics": "inherit-project-setting",
+              "physics-2d": "inherit-project-setting",
+              "gfx-webgl2": "off"
+            }
+          },
+          "nativeCodeBundleMode": "wasm",
+          "polyfills": {
+            "asyncFunctions": false
+          },
+          "experimentalEraseModules": false,
+          "startSceneAssetBundle": false,
+          "bundleConfigs": [],
+          "inlineEnum": true,
+          "useBuiltinServer": false,
+          "md5CacheOptions": {
+            "excludes": [],
+            "includes": [],
+            "replaceOnly": [],
+            "handleTemplateMd5Link": true
+          },
+          "mainBundleIsRemote": false,
+          "mainBundleCompressionType": "merge_dep",
+          "useSplashScreen": true,
+          "bundleCommonChunk": false,
+          "packAutoAtlas": true,
+          "startScene": "8743c97c-9d45-47a4-b6a1-b9449652d60e",
+          "outputName": "android003",
+          "taskName": "android003",
+          "scenes": [
+            {
+              "url": "db://assets/ad.scene",
+              "uuid": "b90ebbaa-1aa1-4622-a4fe-2560e4ccf1eb"
+            },
+            {
+              "url": "db://assets/home.scene",
+              "uuid": "8743c97c-9d45-47a4-b6a1-b9449652d60e"
+            },
+            {
+              "url": "db://assets/settings.scene",
+              "uuid": "5d7c33f6-abf3-4d66-84f6-947222f9f28b"
+            }
+          ],
+          "wasmCompressionMode": false,
+          "binGroupConfig": {
+            "threshold": 16,
+            "enable": false
+          },
+          "packages": {},
+          "__version__": "1.3.9",
+          "logDest": "project://temp/builder/log/android5-4-2026 21-40.log"
+        },
+        "time": "5-6-2026 14:15:26",
         "dirty": false
       }
     }
