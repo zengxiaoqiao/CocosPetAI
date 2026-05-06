@@ -6,12 +6,14 @@ import android.content.Context;
 import android.media.AudioFormat;
 import android.media.AudioRecord;
 import android.media.MediaRecorder;
+import android.text.TextUtils;
 import android.util.Log;
 
 import com.iflytek.sparkchain.core.asr.ASR;
 import com.iflytek.sparkchain.core.asr.AsrCallbacks;
 import com.iflytek.sparkchain.core.asr.AudioAttributes;
 
+import java.util.Locale;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 final class IflytekAsrEngine {
@@ -156,11 +158,22 @@ final class IflytekAsrEngine {
     }
 
     private void configureAsr() {
-        asr.language("zh_cn");
+        String asrLanguage = "en_us";
+        if (isChinese()) {
+            asrLanguage = "zh_cn";
+        }
+        asr.language(asrLanguage);
         asr.domain("iat");
         asr.accent("mandarin");
         asr.vinfo(true);
-        asr.dwa("wpgs");
+        if (isChinese()) {
+            asr.dwa("wpgs");
+        }
+    }
+
+    private boolean isChinese() {
+        String language = Locale.getDefault().getLanguage();
+        return !TextUtils.isEmpty(language) && language.contains("zh");
     }
 
     @SuppressLint("MissingPermission")
