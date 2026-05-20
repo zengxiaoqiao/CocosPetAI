@@ -44,17 +44,12 @@ public class PetWidgetBatteryReceiver extends BroadcastReceiver {
         android.appwidget.AppWidgetManager wm = android.appwidget.AppWidgetManager.getInstance(app);
         if (wm == null) return;
         android.content.ComponentName small = new android.content.ComponentName(app, PetWidgetProvider.class);
-        android.content.ComponentName large = new android.content.ComponentName(app, PetWidgetLargeProvider.class);
         int[] idsSmall = wm.getAppWidgetIds(small);
-        int[] idsLarge = wm.getAppWidgetIds(large);
         if (idsSmall != null && idsSmall.length > 0) {
             PetWidgetProvider.updateAll(app, wm, idsSmall);
         }
-        if (idsLarge != null && idsLarge.length > 0) {
-            PetWidgetLargeProvider.updateAll(app, wm, idsLarge);
-        }
         // 插拔电后启动动画服务，否则进程被杀死后插电只刷新一帧且不会继续播充电动画
-        if ((idsSmall != null && idsSmall.length > 0) || (idsLarge != null && idsLarge.length > 0)) {
+        if (idsSmall != null && idsSmall.length > 0) {
             if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
                 app.startForegroundService(new Intent(app, PetWidgetAnimService.class));
             } else {

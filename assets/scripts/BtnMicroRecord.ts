@@ -1,4 +1,4 @@
-import { _decorator, Component, Node, Label, Button, EventTouch, Vec3, sys, native, director, find, UIOpacity } from 'cc';
+import { _decorator, Component, Node, Label, Button, EventTouch, Vec3, sys, native, UIOpacity, Sprite, Color, tween, Tween } from 'cc';
 import { PetValue } from './PetValue';
 import { AudioManager } from './AudioManager';
 import { DogController } from './DogController';
@@ -9,6 +9,8 @@ import { NativeASR } from './NativeASR';
 import { PetInfoBar } from './PetInfoBar';
 import { PetVocalizer } from './PetVocalizer';
 import { PetWake } from './PetWake';
+import { MicWaveform } from './MicWaveform';
+import type { MicHintMode } from './BtnMicroRandomText';
 const { ccclass, property } = _decorator;
 
 const STORAGE_KEY_PET = 'petai_pet_choice';
@@ -25,11 +27,13 @@ export enum MicroState {
 
 /**
  * 麦克风按钮：3 个状态（ready → recording → thinking）。
- * 长按录音，松开发送。根据 PetValue.canUseMicro() 控制是否可用。
+ * 长按录音，松开发送。麦克风可用性不再依赖体力/心情数值。
  * 说明：不再朗读文字（避免“宠物说人话”），收到回复只做拟声 + 动作，并在 info bar 显示文字。
  */
 @ccclass('BtnMicroRecord')
 export class BtnMicroRecord extends Component {
+
+    public static instance: BtnMicroRecord | null = null;
 
     @property(Label)
     resultLabel: Label | null = null;
@@ -77,7 +81,13 @@ export class BtnMicroRecord extends Component {
     clickScale: number = 1.1;
 
     @property({ tooltip: '按下超过此秒数视为长按录音' })
-    longPressThreshold: number = 0.6;
+    longPressThreshold: number = 0.35;
+
+    @property({ tooltip: '按钮下方状态文案（同节点上的 BtnMicroRandomText）' })
+    microHint: { setMicHint(mode: MicHintMode): void } | null = null;
+
+    @property({ tooltip: '录音中按钮缩放脉冲幅度（相对按下后基准）' })
+    recordingPulseScale: number = 0.06;
 
     @property({ tooltip: '自动收音（免按键）：检测到开口自动开始录音，静音后自动结束并发送' })
     autoVoice: boolean = false;
@@ -121,8 +131,18 @@ export class BtnMicroRecord extends Component {
     /** 连续若干次 poll 未拿到更长文本（通常为空），用于判定识别已收尾 */
     private _nativeAsrManualIdlePolls: number = 0;
     private _nativeAsrManualStopMs: number = 0;
+    private _isPressing: boolean = false;
+    private _bgSprite: Sprite | null = null;
+    private readonly _bgColorReady = new Color(255, 255, 255, 255);
+    private readonly _bgColorPressing = new Color(255, 210, 190, 255);
+    private readonly _bgColorRecording = new Color(255, 120, 130, 255);
+    private readonly _recordingBaseScale = new Vec3(1.06, 1.06, 1);
+    private _waveform: MicWaveform | null = null;
+    /** 当前按住来源：麦克风按钮 / 宠物，避免双入口互相抢状态 */
+    private _activeTouchSource: 'button' | 'pet' | null = null;
 
     onLoad() {
+        BtnMicroRecord.instance = this;
         this._clickScaleVec.x = this._clickScaleVec.y = this._clickScaleVec.z = this.clickScale;
         if (!this.btnMicro) this.btnMicro = this.node;
         if (this.apiKey) TokitChatService.apiKey = this.apiKey;
@@ -132,13 +152,16 @@ export class BtnMicroRecord extends Component {
         const btn = this.button || this.node.getComponent(Button);
         if (btn) this.node.on(Button.EventType.CLICK, this.onMicroButtonClick, this);
         this._ensureNodes();
+        this._ensureMicroHint();
+        this._ensureWaveform();
+        this._bgSprite = (this.btnMicro || this.node).getComponent(Sprite);
         this._applyState(MicroState.Ready);
     }
 
     onDestroy() {
+        if (BtnMicroRecord.instance === this) BtnMicroRecord.instance = null;
         this._stopAutoVoice();
         this.unschedule(this._enterRecordingMode);
-        this.unschedule(this._refreshCanUseState);
         this.node.off(Node.EventType.TOUCH_START, this._onTouchStart, this);
         this.node.off(Node.EventType.TOUCH_END, this._onTouchEnd, this);
         this.node.off(Node.EventType.TOUCH_CANCEL, this._onTouchEnd, this);
@@ -147,37 +170,40 @@ export class BtnMicroRecord extends Component {
 
     start() {
         this._applyState(MicroState.Ready);
-        this.schedule(this._refreshCanUseState, 1, Infinity);
         if (this.autoVoice && this.autoVoiceAutoStart) this._startAutoVoice();
     }
 
     onDisable() {
-        this.unschedule(this._refreshCanUseState);
         this._stopAutoVoice();
     }
 
-    /** 确保 petValue 可用：未绑定时按路径查找 */
-    private _ensurePetValue(): PetValue | null {
-        if (this.petValue) return this.petValue;
-        const n = find('Canvas/pet_value');
-        this.petValue = n ? n.getComponent(PetValue) : null;
-        if (!this.petValue) this.petValue = director.getScene()?.getComponentInChildren(PetValue) || null;
-        return this.petValue;
+    private _ensureMicroHint(): { setMicHint(mode: MicHintMode): void } | null {
+        if (this.microHint) return this.microHint;
+        const comp = this.node.getComponent('BtnMicroRandomText')
+            || (this.btnMicro || this.node).getComponent('BtnMicroRandomText');
+        this.microHint = comp as { setMicHint(mode: MicHintMode): void } | null;
+        return this.microHint;
     }
 
-    /** 定期刷新可用状态（体力/亲密变化时） */
-    private _refreshCanUseState() {
-        this._ensurePetValue();
-        if (this._state === MicroState.Ready || this._state === MicroState.Recording) {
-            this._applyState(this._state);
+    /** 在 recording 节点下挂载/查找动态波形（替代 record-img 贴图） */
+    private _ensureWaveform(): MicWaveform | null {
+        if (this._waveform?.isValid) return this._waveform;
+        if (!this.recordingNode) return null;
+
+        let n = this.recordingNode.getChildByName('mic_waveform');
+        if (!n) {
+            n = new Node('mic_waveform');
+            this.recordingNode.addChild(n);
         }
-        // 体力/心情不可用时，自动收音也暂停
-        if (this.autoVoice) {
-            const pv = this._ensurePetValue();
-            const canUse = !pv || pv.canUseMicro();
-            if (!canUse) this._stopAutoVoice();
-            else if (this.autoVoiceAutoStart) this._startAutoVoice();
-        }
+        this._waveform = n.getComponent(MicWaveform) || n.addComponent(MicWaveform);
+        n.active = false;
+        return this._waveform;
+    }
+
+    private _syncWaveform(on: boolean, subdued = false) {
+        const wf = this._ensureWaveform();
+        if (!wf) return;
+        wf.setAnimating(on, subdued);
     }
 
     /** 兜底查找 ready/recording/thinking/talking 节点 */
@@ -200,30 +226,110 @@ export class BtnMicroRecord extends Component {
     private _applyState(state: MicroState) {
         this._state = state;
         const root = this.btnMicro || this.node;
-        const pv = this._ensurePetValue();
-        const canUse = !pv || pv.canUseMicro();
+        const isPressingOnly = this._isPressing && state === MicroState.Ready;
 
-        if (this.readyNode) this.readyNode.active = state === MicroState.Ready;
-        if (this.recordingNode) this.recordingNode.active = state === MicroState.Recording;
+        if (this.readyNode) this.readyNode.active = state === MicroState.Ready && !isPressingOnly;
+        if (this.recordingNode) {
+            this.recordingNode.active = state === MicroState.Recording || isPressingOnly;
+        }
         if (this.thinkingNode) this.thinkingNode.active = state === MicroState.Thinking;
         // talkingNode is kept for scene compatibility but no longer used.
         if (this.talkingNode) this.talkingNode.active = false;
         // sentNode/sentStateNode visibility is managed by _showSentBriefly()
-        if (this.iconNode) this.iconNode.active = state === MicroState.Ready;
+        if (this.iconNode) this.iconNode.active = state === MicroState.Ready && !isPressingOnly;
         const showStop = false;
         if (this.stopButtonNode) this.stopButtonNode.active = false;
         this._applyStopButtonsVisibility(showStop);
 
         const btn = this.button || this.node.getComponent(Button);
-        if (btn) btn.interactable = canUse && (state === MicroState.Ready || state === MicroState.Recording);
+        if (btn) btn.interactable = state === MicroState.Ready || state === MicroState.Recording;
 
-        this._applyDisabledOpacity(root, !canUse && state === MicroState.Ready);
+        this._applyDisabledOpacity(root, false);
+        this._applyRecordingNodeOpacity(isPressingOnly ? 200 : 255);
+
+        const showWave = state === MicroState.Recording || isPressingOnly;
+        this._syncWaveform(showWave, isPressingOnly);
+
+        if (state === MicroState.Recording) {
+            this._startRecordingVisuals(root);
+            this._ensureMicroHint()?.setMicHint('recording');
+        } else if (state === MicroState.Thinking) {
+            this._stopRecordingVisuals(root);
+            root.setScale(this._normalScale);
+            this._setBgColor(this._bgColorReady);
+            this._ensureMicroHint()?.setMicHint('thinking');
+        } else if (isPressingOnly) {
+            this._stopRecordingPulseOnly();
+            root.setScale(this._recordingBaseScale);
+            this._setBgColor(this._bgColorPressing);
+            this._ensureMicroHint()?.setMicHint('pressing');
+        } else {
+            this._stopRecordingVisuals(root);
+            root.setScale(this._normalScale);
+            this._setBgColor(this._bgColorReady);
+            this._ensureMicroHint()?.setMicHint('idle');
+        }
 
         // 录音 / 思考 / 播报期间降低背景音乐音量，结束后恢复
         if (state === MicroState.Recording || state === MicroState.Thinking) {
             AudioManager.enterVoicePriority();
-        } else if (state === MicroState.Ready) {
+        } else if (state === MicroState.Ready && !isPressingOnly) {
             AudioManager.exitVoicePriority();
+        }
+    }
+
+    private _setBgColor(c: Color) {
+        if (!this._bgSprite) return;
+        this._bgSprite.color = c;
+    }
+
+    private _applyRecordingNodeOpacity(opacity: number) {
+        if (!this.recordingNode) return;
+        let op = this.recordingNode.getComponent(UIOpacity);
+        if (!op) op = this.recordingNode.addComponent(UIOpacity);
+        op.opacity = opacity;
+    }
+
+    private _startRecordingVisuals(root: Node) {
+        Tween.stopAllByTarget(root);
+        root.setScale(this._recordingBaseScale);
+        this._setBgColor(this._bgColorRecording);
+        const pulse = Math.max(0.02, this.recordingPulseScale);
+        const up = new Vec3(
+            this._recordingBaseScale.x * (1 + pulse),
+            this._recordingBaseScale.y * (1 + pulse),
+            1,
+        );
+        tween(root)
+            .to(0.45, { scale: up }, { easing: 'sineInOut' })
+            .to(0.45, { scale: this._recordingBaseScale.clone() }, { easing: 'sineInOut' })
+            .union()
+            .repeatForever()
+            .start();
+    }
+
+    private _stopRecordingPulseOnly() {
+        const root = this.btnMicro || this.node;
+        Tween.stopAllByTarget(root);
+    }
+
+    private _stopRecordingVisuals(root: Node) {
+        Tween.stopAllByTarget(root);
+        this._syncWaveform(false);
+        this._applyRecordingNodeOpacity(255);
+    }
+
+    private _enterPressingFeedback() {
+        if (this._state !== MicroState.Ready || this._isPressing) return;
+        this._isPressing = true;
+        this._applyState(MicroState.Ready);
+    }
+
+    private _exitPressingFeedback() {
+        if (!this._isPressing) return;
+        this._isPressing = false;
+        if (this._state === MicroState.Ready) {
+            this._applyState(MicroState.Ready);
         }
     }
 
@@ -233,27 +339,38 @@ export class BtnMicroRecord extends Component {
         opacity.opacity = disabled ? this.disabledOpacity : 255;
     }
 
-    private _onTouchStart(e: EventTouch) {
+    private _onTouchStart(_e?: EventTouch) {
+        this._beginManualTouch('button');
+    }
+
+    /** 长按宠物开始（与麦克风按钮共用录音逻辑） */
+    public onPetTouchStart(): void {
+        this._beginManualTouch('pet');
+    }
+
+    private _beginManualTouch(source: 'button' | 'pet') {
         if (this.autoVoice) return;
-        const pv = this._ensurePetValue();
-        if (pv && !pv.canUseMicro()) return;
         if (this._state !== MicroState.Ready) return;
+        if (this._activeTouchSource && this._activeTouchSource !== source) return;
+        this._activeTouchSource = source;
         this._wasRecordingThisTouch = false;
         this._stoppedByUser = false;
-        this.node.setScale(this._clickScaleVec);
         this._isRecording = false;
         this._pressStartMs = Date.now();
         this._longPressScheduled = true;
+        if (source === 'button') {
+            this._enterPressingFeedback();
+        }
         this.scheduleOnce(this._enterRecordingMode, this.longPressThreshold);
     }
 
     private _enterRecordingMode() {
         this._longPressScheduled = false;
+        this._isPressing = false;
         this._isRecording = true;
         this._wasRecordingThisTouch = true;
         this._applyState(MicroState.Recording);
         this._playRecordStartSound();
-        PetInfoBar.instance?.showUserHint('录音中…', 1);
         this._startRecording();
     }
 
@@ -262,8 +379,7 @@ export class BtnMicroRecord extends Component {
         if (this.autoVoice) return;
         if (this._wasRecordingThisTouch) return;
         AudioManager.instance?.playClickSound();
-        // Web mic flow removed. Click now only serves as a gentle hint.
-        this.showHint(sys.isNative ? '按住说话' : '仅真机支持语音');
+        if (!sys.isNative) this.showHint('仅真机支持语音');
     }
 
     private _playRecordStartSound() {
@@ -311,20 +427,50 @@ export class BtnMicroRecord extends Component {
     }
 
     private _onTouchEnd() {
-        if (this.autoVoice) return;
-        this.node.setScale(this._normalScale);
+        this._finishManualTouch('button');
+    }
+
+    public onPetTouchEnd(): void {
+        this._finishManualTouch('pet');
+    }
+
+    /** 手指滑动取消长按（仅宠物入口） */
+    public onPetTouchCancel(): void {
+        if (this._activeTouchSource !== 'pet') return;
+        this._finishManualTouch('pet');
+    }
+
+    /**
+     * 短按宠物（未进入录音）：清理触摸状态并返回 true，由 PetController 执行点摸 +心情。
+     */
+    public consumePetShortTap(): boolean {
+        if (this._activeTouchSource !== 'pet') return false;
+        if (this._isRecording || this._wasRecordingThisTouch) {
+            return false;
+        }
         if (this._longPressScheduled) {
             this.unschedule(this._enterRecordingMode);
             this._longPressScheduled = false;
-            // User didn't hold long enough to start recording: give a clear hint.
-            // (Prevents "nothing happened" feeling on device.)
-            const heldMs = Math.max(0, Date.now() - (this._pressStartMs || 0));
-            if (heldMs >= 120) {
-                this.showHint('按住说话');
-            }
+        }
+        this._activeTouchSource = null;
+        return true;
+    }
+
+    private _finishManualTouch(source: 'button' | 'pet') {
+        if (this.autoVoice) return;
+        if (this._activeTouchSource !== source) return;
+        this._activeTouchSource = null;
+
+        if (this._longPressScheduled) {
+            this.unschedule(this._enterRecordingMode);
+            this._longPressScheduled = false;
+            if (source === 'button') this._exitPressingFeedback();
             return;
         }
-        if (!this._isRecording) return;
+        if (!this._isRecording) {
+            if (source === 'button') this._exitPressingFeedback();
+            return;
+        }
         this._isRecording = false;
         this._stopRecordingAndSend();
     }
@@ -493,10 +639,18 @@ export class BtnMicroRecord extends Component {
     // _mockFlow removed: we don't show local preset replies anymore.
 
     /** 收到回复：不朗读文字，只做拟声 + 动作，并在 info bar 显示文字 */
+    private _getActivePetNode(): Node | null {
+        const isCat = sys.localStorage.getItem(STORAGE_KEY_PET) === 'cat';
+        if (isCat) return this.catController?.node ?? null;
+        return this.dogController?.node ?? null;
+    }
+
     private _playVocalAndFinish(text: string) {
         if (this._stoppedByUser) return;
         const t = (text || '').trim();
         if (t) {
+            const pv = this.petValue || PetValue.instance;
+            pv?.applyVoiceChat(this._getActivePetNode() ?? undefined);
             PetInfoBar.instance?.showUserHint(t, 6);
             PetWake.wakeToRespond();
             PetVocalizer.playReplyVocal(t);
@@ -547,8 +701,6 @@ export class BtnMicroRecord extends Component {
     private async _startAutoVoice() {
         if (this._autoStarted) return;
         if (!this.autoVoice) return;
-        const pv = this._ensurePetValue();
-        if (pv && !pv.canUseMicro()) return;
 
         if (!NativeASR.isSupported()) {
             // Web auto-voice removed.
@@ -598,8 +750,6 @@ export class BtnMicroRecord extends Component {
     private _pollNativeAsrResult() {
         if (!this.autoVoice || !this._autoStarted || !this._nativeAsrPolling) return;
         if (this._state === MicroState.Thinking || this._state === MicroState.Talking || this._stoppedByUser) return;
-        const pv = this._ensurePetValue();
-        if (pv && !pv.canUseMicro()) return;
 
         const text = (NativeASR.pollResult() || '').trim();
         if (!text) return;

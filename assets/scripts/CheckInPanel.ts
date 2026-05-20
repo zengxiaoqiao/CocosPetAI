@@ -61,19 +61,11 @@ export class CheckInPanel extends Component {
         this._refreshVisibility();
     }
 
+    /** 不自动弹出；仅当节点已打开时刷新奖励格 */
     private _refreshVisibility = () => {
-        const show = SharedBtnCounts.hasPendingClaim();
-        if (this.popupMask && this.popupMask.isValid) {
-            this.popupMask.setCheckInShowing(show);
-        } else if (this.maskNode) {
-            this.maskNode.active = show;
-        }
-        this.node.active = show;
-        // Check-in 显示时隐藏主界面的 info bar，关闭后再显示
-        PetInfoBar.setGlobalVisible(!show);
-        if (show) {
+        if (!this.node.active) return;
+        if (SharedBtnCounts.hasPendingClaim()) {
             this._updateRewardVisibility();
-            this._playShowAnimation();
         }
     };
 
@@ -187,6 +179,7 @@ export class CheckInPanel extends Component {
                 this.node.active = false;
                 if (this.popupMask && this.popupMask.isValid) this.popupMask.setCheckInShowing(false);
                 else if (this.maskNode) this.maskNode.active = false;
+                PetInfoBar.setGlobalVisible(true);
             }
         };
 
@@ -198,6 +191,7 @@ export class CheckInPanel extends Component {
             this.node.active = false;
             if (this.popupMask && this.popupMask.isValid) this.popupMask.setCheckInShowing(false);
             else if (this.maskNode) this.maskNode.active = false;
+            PetInfoBar.setGlobalVisible(true);
         }
     }
 }

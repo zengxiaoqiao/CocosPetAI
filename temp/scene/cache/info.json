@@ -1,0 +1,11 @@
+{
+    "systemInfo": {
+        "arch": "arm64",
+        "cpu": "Apple M2",
+        "version": "Darwin Kernel Version 25.3.0: Wed Jan 28 20:56:34 PST 2026; root:xnu-12377.91.3~2/RELEASE_ARM64_T8112"
+    },
+    "sceneListMap": {
+        "8743c97c-9d45-47a4-b6a1-b9449652d60e": "/Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/home.scene"
+    },
+    "deviceMd5": "6b70e1a7d8eec6d41c65ad0170e5ceff"
+}

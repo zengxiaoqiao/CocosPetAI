@@ -16,6 +16,7 @@ export class HomePopupMask extends Component {
 
     private _widgetChooseShowing = false;
     private _checkInShowing = false;
+    private _itemButtonsShowing = false;
 
     onLoad() {
         this._updateActive();
@@ -26,6 +27,10 @@ export class HomePopupMask extends Component {
     }
 
     private _onMaskTouchEnd() {
+        if (this._itemButtonsShowing && this._closeItemButtons) {
+            this._closeItemButtons();
+            return;
+        }
         if (this._widgetChooseShowing && this._closeWidgetChoose) {
             this._closeWidgetChoose();
         }
@@ -49,9 +54,21 @@ export class HomePopupMask extends Component {
         this._updateActive();
     }
 
+    private _closeItemButtons: (() => void) | null = null;
+    /** 点击遮罩时收起道具按钮组 */
+    public setCloseItemButtonsCallback(cb: (() => void) | null) {
+        this._closeItemButtons = cb;
+    }
+
+    /** 道具按钮组（喂食/玩耍/梳毛）显示时 */
+    public setItemButtonsShowing(show: boolean) {
+        this._itemButtonsShowing = show;
+        this._updateActive();
+    }
+
     private _updateActive() {
         const target = this.maskNode || this.node;
-        const shouldShow = this._widgetChooseShowing || this._checkInShowing;
+        const shouldShow = this._widgetChooseShowing || this._checkInShowing || this._itemButtonsShowing;
         target.active = shouldShow;
         this._ensureMaskListeners(shouldShow);
     }

@@ -24,6 +24,14 @@
         {
           "url": "db://assets/settings.scene",
           "uuid": "5d7c33f6-abf3-4d66-84f6-947222f9f28b"
+        },
+        {
+          "url": "db://assets/customize.scene",
+          "uuid": "2bd78fbe-44af-46ea-b1ec-3f4efca5f5e0"
+        },
+        {
+          "url": "db://assets/shop.scene",
+          "uuid": "f8e3a1b2-4c5d-6e7f-8a9b-0c1d2e3f4a5b"
         }
       ]
     },

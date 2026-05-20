@@ -64,10 +64,6 @@ public class PetWidgetSync {
         if (idsSmall != null && idsSmall.length > 0) {
             PetWidgetProvider.updateAll(ctx, wm, idsSmall);
         }
-        int[] idsLarge = wm.getAppWidgetIds(new ComponentName(ctx, PetWidgetLargeProvider.class));
-        if (idsLarge != null && idsLarge.length > 0) {
-            PetWidgetLargeProvider.updateAll(ctx, wm, idsLarge);
-        }
     }
 
     /**
@@ -102,10 +98,6 @@ public class PetWidgetSync {
         int[] idsSmall = wm.getAppWidgetIds(new ComponentName(ctx, PetWidgetProvider.class));
         if (idsSmall != null && idsSmall.length > 0) {
             PetWidgetProvider.updateAll(ctx, wm, idsSmall);
-        }
-        int[] idsLarge = wm.getAppWidgetIds(new ComponentName(ctx, PetWidgetLargeProvider.class));
-        if (idsLarge != null && idsLarge.length > 0) {
-            PetWidgetLargeProvider.updateAll(ctx, wm, idsLarge);
         }
     }
 
@@ -161,10 +153,6 @@ public class PetWidgetSync {
         int[] idsSmall = wm.getAppWidgetIds(new ComponentName(ctx, PetWidgetProvider.class));
         if (idsSmall != null && idsSmall.length > 0) {
             PetWidgetProvider.updateAll(ctx, wm, idsSmall);
-        }
-        int[] idsLarge = wm.getAppWidgetIds(new ComponentName(ctx, PetWidgetLargeProvider.class));
-        if (idsLarge != null && idsLarge.length > 0) {
-            PetWidgetLargeProvider.updateAll(ctx, wm, idsLarge);
         }
     }
 

@@ -3,23 +3,27 @@ import { SharedBtnCounts } from './SharedBtnCounts';
 import { AudioManager } from './AudioManager';
 import { BtnAdGuard } from './BtnAdGuard';
 import { AdButton } from './AdButton';
-import { syncWidgetFromStorage, syncWidgetWeather, clearWidgetWeather } from './WidgetSync';
+import { syncWidgetFromStorage } from './WidgetSync';
 import { getLocalDateString } from './DateUtil';
 import { PetInfoBar } from './PetInfoBar';
-import { getHpZeroTip, getIntimacyZeroTip } from './TipCopy';
 const { ccclass, property } = _decorator;
 
 const STORAGE_KEY_HP = 'petai_hp';
-const STORAGE_KEY_INTIMACY = 'petai_intimacy';
+const STORAGE_KEY_MOOD = 'petai_mood';
+const STORAGE_KEY_INTIMACY_LEGACY = 'petai_intimacy';
 const STORAGE_KEY_LAST = 'petai_last_update';
 const STORAGE_KEY_TODAY_PET_DATE = 'petai_today_pet_date';
 const STORAGE_KEY_TODAY_PET_COUNT = 'petai_today_pet_count';
 /** 仅首次运行后设为 '1'，用于区分真正首次安装与已有存档 */
 const STORAGE_KEY_FIRST_RUN_DONE = 'petai_first_run_done';
 const MS_PER_HOUR = 3600000;
-const DECREASE_HP_PER_HOUR = 3;
-const DECREASE_INTIMACY_PER_HOUR = 3;
+const DECREASE_MOOD_PER_HOUR = 1;
 const MAX_VALUE = 100;
+
+/** 每轮语音对话消耗体力（主界面不展示，仅低体力时提示饿了） */
+export const VOICE_CHAT_HP_COST = 8;
+/** 每轮语音对话增加心情（主界面飘字可见） */
+export const VOICE_CHAT_MOOD_GAIN = 3;
 
 /** 是否为本次安装后的首个会话（仅当前进程内为 true，一旦保存过 FIRST_RUN_DONE，后续重启即为 false） */
 export const IS_FIRST_SESSION = sys.localStorage.getItem(STORAGE_KEY_FIRST_RUN_DONE) !== '1';
@@ -32,7 +36,8 @@ function getMsUntilNextFullHour(): number {
 }
 
 /**
- * 体力/亲密度：持久化，范围 [0, MAX_VALUE]，每个整点（设备本地）体力扣 3、亲密度扣 3；按钮点击时 applyBtn1/2/3 更新并保存。
+ * 体力 / 心情：主界面只展示心情；体力后台保留，低时由 PetInfoBar 提示饿了。
+ * 心情整点 −1；体力仅语音聊天等消耗，不整点衰减。
  */
 @ccclass('PetValue')
 export class PetValue extends Component {
@@ -40,6 +45,7 @@ export class PetValue extends Component {
     @property(Label)
     hpLabel: Label | null = null;
 
+    /** 心情数值标签（场景里可能仍名为 intimacyLabel） */
     @property(Label)
     intimacyLabel: Label | null = null;
 
@@ -49,46 +55,45 @@ export class PetValue extends Component {
     @property(ProgressBar)
     intimacyBar: ProgressBar | null = null;
 
-    /** 亲密度 > 80 时显示的节点（如 home 下的 highintimate），未绑定时按 Canvas/highintimate 查找 */
+    /** 心情 > 80 时显示的节点（如 home 下的 highintimate），未绑定时按 Canvas/highintimate 查找 */
     @property(Node)
     highIntimateNode: Node | null = null;
 
     /** 全局单例，供其它逻辑使用 */
     public static instance: PetValue | null = null;
 
-    // 初始体力/亲密度，上限 MAX_VALUE
     private _hp: number = 50;
-    private _intimacy: number = 50;
-
-    /** 上一帧是否处于体力/心情低状态，用于在恢复后清空 Widget 文案 */
-    private _prevHpLow: boolean = false;
-    private _prevIntimacyLow: boolean = false;
+    private _mood: number = 50;
 
     onLoad() {
         SharedBtnCounts.init();
         // Check-in 仅通过点击 ad 节点弹出，不再自动弹出
         const firstRunDone = sys.localStorage.getItem(STORAGE_KEY_FIRST_RUN_DONE) === '1';
         const savedHp = sys.localStorage.getItem(STORAGE_KEY_HP);
-        const savedIntimacy = sys.localStorage.getItem(STORAGE_KEY_INTIMACY);
+        const savedMood = sys.localStorage.getItem(STORAGE_KEY_MOOD)
+            ?? sys.localStorage.getItem(STORAGE_KEY_INTIMACY_LEGACY);
         const savedLast = sys.localStorage.getItem(STORAGE_KEY_LAST);
-        // 仅非首次安装且存在有效存储值时才从存档覆盖；首次安装固定 50/50，避免被 "" 或异常值解析成 0
         if (firstRunDone) {
             if (savedHp != null && savedHp !== '') this._hp = Math.max(0, Math.min(MAX_VALUE, parseInt(savedHp, 10) || 0));
-            if (savedIntimacy != null && savedIntimacy !== '') this._intimacy = Math.max(0, Math.min(MAX_VALUE, parseInt(savedIntimacy, 10) || 0));
+            if (savedMood != null && savedMood !== '') this._mood = Math.max(0, Math.min(MAX_VALUE, parseInt(savedMood, 10) || 0));
         }
         this._applyHourlyCatchUp(savedLast, firstRunDone);
         this._save(true);
+        this._hideHpUi();
         this._updateLabels();
         // 确保数量为 0 时 Button1/2/3 仍能跳转 AD
         const canvas = find('Canvas');
         if (canvas && !canvas.getComponent(BtnAdGuard)) canvas.addComponent(BtnAdGuard);
         // ad 节点：点击后弹出 Check-in，可领取数量与规则不变
         const adNode = find('Canvas/ad');
-        if (adNode && !adNode.getComponent(AdButton)) adNode.addComponent(AdButton);
+        if (adNode && !adNode.getComponent(AdButton)) {
+            adNode.addComponent(AdButton);
+        }
+        // 道具键由 AdButton 统一绑定；BtnAdGuard 仅处理次数为 0 时跳广告
         // 调试：打印节点与 Label 绑定情况
         const childNames = this.node.children.map(c => c.name);
         console.log('[PetValue] onLoad node =', this.node.name, 'children =', childNames, 'hpLabel?', !!this.hpLabel, 'intimacyLabel?', !!this.intimacyLabel);
-        // 定时任务：每个整点扣减（体力 -3，亲密度 -3）
+        // 定时任务：每个整点扣减心情
         const delayMs = getMsUntilNextFullHour();
         const delaySeconds = Math.max(1, Math.floor(delayMs / 1000));
         this.scheduleOnce(() => {
@@ -109,7 +114,7 @@ export class PetValue extends Component {
         game.off(Game.EVENT_SHOW, this._onGameShow, this);
     }
 
-    /** 从后台回到前台时执行：按距上次整点经过的小时数补扣体力/亲密度，避免长时间挂后台不扣减 */
+    /** 从后台回到前台：补扣心情整点 */
     private _onGameShow() {
         if (!this.isValid) return;
         const savedLast = sys.localStorage.getItem(STORAGE_KEY_LAST);
@@ -119,7 +124,7 @@ export class PetValue extends Component {
     }
 
     /**
-     * 按「上次整点」与「当前整点」的经过小时数扣减体力/亲密度（仅扣减，不写入 LAST；由调用方 _save(true)）。
+     * 按「上次整点」与「当前整点」的经过小时数扣减心情（仅扣减，不写入 LAST；由调用方 _save(true)）。
      * @param savedLast 本地存的 petai_last_update
      * @param doCatchUp 是否执行扣减（首次安装或无 LAST 时不扣）
      */
@@ -136,8 +141,7 @@ export class PetValue extends Component {
         }
         const elapsedHours = Math.max(0, Math.floor((currentHourStart - lastTickHourStart) / MS_PER_HOUR));
         if (elapsedHours > 0) {
-            this._hp = Math.max(0, Math.min(MAX_VALUE, this._hp - elapsedHours * DECREASE_HP_PER_HOUR));
-            this._intimacy = Math.max(0, Math.min(MAX_VALUE, this._intimacy - elapsedHours * DECREASE_INTIMACY_PER_HOUR));
+            this._mood = Math.max(0, Math.min(MAX_VALUE, this._mood - elapsedHours * DECREASE_MOOD_PER_HOUR));
         }
     }
 
@@ -150,8 +154,7 @@ export class PetValue extends Component {
     }
 
     private _tickHourly() {
-        this._hp = Math.max(0, Math.min(MAX_VALUE, this._hp - DECREASE_HP_PER_HOUR));
-        this._intimacy = Math.max(0, Math.min(MAX_VALUE, this._intimacy - DECREASE_INTIMACY_PER_HOUR));
+        this._mood = Math.max(0, Math.min(MAX_VALUE, this._mood - DECREASE_MOOD_PER_HOUR));
         this._save(true);
         this._updateLabels();
     }
@@ -160,7 +163,7 @@ export class PetValue extends Component {
     private _save(updateLastTick = false) {
         try {
             sys.localStorage.setItem(STORAGE_KEY_HP, String(this._hp));
-            sys.localStorage.setItem(STORAGE_KEY_INTIMACY, String(this._intimacy));
+            sys.localStorage.setItem(STORAGE_KEY_MOOD, String(this._mood));
             sys.localStorage.setItem(STORAGE_KEY_FIRST_RUN_DONE, '1');
             if (updateLastTick) {
                 const hourStart = Math.floor(Date.now() / MS_PER_HOUR) * MS_PER_HOUR;
@@ -170,36 +173,30 @@ export class PetValue extends Component {
         } catch (e) { console.warn('[PetValue] 保存失败', e); }
     }
 
+    /** 主界面不展示体力（数值仍存盘）；编辑器里已隐藏时此处兜底 */
+    private _hideHpUi(): void {
+        const petHp = this.node.getChildByName('pet_hp');
+        if (petHp) petHp.active = false;
+        const hp = this.node.getChildByName('hp');
+        if (hp) hp.active = false;
+        if (this.hpLabel?.node) this.hpLabel.node.active = false;
+        if (this.hpBar?.node) this.hpBar.node.active = false;
+    }
+
     private _updateLabels() {
         this._ensureLabels();
         this._ensureBars();
-        if (this.hpLabel) this.hpLabel.string = String(this._hp);
-        if (this.intimacyLabel) this.intimacyLabel.string = String(this._intimacy);
-        if (this.hpBar) this.hpBar.progress = this._hp / MAX_VALUE;
-        if (this.intimacyBar) this.intimacyBar.progress = this._intimacy / MAX_VALUE;
-        // 亲密度 > 80 时显示 highintimate 节点（冒爱心）；优先低值：体力或心情任一低于 20 时不显示
+        this._hideHpUi();
+        if (this.intimacyLabel) this.intimacyLabel.string = String(this._mood);
+        if (this.intimacyBar) this.intimacyBar.progress = this._mood / MAX_VALUE;
         const highNode = this._ensureHighIntimateNode();
-        if (highNode) highNode.active = this.isIntimacyHigh() && !this.isHpLow() && !this.isIntimacyLow();
-        // 体力和心情变化后刷新 pet_info_bar 文案（低于 20 时显示「没力气啦」/「心情很差」）
-        if (PetInfoBar.instance) PetInfoBar.instance.refreshTip();
-        // 体力或心情低于 20 时同步对应提示到 Widget（与 pet_info_bar 一致）
-        const hpLow = this.isHpLow();
-        const intimacyLow = this.isIntimacyLow();
-        if (sys.platform === sys.Platform.ANDROID && sys.isNative) {
-            if (hpLow) {
-                syncWidgetWeather(getHpZeroTip());
-            } else if (intimacyLow) {
-                syncWidgetWeather(getIntimacyZeroTip());
-            } else if (this._prevHpLow || this._prevIntimacyLow) {
-                // 从「体力/心情低」恢复到正常时，清空 Widget 上的对应提示
-                clearWidgetWeather();
-            }
-        }
-        this._prevHpLow = hpLow;
-        this._prevIntimacyLow = intimacyLow;
+        if (highNode) highNode.active = this.isMoodHigh() && !this.isHpLow() && !this.isMoodLow();
+        PetInfoBar.instance?.refreshLowHpFeedPrompt();
     }
 
-    /** 兜底：Inspector 未绑定进度条时，按 pet_value 下两栏（第一栏体力、第二栏亲密）自动查找 ProgressBar */
+    public get mood(): number { return this._mood; }
+
+    /** 兜底：Inspector 未绑定进度条时，按 pet_value 下两栏自动查找 ProgressBar */
     private _ensureBars() {
         if (!this.hpBar && this.node.children.length > 0) {
             const first = this.node.children[0];
@@ -223,31 +220,62 @@ export class PetValue extends Component {
         return this.highIntimateNode;
     }
 
-    /** 麦克风可用条件：体力与心情均 ≥ 60 */
+    /** 麦克风是否可用：不与体力/心情挂钩。 */
     public canUseMicro(): boolean {
-        return this._hp >= 60 && this._intimacy >= 60;
+        return true;
     }
 
-    /** 体力是否低于麦克风门槛（< 60），用于麦克风按钮文案 */
     public isHpLowForMicro(): boolean { return this._hp < 60; }
-    /** 心情（亲密度）是否低于麦克风门槛（< 60），用于麦克风按钮文案 */
-    public isIntimacyLowForMicro(): boolean { return this._intimacy < 60; }
+    public isMoodLowForMicro(): boolean { return this._mood < 60; }
+    /** @deprecated 使用 isMoodLowForMicro */
+    public isIntimacyLowForMicro(): boolean { return this.isMoodLowForMicro(); }
 
     public isHpZero(): boolean { return this._hp <= 0; }
-    /** 体力偏低（没力气）：用于动画切换等，阈值 < 20；提示「没力气啦」仍用 isHpZero。 */
     public isHpLow(): boolean { return this._hp < 20; }
-    public isIntimacyZero(): boolean { return this._intimacy <= 0; }
-    /** 亲密度偏低（心情差）：用于除麦克风以外的「心情为 0」判断，阈值 < 20。 */
-    public isIntimacyLow(): boolean { return this._intimacy < 20; }
-    /** 亲密度高（> 80）：用于冒爱心等表现，需与 isHpLow/isIntimacyLow 一起判断以优先低值。 */
-    public isIntimacyHigh(): boolean { return this._intimacy > 80; }
+
+    /** 对话框内展示「喂食」引导（略早于累趴动画阈值） */
+    public shouldShowFeedBubble(): boolean { return this._hp < 30; }
+    public isMoodZero(): boolean { return this._mood <= 0; }
+    public isMoodLow(): boolean { return this._mood < 20; }
+    public isMoodHigh(): boolean { return this._mood > 80; }
+    /** @deprecated 使用 isMoodZero */
+    public isIntimacyZero(): boolean { return this.isMoodZero(); }
+    /** @deprecated 使用 isMoodLow */
+    public isIntimacyLow(): boolean { return this.isMoodLow(); }
+    /** @deprecated 使用 isMoodHigh */
+    public isIntimacyHigh(): boolean { return this.isMoodHigh(); }
 
     /**
      * 兜底：如果 Inspector 里没有手动绑定 hpLabel/intimacyLabel，
      * 则根据当前节点下的子节点名称自动查找（hp / pet_hp / fs）。
      * 已经在 Inspector 绑定好的情况下不会覆盖。
      */
-    /** 飘字飞抵后，原数值标签做缩放弹跳效果（缩放两次，更明显） */
+    /** 心情条根节点（❤️ 图标 + 数字），二者为 pet_value 下并列子节点 */
+    private _getMoodBarRoot(): Node {
+        return this.node;
+    }
+
+    /** 加心情时：整个心情条（心形 + 数值）一起缩放弹跳 */
+    private _playMoodBarScale() {
+        const root = this._getMoodBarRoot();
+        if (!root?.isValid) return;
+        root.setScale(1, 1, 1);
+        tween(root)
+            .to(0.1, { scale: new Vec3(1.32, 1.32, 1) })
+            .to(0.14, { scale: new Vec3(1, 1, 1) }, { easing: 'backOut' })
+            .to(0.1, { scale: new Vec3(1.24, 1.24, 1) })
+            .to(0.14, { scale: new Vec3(1, 1, 1) }, { easing: 'backOut' })
+            .start();
+    }
+
+    private _playMoodHeartsIfHappy() {
+        if (!this.isMoodHigh() || this.isHpLow() || this.isMoodLow()) return;
+        const hi = find('Canvas/highintimate');
+        const heartComp = hi?.getComponent('HeartBubbleAni') as { burstOnce?(n?: number): void } | null;
+        heartComp?.burstOnce?.(5);
+    }
+
+    /** 其它数值标签（如体力飘字落点）仅缩放文字节点 */
     private _playTargetScale(target: Label) {
         const n = target.node;
         n.setScale(1, 1, 1);
@@ -278,20 +306,96 @@ export class PetValue extends Component {
             if (fsNode) {
                 this.intimacyLabel = fsNode.getComponent(Label) || fsNode.getComponentInChildren(Label);
             }
-            console.log('[PetValue] _ensureLabels intimacyLabel set to', this.intimacyLabel?.node.name ?? 'null');
+            if (!this.intimacyLabel) {
+                const friendship = this.node.getChildByName('pet_friendship');
+                if (friendship) {
+                    this.intimacyLabel = friendship.getComponentInChildren(Label);
+                }
+            }
         }
     }
 
     /**
-     * 飘字动画：起始于宠物节点顶端靠下 100px，0.4 秒后到达宠物节点顶端，停留指定时间后沿轨迹飘向原数值标签。
-     * @param target 目标数值标签（hp 或 intimacy）
-     * @param delta 增减数值
-     * @param petNode 宠物节点（狗/猫），用于确定飘字起始位置；不传则退化为在 target 附近起始
-     * @param offsetX 起始位置水平偏移（用于 Button2 同时两个飘字时左右错开，避免叠在一起）
-     * @param stayDuration 停留时间（秒），默认 3 秒
-     * @param onArrive 飘字飞抵原数值标签后回调（用于延后更新原数值显示）
+     * 心情 +N：在宠物旁上飘并淡出，不飞向 ❤️ 数字；数字立即更新并缩放弹跳。
+     */
+    public _spawnMoodFloatUp(delta: number, petNode?: Node, offsetX: number = 0, onArrive?: () => void) {
+        const target = this.intimacyLabel;
+        if (!target || !delta) return;
+        const canvas = this.node.parent;
+        if (!canvas) return;
+
+        if (onArrive) onArrive();
+        this._playMoodBarScale();
+        this._playMoodHeartsIfHappy();
+        AudioManager.playValueIncreaseSound();
+
+        const deltaNode = new Node('MoodDeltaFloat');
+        deltaNode.addComponent(UITransform);
+        const label = deltaNode.addComponent(Label);
+        label.string = `${delta > 0 ? '+' : ''}${delta}`;
+        const scaleFactor = 1.25;
+        label.fontSize = Math.max(28, target.fontSize * scaleFactor);
+        label.lineHeight = Math.max(32, target.lineHeight * scaleFactor);
+        (label as any).isBold = true;
+        label.color = new Color(255, 105, 180, 255);
+
+        const opacity = deltaNode.addComponent(UIOpacity);
+        opacity.opacity = 0;
+        canvas.addChild(deltaNode);
+
+        const canvasUIT = canvas.getComponent(UITransform);
+        const targetUIT = target.node.getComponent(UITransform);
+        if (!canvasUIT || !targetUIT) {
+            deltaNode.destroy();
+            return;
+        }
+
+        let startLocalPos: Vec3;
+        if (petNode) {
+            const petUIT = petNode.getComponent(UITransform);
+            if (petUIT) {
+                const petH = Math.max(petUIT.contentSize.height, 200);
+                const petStartLocal = new Vec3(0, petH / 2 - 60, 0);
+                startLocalPos = canvasUIT.convertToNodeSpaceAR(petUIT.convertToWorldSpaceAR(petStartLocal));
+            } else {
+                startLocalPos = canvasUIT.convertToNodeSpaceAR(targetUIT.convertToWorldSpaceAR(new Vec3(0, 0, 0)));
+            }
+        } else {
+            startLocalPos = canvasUIT.convertToNodeSpaceAR(targetUIT.convertToWorldSpaceAR(new Vec3(0, 0, 0)));
+        }
+
+        const startX = startLocalPos.x + offsetX;
+        const startY = startLocalPos.y;
+        const startZ = startLocalPos.z;
+        const riseY = 88;
+        const floatDuration = 0.48;
+
+        deltaNode.setPosition(startX, startY, startZ);
+        deltaNode.setScale(0.9, 0.9, 1);
+
+        tween(deltaNode)
+            .to(0.06, { scale: new Vec3(1.12, 1.12, 1) })
+            .to(floatDuration, { position: new Vec3(startX, startY + riseY, startZ) }, { easing: 'sineOut' })
+            .call(() => {
+                if (deltaNode.isValid) deltaNode.destroy();
+            })
+            .start();
+
+        tween(opacity)
+            .to(0.1, { opacity: 255 })
+            .delay(0.12)
+            .to(0.3, { opacity: 0 })
+            .start();
+    }
+
+    /**
+     * 飘字动画：起始于宠物节点顶端靠下 100px，0.4 秒后到达宠物节点顶端，停留指定时间后沿轨迹飘向原数值标签（体力等）。
      */
     public _spawnDeltaLabel(target: Label | null, delta: number, petNode?: Node, offsetX: number = 0, stayDuration: number = 3, onArrive?: () => void) {
+        if (target === this.intimacyLabel) {
+            this._spawnMoodFloatUp(delta, petNode, offsetX, onArrive);
+            return;
+        }
         if (!target || !delta) return;
         const canvas = this.node.parent;
         if (!canvas) return;
@@ -444,49 +548,60 @@ export class PetValue extends Component {
             .start();
     }
 
-    /** Button1：体力 +20，亲密 +5；飘字显示本次加多少（+20/+5），飞抵后数值上限 100 */
+    /** Button1：体力 +20（不展示），心情 +5（飘字） */
     public applyBtn1(petNode?: Node) {
         const addHp = 20;
-        const addIntimacy = 5;
+        const addMood = 5;
         this._hp = Math.min(MAX_VALUE, this._hp + addHp);
-        this._intimacy = Math.min(MAX_VALUE, this._intimacy + addIntimacy);
+        this._mood = Math.min(MAX_VALUE, this._mood + addMood);
         this._save();
         const syncLabels = () => this._updateLabels();
-        if (this.hpLabel || this.intimacyLabel) {
-            if (this.hpLabel) {
-                this._spawnDeltaLabel(this.hpLabel, addHp, petNode, -40);
-            }
-            if (this.intimacyLabel) {
-                this._spawnDeltaLabel(this.intimacyLabel, addIntimacy, petNode, 40, 3, syncLabels);
-            } else {
-                syncLabels();
-            }
+        if (this.intimacyLabel) {
+            this._spawnMoodFloatUp(addMood, petNode, 0, syncLabels);
         } else {
             this._updateLabels();
         }
+        PetInfoBar.instance?.refreshLowHpFeedPrompt();
     }
 
-    /** Button2：亲密 +20；飘字显示本次加多少（+20），飞抵后数值上限 100 */
+    /**
+     * 完成一轮语音/文字聊天：扣体力（无飘字），加心情（桃红飘字 + 更新 ❤️ 数字）。
+     */
+    public applyVoiceChat(petNode?: Node) {
+        this._hp = Math.max(0, this._hp - VOICE_CHAT_HP_COST);
+        const addMood = VOICE_CHAT_MOOD_GAIN;
+        this._mood = Math.min(MAX_VALUE, this._mood + addMood);
+        this._save();
+        const syncLabels = () => this._updateLabels();
+        if (this.intimacyLabel) {
+            this._spawnMoodFloatUp(addMood, petNode, 0, syncLabels);
+        } else {
+            syncLabels();
+        }
+        PetInfoBar.instance?.refreshLowHpFeedPrompt();
+    }
+
+    /** Button2：心情 +20 */
     public applyBtn2(petNode?: Node) {
-        const addIntimacy = 20;
-        this._intimacy = Math.min(MAX_VALUE, this._intimacy + addIntimacy);
+        const addMood = 20;
+        this._mood = Math.min(MAX_VALUE, this._mood + addMood);
         this._save();
         const syncLabels = () => this._updateLabels();
         if (this.intimacyLabel) {
-            this._spawnDeltaLabel(this.intimacyLabel, addIntimacy, petNode, 0, 3, syncLabels);
+            this._spawnMoodFloatUp(addMood, petNode, 0, syncLabels);
         } else {
             this._updateLabels();
         }
     }
 
-    /** Button3：亲密 +20；飘字显示本次加多少（+20），飞抵后数值上限 100 */
+    /** Button3：心情 +20 */
     public applyBtn3(petNode?: Node) {
-        const addIntimacy = 20;
-        this._intimacy = Math.min(MAX_VALUE, this._intimacy + addIntimacy);
+        const addMood = 20;
+        this._mood = Math.min(MAX_VALUE, this._mood + addMood);
         this._save();
         const syncLabels = () => this._updateLabels();
         if (this.intimacyLabel) {
-            this._spawnDeltaLabel(this.intimacyLabel, addIntimacy, petNode, 0, 3, syncLabels);
+            this._spawnMoodFloatUp(addMood, petNode, 0, syncLabels);
         } else {
             this._updateLabels();
         }
@@ -503,41 +618,29 @@ export class PetValue extends Component {
         sys.localStorage.setItem(STORAGE_KEY_TODAY_PET_COUNT, String(count));
     }
 
-    /** Button0：随机加体力或亲密 +2；飘字显示本次加多少（+2），飞抵后数值上限 100 */
+    /** Button0：心情 +2 */
     public applyBtn0(petNode?: Node) {
         PetValue.incrementTodayPetCount();
-        const add = 2;
-        const isHp = Math.random() < 0.5;
-        if (isHp) {
-            this._hp = Math.min(MAX_VALUE, this._hp + add);
-            this._save();
-            const syncLabels = () => this._updateLabels();
-            if (this.hpLabel) {
-                this._spawnDeltaLabel(this.hpLabel, add, petNode, 0, 0.5, syncLabels);
-            } else {
-                this._updateLabels();
-            }
-        } else {
-            this._intimacy = Math.min(MAX_VALUE, this._intimacy + add);
-            this._save();
-            const syncLabels = () => this._updateLabels();
-            if (this.intimacyLabel) {
-                this._spawnDeltaLabel(this.intimacyLabel, add, petNode, 0, 0.5, syncLabels);
-            } else {
-                this._updateLabels();
-            }
-        }
-    }
-
-    /** 滑动：亲密 +5；飘字显示本次加多少（+5），飞抵后数值上限 100 */
-    public applySwipe(petNode?: Node) {
-        PetValue.incrementTodayPetCount();
-        const addIntimacy = 5;
-        this._intimacy = Math.min(MAX_VALUE, this._intimacy + addIntimacy);
+        const addMood = 2;
+        this._mood = Math.min(MAX_VALUE, this._mood + addMood);
         this._save();
         const syncLabels = () => this._updateLabels();
         if (this.intimacyLabel) {
-            this._spawnDeltaLabel(this.intimacyLabel, addIntimacy, petNode, 0, 0.5, syncLabels);
+            this._spawnMoodFloatUp(addMood, petNode, 0, syncLabels);
+        } else {
+            this._updateLabels();
+        }
+    }
+
+    /** 滑动：心情 +5 */
+    public applySwipe(petNode?: Node) {
+        PetValue.incrementTodayPetCount();
+        const addMood = 5;
+        this._mood = Math.min(MAX_VALUE, this._mood + addMood);
+        this._save();
+        const syncLabels = () => this._updateLabels();
+        if (this.intimacyLabel) {
+            this._spawnMoodFloatUp(addMood, petNode, 0, syncLabels);
         } else {
             this._updateLabels();
         }

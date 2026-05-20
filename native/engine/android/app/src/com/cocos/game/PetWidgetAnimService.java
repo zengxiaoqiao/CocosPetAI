@@ -112,14 +112,10 @@ public class PetWidgetAnimService extends Service {
                 Context app = getApplicationContext();
                 AppWidgetManager wm = AppWidgetManager.getInstance(app);
                 int[] idsSmall = wm.getAppWidgetIds(new ComponentName(app, PetWidgetProvider.class));
-                int[] idsLarge = wm.getAppWidgetIds(new ComponentName(app, PetWidgetLargeProvider.class));
                 if (idsSmall != null && idsSmall.length > 0) {
                     PetWidgetProvider.updateAll(app, wm, idsSmall);
                 }
-                if (idsLarge != null && idsLarge.length > 0) {
-                    PetWidgetLargeProvider.updateAll(app, wm, idsLarge);
-                }
-                if ((idsSmall != null && idsSmall.length > 0) || (idsLarge != null && idsLarge.length > 0)) {
+                if (idsSmall != null && idsSmall.length > 0) {
                     handler.postDelayed(this, ANIM_INTERVAL_MS);
                 }
             }
@@ -184,12 +180,8 @@ public class PetWidgetAnimService extends Service {
         AppWidgetManager wm = AppWidgetManager.getInstance(app);
         if (wm == null) return;
         int[] idsSmall = wm.getAppWidgetIds(new ComponentName(app, PetWidgetProvider.class));
-        int[] idsLarge = wm.getAppWidgetIds(new ComponentName(app, PetWidgetLargeProvider.class));
         if (idsSmall != null && idsSmall.length > 0) {
             PetWidgetProvider.updateAll(app, wm, idsSmall);
-        }
-        if (idsLarge != null && idsLarge.length > 0) {
-            PetWidgetLargeProvider.updateAll(app, wm, idsLarge);
         }
     }
 

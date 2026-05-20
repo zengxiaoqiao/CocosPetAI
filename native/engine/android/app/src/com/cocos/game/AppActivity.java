@@ -31,8 +31,6 @@ import android.content.Context;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
-import android.location.Location;
-import android.location.LocationManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.Settings;
@@ -68,7 +66,6 @@ public class AppActivity extends CocosActivity {
 
     private static final String TAG = "AppActivity";
     private static final int REQUEST_RECORD_AUDIO = 1001;
-    private static final int REQUEST_LOCATION_COARSE = 1002;
     private static AppActivity sInstance;
     private static IflytekAsrEngine sIflytekAsr;
     private static volatile String sAsrLatestText = "";
@@ -296,35 +293,27 @@ public class AppActivity extends CocosActivity {
         // 先清掉无网时间戳，避免之前误记导致「有网却显示无网」；再按当前网络状态刷新
         PetWidgetSync.clearNoNetworkState(app);
         int[] idsSmall = wm.getAppWidgetIds(new ComponentName(app, PetWidgetProvider.class));
-        int[] idsLarge = wm.getAppWidgetIds(new ComponentName(app, PetWidgetLargeProvider.class));
         if (idsSmall != null && idsSmall.length > 0) {
             PetWidgetProvider.updateAll(app, wm, idsSmall);
         }
-        if (idsLarge != null && idsLarge.length > 0) {
-            PetWidgetLargeProvider.updateAll(app, wm, idsLarge);
-        }
         // 延迟约 1.5 秒再刷新一次，避免刚进 App 时系统网络状态尚未就绪被误判为无网
-        if ((idsSmall != null && idsSmall.length > 0) || (idsLarge != null && idsLarge.length > 0)) {
+        if (idsSmall != null && idsSmall.length > 0) {
             getWindow().getDecorView().postDelayed(() -> {
                 if (wm != null && idsSmall != null && idsSmall.length > 0) {
                     PetWidgetProvider.updateAll(app, wm, idsSmall);
-                }
-                if (wm != null && idsLarge != null && idsLarge.length > 0) {
-                    PetWidgetLargeProvider.updateAll(app, wm, idsLarge);
                 }
             }, 1500);
         }
     }
 
     /**
-     * 若有宠物 Widget（小号或大号）在桌面，从前台启动动画服务（Android 14/15 不允许从广播后台启动）
+     * 若有宠物小号 Widget 在桌面，从前台启动动画服务（Android 14/15 不允许从广播后台启动）
      */
     private void startWidgetAnimServiceIfHasWidget() {
         AppWidgetManager wm = AppWidgetManager.getInstance(this);
         if (wm == null) return;
         int[] idsSmall = wm.getAppWidgetIds(new ComponentName(this, PetWidgetProvider.class));
-        int[] idsLarge = wm.getAppWidgetIds(new ComponentName(this, PetWidgetLargeProvider.class));
-        boolean hasWidget = (idsSmall != null && idsSmall.length > 0) || (idsLarge != null && idsLarge.length > 0);
+        boolean hasWidget = idsSmall != null && idsSmall.length > 0;
         if (!hasWidget) return;
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             startForegroundService(new Intent(this, PetWidgetAnimService.class));
@@ -569,28 +558,6 @@ public class AppActivity extends CocosActivity {
     }
 
     /**
-     * 供 JS 调用：弹出系统添加「大号」宠物 Widget 的对话框
-     */
-    public static void requestPinPetWidgetLarge() {
-        if (sInstance == null) return;
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.O) return;
-        sInstance.runOnUiThread(() -> {
-            try {
-                AppWidgetManager mgr = AppWidgetManager.getInstance(sInstance);
-                ComponentName provider = new ComponentName(sInstance, PetWidgetLargeProvider.class);
-                if (mgr != null && mgr.isRequestPinAppWidgetSupported()) {
-                    mgr.requestPinAppWidget(provider, null, null);
-                } else {
-                    Toast.makeText(sInstance, "桌面不支持应用内添加，请在桌面长按→小组件添加", Toast.LENGTH_LONG).show();
-                }
-            } catch (Exception e) {
-                Log.w("AppActivity", "requestPinPetWidgetLarge failed", e);
-                Toast.makeText(sInstance, "无法弹出添加小组件弹窗", Toast.LENGTH_SHORT).show();
-            }
-        });
-    }
-
-    /**
      * 供 JS 调用：打开系统“通知使用权/通知访问”设置页，方便用户开启权限
      */
     public static void openNotificationAccessSettings() {
@@ -600,44 +567,6 @@ public class AppActivity extends CocosActivity {
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             sInstance.startActivity(intent);
         } catch (Exception ignored) {
-        }
-    }
-
-    /**
-     * 供 JS 调用：返回最后一次已知位置 "lat,lon"（仅粗略位置），无权限或失败返回空字符串。
-     */
-    public static String getLastKnownLocation() {
-        if (sInstance == null) return "";
-        Context ctx = sInstance;
-        try {
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                if (ctx.checkSelfPermission(Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-                    // 触发一次权限申请，下次再调用时如果用户同意，就能拿到位置
-                    sInstance.requestPermissions(new String[]{Manifest.permission.ACCESS_COARSE_LOCATION}, REQUEST_LOCATION_COARSE);
-                    return "";
-                }
-            }
-            LocationManager lm = (LocationManager) ctx.getSystemService(Context.LOCATION_SERVICE);
-            if (lm == null) return "";
-            Location loc = null;
-            try {
-                if (lm.isProviderEnabled(LocationManager.NETWORK_PROVIDER)) {
-                    loc = lm.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
-                }
-            } catch (Exception ignored) {
-            }
-            if (loc == null) {
-                try {
-                    if (lm.isProviderEnabled(LocationManager.GPS_PROVIDER)) {
-                        loc = lm.getLastKnownLocation(LocationManager.GPS_PROVIDER);
-                    }
-                } catch (Exception ignored) {
-                }
-            }
-            if (loc == null) return "";
-            return loc.getLatitude() + "," + loc.getLongitude();
-        } catch (Exception ignored) {
-            return "";
         }
     }
 

@@ -1,8 +1,13 @@
-import { _decorator, Component, EditBox, Label, Button, Node } from 'cc';
+import { _decorator, Component, EditBox, Label, Button, Node, sys, find } from 'cc';
 import { TokitChatService } from './llm_v2/TokitChatService';
 import { PetInfoBar } from './PetInfoBar';
 import { PetVocalizer } from './PetVocalizer';
 import { PetWake } from './PetWake';
+import { PetValue } from './PetValue';
+import { DogController } from './DogController';
+import { CatController } from './CatController';
+
+const STORAGE_KEY_PET = 'petai_pet_choice';
 const { ccclass, property } = _decorator;
 
 @ccclass('AIChatDemo')
@@ -69,6 +74,14 @@ export class AIChatDemo extends Component {
         // Intentionally no text: user requested not to show "clicked" hints.
     }
 
+    private _applyChatRewards() {
+        const isCat = sys.localStorage.getItem(STORAGE_KEY_PET) === 'cat';
+        const petNode = isCat
+            ? find('Canvas')?.getComponentInChildren(CatController)?.node
+            : find('Canvas')?.getComponentInChildren(DogController)?.node;
+        PetValue.instance?.applyVoiceChat(petNode ?? undefined);
+    }
+
     private async _runAutoTest() {
         const label = this.aiReplyLabel;
         const msg = (this.autoTestMessage || '').trim() || '你好';
@@ -79,6 +92,7 @@ export class AIChatDemo extends Component {
             console.log('[AIChatDemo] autoTest reply:', reply);
             if (label) label.string = reply || '(empty)';
             if (reply) {
+                this._applyChatRewards();
                 PetInfoBar.instance?.showUserHint(reply, 6);
                 PetWake.wakeToRespond();
                 PetVocalizer.playReplyVocal(reply);
@@ -110,6 +124,7 @@ export class AIChatDemo extends Component {
             const reply = await TokitChatService.sendMessage(msg);
             if (label) label.string = reply;
             if (reply) {
+                this._applyChatRewards();
                 PetInfoBar.instance?.showUserHint(reply, 6);
                 PetWake.wakeToRespond();
                 PetVocalizer.playReplyVocal(reply);

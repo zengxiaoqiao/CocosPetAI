@@ -15,7 +15,7 @@
         "/Applications/Cocos/Creator/3.8.8/CocosCreator.app/Contents/Resources/resources/3d/engine/editor/assets/*"
       ],
       "db://assets/*": [
-        "/Users/yijunzhu/AndroidStudio/CocosPetAI/assets/*"
+        "/Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/*"
       ]
     },
     "experimentalDecorators": true,

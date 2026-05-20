@@ -1,7 +1,7 @@
 {
   "modules": {
     "cce:/internal/x/cc": {
-      "mTimestamp": 2810.802667,
+      "mTimestamp": 4030.922,
       "chunkId": "93ba276ea7b26ffcdc433fab14afc1ed6f05647b",
       "imports": [
         {
@@ -514,7 +514,7 @@
       ]
     },
     "cce:/internal/x/prerequisite-imports": {
-      "mTimestamp": 12035411.640709,
+      "mTimestamp": 5878238.602667,
       "chunkId": "6d8fd2b0177941b032ddc0733af48a561fb60657",
       "imports": [
         {
@@ -602,7 +602,7 @@
           }
         },
         {
-          "value": "file:///Users/yijunzhu/AndroidStudio/CocosPetAI/assets/scripts/AIChatService.ts",
+          "value": "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/AIChatService.ts",
           "resolved": "__unresolved_6",
           "loc": {
             "start": {
@@ -611,12 +611,12 @@
             },
             "end": {
               "line": 10,
-              "column": 88
+              "column": 95
             }
           }
         },
         {
-          "value": "file:///Users/yijunzhu/AndroidStudio/CocosPetAI/assets/scripts/AIchatDemo.ts",
+          "value": "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/AIchatDemo.ts",
           "resolved": "__unresolved_7",
           "loc": {
             "start": {
@@ -625,12 +625,12 @@
             },
             "end": {
               "line": 11,
-              "column": 85
+              "column": 92
             }
           }
         },
         {
-          "value": "file:///Users/yijunzhu/AndroidStudio/CocosPetAI/assets/scripts/AdButton.ts",
+          "value": "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/AdButton.ts",
           "resolved": "__unresolved_8",
           "loc": {
             "start": {
@@ -639,12 +639,12 @@
             },
             "end": {
               "line": 12,
-              "column": 83
+              "column": 90
             }
           }
         },
         {
-          "value": "file:///Users/yijunzhu/AndroidStudio/CocosPetAI/assets/scripts/AppVersion.ts",
+          "value": "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/AppVersion.ts",
           "resolved": "__unresolved_9",
           "loc": {
             "start": {
@@ -653,12 +653,12 @@
             },
             "end": {
               "line": 13,
-              "column": 85
+              "column": 92
             }
           }
         },
         {
-          "value": "file:///Users/yijunzhu/AndroidStudio/CocosPetAI/assets/scripts/AudioControl.ts",
+          "value": "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/AudioControl.ts",
           "resolved": "__unresolved_10",
           "loc": {
             "start": {
@@ -667,12 +667,12 @@
             },
             "end": {
               "line": 14,
-              "column": 87
+              "column": 94
             }
           }
         },
         {
-          "value": "file:///Users/yijunzhu/AndroidStudio/CocosPetAI/assets/scripts/AudioManager.ts",
+          "value": "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/AudioManager.ts",
           "resolved": "__unresolved_11",
           "loc": {
             "start": {
@@ -681,12 +681,12 @@
             },
             "end": {
               "line": 15,
-              "column": 87
+              "column": 94
             }
           }
         },
         {
-          "value": "file:///Users/yijunzhu/AndroidStudio/CocosPetAI/assets/scripts/BtnAdGuard.ts",
+          "value": "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/BtnAdGuard.ts",
           "resolved": "__unresolved_12",
           "loc": {
             "start": {
@@ -695,12 +695,12 @@
             },
             "end": {
               "line": 16,
-              "column": 85
+              "column": 92
             }
           }
         },
         {
-          "value": "file:///Users/yijunzhu/AndroidStudio/CocosPetAI/assets/scripts/BtnMicroRandomText.ts",
+          "value": "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/BtnMicroRandomText.ts",
           "resolved": "__unresolved_13",
           "loc": {
             "start": {
@@ -709,12 +709,12 @@
             },
             "end": {
               "line": 17,
-              "column": 93
+              "column": 100
             }
           }
         },
         {
-          "value": "file:///Users/yijunzhu/AndroidStudio/CocosPetAI/assets/scripts/BtnMicroRecord.ts",
+          "value": "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/BtnMicroRecord.ts",
           "resolved": "__unresolved_14",
           "loc": {
             "start": {
@@ -723,12 +723,12 @@
             },
             "end": {
               "line": 18,
-              "column": 89
+              "column": 96
             }
           }
         },
         {
-          "value": "file:///Users/yijunzhu/AndroidStudio/CocosPetAI/assets/scripts/CatAnimSound.ts",
+          "value": "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/CatAnimSound.ts",
           "resolved": "__unresolved_15",
           "loc": {
             "start": {
@@ -737,12 +737,12 @@
             },
             "end": {
               "line": 19,
-              "column": 87
+              "column": 94
             }
           }
         },
         {
-          "value": "file:///Users/yijunzhu/AndroidStudio/CocosPetAI/assets/scripts/CatController.ts",
+          "value": "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/CatController.ts",
           "resolved": "__unresolved_16",
           "loc": {
             "start": {
@@ -751,12 +751,12 @@
             },
             "end": {
               "line": 20,
-              "column": 88
+              "column": 95
             }
           }
         },
         {
-          "value": "file:///Users/yijunzhu/AndroidStudio/CocosPetAI/assets/scripts/CheckInPanel.ts",
+          "value": "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/CheckInPanel.ts",
           "resolved": "__unresolved_17",
           "loc": {
             "start": {
@@ -765,12 +765,12 @@
             },
             "end": {
               "line": 21,
-              "column": 87
+              "column": 94
             }
           }
         },
         {
-          "value": "file:///Users/yijunzhu/AndroidStudio/CocosPetAI/assets/scripts/DateUtil.ts",
+          "value": "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/CompanionDays.ts",
           "resolved": "__unresolved_18",
           "loc": {
             "start": {
@@ -779,12 +779,12 @@
             },
             "end": {
               "line": 22,
-              "column": 83
+              "column": 95
             }
           }
         },
         {
-          "value": "file:///Users/yijunzhu/AndroidStudio/CocosPetAI/assets/scripts/DogAnimSound.ts",
+          "value": "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/CompanionDaysDisplay.ts",
           "resolved": "__unresolved_19",
           "loc": {
             "start": {
@@ -793,12 +793,12 @@
             },
             "end": {
               "line": 23,
-              "column": 87
+              "column": 102
             }
           }
         },
         {
-          "value": "file:///Users/yijunzhu/AndroidStudio/CocosPetAI/assets/scripts/DogController.ts",
+          "value": "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/CustomizeScene.ts",
           "resolved": "__unresolved_20",
           "loc": {
             "start": {
@@ -807,12 +807,12 @@
             },
             "end": {
               "line": 24,
-              "column": 88
+              "column": 96
             }
           }
         },
         {
-          "value": "file:///Users/yijunzhu/AndroidStudio/CocosPetAI/assets/scripts/HeartBubbleAni.ts",
+          "value": "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/DateUtil.ts",
           "resolved": "__unresolved_21",
           "loc": {
             "start": {
@@ -821,12 +821,12 @@
             },
             "end": {
               "line": 25,
-              "column": 89
+              "column": 90
             }
           }
         },
         {
-          "value": "file:///Users/yijunzhu/AndroidStudio/CocosPetAI/assets/scripts/HomeNav.ts",
+          "value": "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/DogAnimSound.ts",
           "resolved": "__unresolved_22",
           "loc": {
             "start": {
@@ -835,12 +835,12 @@
             },
             "end": {
               "line": 26,
-              "column": 82
+              "column": 94
             }
           }
         },
         {
-          "value": "file:///Users/yijunzhu/AndroidStudio/CocosPetAI/assets/scripts/HomePopupMask.ts",
+          "value": "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/DogController.ts",
           "resolved": "__unresolved_23",
           "loc": {
             "start": {
@@ -849,12 +849,12 @@
             },
             "end": {
               "line": 27,
-              "column": 88
+              "column": 95
             }
           }
         },
         {
-          "value": "file:///Users/yijunzhu/AndroidStudio/CocosPetAI/assets/scripts/HomeWidgetButton.ts",
+          "value": "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/HeartBubbleAni.ts",
           "resolved": "__unresolved_24",
           "loc": {
             "start": {
@@ -863,12 +863,12 @@
             },
             "end": {
               "line": 28,
-              "column": 91
+              "column": 96
             }
           }
         },
         {
-          "value": "file:///Users/yijunzhu/AndroidStudio/CocosPetAI/assets/scripts/Lang.ts",
+          "value": "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/HomeNav.ts",
           "resolved": "__unresolved_25",
           "loc": {
             "start": {
@@ -877,12 +877,12 @@
             },
             "end": {
               "line": 29,
-              "column": 79
+              "column": 89
             }
           }
         },
         {
-          "value": "file:///Users/yijunzhu/AndroidStudio/CocosPetAI/assets/scripts/MotionTipService.ts",
+          "value": "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/HomePopupMask.ts",
           "resolved": "__unresolved_26",
           "loc": {
             "start": {
@@ -891,12 +891,12 @@
             },
             "end": {
               "line": 30,
-              "column": 91
+              "column": 95
             }
           }
         },
         {
-          "value": "file:///Users/yijunzhu/AndroidStudio/CocosPetAI/assets/scripts/NativeASR.ts",
+          "value": "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/HomeWidgetButton.ts",
           "resolved": "__unresolved_27",
           "loc": {
             "start": {
@@ -905,12 +905,12 @@
             },
             "end": {
               "line": 31,
-              "column": 84
+              "column": 98
             }
           }
         },
         {
-          "value": "file:///Users/yijunzhu/AndroidStudio/CocosPetAI/assets/scripts/NotificationSettings.ts",
+          "value": "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/Lang.ts",
           "resolved": "__unresolved_28",
           "loc": {
             "start": {
@@ -919,12 +919,12 @@
             },
             "end": {
               "line": 32,
-              "column": 95
+              "column": 86
             }
           }
         },
         {
-          "value": "file:///Users/yijunzhu/AndroidStudio/CocosPetAI/assets/scripts/PetButtons.ts",
+          "value": "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/MicWaveform.ts",
           "resolved": "__unresolved_29",
           "loc": {
             "start": {
@@ -933,12 +933,12 @@
             },
             "end": {
               "line": 33,
-              "column": 85
+              "column": 93
             }
           }
         },
         {
-          "value": "file:///Users/yijunzhu/AndroidStudio/CocosPetAI/assets/scripts/PetControllerBase.ts",
+          "value": "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/MotionTipService.ts",
           "resolved": "__unresolved_30",
           "loc": {
             "start": {
@@ -947,12 +947,12 @@
             },
             "end": {
               "line": 34,
-              "column": 92
+              "column": 98
             }
           }
         },
         {
-          "value": "file:///Users/yijunzhu/AndroidStudio/CocosPetAI/assets/scripts/PetInfoBar.ts",
+          "value": "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/NativeASR.ts",
           "resolved": "__unresolved_31",
           "loc": {
             "start": {
@@ -961,12 +961,12 @@
             },
             "end": {
               "line": 35,
-              "column": 85
+              "column": 91
             }
           }
         },
         {
-          "value": "file:///Users/yijunzhu/AndroidStudio/CocosPetAI/assets/scripts/PetValue.ts",
+          "value": "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/NotificationSettings.ts",
           "resolved": "__unresolved_32",
           "loc": {
             "start": {
@@ -975,12 +975,12 @@
             },
             "end": {
               "line": 36,
-              "column": 83
+              "column": 102
             }
           }
         },
         {
-          "value": "file:///Users/yijunzhu/AndroidStudio/CocosPetAI/assets/scripts/PetVocalizer.ts",
+          "value": "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/PetButtons.ts",
           "resolved": "__unresolved_33",
           "loc": {
             "start": {
@@ -989,12 +989,12 @@
             },
             "end": {
               "line": 37,
-              "column": 87
+              "column": 92
             }
           }
         },
         {
-          "value": "file:///Users/yijunzhu/AndroidStudio/CocosPetAI/assets/scripts/PetWake.ts",
+          "value": "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/PetControllerBase.ts",
           "resolved": "__unresolved_34",
           "loc": {
             "start": {
@@ -1003,12 +1003,12 @@
             },
             "end": {
               "line": 38,
-              "column": 82
+              "column": 99
             }
           }
         },
         {
-          "value": "file:///Users/yijunzhu/AndroidStudio/CocosPetAI/assets/scripts/RandomPlayCatAni.ts",
+          "value": "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/PetInfoBar.ts",
           "resolved": "__unresolved_35",
           "loc": {
             "start": {
@@ -1017,12 +1017,12 @@
             },
             "end": {
               "line": 39,
-              "column": 91
+              "column": 92
             }
           }
         },
         {
-          "value": "file:///Users/yijunzhu/AndroidStudio/CocosPetAI/assets/scripts/RandomPlayDogAni.ts",
+          "value": "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/PetUnlock.ts",
           "resolved": "__unresolved_36",
           "loc": {
             "start": {
@@ -1036,7 +1036,7 @@
           }
         },
         {
-          "value": "file:///Users/yijunzhu/AndroidStudio/CocosPetAI/assets/scripts/RandomPlayPetAni.ts",
+          "value": "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/PetValue.ts",
           "resolved": "__unresolved_37",
           "loc": {
             "start": {
@@ -1045,12 +1045,12 @@
             },
             "end": {
               "line": 41,
-              "column": 91
+              "column": 90
             }
           }
         },
         {
-          "value": "file:///Users/yijunzhu/AndroidStudio/CocosPetAI/assets/scripts/RechargePanel.ts",
+          "value": "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/PetVocalizer.ts",
           "resolved": "__unresolved_38",
           "loc": {
             "start": {
@@ -1059,12 +1059,12 @@
             },
             "end": {
               "line": 42,
-              "column": 88
+              "column": 94
             }
           }
         },
         {
-          "value": "file:///Users/yijunzhu/AndroidStudio/CocosPetAI/assets/scripts/SettingsCopy.ts",
+          "value": "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/PetWake.ts",
           "resolved": "__unresolved_39",
           "loc": {
             "start": {
@@ -1073,12 +1073,12 @@
             },
             "end": {
               "line": 43,
-              "column": 87
+              "column": 89
             }
           }
         },
         {
-          "value": "file:///Users/yijunzhu/AndroidStudio/CocosPetAI/assets/scripts/SettingsLocale.ts",
+          "value": "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/RandomPlayCatAni.ts",
           "resolved": "__unresolved_40",
           "loc": {
             "start": {
@@ -1087,12 +1087,12 @@
             },
             "end": {
               "line": 44,
-              "column": 89
+              "column": 98
             }
           }
         },
         {
-          "value": "file:///Users/yijunzhu/AndroidStudio/CocosPetAI/assets/scripts/SharedBtnCounts.ts",
+          "value": "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/RandomPlayDogAni.ts",
           "resolved": "__unresolved_41",
           "loc": {
             "start": {
@@ -1101,12 +1101,12 @@
             },
             "end": {
               "line": 45,
-              "column": 90
+              "column": 98
             }
           }
         },
         {
-          "value": "file:///Users/yijunzhu/AndroidStudio/CocosPetAI/assets/scripts/SwipeState.ts",
+          "value": "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/RandomPlayPetAni.ts",
           "resolved": "__unresolved_42",
           "loc": {
             "start": {
@@ -1115,12 +1115,12 @@
             },
             "end": {
               "line": 46,
-              "column": 85
+              "column": 98
             }
           }
         },
         {
-          "value": "file:///Users/yijunzhu/AndroidStudio/CocosPetAI/assets/scripts/TipCopy.ts",
+          "value": "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/RechargePanel.ts",
           "resolved": "__unresolved_43",
           "loc": {
             "start": {
@@ -1129,12 +1129,12 @@
             },
             "end": {
               "line": 47,
-              "column": 82
+              "column": 95
             }
           }
         },
         {
-          "value": "file:///Users/yijunzhu/AndroidStudio/CocosPetAI/assets/scripts/TogglePet.ts",
+          "value": "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/SettingsCopy.ts",
           "resolved": "__unresolved_44",
           "loc": {
             "start": {
@@ -1143,12 +1143,12 @@
             },
             "end": {
               "line": 48,
-              "column": 84
+              "column": 94
             }
           }
         },
         {
-          "value": "file:///Users/yijunzhu/AndroidStudio/CocosPetAI/assets/scripts/WeatherService.ts",
+          "value": "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/SettingsLocale.ts",
           "resolved": "__unresolved_45",
           "loc": {
             "start": {
@@ -1157,12 +1157,12 @@
             },
             "end": {
               "line": 49,
-              "column": 89
+              "column": 96
             }
           }
         },
         {
-          "value": "file:///Users/yijunzhu/AndroidStudio/CocosPetAI/assets/scripts/WidgetChoosePanel.ts",
+          "value": "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/SharedBtnCounts.ts",
           "resolved": "__unresolved_46",
           "loc": {
             "start": {
@@ -1171,12 +1171,12 @@
             },
             "end": {
               "line": 50,
-              "column": 92
+              "column": 97
             }
           }
         },
         {
-          "value": "file:///Users/yijunzhu/AndroidStudio/CocosPetAI/assets/scripts/WidgetSync.ts",
+          "value": "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/ShopPurchase.ts",
           "resolved": "__unresolved_47",
           "loc": {
             "start": {
@@ -1185,12 +1185,12 @@
             },
             "end": {
               "line": 51,
-              "column": 85
+              "column": 94
             }
           }
         },
         {
-          "value": "file:///Users/yijunzhu/AndroidStudio/CocosPetAI/assets/scripts/llm_v2/ChatContextStore.ts",
+          "value": "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/ShopScene.ts",
           "resolved": "__unresolved_48",
           "loc": {
             "start": {
@@ -1199,12 +1199,12 @@
             },
             "end": {
               "line": 52,
-              "column": 98
+              "column": 91
             }
           }
         },
         {
-          "value": "file:///Users/yijunzhu/AndroidStudio/CocosPetAI/assets/scripts/llm_v2/HttpTimeouts.ts",
+          "value": "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/SwipeState.ts",
           "resolved": "__unresolved_49",
           "loc": {
             "start": {
@@ -1213,12 +1213,12 @@
             },
             "end": {
               "line": 53,
-              "column": 94
+              "column": 92
             }
           }
         },
         {
-          "value": "file:///Users/yijunzhu/AndroidStudio/CocosPetAI/assets/scripts/llm_v2/LlmConfigParams.ts",
+          "value": "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/TipCopy.ts",
           "resolved": "__unresolved_50",
           "loc": {
             "start": {
@@ -1227,12 +1227,12 @@
             },
             "end": {
               "line": 54,
-              "column": 97
+              "column": 89
             }
           }
         },
         {
-          "value": "file:///Users/yijunzhu/AndroidStudio/CocosPetAI/assets/scripts/llm_v2/LlmRemoteConfig.ts",
+          "value": "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/TogglePet.ts",
           "resolved": "__unresolved_51",
           "loc": {
             "start": {
@@ -1241,12 +1241,12 @@
             },
             "end": {
               "line": 55,
-              "column": 97
+              "column": 91
             }
           }
         },
         {
-          "value": "file:///Users/yijunzhu/AndroidStudio/CocosPetAI/assets/scripts/llm_v2/NativeXhrHttp.ts",
+          "value": "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/WidgetChoosePanel.ts",
           "resolved": "__unresolved_52",
           "loc": {
             "start": {
@@ -1255,12 +1255,12 @@
             },
             "end": {
               "line": 56,
-              "column": 95
+              "column": 99
             }
           }
         },
         {
-          "value": "file:///Users/yijunzhu/AndroidStudio/CocosPetAI/assets/scripts/llm_v2/TokitChatService.ts",
+          "value": "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/WidgetSync.ts",
           "resolved": "__unresolved_53",
           "loc": {
             "start": {
@@ -1269,7 +1269,91 @@
             },
             "end": {
               "line": 57,
-              "column": 98
+              "column": 92
+            }
+          }
+        },
+        {
+          "value": "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/llm_v2/ChatContextStore.ts",
+          "resolved": "__unresolved_54",
+          "loc": {
+            "start": {
+              "line": 58,
+              "column": 7
+            },
+            "end": {
+              "line": 58,
+              "column": 105
+            }
+          }
+        },
+        {
+          "value": "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/llm_v2/HttpTimeouts.ts",
+          "resolved": "__unresolved_55",
+          "loc": {
+            "start": {
+              "line": 59,
+              "column": 7
+            },
+            "end": {
+              "line": 59,
+              "column": 101
+            }
+          }
+        },
+        {
+          "value": "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/llm_v2/LlmConfigParams.ts",
+          "resolved": "__unresolved_56",
+          "loc": {
+            "start": {
+              "line": 60,
+              "column": 7
+            },
+            "end": {
+              "line": 60,
+              "column": 104
+            }
+          }
+        },
+        {
+          "value": "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/llm_v2/LlmRemoteConfig.ts",
+          "resolved": "__unresolved_57",
+          "loc": {
+            "start": {
+              "line": 61,
+              "column": 7
+            },
+            "end": {
+              "line": 61,
+              "column": 104
+            }
+          }
+        },
+        {
+          "value": "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/llm_v2/NativeXhrHttp.ts",
+          "resolved": "__unresolved_58",
+          "loc": {
+            "start": {
+              "line": 62,
+              "column": 7
+            },
+            "end": {
+              "line": 62,
+              "column": 102
+            }
+          }
+        },
+        {
+          "value": "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/llm_v2/TokitChatService.ts",
+          "resolved": "__unresolved_59",
+          "loc": {
+            "start": {
+              "line": 63,
+              "column": 7
+            },
+            "end": {
+              "line": 63,
+              "column": 105
             }
           }
         }
@@ -1321,336 +1405,378 @@
         {
           "resolved": {
             "type": "module",
-            "url": "file:///Users/yijunzhu/AndroidStudio/CocosPetAI/assets/scripts/AIChatService.ts"
+            "url": "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/AIChatService.ts"
           },
           "messages": []
         },
         {
           "resolved": {
             "type": "module",
-            "url": "file:///Users/yijunzhu/AndroidStudio/CocosPetAI/assets/scripts/AIchatDemo.ts"
+            "url": "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/AIchatDemo.ts"
           },
           "messages": []
         },
         {
           "resolved": {
             "type": "module",
-            "url": "file:///Users/yijunzhu/AndroidStudio/CocosPetAI/assets/scripts/AdButton.ts"
+            "url": "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/AdButton.ts"
           },
           "messages": []
         },
         {
           "resolved": {
             "type": "module",
-            "url": "file:///Users/yijunzhu/AndroidStudio/CocosPetAI/assets/scripts/AppVersion.ts"
+            "url": "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/AppVersion.ts"
           },
           "messages": []
         },
         {
           "resolved": {
             "type": "module",
-            "url": "file:///Users/yijunzhu/AndroidStudio/CocosPetAI/assets/scripts/AudioControl.ts"
+            "url": "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/AudioControl.ts"
           },
           "messages": []
         },
         {
           "resolved": {
             "type": "module",
-            "url": "file:///Users/yijunzhu/AndroidStudio/CocosPetAI/assets/scripts/AudioManager.ts"
+            "url": "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/AudioManager.ts"
           },
           "messages": []
         },
         {
           "resolved": {
             "type": "module",
-            "url": "file:///Users/yijunzhu/AndroidStudio/CocosPetAI/assets/scripts/BtnAdGuard.ts"
+            "url": "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/BtnAdGuard.ts"
           },
           "messages": []
         },
         {
           "resolved": {
             "type": "module",
-            "url": "file:///Users/yijunzhu/AndroidStudio/CocosPetAI/assets/scripts/BtnMicroRandomText.ts"
+            "url": "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/BtnMicroRandomText.ts"
           },
           "messages": []
         },
         {
           "resolved": {
             "type": "module",
-            "url": "file:///Users/yijunzhu/AndroidStudio/CocosPetAI/assets/scripts/BtnMicroRecord.ts"
+            "url": "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/BtnMicroRecord.ts"
           },
           "messages": []
         },
         {
           "resolved": {
             "type": "module",
-            "url": "file:///Users/yijunzhu/AndroidStudio/CocosPetAI/assets/scripts/CatAnimSound.ts"
+            "url": "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/CatAnimSound.ts"
           },
           "messages": []
         },
         {
           "resolved": {
             "type": "module",
-            "url": "file:///Users/yijunzhu/AndroidStudio/CocosPetAI/assets/scripts/CatController.ts"
+            "url": "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/CatController.ts"
           },
           "messages": []
         },
         {
           "resolved": {
             "type": "module",
-            "url": "file:///Users/yijunzhu/AndroidStudio/CocosPetAI/assets/scripts/CheckInPanel.ts"
+            "url": "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/CheckInPanel.ts"
           },
           "messages": []
         },
         {
           "resolved": {
             "type": "module",
-            "url": "file:///Users/yijunzhu/AndroidStudio/CocosPetAI/assets/scripts/DateUtil.ts"
+            "url": "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/CompanionDays.ts"
           },
           "messages": []
         },
         {
           "resolved": {
             "type": "module",
-            "url": "file:///Users/yijunzhu/AndroidStudio/CocosPetAI/assets/scripts/DogAnimSound.ts"
+            "url": "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/CompanionDaysDisplay.ts"
           },
           "messages": []
         },
         {
           "resolved": {
             "type": "module",
-            "url": "file:///Users/yijunzhu/AndroidStudio/CocosPetAI/assets/scripts/DogController.ts"
+            "url": "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/CustomizeScene.ts"
           },
           "messages": []
         },
         {
           "resolved": {
             "type": "module",
-            "url": "file:///Users/yijunzhu/AndroidStudio/CocosPetAI/assets/scripts/HeartBubbleAni.ts"
+            "url": "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/DateUtil.ts"
           },
           "messages": []
         },
         {
           "resolved": {
             "type": "module",
-            "url": "file:///Users/yijunzhu/AndroidStudio/CocosPetAI/assets/scripts/HomeNav.ts"
+            "url": "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/DogAnimSound.ts"
           },
           "messages": []
         },
         {
           "resolved": {
             "type": "module",
-            "url": "file:///Users/yijunzhu/AndroidStudio/CocosPetAI/assets/scripts/HomePopupMask.ts"
+            "url": "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/DogController.ts"
           },
           "messages": []
         },
         {
           "resolved": {
             "type": "module",
-            "url": "file:///Users/yijunzhu/AndroidStudio/CocosPetAI/assets/scripts/HomeWidgetButton.ts"
+            "url": "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/HeartBubbleAni.ts"
           },
           "messages": []
         },
         {
           "resolved": {
             "type": "module",
-            "url": "file:///Users/yijunzhu/AndroidStudio/CocosPetAI/assets/scripts/Lang.ts"
+            "url": "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/HomeNav.ts"
           },
           "messages": []
         },
         {
           "resolved": {
             "type": "module",
-            "url": "file:///Users/yijunzhu/AndroidStudio/CocosPetAI/assets/scripts/MotionTipService.ts"
+            "url": "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/HomePopupMask.ts"
           },
           "messages": []
         },
         {
           "resolved": {
             "type": "module",
-            "url": "file:///Users/yijunzhu/AndroidStudio/CocosPetAI/assets/scripts/NativeASR.ts"
+            "url": "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/HomeWidgetButton.ts"
           },
           "messages": []
         },
         {
           "resolved": {
             "type": "module",
-            "url": "file:///Users/yijunzhu/AndroidStudio/CocosPetAI/assets/scripts/NotificationSettings.ts"
+            "url": "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/Lang.ts"
           },
           "messages": []
         },
         {
           "resolved": {
             "type": "module",
-            "url": "file:///Users/yijunzhu/AndroidStudio/CocosPetAI/assets/scripts/PetButtons.ts"
+            "url": "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/MicWaveform.ts"
           },
           "messages": []
         },
         {
           "resolved": {
             "type": "module",
-            "url": "file:///Users/yijunzhu/AndroidStudio/CocosPetAI/assets/scripts/PetControllerBase.ts"
+            "url": "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/MotionTipService.ts"
           },
           "messages": []
         },
         {
           "resolved": {
             "type": "module",
-            "url": "file:///Users/yijunzhu/AndroidStudio/CocosPetAI/assets/scripts/PetInfoBar.ts"
+            "url": "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/NativeASR.ts"
           },
           "messages": []
         },
         {
           "resolved": {
             "type": "module",
-            "url": "file:///Users/yijunzhu/AndroidStudio/CocosPetAI/assets/scripts/PetValue.ts"
+            "url": "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/NotificationSettings.ts"
           },
           "messages": []
         },
         {
           "resolved": {
             "type": "module",
-            "url": "file:///Users/yijunzhu/AndroidStudio/CocosPetAI/assets/scripts/PetVocalizer.ts"
+            "url": "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/PetButtons.ts"
           },
           "messages": []
         },
         {
           "resolved": {
             "type": "module",
-            "url": "file:///Users/yijunzhu/AndroidStudio/CocosPetAI/assets/scripts/PetWake.ts"
+            "url": "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/PetControllerBase.ts"
           },
           "messages": []
         },
         {
           "resolved": {
             "type": "module",
-            "url": "file:///Users/yijunzhu/AndroidStudio/CocosPetAI/assets/scripts/RandomPlayCatAni.ts"
+            "url": "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/PetInfoBar.ts"
           },
           "messages": []
         },
         {
           "resolved": {
             "type": "module",
-            "url": "file:///Users/yijunzhu/AndroidStudio/CocosPetAI/assets/scripts/RandomPlayDogAni.ts"
+            "url": "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/PetUnlock.ts"
           },
           "messages": []
         },
         {
           "resolved": {
             "type": "module",
-            "url": "file:///Users/yijunzhu/AndroidStudio/CocosPetAI/assets/scripts/RandomPlayPetAni.ts"
+            "url": "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/PetValue.ts"
           },
           "messages": []
         },
         {
           "resolved": {
             "type": "module",
-            "url": "file:///Users/yijunzhu/AndroidStudio/CocosPetAI/assets/scripts/RechargePanel.ts"
+            "url": "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/PetVocalizer.ts"
           },
           "messages": []
         },
         {
           "resolved": {
             "type": "module",
-            "url": "file:///Users/yijunzhu/AndroidStudio/CocosPetAI/assets/scripts/SettingsCopy.ts"
+            "url": "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/PetWake.ts"
           },
           "messages": []
         },
         {
           "resolved": {
             "type": "module",
-            "url": "file:///Users/yijunzhu/AndroidStudio/CocosPetAI/assets/scripts/SettingsLocale.ts"
+            "url": "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/RandomPlayCatAni.ts"
           },
           "messages": []
         },
         {
           "resolved": {
             "type": "module",
-            "url": "file:///Users/yijunzhu/AndroidStudio/CocosPetAI/assets/scripts/SharedBtnCounts.ts"
+            "url": "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/RandomPlayDogAni.ts"
           },
           "messages": []
         },
         {
           "resolved": {
             "type": "module",
-            "url": "file:///Users/yijunzhu/AndroidStudio/CocosPetAI/assets/scripts/SwipeState.ts"
+            "url": "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/RandomPlayPetAni.ts"
           },
           "messages": []
         },
         {
           "resolved": {
             "type": "module",
-            "url": "file:///Users/yijunzhu/AndroidStudio/CocosPetAI/assets/scripts/TipCopy.ts"
+            "url": "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/RechargePanel.ts"
           },
           "messages": []
         },
         {
           "resolved": {
             "type": "module",
-            "url": "file:///Users/yijunzhu/AndroidStudio/CocosPetAI/assets/scripts/TogglePet.ts"
+            "url": "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/SettingsCopy.ts"
           },
           "messages": []
         },
         {
           "resolved": {
             "type": "module",
-            "url": "file:///Users/yijunzhu/AndroidStudio/CocosPetAI/assets/scripts/WeatherService.ts"
+            "url": "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/SettingsLocale.ts"
           },
           "messages": []
         },
         {
           "resolved": {
             "type": "module",
-            "url": "file:///Users/yijunzhu/AndroidStudio/CocosPetAI/assets/scripts/WidgetChoosePanel.ts"
+            "url": "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/SharedBtnCounts.ts"
           },
           "messages": []
         },
         {
           "resolved": {
             "type": "module",
-            "url": "file:///Users/yijunzhu/AndroidStudio/CocosPetAI/assets/scripts/WidgetSync.ts"
+            "url": "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/ShopPurchase.ts"
           },
           "messages": []
         },
         {
           "resolved": {
             "type": "module",
-            "url": "file:///Users/yijunzhu/AndroidStudio/CocosPetAI/assets/scripts/llm_v2/ChatContextStore.ts"
+            "url": "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/ShopScene.ts"
           },
           "messages": []
         },
         {
           "resolved": {
             "type": "module",
-            "url": "file:///Users/yijunzhu/AndroidStudio/CocosPetAI/assets/scripts/llm_v2/HttpTimeouts.ts"
+            "url": "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/SwipeState.ts"
           },
           "messages": []
         },
         {
           "resolved": {
             "type": "module",
-            "url": "file:///Users/yijunzhu/AndroidStudio/CocosPetAI/assets/scripts/llm_v2/LlmConfigParams.ts"
+            "url": "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/TipCopy.ts"
           },
           "messages": []
         },
         {
           "resolved": {
             "type": "module",
-            "url": "file:///Users/yijunzhu/AndroidStudio/CocosPetAI/assets/scripts/llm_v2/LlmRemoteConfig.ts"
+            "url": "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/TogglePet.ts"
           },
           "messages": []
         },
         {
           "resolved": {
             "type": "module",
-            "url": "file:///Users/yijunzhu/AndroidStudio/CocosPetAI/assets/scripts/llm_v2/NativeXhrHttp.ts"
+            "url": "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/WidgetChoosePanel.ts"
           },
           "messages": []
         },
         {
           "resolved": {
             "type": "module",
-            "url": "file:///Users/yijunzhu/AndroidStudio/CocosPetAI/assets/scripts/llm_v2/TokitChatService.ts"
+            "url": "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/WidgetSync.ts"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/llm_v2/ChatContextStore.ts"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/llm_v2/HttpTimeouts.ts"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/llm_v2/LlmConfigParams.ts"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/llm_v2/LlmRemoteConfig.ts"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/llm_v2/NativeXhrHttp.ts"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/llm_v2/TokitChatService.ts"
           },
           "messages": []
         }
@@ -6442,7 +6568,7 @@
       ]
     },
     "cce:/internal/code-quality/cr.mjs": {
-      "mTimestamp": 1778036083966,
+      "mTimestamp": 1779239107081,
       "chunkId": "6a5019a719a9014c047e67aa1cf34453ab8392ce",
       "imports": [],
       "type": "esm",
@@ -6697,6 +6823,5410 @@
           "resolved": {
             "type": "module",
             "url": "cce:/internal/x/cc"
+          },
+          "messages": []
+        }
+      ]
+    },
+    "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/AIChatService.ts": {
+      "mTimestamp": {
+        "mtime": 1778578573076.4783,
+        "uuid": "baa991ba-0e99-4195-9d0b-83d33e2477f3"
+      },
+      "chunkId": "418ba6ab4816712e6c266c623f8679b8baec9d5e",
+      "imports": [
+        {
+          "value": "cc"
+        }
+      ],
+      "type": "esm",
+      "resolutions": [
+        {
+          "resolved": {
+            "type": "module",
+            "url": "cce:/internal/x/cc"
+          },
+          "messages": []
+        }
+      ]
+    },
+    "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/AIchatDemo.ts": {
+      "mTimestamp": {
+        "mtime": 1779239018343.3887,
+        "uuid": "af2a5ed3-e98f-469a-a1d4-2de01bdb6a45"
+      },
+      "chunkId": "de39cb14d73fb5eb4b2e4a425b515c1907846cc0",
+      "imports": [
+        {
+          "value": "cce:/internal/code-quality/cr.mjs",
+          "resolved": "__unresolved_0"
+        },
+        {
+          "value": "cc"
+        },
+        {
+          "value": "cc"
+        },
+        {
+          "value": "cc",
+          "loc": {
+            "start": {
+              "line": 1,
+              "column": 79
+            },
+            "end": {
+              "line": 1,
+              "column": 83
+            }
+          }
+        },
+        {
+          "value": "./llm_v2/TokitChatService",
+          "resolved": "__unresolved_1",
+          "loc": {
+            "start": {
+              "line": 2,
+              "column": 33
+            },
+            "end": {
+              "line": 2,
+              "column": 60
+            }
+          }
+        },
+        {
+          "value": "./PetInfoBar",
+          "resolved": "__unresolved_2",
+          "loc": {
+            "start": {
+              "line": 3,
+              "column": 27
+            },
+            "end": {
+              "line": 3,
+              "column": 41
+            }
+          }
+        },
+        {
+          "value": "./PetVocalizer",
+          "resolved": "__unresolved_3",
+          "loc": {
+            "start": {
+              "line": 4,
+              "column": 29
+            },
+            "end": {
+              "line": 4,
+              "column": 45
+            }
+          }
+        },
+        {
+          "value": "./PetWake",
+          "resolved": "__unresolved_4",
+          "loc": {
+            "start": {
+              "line": 5,
+              "column": 24
+            },
+            "end": {
+              "line": 5,
+              "column": 35
+            }
+          }
+        },
+        {
+          "value": "./PetValue",
+          "resolved": "__unresolved_5",
+          "loc": {
+            "start": {
+              "line": 6,
+              "column": 25
+            },
+            "end": {
+              "line": 6,
+              "column": 37
+            }
+          }
+        },
+        {
+          "value": "./DogController",
+          "resolved": "__unresolved_6",
+          "loc": {
+            "start": {
+              "line": 7,
+              "column": 30
+            },
+            "end": {
+              "line": 7,
+              "column": 47
+            }
+          }
+        },
+        {
+          "value": "./CatController",
+          "resolved": "__unresolved_7",
+          "loc": {
+            "start": {
+              "line": 8,
+              "column": 30
+            },
+            "end": {
+              "line": 8,
+              "column": 47
+            }
+          }
+        }
+      ],
+      "type": "esm",
+      "resolutions": [
+        {
+          "resolved": {
+            "type": "module",
+            "url": "cce:/internal/code-quality/cr.mjs"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "cce:/internal/x/cc"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "cce:/internal/x/cc"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "cce:/internal/x/cc"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/llm_v2/TokitChatService.ts"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/PetInfoBar.ts"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/PetVocalizer.ts"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/PetWake.ts"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/PetValue.ts"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/DogController.ts"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/CatController.ts"
+          },
+          "messages": []
+        }
+      ]
+    },
+    "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/AdButton.ts": {
+      "mTimestamp": {
+        "mtime": 1779242419386.0784,
+        "uuid": "4a7d96b7-27be-438e-89a1-e7741b057b45"
+      },
+      "chunkId": "7aff75075808481f826aa7183f1e91ce3f4b0e74",
+      "imports": [
+        {
+          "value": "cce:/internal/code-quality/cr.mjs",
+          "resolved": "__unresolved_0"
+        },
+        {
+          "value": "cc"
+        },
+        {
+          "value": "cc"
+        },
+        {
+          "value": "cc",
+          "loc": {
+            "start": {
+              "line": 4,
+              "column": 7
+            },
+            "end": {
+              "line": 4,
+              "column": 11
+            }
+          }
+        },
+        {
+          "value": "./SharedBtnCounts",
+          "resolved": "__unresolved_1",
+          "loc": {
+            "start": {
+              "line": 5,
+              "column": 32
+            },
+            "end": {
+              "line": 5,
+              "column": 51
+            }
+          }
+        },
+        {
+          "value": "./PetInfoBar",
+          "resolved": "__unresolved_2",
+          "loc": {
+            "start": {
+              "line": 6,
+              "column": 27
+            },
+            "end": {
+              "line": 6,
+              "column": 41
+            }
+          }
+        },
+        {
+          "value": "./TogglePet",
+          "resolved": "__unresolved_3",
+          "loc": {
+            "start": {
+              "line": 7,
+              "column": 26
+            },
+            "end": {
+              "line": 7,
+              "column": 39
+            }
+          }
+        }
+      ],
+      "type": "esm",
+      "resolutions": [
+        {
+          "resolved": {
+            "type": "module",
+            "url": "cce:/internal/code-quality/cr.mjs"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "cce:/internal/x/cc"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "cce:/internal/x/cc"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "cce:/internal/x/cc"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/SharedBtnCounts.ts"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/PetInfoBar.ts"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/TogglePet.ts"
+          },
+          "messages": []
+        }
+      ]
+    },
+    "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/AppVersion.ts": {
+      "mTimestamp": {
+        "mtime": 1778578573076.9534,
+        "uuid": "3f7b2da1-6d3e-5c9f-b2e1-23456789abcd"
+      },
+      "chunkId": "d971a784017e8e956a4a41a275553e10a7b99fd4",
+      "imports": [
+        {
+          "value": "cc"
+        },
+        {
+          "value": "cc"
+        },
+        {
+          "value": "cc",
+          "loc": {
+            "start": {
+              "line": 1,
+              "column": 28
+            },
+            "end": {
+              "line": 1,
+              "column": 32
+            }
+          }
+        }
+      ],
+      "type": "esm",
+      "resolutions": [
+        {
+          "resolved": {
+            "type": "module",
+            "url": "cce:/internal/x/cc"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "cce:/internal/x/cc"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "cce:/internal/x/cc"
+          },
+          "messages": []
+        }
+      ]
+    },
+    "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/AudioControl.ts": {
+      "mTimestamp": {
+        "mtime": 1778578573077.0962,
+        "uuid": "b671c90c-4eba-4911-be37-281049e65c2c"
+      },
+      "chunkId": "e4db59bfa926d8495bf18bc8112e59a004e89ef3",
+      "imports": [
+        {
+          "value": "cce:/internal/code-quality/cr.mjs",
+          "resolved": "__unresolved_0"
+        },
+        {
+          "value": "cc"
+        },
+        {
+          "value": "cc"
+        },
+        {
+          "value": "cc",
+          "loc": {
+            "start": {
+              "line": 1,
+              "column": 60
+            },
+            "end": {
+              "line": 1,
+              "column": 64
+            }
+          }
+        },
+        {
+          "value": "./AudioManager",
+          "resolved": "__unresolved_1",
+          "loc": {
+            "start": {
+              "line": 2,
+              "column": 29
+            },
+            "end": {
+              "line": 2,
+              "column": 45
+            }
+          }
+        }
+      ],
+      "type": "esm",
+      "resolutions": [
+        {
+          "resolved": {
+            "type": "module",
+            "url": "cce:/internal/code-quality/cr.mjs"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "cce:/internal/x/cc"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "cce:/internal/x/cc"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "cce:/internal/x/cc"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/AudioManager.ts"
+          },
+          "messages": []
+        }
+      ]
+    },
+    "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/AudioManager.ts": {
+      "mTimestamp": {
+        "mtime": 1778578573077.2969,
+        "uuid": "8237643f-c2a0-4f87-97a8-6e56efdcf270"
+      },
+      "chunkId": "340ddacaf59bda11e70c85c7f7fac205d14f3f9f",
+      "imports": [
+        {
+          "value": "cc"
+        },
+        {
+          "value": "cc"
+        },
+        {
+          "value": "cc",
+          "loc": {
+            "start": {
+              "line": 1,
+              "column": 68
+            },
+            "end": {
+              "line": 1,
+              "column": 72
+            }
+          }
+        }
+      ],
+      "type": "esm",
+      "resolutions": [
+        {
+          "resolved": {
+            "type": "module",
+            "url": "cce:/internal/x/cc"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "cce:/internal/x/cc"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "cce:/internal/x/cc"
+          },
+          "messages": []
+        }
+      ]
+    },
+    "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/BtnAdGuard.ts": {
+      "mTimestamp": {
+        "mtime": 1779242419945.318,
+        "uuid": "83286a29-f288-411e-82e9-6f5a4e45f08c"
+      },
+      "chunkId": "c05d890a99ce583c1cd448cfe9ae1765fee18e17",
+      "imports": [
+        {
+          "value": "cce:/internal/code-quality/cr.mjs",
+          "resolved": "__unresolved_0"
+        },
+        {
+          "value": "cc"
+        },
+        {
+          "value": "cc"
+        },
+        {
+          "value": "cc",
+          "loc": {
+            "start": {
+              "line": 1,
+              "column": 65
+            },
+            "end": {
+              "line": 1,
+              "column": 69
+            }
+          }
+        },
+        {
+          "value": "./SharedBtnCounts",
+          "resolved": "__unresolved_1",
+          "loc": {
+            "start": {
+              "line": 2,
+              "column": 32
+            },
+            "end": {
+              "line": 2,
+              "column": 51
+            }
+          }
+        },
+        {
+          "value": "./RandomPlayPetAni",
+          "resolved": "__unresolved_2",
+          "loc": {
+            "start": {
+              "line": 3,
+              "column": 33
+            },
+            "end": {
+              "line": 3,
+              "column": 53
+            }
+          }
+        }
+      ],
+      "type": "esm",
+      "resolutions": [
+        {
+          "resolved": {
+            "type": "module",
+            "url": "cce:/internal/code-quality/cr.mjs"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "cce:/internal/x/cc"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "cce:/internal/x/cc"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "cce:/internal/x/cc"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/SharedBtnCounts.ts"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/RandomPlayPetAni.ts"
+          },
+          "messages": []
+        }
+      ]
+    },
+    "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/BtnMicroRandomText.ts": {
+      "mTimestamp": {
+        "mtime": 1779239017917.178,
+        "uuid": "abf98aac-1f6e-4f4c-8944-7f0c9d38bc2e"
+      },
+      "chunkId": "fd9e3a6b861a4e847f7f0195aeebb04fcdfa22d3",
+      "imports": [
+        {
+          "value": "cce:/internal/code-quality/cr.mjs",
+          "resolved": "__unresolved_0"
+        },
+        {
+          "value": "cc"
+        },
+        {
+          "value": "cc"
+        },
+        {
+          "value": "cc",
+          "loc": {
+            "start": {
+              "line": 1,
+              "column": 45
+            },
+            "end": {
+              "line": 1,
+              "column": 49
+            }
+          }
+        },
+        {
+          "value": "./PetValue",
+          "resolved": "__unresolved_1",
+          "loc": {
+            "start": {
+              "line": 2,
+              "column": 25
+            },
+            "end": {
+              "line": 2,
+              "column": 37
+            }
+          }
+        }
+      ],
+      "type": "esm",
+      "resolutions": [
+        {
+          "resolved": {
+            "type": "module",
+            "url": "cce:/internal/code-quality/cr.mjs"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "cce:/internal/x/cc"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "cce:/internal/x/cc"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "cce:/internal/x/cc"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/PetValue.ts"
+          },
+          "messages": []
+        }
+      ]
+    },
+    "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/BtnMicroRecord.ts": {
+      "mTimestamp": {
+        "mtime": 1779240656182.8955,
+        "uuid": "99339fa7-8077-4992-961c-506564af9935"
+      },
+      "chunkId": "8ab91e4390fe3e30017409df8d9049f174067c97",
+      "imports": [
+        {
+          "value": "cce:/internal/code-quality/cr.mjs",
+          "resolved": "__unresolved_0"
+        },
+        {
+          "value": "cc"
+        },
+        {
+          "value": "cc"
+        },
+        {
+          "value": "cc",
+          "loc": {
+            "start": {
+              "line": 1,
+              "column": 130
+            },
+            "end": {
+              "line": 1,
+              "column": 134
+            }
+          }
+        },
+        {
+          "value": "./PetValue",
+          "resolved": "__unresolved_1",
+          "loc": {
+            "start": {
+              "line": 2,
+              "column": 25
+            },
+            "end": {
+              "line": 2,
+              "column": 37
+            }
+          }
+        },
+        {
+          "value": "./AudioManager",
+          "resolved": "__unresolved_2",
+          "loc": {
+            "start": {
+              "line": 3,
+              "column": 29
+            },
+            "end": {
+              "line": 3,
+              "column": 45
+            }
+          }
+        },
+        {
+          "value": "./DogController",
+          "resolved": "__unresolved_3",
+          "loc": {
+            "start": {
+              "line": 4,
+              "column": 30
+            },
+            "end": {
+              "line": 4,
+              "column": 47
+            }
+          }
+        },
+        {
+          "value": "./CatController",
+          "resolved": "__unresolved_4",
+          "loc": {
+            "start": {
+              "line": 5,
+              "column": 30
+            },
+            "end": {
+              "line": 5,
+              "column": 47
+            }
+          }
+        },
+        {
+          "value": "./llm_v2/TokitChatService",
+          "resolved": "__unresolved_5",
+          "loc": {
+            "start": {
+              "line": 6,
+              "column": 33
+            },
+            "end": {
+              "line": 6,
+              "column": 60
+            }
+          }
+        },
+        {
+          "value": "./AIchatDemo",
+          "resolved": "__unresolved_6",
+          "loc": {
+            "start": {
+              "line": 7,
+              "column": 27
+            },
+            "end": {
+              "line": 7,
+              "column": 41
+            }
+          }
+        },
+        {
+          "value": "./NativeASR",
+          "resolved": "__unresolved_7",
+          "loc": {
+            "start": {
+              "line": 8,
+              "column": 26
+            },
+            "end": {
+              "line": 8,
+              "column": 39
+            }
+          }
+        },
+        {
+          "value": "./PetInfoBar",
+          "resolved": "__unresolved_8",
+          "loc": {
+            "start": {
+              "line": 9,
+              "column": 27
+            },
+            "end": {
+              "line": 9,
+              "column": 41
+            }
+          }
+        },
+        {
+          "value": "./PetVocalizer",
+          "resolved": "__unresolved_9",
+          "loc": {
+            "start": {
+              "line": 10,
+              "column": 29
+            },
+            "end": {
+              "line": 10,
+              "column": 45
+            }
+          }
+        },
+        {
+          "value": "./PetWake",
+          "resolved": "__unresolved_10",
+          "loc": {
+            "start": {
+              "line": 11,
+              "column": 24
+            },
+            "end": {
+              "line": 11,
+              "column": 35
+            }
+          }
+        },
+        {
+          "value": "./MicWaveform",
+          "resolved": "__unresolved_11",
+          "loc": {
+            "start": {
+              "line": 12,
+              "column": 28
+            },
+            "end": {
+              "line": 12,
+              "column": 43
+            }
+          }
+        }
+      ],
+      "type": "esm",
+      "resolutions": [
+        {
+          "resolved": {
+            "type": "module",
+            "url": "cce:/internal/code-quality/cr.mjs"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "cce:/internal/x/cc"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "cce:/internal/x/cc"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "cce:/internal/x/cc"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/PetValue.ts"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/AudioManager.ts"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/DogController.ts"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/CatController.ts"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/llm_v2/TokitChatService.ts"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/AIchatDemo.ts"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/NativeASR.ts"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/PetInfoBar.ts"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/PetVocalizer.ts"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/PetWake.ts"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/MicWaveform.ts"
+          },
+          "messages": []
+        }
+      ]
+    },
+    "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/CatAnimSound.ts": {
+      "mTimestamp": {
+        "mtime": 1778578573077.9336,
+        "uuid": "45af8702-6a9a-4400-93bf-59bde762ecc8"
+      },
+      "chunkId": "822321279a1abf373bb146e53a340cfcdcc08c6e",
+      "imports": [
+        {
+          "value": "cce:/internal/code-quality/cr.mjs",
+          "resolved": "__unresolved_0"
+        },
+        {
+          "value": "cc"
+        },
+        {
+          "value": "cc"
+        },
+        {
+          "value": "cc",
+          "loc": {
+            "start": {
+              "line": 1,
+              "column": 38
+            },
+            "end": {
+              "line": 1,
+              "column": 42
+            }
+          }
+        },
+        {
+          "value": "./AudioManager",
+          "resolved": "__unresolved_1",
+          "loc": {
+            "start": {
+              "line": 2,
+              "column": 29
+            },
+            "end": {
+              "line": 2,
+              "column": 45
+            }
+          }
+        }
+      ],
+      "type": "esm",
+      "resolutions": [
+        {
+          "resolved": {
+            "type": "module",
+            "url": "cce:/internal/code-quality/cr.mjs"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "cce:/internal/x/cc"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "cce:/internal/x/cc"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "cce:/internal/x/cc"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/AudioManager.ts"
+          },
+          "messages": []
+        }
+      ]
+    },
+    "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/CatController.ts": {
+      "mTimestamp": {
+        "mtime": 1778578573078.0762,
+        "uuid": "ea96fc79-817e-4c1b-80b2-d1982ba76c67"
+      },
+      "chunkId": "4c0b435ce33f22d7390f52dfc8f211ff51e82f0d",
+      "imports": [
+        {
+          "value": "cce:/internal/code-quality/cr.mjs",
+          "resolved": "__unresolved_0"
+        },
+        {
+          "value": "cc"
+        },
+        {
+          "value": "cc"
+        },
+        {
+          "value": "cc",
+          "loc": {
+            "start": {
+              "line": 1,
+              "column": 51
+            },
+            "end": {
+              "line": 1,
+              "column": 55
+            }
+          }
+        },
+        {
+          "value": "./PetControllerBase",
+          "resolved": "__unresolved_1",
+          "loc": {
+            "start": {
+              "line": 2,
+              "column": 34
+            },
+            "end": {
+              "line": 2,
+              "column": 55
+            }
+          }
+        },
+        {
+          "value": "./PetValue",
+          "resolved": "__unresolved_2",
+          "loc": {
+            "start": {
+              "line": 3,
+              "column": 25
+            },
+            "end": {
+              "line": 3,
+              "column": 37
+            }
+          }
+        }
+      ],
+      "type": "esm",
+      "resolutions": [
+        {
+          "resolved": {
+            "type": "module",
+            "url": "cce:/internal/code-quality/cr.mjs"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "cce:/internal/x/cc"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "cce:/internal/x/cc"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "cce:/internal/x/cc"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/PetControllerBase.ts"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/PetValue.ts"
+          },
+          "messages": []
+        }
+      ]
+    },
+    "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/CheckInPanel.ts": {
+      "mTimestamp": {
+        "mtime": 1779239018314.4858,
+        "uuid": "a1b2c3d4-e5f6-4a5b-8c9d-0e1f2a3b4c5d"
+      },
+      "chunkId": "5dd1f1831a134b6154495588c457ed08b1631f8d",
+      "imports": [
+        {
+          "value": "cce:/internal/code-quality/cr.mjs",
+          "resolved": "__unresolved_0"
+        },
+        {
+          "value": "cc"
+        },
+        {
+          "value": "cc"
+        },
+        {
+          "value": "cc",
+          "loc": {
+            "start": {
+              "line": 1,
+              "column": 133
+            },
+            "end": {
+              "line": 1,
+              "column": 137
+            }
+          }
+        },
+        {
+          "value": "./SharedBtnCounts",
+          "resolved": "__unresolved_1",
+          "loc": {
+            "start": {
+              "line": 2,
+              "column": 32
+            },
+            "end": {
+              "line": 2,
+              "column": 51
+            }
+          }
+        },
+        {
+          "value": "./AudioManager",
+          "resolved": "__unresolved_2",
+          "loc": {
+            "start": {
+              "line": 3,
+              "column": 29
+            },
+            "end": {
+              "line": 3,
+              "column": 45
+            }
+          }
+        },
+        {
+          "value": "./PetValue",
+          "resolved": "__unresolved_3",
+          "loc": {
+            "start": {
+              "line": 4,
+              "column": 25
+            },
+            "end": {
+              "line": 4,
+              "column": 37
+            }
+          }
+        },
+        {
+          "value": "./PetInfoBar",
+          "resolved": "__unresolved_4",
+          "loc": {
+            "start": {
+              "line": 5,
+              "column": 27
+            },
+            "end": {
+              "line": 5,
+              "column": 41
+            }
+          }
+        },
+        {
+          "value": "./HomePopupMask",
+          "resolved": "__unresolved_5",
+          "loc": {
+            "start": {
+              "line": 6,
+              "column": 30
+            },
+            "end": {
+              "line": 6,
+              "column": 47
+            }
+          }
+        }
+      ],
+      "type": "esm",
+      "resolutions": [
+        {
+          "resolved": {
+            "type": "module",
+            "url": "cce:/internal/code-quality/cr.mjs"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "cce:/internal/x/cc"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "cce:/internal/x/cc"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "cce:/internal/x/cc"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/SharedBtnCounts.ts"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/AudioManager.ts"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/PetValue.ts"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/PetInfoBar.ts"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/HomePopupMask.ts"
+          },
+          "messages": []
+        }
+      ]
+    },
+    "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/DateUtil.ts": {
+      "mTimestamp": {
+        "mtime": 1778578573078.4094,
+        "uuid": "5bb6843a-f90a-4b3f-ae58-82b1dcf2db0c"
+      },
+      "chunkId": "4964df575cf2d0099530569ed9918b878d6b8b0c",
+      "imports": [
+        {
+          "value": "cc"
+        },
+        {
+          "value": "cc"
+        },
+        {
+          "value": "cc",
+          "loc": {
+            "start": {
+              "line": 1,
+              "column": 20
+            },
+            "end": {
+              "line": 1,
+              "column": 24
+            }
+          }
+        }
+      ],
+      "type": "esm",
+      "resolutions": [
+        {
+          "resolved": {
+            "type": "module",
+            "url": "cce:/internal/x/cc"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "cce:/internal/x/cc"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "cce:/internal/x/cc"
+          },
+          "messages": []
+        }
+      ]
+    },
+    "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/DogAnimSound.ts": {
+      "mTimestamp": {
+        "mtime": 1778578573078.572,
+        "uuid": "eadae980-ed60-4a78-a441-81641191b033"
+      },
+      "chunkId": "cf90840d44f8c272aa94911391e8358b65a5c242",
+      "imports": [
+        {
+          "value": "cce:/internal/code-quality/cr.mjs",
+          "resolved": "__unresolved_0"
+        },
+        {
+          "value": "cc"
+        },
+        {
+          "value": "cc"
+        },
+        {
+          "value": "cc",
+          "loc": {
+            "start": {
+              "line": 1,
+              "column": 38
+            },
+            "end": {
+              "line": 1,
+              "column": 42
+            }
+          }
+        },
+        {
+          "value": "./AudioManager",
+          "resolved": "__unresolved_1",
+          "loc": {
+            "start": {
+              "line": 2,
+              "column": 29
+            },
+            "end": {
+              "line": 2,
+              "column": 45
+            }
+          }
+        }
+      ],
+      "type": "esm",
+      "resolutions": [
+        {
+          "resolved": {
+            "type": "module",
+            "url": "cce:/internal/code-quality/cr.mjs"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "cce:/internal/x/cc"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "cce:/internal/x/cc"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "cce:/internal/x/cc"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/AudioManager.ts"
+          },
+          "messages": []
+        }
+      ]
+    },
+    "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/DogController.ts": {
+      "mTimestamp": {
+        "mtime": 1778578573078.7227,
+        "uuid": "e9370e88-48e8-4748-ae12-7e0eefe039e5"
+      },
+      "chunkId": "c381a07de802d02649b0d360a4aef8d21bf71bea",
+      "imports": [
+        {
+          "value": "cce:/internal/code-quality/cr.mjs",
+          "resolved": "__unresolved_0"
+        },
+        {
+          "value": "cc"
+        },
+        {
+          "value": "cc"
+        },
+        {
+          "value": "cc",
+          "loc": {
+            "start": {
+              "line": 1,
+              "column": 51
+            },
+            "end": {
+              "line": 1,
+              "column": 55
+            }
+          }
+        },
+        {
+          "value": "./PetControllerBase",
+          "resolved": "__unresolved_1",
+          "loc": {
+            "start": {
+              "line": 2,
+              "column": 34
+            },
+            "end": {
+              "line": 2,
+              "column": 55
+            }
+          }
+        },
+        {
+          "value": "./PetValue",
+          "resolved": "__unresolved_2",
+          "loc": {
+            "start": {
+              "line": 3,
+              "column": 25
+            },
+            "end": {
+              "line": 3,
+              "column": 37
+            }
+          }
+        }
+      ],
+      "type": "esm",
+      "resolutions": [
+        {
+          "resolved": {
+            "type": "module",
+            "url": "cce:/internal/code-quality/cr.mjs"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "cce:/internal/x/cc"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "cce:/internal/x/cc"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "cce:/internal/x/cc"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/PetControllerBase.ts"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/PetValue.ts"
+          },
+          "messages": []
+        }
+      ]
+    },
+    "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/HeartBubbleAni.ts": {
+      "mTimestamp": {
+        "mtime": 1779241816636.5352,
+        "uuid": "1826e413-d253-4b92-8171-a835cbb0d6c9"
+      },
+      "chunkId": "35aaabbae84308875551d24ffdf861a2c98ff2b8",
+      "imports": [
+        {
+          "value": "cce:/internal/code-quality/cr.mjs",
+          "resolved": "__unresolved_0"
+        },
+        {
+          "value": "cc"
+        },
+        {
+          "value": "cc"
+        },
+        {
+          "value": "cc",
+          "loc": {
+            "start": {
+              "line": 1,
+              "column": 127
+            },
+            "end": {
+              "line": 1,
+              "column": 131
+            }
+          }
+        },
+        {
+          "value": "./PetValue",
+          "resolved": "__unresolved_1",
+          "loc": {
+            "start": {
+              "line": 2,
+              "column": 25
+            },
+            "end": {
+              "line": 2,
+              "column": 37
+            }
+          }
+        }
+      ],
+      "type": "esm",
+      "resolutions": [
+        {
+          "resolved": {
+            "type": "module",
+            "url": "cce:/internal/code-quality/cr.mjs"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "cce:/internal/x/cc"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "cce:/internal/x/cc"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "cce:/internal/x/cc"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/PetValue.ts"
+          },
+          "messages": []
+        }
+      ]
+    },
+    "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/HomeNav.ts": {
+      "mTimestamp": {
+        "mtime": 1779243066251.1267,
+        "uuid": "e3332eba-4e17-4217-b627-c755868048d3"
+      },
+      "chunkId": "35aec10b8df8a3bc0ce8b9cd77d8bf421b7ecc8d",
+      "imports": [
+        {
+          "value": "cce:/internal/code-quality/cr.mjs",
+          "resolved": "__unresolved_0"
+        },
+        {
+          "value": "cc"
+        },
+        {
+          "value": "cc"
+        },
+        {
+          "value": "cc",
+          "loc": {
+            "start": {
+              "line": 1,
+              "column": 48
+            },
+            "end": {
+              "line": 1,
+              "column": 52
+            }
+          }
+        },
+        {
+          "value": "./SettingsLocale",
+          "resolved": "__unresolved_1",
+          "loc": {
+            "start": {
+              "line": 2,
+              "column": 41
+            },
+            "end": {
+              "line": 2,
+              "column": 59
+            }
+          }
+        },
+        {
+          "value": "./ShopScene",
+          "resolved": "__unresolved_2",
+          "loc": {
+            "start": {
+              "line": 3,
+              "column": 7
+            },
+            "end": {
+              "line": 3,
+              "column": 20
+            }
+          }
+        },
+        {
+          "value": "./CustomizeScene",
+          "resolved": "__unresolved_3",
+          "loc": {
+            "start": {
+              "line": 4,
+              "column": 7
+            },
+            "end": {
+              "line": 4,
+              "column": 25
+            }
+          }
+        }
+      ],
+      "type": "esm",
+      "resolutions": [
+        {
+          "resolved": {
+            "type": "module",
+            "url": "cce:/internal/code-quality/cr.mjs"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "cce:/internal/x/cc"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "cce:/internal/x/cc"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "cce:/internal/x/cc"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/SettingsLocale.ts"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/ShopScene.ts"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/CustomizeScene.ts"
+          },
+          "messages": []
+        }
+      ]
+    },
+    "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/HomePopupMask.ts": {
+      "mTimestamp": {
+        "mtime": 1779239018304.2195,
+        "uuid": "b8a9a41f-0aab-4317-9da2-769db651e249"
+      },
+      "chunkId": "e90c09e2a58a95fa41e12c44111ffbadf15cbeac",
+      "imports": [
+        {
+          "value": "cc"
+        },
+        {
+          "value": "cc"
+        },
+        {
+          "value": "cc",
+          "loc": {
+            "start": {
+              "line": 1,
+              "column": 62
+            },
+            "end": {
+              "line": 1,
+              "column": 66
+            }
+          }
+        }
+      ],
+      "type": "esm",
+      "resolutions": [
+        {
+          "resolved": {
+            "type": "module",
+            "url": "cce:/internal/x/cc"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "cce:/internal/x/cc"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "cce:/internal/x/cc"
+          },
+          "messages": []
+        }
+      ]
+    },
+    "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/HomeWidgetButton.ts": {
+      "mTimestamp": {
+        "mtime": 1778578573079.3423,
+        "uuid": "9384932c-33ba-4507-bd9d-ed9b2ba2818d"
+      },
+      "chunkId": "2feb1173b29be15c3a797ca4ea2347cdf831cb86",
+      "imports": [
+        {
+          "value": "cce:/internal/code-quality/cr.mjs",
+          "resolved": "__unresolved_0"
+        },
+        {
+          "value": "cc"
+        },
+        {
+          "value": "cc"
+        },
+        {
+          "value": "cc",
+          "loc": {
+            "start": {
+              "line": 1,
+              "column": 38
+            },
+            "end": {
+              "line": 1,
+              "column": 42
+            }
+          }
+        },
+        {
+          "value": "./WidgetSync",
+          "resolved": "__unresolved_1",
+          "loc": {
+            "start": {
+              "line": 2,
+              "column": 36
+            },
+            "end": {
+              "line": 2,
+              "column": 50
+            }
+          }
+        }
+      ],
+      "type": "esm",
+      "resolutions": [
+        {
+          "resolved": {
+            "type": "module",
+            "url": "cce:/internal/code-quality/cr.mjs"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "cce:/internal/x/cc"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "cce:/internal/x/cc"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "cce:/internal/x/cc"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/WidgetSync.ts"
+          },
+          "messages": []
+        }
+      ]
+    },
+    "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/Lang.ts": {
+      "mTimestamp": {
+        "mtime": 1778578573079.5088,
+        "uuid": "135c4980-4b0b-4af7-938a-99bba6d0b817"
+      },
+      "chunkId": "5dc8b73a332ccd39d270accff53b68a3d897f009",
+      "imports": [
+        {
+          "value": "cc"
+        },
+        {
+          "value": "cc"
+        },
+        {
+          "value": "cc",
+          "loc": {
+            "start": {
+              "line": 1,
+              "column": 20
+            },
+            "end": {
+              "line": 1,
+              "column": 24
+            }
+          }
+        }
+      ],
+      "type": "esm",
+      "resolutions": [
+        {
+          "resolved": {
+            "type": "module",
+            "url": "cce:/internal/x/cc"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "cce:/internal/x/cc"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "cce:/internal/x/cc"
+          },
+          "messages": []
+        }
+      ]
+    },
+    "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/MotionTipService.ts": {
+      "mTimestamp": {
+        "mtime": 1778578573079.661,
+        "uuid": "9db9a4d6-91dc-4b6d-a86c-125716f45b24"
+      },
+      "chunkId": "32d1ed3c37b94c41193c09dd90d394ef458ec28f",
+      "imports": [
+        {
+          "value": "cc"
+        }
+      ],
+      "type": "esm",
+      "resolutions": [
+        {
+          "resolved": {
+            "type": "module",
+            "url": "cce:/internal/x/cc"
+          },
+          "messages": []
+        }
+      ]
+    },
+    "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/NativeASR.ts": {
+      "mTimestamp": {
+        "mtime": 1778578573079.8171,
+        "uuid": "6a103f5f-66b7-432b-86f3-1128702139bb"
+      },
+      "chunkId": "c6de727e33d860d1d93c3d9596bfb7640d1fa30a",
+      "imports": [
+        {
+          "value": "cc"
+        },
+        {
+          "value": "cc"
+        },
+        {
+          "value": "cc",
+          "loc": {
+            "start": {
+              "line": 1,
+              "column": 28
+            },
+            "end": {
+              "line": 1,
+              "column": 32
+            }
+          }
+        }
+      ],
+      "type": "esm",
+      "resolutions": [
+        {
+          "resolved": {
+            "type": "module",
+            "url": "cce:/internal/x/cc"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "cce:/internal/x/cc"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "cce:/internal/x/cc"
+          },
+          "messages": []
+        }
+      ]
+    },
+    "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/NotificationSettings.ts": {
+      "mTimestamp": {
+        "mtime": 1778578573079.966,
+        "uuid": "9a5ca728-a05e-4500-872b-9fd8bc5c27dd"
+      },
+      "chunkId": "58933d4ef4504edd91cf4148fd40d64aeac77de1",
+      "imports": [
+        {
+          "value": "cc"
+        },
+        {
+          "value": "cc"
+        },
+        {
+          "value": "cc",
+          "loc": {
+            "start": {
+              "line": 1,
+              "column": 51
+            },
+            "end": {
+              "line": 1,
+              "column": 55
+            }
+          }
+        }
+      ],
+      "type": "esm",
+      "resolutions": [
+        {
+          "resolved": {
+            "type": "module",
+            "url": "cce:/internal/x/cc"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "cce:/internal/x/cc"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "cce:/internal/x/cc"
+          },
+          "messages": []
+        }
+      ]
+    },
+    "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/PetButtons.ts": {
+      "mTimestamp": {
+        "mtime": 1779239018333.0352,
+        "uuid": "ede32bd1-80bc-485e-973a-287269077844"
+      },
+      "chunkId": "947b24776972b37ec757e346c8c57bf9fb02e355",
+      "imports": [
+        {
+          "value": "cce:/internal/code-quality/cr.mjs",
+          "resolved": "__unresolved_0"
+        },
+        {
+          "value": "cc"
+        },
+        {
+          "value": "cc"
+        },
+        {
+          "value": "cc",
+          "loc": {
+            "start": {
+              "line": 1,
+              "column": 60
+            },
+            "end": {
+              "line": 1,
+              "column": 64
+            }
+          }
+        },
+        {
+          "value": "./DogController",
+          "resolved": "__unresolved_1",
+          "loc": {
+            "start": {
+              "line": 2,
+              "column": 30
+            },
+            "end": {
+              "line": 2,
+              "column": 47
+            }
+          }
+        },
+        {
+          "value": "./CatController",
+          "resolved": "__unresolved_2",
+          "loc": {
+            "start": {
+              "line": 3,
+              "column": 30
+            },
+            "end": {
+              "line": 3,
+              "column": 47
+            }
+          }
+        }
+      ],
+      "type": "esm",
+      "resolutions": [
+        {
+          "resolved": {
+            "type": "module",
+            "url": "cce:/internal/code-quality/cr.mjs"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "cce:/internal/x/cc"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "cce:/internal/x/cc"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "cce:/internal/x/cc"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/DogController.ts"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/CatController.ts"
+          },
+          "messages": []
+        }
+      ]
+    },
+    "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/PetControllerBase.ts": {
+      "mTimestamp": {
+        "mtime": 1779240680618.908,
+        "uuid": "008ed21c-5fd3-48b8-89cf-d21cd3f5eb67"
+      },
+      "chunkId": "396794c26b9287d600fc800d773f2b61e37c1787",
+      "imports": [
+        {
+          "value": "cce:/internal/code-quality/cr.mjs",
+          "resolved": "__unresolved_0"
+        },
+        {
+          "value": "cc"
+        },
+        {
+          "value": "cc"
+        },
+        {
+          "value": "cc",
+          "loc": {
+            "start": {
+              "line": 1,
+              "column": 109
+            },
+            "end": {
+              "line": 1,
+              "column": 113
+            }
+          }
+        },
+        {
+          "value": "./RandomPlayPetAni",
+          "resolved": "__unresolved_1",
+          "loc": {
+            "start": {
+              "line": 2,
+              "column": 33
+            },
+            "end": {
+              "line": 2,
+              "column": 53
+            }
+          }
+        },
+        {
+          "value": "./PetValue",
+          "resolved": "__unresolved_2",
+          "loc": {
+            "start": {
+              "line": 3,
+              "column": 25
+            },
+            "end": {
+              "line": 3,
+              "column": 37
+            }
+          }
+        },
+        {
+          "value": "./SharedBtnCounts",
+          "resolved": "__unresolved_3",
+          "loc": {
+            "start": {
+              "line": 4,
+              "column": 32
+            },
+            "end": {
+              "line": 4,
+              "column": 51
+            }
+          }
+        },
+        {
+          "value": "./PetInfoBar",
+          "resolved": "__unresolved_4",
+          "loc": {
+            "start": {
+              "line": 5,
+              "column": 27
+            },
+            "end": {
+              "line": 5,
+              "column": 41
+            }
+          }
+        },
+        {
+          "value": "./HeartBubbleAni",
+          "resolved": "__unresolved_5",
+          "loc": {
+            "start": {
+              "line": 6,
+              "column": 31
+            },
+            "end": {
+              "line": 6,
+              "column": 49
+            }
+          }
+        },
+        {
+          "value": "./SwipeState",
+          "resolved": "__unresolved_6",
+          "loc": {
+            "start": {
+              "line": 7,
+              "column": 27
+            },
+            "end": {
+              "line": 7,
+              "column": 41
+            }
+          }
+        }
+      ],
+      "type": "esm",
+      "resolutions": [
+        {
+          "resolved": {
+            "type": "module",
+            "url": "cce:/internal/code-quality/cr.mjs"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "cce:/internal/x/cc"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "cce:/internal/x/cc"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "cce:/internal/x/cc"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/RandomPlayPetAni.ts"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/PetValue.ts"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/SharedBtnCounts.ts"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/PetInfoBar.ts"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/HeartBubbleAni.ts"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/SwipeState.ts"
+          },
+          "messages": []
+        }
+      ]
+    },
+    "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/PetInfoBar.ts": {
+      "mTimestamp": {
+        "mtime": 1779240720899.5403,
+        "uuid": "93b5cf0e-5dd6-4c29-ae17-17793be21664"
+      },
+      "chunkId": "882d570b06d2b9422a9a9067791a03552f2e9a61",
+      "imports": [
+        {
+          "value": "cce:/internal/code-quality/cr.mjs",
+          "resolved": "__unresolved_0"
+        },
+        {
+          "value": "cc"
+        },
+        {
+          "value": "cc"
+        },
+        {
+          "value": "cc",
+          "loc": {
+            "start": {
+              "line": 4,
+              "column": 7
+            },
+            "end": {
+              "line": 4,
+              "column": 11
+            }
+          }
+        },
+        {
+          "value": "./WidgetSync",
+          "resolved": "__unresolved_1",
+          "loc": {
+            "start": {
+              "line": 5,
+              "column": 35
+            },
+            "end": {
+              "line": 5,
+              "column": 49
+            }
+          }
+        },
+        {
+          "value": "./TipCopy",
+          "resolved": "__unresolved_2",
+          "loc": {
+            "start": {
+              "line": 8,
+              "column": 7
+            },
+            "end": {
+              "line": 8,
+              "column": 18
+            }
+          }
+        },
+        {
+          "value": "./llm_v2/TokitChatService",
+          "resolved": "__unresolved_3",
+          "loc": {
+            "start": {
+              "line": 9,
+              "column": 33
+            },
+            "end": {
+              "line": 9,
+              "column": 60
+            }
+          }
+        },
+        {
+          "value": "./PetValue",
+          "resolved": "__unresolved_4",
+          "loc": {
+            "start": {
+              "line": 10,
+              "column": 25
+            },
+            "end": {
+              "line": 10,
+              "column": 37
+            }
+          }
+        },
+        {
+          "value": "./SharedBtnCounts",
+          "resolved": "__unresolved_5",
+          "loc": {
+            "start": {
+              "line": 11,
+              "column": 32
+            },
+            "end": {
+              "line": 11,
+              "column": 51
+            }
+          }
+        },
+        {
+          "value": "./TogglePet",
+          "resolved": "__unresolved_6",
+          "loc": {
+            "start": {
+              "line": 12,
+              "column": 26
+            },
+            "end": {
+              "line": 12,
+              "column": 39
+            }
+          }
+        },
+        {
+          "value": "./PetButtons",
+          "resolved": "__unresolved_7",
+          "loc": {
+            "start": {
+              "line": 13,
+              "column": 27
+            },
+            "end": {
+              "line": 13,
+              "column": 41
+            }
+          }
+        }
+      ],
+      "type": "esm",
+      "resolutions": [
+        {
+          "resolved": {
+            "type": "module",
+            "url": "cce:/internal/code-quality/cr.mjs"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "cce:/internal/x/cc"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "cce:/internal/x/cc"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "cce:/internal/x/cc"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/WidgetSync.ts"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/TipCopy.ts"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/llm_v2/TokitChatService.ts"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/PetValue.ts"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/SharedBtnCounts.ts"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/TogglePet.ts"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/PetButtons.ts"
+          },
+          "messages": []
+        }
+      ]
+    },
+    "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/PetValue.ts": {
+      "mTimestamp": {
+        "mtime": 1779241983459.8723,
+        "uuid": "59c2ba4d-409c-4e04-8b66-1e870e59e7d2"
+      },
+      "chunkId": "76e301410d990efa695f8d3bcc176eef7377fdc8",
+      "imports": [
+        {
+          "value": "cce:/internal/code-quality/cr.mjs",
+          "resolved": "__unresolved_0"
+        },
+        {
+          "value": "cc"
+        },
+        {
+          "value": "cc"
+        },
+        {
+          "value": "cc",
+          "loc": {
+            "start": {
+              "line": 1,
+              "column": 141
+            },
+            "end": {
+              "line": 1,
+              "column": 145
+            }
+          }
+        },
+        {
+          "value": "./SharedBtnCounts",
+          "resolved": "__unresolved_1",
+          "loc": {
+            "start": {
+              "line": 2,
+              "column": 32
+            },
+            "end": {
+              "line": 2,
+              "column": 51
+            }
+          }
+        },
+        {
+          "value": "./AudioManager",
+          "resolved": "__unresolved_2",
+          "loc": {
+            "start": {
+              "line": 3,
+              "column": 29
+            },
+            "end": {
+              "line": 3,
+              "column": 45
+            }
+          }
+        },
+        {
+          "value": "./BtnAdGuard",
+          "resolved": "__unresolved_3",
+          "loc": {
+            "start": {
+              "line": 4,
+              "column": 27
+            },
+            "end": {
+              "line": 4,
+              "column": 41
+            }
+          }
+        },
+        {
+          "value": "./AdButton",
+          "resolved": "__unresolved_4",
+          "loc": {
+            "start": {
+              "line": 5,
+              "column": 25
+            },
+            "end": {
+              "line": 5,
+              "column": 37
+            }
+          }
+        },
+        {
+          "value": "./WidgetSync",
+          "resolved": "__unresolved_5",
+          "loc": {
+            "start": {
+              "line": 6,
+              "column": 38
+            },
+            "end": {
+              "line": 6,
+              "column": 52
+            }
+          }
+        },
+        {
+          "value": "./DateUtil",
+          "resolved": "__unresolved_6",
+          "loc": {
+            "start": {
+              "line": 7,
+              "column": 35
+            },
+            "end": {
+              "line": 7,
+              "column": 47
+            }
+          }
+        },
+        {
+          "value": "./PetInfoBar",
+          "resolved": "__unresolved_7",
+          "loc": {
+            "start": {
+              "line": 8,
+              "column": 27
+            },
+            "end": {
+              "line": 8,
+              "column": 41
+            }
+          }
+        }
+      ],
+      "type": "esm",
+      "resolutions": [
+        {
+          "resolved": {
+            "type": "module",
+            "url": "cce:/internal/code-quality/cr.mjs"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "cce:/internal/x/cc"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "cce:/internal/x/cc"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "cce:/internal/x/cc"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/SharedBtnCounts.ts"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/AudioManager.ts"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/BtnAdGuard.ts"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/AdButton.ts"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/WidgetSync.ts"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/DateUtil.ts"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/PetInfoBar.ts"
+          },
+          "messages": []
+        }
+      ]
+    },
+    "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/PetVocalizer.ts": {
+      "mTimestamp": {
+        "mtime": 1778578573080.8591,
+        "uuid": "f237f789-a545-47a4-9250-6703a8cfa21f"
+      },
+      "chunkId": "56dc2ba36f3e166ddfcadacdc30115d4f2a783de",
+      "imports": [
+        {
+          "value": "cce:/internal/code-quality/cr.mjs",
+          "resolved": "__unresolved_0"
+        },
+        {
+          "value": "cc"
+        },
+        {
+          "value": "cc"
+        },
+        {
+          "value": "cc",
+          "loc": {
+            "start": {
+              "line": 1,
+              "column": 20
+            },
+            "end": {
+              "line": 1,
+              "column": 24
+            }
+          }
+        },
+        {
+          "value": "./AudioManager",
+          "resolved": "__unresolved_1",
+          "loc": {
+            "start": {
+              "line": 2,
+              "column": 29
+            },
+            "end": {
+              "line": 2,
+              "column": 45
+            }
+          }
+        }
+      ],
+      "type": "esm",
+      "resolutions": [
+        {
+          "resolved": {
+            "type": "module",
+            "url": "cce:/internal/code-quality/cr.mjs"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "cce:/internal/x/cc"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "cce:/internal/x/cc"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "cce:/internal/x/cc"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/AudioManager.ts"
+          },
+          "messages": []
+        }
+      ]
+    },
+    "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/PetWake.ts": {
+      "mTimestamp": {
+        "mtime": 1778578573081.0193,
+        "uuid": "1f099ee2-e25b-4135-8dbc-12b4b720b81d"
+      },
+      "chunkId": "4c9ac5272b9066b37f22da752b507c0d826289ef",
+      "imports": [
+        {
+          "value": "cce:/internal/code-quality/cr.mjs",
+          "resolved": "__unresolved_0"
+        },
+        {
+          "value": "cc"
+        },
+        {
+          "value": "cc"
+        },
+        {
+          "value": "cc",
+          "loc": {
+            "start": {
+              "line": 1,
+              "column": 30
+            },
+            "end": {
+              "line": 1,
+              "column": 34
+            }
+          }
+        },
+        {
+          "value": "./DogController",
+          "resolved": "__unresolved_1",
+          "loc": {
+            "start": {
+              "line": 2,
+              "column": 30
+            },
+            "end": {
+              "line": 2,
+              "column": 47
+            }
+          }
+        },
+        {
+          "value": "./CatController",
+          "resolved": "__unresolved_2",
+          "loc": {
+            "start": {
+              "line": 3,
+              "column": 30
+            },
+            "end": {
+              "line": 3,
+              "column": 47
+            }
+          }
+        }
+      ],
+      "type": "esm",
+      "resolutions": [
+        {
+          "resolved": {
+            "type": "module",
+            "url": "cce:/internal/code-quality/cr.mjs"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "cce:/internal/x/cc"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "cce:/internal/x/cc"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "cce:/internal/x/cc"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/DogController.ts"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/CatController.ts"
+          },
+          "messages": []
+        }
+      ]
+    },
+    "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/RandomPlayCatAni.ts": {
+      "mTimestamp": {
+        "mtime": 1778578573081.1575,
+        "uuid": "c940761a-65e5-48f8-bd77-b07e3ee8c277"
+      },
+      "chunkId": "1d0d77c7082c51d8d1fdfafbdabbf82cbe05f120",
+      "imports": [
+        {
+          "value": "cce:/internal/code-quality/cr.mjs",
+          "resolved": "__unresolved_0"
+        },
+        {
+          "value": "cc"
+        },
+        {
+          "value": "cc"
+        },
+        {
+          "value": "cc",
+          "loc": {
+            "start": {
+              "line": 1,
+              "column": 27
+            },
+            "end": {
+              "line": 1,
+              "column": 31
+            }
+          }
+        },
+        {
+          "value": "./RandomPlayPetAni",
+          "resolved": "__unresolved_1",
+          "loc": {
+            "start": {
+              "line": 2,
+              "column": 33
+            },
+            "end": {
+              "line": 2,
+              "column": 53
+            }
+          }
+        }
+      ],
+      "type": "esm",
+      "resolutions": [
+        {
+          "resolved": {
+            "type": "module",
+            "url": "cce:/internal/code-quality/cr.mjs"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "cce:/internal/x/cc"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "cce:/internal/x/cc"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "cce:/internal/x/cc"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/RandomPlayPetAni.ts"
+          },
+          "messages": []
+        }
+      ]
+    },
+    "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/RandomPlayDogAni.ts": {
+      "mTimestamp": {
+        "mtime": 1778578573081.3025,
+        "uuid": "34485be1-c6d8-4789-88c2-360d299f65de"
+      },
+      "chunkId": "e4db968342fde299e463d34f0cf5ad88f2ee6e68",
+      "imports": [
+        {
+          "value": "cce:/internal/code-quality/cr.mjs",
+          "resolved": "__unresolved_0"
+        },
+        {
+          "value": "cc"
+        },
+        {
+          "value": "cc"
+        },
+        {
+          "value": "cc",
+          "loc": {
+            "start": {
+              "line": 1,
+              "column": 27
+            },
+            "end": {
+              "line": 1,
+              "column": 31
+            }
+          }
+        },
+        {
+          "value": "./RandomPlayPetAni",
+          "resolved": "__unresolved_1",
+          "loc": {
+            "start": {
+              "line": 2,
+              "column": 33
+            },
+            "end": {
+              "line": 2,
+              "column": 53
+            }
+          }
+        }
+      ],
+      "type": "esm",
+      "resolutions": [
+        {
+          "resolved": {
+            "type": "module",
+            "url": "cce:/internal/code-quality/cr.mjs"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "cce:/internal/x/cc"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "cce:/internal/x/cc"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "cce:/internal/x/cc"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/RandomPlayPetAni.ts"
+          },
+          "messages": []
+        }
+      ]
+    },
+    "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/RandomPlayPetAni.ts": {
+      "mTimestamp": {
+        "mtime": 1779240686344.6165,
+        "uuid": "cd02bc68-139a-4685-9fe1-aa718ef4f1a3"
+      },
+      "chunkId": "a1c43ac28f173ed827be453714c662b9e6c3ae0c",
+      "imports": [
+        {
+          "value": "cce:/internal/code-quality/cr.mjs",
+          "resolved": "__unresolved_0"
+        },
+        {
+          "value": "cc"
+        },
+        {
+          "value": "cc"
+        },
+        {
+          "value": "cc",
+          "loc": {
+            "start": {
+              "line": 1,
+              "column": 65
+            },
+            "end": {
+              "line": 1,
+              "column": 69
+            }
+          }
+        },
+        {
+          "value": "./PetValue",
+          "resolved": "__unresolved_1",
+          "loc": {
+            "start": {
+              "line": 2,
+              "column": 43
+            },
+            "end": {
+              "line": 2,
+              "column": 55
+            }
+          }
+        },
+        {
+          "value": "./PetInfoBar",
+          "resolved": "__unresolved_2",
+          "loc": {
+            "start": {
+              "line": 3,
+              "column": 27
+            },
+            "end": {
+              "line": 3,
+              "column": 41
+            }
+          }
+        }
+      ],
+      "type": "esm",
+      "resolutions": [
+        {
+          "resolved": {
+            "type": "module",
+            "url": "cce:/internal/code-quality/cr.mjs"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "cce:/internal/x/cc"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "cce:/internal/x/cc"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "cce:/internal/x/cc"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/PetValue.ts"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/PetInfoBar.ts"
+          },
+          "messages": []
+        }
+      ]
+    },
+    "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/RechargePanel.ts": {
+      "mTimestamp": {
+        "mtime": 1779244813475.791,
+        "uuid": "ef652d2d-28e3-4de8-8f38-0d2ab6915b2c"
+      },
+      "chunkId": "2c32db295d3d88e53974a0aefd6a4fb0ec87a807",
+      "imports": [
+        {
+          "value": "cce:/internal/code-quality/cr.mjs",
+          "resolved": "__unresolved_0"
+        },
+        {
+          "value": "cc"
+        },
+        {
+          "value": "cc"
+        },
+        {
+          "value": "cc",
+          "loc": {
+            "start": {
+              "line": 1,
+              "column": 59
+            },
+            "end": {
+              "line": 1,
+              "column": 63
+            }
+          }
+        },
+        {
+          "value": "./SharedBtnCounts",
+          "resolved": "__unresolved_1",
+          "loc": {
+            "start": {
+              "line": 2,
+              "column": 32
+            },
+            "end": {
+              "line": 2,
+              "column": 51
+            }
+          }
+        },
+        {
+          "value": "./PetUnlock",
+          "resolved": "__unresolved_2",
+          "loc": {
+            "start": {
+              "line": 6,
+              "column": 7
+            },
+            "end": {
+              "line": 6,
+              "column": 20
+            }
+          }
+        }
+      ],
+      "type": "esm",
+      "resolutions": [
+        {
+          "resolved": {
+            "type": "module",
+            "url": "cce:/internal/code-quality/cr.mjs"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "cce:/internal/x/cc"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "cce:/internal/x/cc"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "cce:/internal/x/cc"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/SharedBtnCounts.ts"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/PetUnlock.ts"
+          },
+          "messages": []
+        }
+      ]
+    },
+    "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/SettingsCopy.ts": {
+      "mTimestamp": {
+        "mtime": 1778578573081.7393,
+        "uuid": "2f6a1c90-5c2d-4b8e-a1d0-123456789abc"
+      },
+      "chunkId": "b6946184382b8982fa845b238612868bfee4418f",
+      "imports": [
+        {
+          "value": "cce:/internal/code-quality/cr.mjs",
+          "resolved": "__unresolved_0"
+        },
+        {
+          "value": "cc"
+        },
+        {
+          "value": "./Lang",
+          "resolved": "__unresolved_1",
+          "loc": {
+            "start": {
+              "line": 4,
+              "column": 21
+            },
+            "end": {
+              "line": 4,
+              "column": 29
+            }
+          }
+        }
+      ],
+      "type": "esm",
+      "resolutions": [
+        {
+          "resolved": {
+            "type": "module",
+            "url": "cce:/internal/code-quality/cr.mjs"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "cce:/internal/x/cc"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/Lang.ts"
+          },
+          "messages": []
+        }
+      ]
+    },
+    "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/SettingsLocale.ts": {
+      "mTimestamp": {
+        "mtime": 1778578573081.8906,
+        "uuid": "4f8c3eb2-7e4f-6da0-c3f2-3456789abcde"
+      },
+      "chunkId": "b539c2a70d634697ec81b4647c8c5d98388eae8e",
+      "imports": [
+        {
+          "value": "cce:/internal/code-quality/cr.mjs",
+          "resolved": "__unresolved_0"
+        },
+        {
+          "value": "cc"
+        },
+        {
+          "value": "cc"
+        },
+        {
+          "value": "cc",
+          "loc": {
+            "start": {
+              "line": 1,
+              "column": 51
+            },
+            "end": {
+              "line": 1,
+              "column": 55
+            }
+          }
+        },
+        {
+          "value": "./AppVersion",
+          "resolved": "__unresolved_1",
+          "loc": {
+            "start": {
+              "line": 2,
+              "column": 40
+            },
+            "end": {
+              "line": 2,
+              "column": 54
+            }
+          }
+        },
+        {
+          "value": "./SettingsCopy",
+          "resolved": "__unresolved_2",
+          "loc": {
+            "start": {
+              "line": 10,
+              "column": 7
+            },
+            "end": {
+              "line": 10,
+              "column": 23
+            }
+          }
+        }
+      ],
+      "type": "esm",
+      "resolutions": [
+        {
+          "resolved": {
+            "type": "module",
+            "url": "cce:/internal/code-quality/cr.mjs"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "cce:/internal/x/cc"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "cce:/internal/x/cc"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "cce:/internal/x/cc"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/AppVersion.ts"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/SettingsCopy.ts"
+          },
+          "messages": []
+        }
+      ]
+    },
+    "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/SharedBtnCounts.ts": {
+      "mTimestamp": {
+        "mtime": 1778578573082.0662,
+        "uuid": "e059579f-0b1d-4c94-93a8-1ae9e9f1edfe"
+      },
+      "chunkId": "e73aadf24037afa169f11cc82bc1e7de598d5f84",
+      "imports": [
+        {
+          "value": "cce:/internal/code-quality/cr.mjs",
+          "resolved": "__unresolved_0"
+        },
+        {
+          "value": "cc"
+        },
+        {
+          "value": "cc"
+        },
+        {
+          "value": "cc",
+          "loc": {
+            "start": {
+              "line": 1,
+              "column": 20
+            },
+            "end": {
+              "line": 1,
+              "column": 24
+            }
+          }
+        },
+        {
+          "value": "./DateUtil",
+          "resolved": "__unresolved_1",
+          "loc": {
+            "start": {
+              "line": 2,
+              "column": 59
+            },
+            "end": {
+              "line": 2,
+              "column": 71
+            }
+          }
+        }
+      ],
+      "type": "esm",
+      "resolutions": [
+        {
+          "resolved": {
+            "type": "module",
+            "url": "cce:/internal/code-quality/cr.mjs"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "cce:/internal/x/cc"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "cce:/internal/x/cc"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "cce:/internal/x/cc"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/DateUtil.ts"
+          },
+          "messages": []
+        }
+      ]
+    },
+    "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/SwipeState.ts": {
+      "mTimestamp": {
+        "mtime": 1778578573082.2,
+        "uuid": "66491fbe-f8a8-44f3-9d74-768396cd7515"
+      },
+      "chunkId": "7291285c0c5ad38c0ac703b5e813a040919e8b18",
+      "imports": [
+        {
+          "value": "cc"
+        }
+      ],
+      "type": "esm",
+      "resolutions": [
+        {
+          "resolved": {
+            "type": "module",
+            "url": "cce:/internal/x/cc"
+          },
+          "messages": []
+        }
+      ]
+    },
+    "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/TipCopy.ts": {
+      "mTimestamp": {
+        "mtime": 1779244793227.5618,
+        "uuid": "0ae06131-8773-485b-a22b-9e5db4e2da53"
+      },
+      "chunkId": "7797fa02206f4b7c1200407d931813ea58c7eeea",
+      "imports": [
+        {
+          "value": "cce:/internal/code-quality/cr.mjs",
+          "resolved": "__unresolved_0"
+        },
+        {
+          "value": "cc"
+        },
+        {
+          "value": "./Lang",
+          "resolved": "__unresolved_1",
+          "loc": {
+            "start": {
+              "line": 6,
+              "column": 30
+            },
+            "end": {
+              "line": 6,
+              "column": 38
+            }
+          }
+        }
+      ],
+      "type": "esm",
+      "resolutions": [
+        {
+          "resolved": {
+            "type": "module",
+            "url": "cce:/internal/code-quality/cr.mjs"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "cce:/internal/x/cc"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/Lang.ts"
+          },
+          "messages": []
+        }
+      ]
+    },
+    "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/TogglePet.ts": {
+      "mTimestamp": {
+        "mtime": 1779243352654.4983,
+        "uuid": "1cdf4315-028f-4c7b-bf38-831e2e0d14e4"
+      },
+      "chunkId": "f25dd94cbf72dc9ca35b2579d16cd5aedd2af915",
+      "imports": [
+        {
+          "value": "cce:/internal/code-quality/cr.mjs",
+          "resolved": "__unresolved_0"
+        },
+        {
+          "value": "cc"
+        },
+        {
+          "value": "cc"
+        },
+        {
+          "value": "cc",
+          "loc": {
+            "start": {
+              "line": 3,
+              "column": 7
+            },
+            "end": {
+              "line": 3,
+              "column": 11
+            }
+          }
+        },
+        {
+          "value": "./DogController",
+          "resolved": "__unresolved_1",
+          "loc": {
+            "start": {
+              "line": 4,
+              "column": 30
+            },
+            "end": {
+              "line": 4,
+              "column": 47
+            }
+          }
+        },
+        {
+          "value": "./CatController",
+          "resolved": "__unresolved_2",
+          "loc": {
+            "start": {
+              "line": 5,
+              "column": 30
+            },
+            "end": {
+              "line": 5,
+              "column": 47
+            }
+          }
+        },
+        {
+          "value": "./WidgetSync",
+          "resolved": "__unresolved_3",
+          "loc": {
+            "start": {
+              "line": 6,
+              "column": 38
+            },
+            "end": {
+              "line": 6,
+              "column": 52
+            }
+          }
+        },
+        {
+          "value": "./PetUnlock",
+          "resolved": "__unresolved_4",
+          "loc": {
+            "start": {
+              "line": 9,
+              "column": 7
+            },
+            "end": {
+              "line": 9,
+              "column": 20
+            }
+          }
+        },
+        {
+          "value": "./ShopScene",
+          "resolved": "__unresolved_5",
+          "loc": {
+            "start": {
+              "line": 10,
+              "column": 7
+            },
+            "end": {
+              "line": 10,
+              "column": 20
+            }
+          }
+        }
+      ],
+      "type": "esm",
+      "resolutions": [
+        {
+          "resolved": {
+            "type": "module",
+            "url": "cce:/internal/code-quality/cr.mjs"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "cce:/internal/x/cc"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "cce:/internal/x/cc"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "cce:/internal/x/cc"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/DogController.ts"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/CatController.ts"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/WidgetSync.ts"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/PetUnlock.ts"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/ShopScene.ts"
+          },
+          "messages": []
+        }
+      ]
+    },
+    "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/WeatherService.ts": {
+      "mTimestamp": {
+        "mtime": 1778578573082.6792,
+        "uuid": "104fbf94-9c7e-4197-b454-51339301f58a"
+      },
+      "chunkId": "7104af3b7982e0ec0daeca06c9ca689119c90fd1",
+      "imports": [
+        {
+          "value": "cce:/internal/code-quality/cr.mjs",
+          "resolved": "__unresolved_0"
+        },
+        {
+          "value": "cc"
+        },
+        {
+          "value": "cc"
+        },
+        {
+          "value": "cc",
+          "loc": {
+            "start": {
+              "line": 1,
+              "column": 28
+            },
+            "end": {
+              "line": 1,
+              "column": 32
+            }
+          }
+        },
+        {
+          "value": "./TipCopy",
+          "resolved": "__unresolved_1",
+          "loc": {
+            "start": {
+              "line": 2,
+              "column": 31
+            },
+            "end": {
+              "line": 2,
+              "column": 42
+            }
+          }
+        }
+      ],
+      "type": "esm",
+      "resolutions": [
+        {
+          "resolved": {
+            "type": "module",
+            "url": "cce:/internal/code-quality/cr.mjs"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "cce:/internal/x/cc"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "cce:/internal/x/cc"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "cce:/internal/x/cc"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/TipCopy.ts"
+          },
+          "messages": []
+        }
+      ]
+    },
+    "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/WidgetChoosePanel.ts": {
+      "mTimestamp": {
+        "mtime": 1779239018187.462,
+        "uuid": "e9433f34-c8d9-4641-90a2-b4ace0e6e8d4"
+      },
+      "chunkId": "721d34d1f6a477670f5096a5290f974967edc591",
+      "imports": [
+        {
+          "value": "cce:/internal/code-quality/cr.mjs",
+          "resolved": "__unresolved_0"
+        },
+        {
+          "value": "cc"
+        },
+        {
+          "value": "cc"
+        },
+        {
+          "value": "cc",
+          "loc": {
+            "start": {
+              "line": 1,
+              "column": 44
+            },
+            "end": {
+              "line": 1,
+              "column": 48
+            }
+          }
+        },
+        {
+          "value": "./WidgetSync",
+          "resolved": "__unresolved_1",
+          "loc": {
+            "start": {
+              "line": 2,
+              "column": 41
+            },
+            "end": {
+              "line": 2,
+              "column": 55
+            }
+          }
+        },
+        {
+          "value": "./HomePopupMask",
+          "resolved": "__unresolved_2",
+          "loc": {
+            "start": {
+              "line": 3,
+              "column": 30
+            },
+            "end": {
+              "line": 3,
+              "column": 47
+            }
+          }
+        }
+      ],
+      "type": "esm",
+      "resolutions": [
+        {
+          "resolved": {
+            "type": "module",
+            "url": "cce:/internal/code-quality/cr.mjs"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "cce:/internal/x/cc"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "cce:/internal/x/cc"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "cce:/internal/x/cc"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/WidgetSync.ts"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/HomePopupMask.ts"
+          },
+          "messages": []
+        }
+      ]
+    },
+    "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/WidgetSync.ts": {
+      "mTimestamp": {
+        "mtime": 1779239018170.7954,
+        "uuid": "76c75327-73ae-4351-be16-a3003978405b"
+      },
+      "chunkId": "26b13e8736462f08d83135da4d124c0bfc9064ba",
+      "imports": [
+        {
+          "value": "cc"
+        },
+        {
+          "value": "cc"
+        },
+        {
+          "value": "cc",
+          "loc": {
+            "start": {
+              "line": 1,
+              "column": 28
+            },
+            "end": {
+              "line": 1,
+              "column": 32
+            }
+          }
+        }
+      ],
+      "type": "esm",
+      "resolutions": [
+        {
+          "resolved": {
+            "type": "module",
+            "url": "cce:/internal/x/cc"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "cce:/internal/x/cc"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "cce:/internal/x/cc"
+          },
+          "messages": []
+        }
+      ]
+    },
+    "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/llm_v2/ChatContextStore.ts": {
+      "mTimestamp": {
+        "mtime": 1778578573083.2422,
+        "uuid": "94eaa521-ee17-427b-a3fe-06cb379be7bf"
+      },
+      "chunkId": "d19093d77faffef73976431692a76752ce15416c",
+      "imports": [
+        {
+          "value": "cc"
+        }
+      ],
+      "type": "esm",
+      "resolutions": [
+        {
+          "resolved": {
+            "type": "module",
+            "url": "cce:/internal/x/cc"
+          },
+          "messages": []
+        }
+      ]
+    },
+    "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/llm_v2/HttpTimeouts.ts": {
+      "mTimestamp": {
+        "mtime": 1778578573083.381,
+        "uuid": "a3c4d5e6-7081-92a3-b4c5-d6e7f8091a2b"
+      },
+      "chunkId": "a87a0c0b83e32fb6e1f2cfc6ec93cc4001c5f16f",
+      "imports": [
+        {
+          "value": "cc"
+        }
+      ],
+      "type": "esm",
+      "resolutions": [
+        {
+          "resolved": {
+            "type": "module",
+            "url": "cce:/internal/x/cc"
+          },
+          "messages": []
+        }
+      ]
+    },
+    "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/llm_v2/LlmConfigParams.ts": {
+      "mTimestamp": {
+        "mtime": 1778578573083.5222,
+        "uuid": "f8a3b2c1-4d5e-6f70-a8b9-0c1d2e3f4a5b"
+      },
+      "chunkId": "fc480a94da1b0068e746bb767e93df22877375e9",
+      "imports": [
+        {
+          "value": "cce:/internal/code-quality/cr.mjs",
+          "resolved": "__unresolved_0"
+        },
+        {
+          "value": "cc"
+        },
+        {
+          "value": "cc"
+        },
+        {
+          "value": "cc",
+          "loc": {
+            "start": {
+              "line": 1,
+              "column": 28
+            },
+            "end": {
+              "line": 1,
+              "column": 32
+            }
+          }
+        },
+        {
+          "value": "../AppVersion",
+          "resolved": "__unresolved_1",
+          "loc": {
+            "start": {
+              "line": 2,
+              "column": 40
+            },
+            "end": {
+              "line": 2,
+              "column": 55
+            }
+          }
+        }
+      ],
+      "type": "esm",
+      "resolutions": [
+        {
+          "resolved": {
+            "type": "module",
+            "url": "cce:/internal/code-quality/cr.mjs"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "cce:/internal/x/cc"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "cce:/internal/x/cc"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "cce:/internal/x/cc"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/AppVersion.ts"
+          },
+          "messages": []
+        }
+      ]
+    },
+    "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/llm_v2/LlmRemoteConfig.ts": {
+      "mTimestamp": {
+        "mtime": 1778578573083.6682,
+        "uuid": "e7b2a1c9-3f4e-5d60-b7c8-1a2b3c4d5e6f"
+      },
+      "chunkId": "2e8e23db63293c5873fc70ca32514a0cec30d76d",
+      "imports": [
+        {
+          "value": "cce:/internal/code-quality/cr.mjs",
+          "resolved": "__unresolved_0"
+        },
+        {
+          "value": "cc"
+        },
+        {
+          "value": "cc"
+        },
+        {
+          "value": "cc",
+          "loc": {
+            "start": {
+              "line": 1,
+              "column": 20
+            },
+            "end": {
+              "line": 1,
+              "column": 24
+            }
+          }
+        },
+        {
+          "value": "./LlmConfigParams",
+          "resolved": "__unresolved_1",
+          "loc": {
+            "start": {
+              "line": 2,
+              "column": 42
+            },
+            "end": {
+              "line": 2,
+              "column": 61
+            }
+          }
+        },
+        {
+          "value": "./HttpTimeouts",
+          "resolved": "__unresolved_2",
+          "loc": {
+            "start": {
+              "line": 3,
+              "column": 36
+            },
+            "end": {
+              "line": 3,
+              "column": 52
+            }
+          }
+        },
+        {
+          "value": "./NativeXhrHttp",
+          "resolved": "__unresolved_3",
+          "loc": {
+            "start": {
+              "line": 4,
+              "column": 24
+            },
+            "end": {
+              "line": 4,
+              "column": 41
+            }
+          }
+        }
+      ],
+      "type": "esm",
+      "resolutions": [
+        {
+          "resolved": {
+            "type": "module",
+            "url": "cce:/internal/code-quality/cr.mjs"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "cce:/internal/x/cc"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "cce:/internal/x/cc"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "cce:/internal/x/cc"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/llm_v2/LlmConfigParams.ts"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/llm_v2/HttpTimeouts.ts"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/llm_v2/NativeXhrHttp.ts"
+          },
+          "messages": []
+        }
+      ]
+    },
+    "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/llm_v2/NativeXhrHttp.ts": {
+      "mTimestamp": {
+        "mtime": 1778578573083.8152,
+        "uuid": "b4d5e6f7-8192-a3b4-c5d6-e7f8091a2b3c"
+      },
+      "chunkId": "b57634728f96ef856e59a3b167d6433b8f3d3e6d",
+      "imports": [
+        {
+          "value": "cc"
+        }
+      ],
+      "type": "esm",
+      "resolutions": [
+        {
+          "resolved": {
+            "type": "module",
+            "url": "cce:/internal/x/cc"
+          },
+          "messages": []
+        }
+      ]
+    },
+    "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/llm_v2/TokitChatService.ts": {
+      "mTimestamp": {
+        "mtime": 1778578573083.989,
+        "uuid": "e67c8688-2f26-44a5-b0eb-56623ce5a0b1"
+      },
+      "chunkId": "cee3acb0f8b6d73eb6950b7d11e170571c2f0cc1",
+      "imports": [
+        {
+          "value": "cce:/internal/code-quality/cr.mjs",
+          "resolved": "__unresolved_0"
+        },
+        {
+          "value": "cc"
+        },
+        {
+          "value": "cc"
+        },
+        {
+          "value": "cc",
+          "loc": {
+            "start": {
+              "line": 1,
+              "column": 20
+            },
+            "end": {
+              "line": 1,
+              "column": 24
+            }
+          }
+        },
+        {
+          "value": "./ChatContextStore",
+          "resolved": "__unresolved_1",
+          "loc": {
+            "start": {
+              "line": 2,
+              "column": 46
+            },
+            "end": {
+              "line": 2,
+              "column": 66
+            }
+          }
+        },
+        {
+          "value": "./LlmRemoteConfig",
+          "resolved": "__unresolved_2",
+          "loc": {
+            "start": {
+              "line": 3,
+              "column": 37
+            },
+            "end": {
+              "line": 3,
+              "column": 56
+            }
+          }
+        },
+        {
+          "value": "./HttpTimeouts",
+          "resolved": "__unresolved_3",
+          "loc": {
+            "start": {
+              "line": 4,
+              "column": 36
+            },
+            "end": {
+              "line": 4,
+              "column": 52
+            }
+          }
+        },
+        {
+          "value": "./NativeXhrHttp",
+          "resolved": "__unresolved_4",
+          "loc": {
+            "start": {
+              "line": 5,
+              "column": 24
+            },
+            "end": {
+              "line": 5,
+              "column": 41
+            }
+          }
+        }
+      ],
+      "type": "esm",
+      "resolutions": [
+        {
+          "resolved": {
+            "type": "module",
+            "url": "cce:/internal/code-quality/cr.mjs"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "cce:/internal/x/cc"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "cce:/internal/x/cc"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "cce:/internal/x/cc"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/llm_v2/ChatContextStore.ts"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/llm_v2/LlmRemoteConfig.ts"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/llm_v2/HttpTimeouts.ts"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/llm_v2/NativeXhrHttp.ts"
+          },
+          "messages": []
+        }
+      ]
+    },
+    "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/MicWaveform.ts": {
+      "mTimestamp": {
+        "mtime": 1779239018100.837,
+        "uuid": "149e416a-d026-497b-9c3c-396f280e0c1d"
+      },
+      "chunkId": "3f6c450c81307f29faea12dfb8980d28c5f3bd23",
+      "imports": [
+        {
+          "value": "cc"
+        },
+        {
+          "value": "cc"
+        },
+        {
+          "value": "cc",
+          "loc": {
+            "start": {
+              "line": 1,
+              "column": 74
+            },
+            "end": {
+              "line": 1,
+              "column": 78
+            }
+          }
+        }
+      ],
+      "type": "esm",
+      "resolutions": [
+        {
+          "resolved": {
+            "type": "module",
+            "url": "cce:/internal/x/cc"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "cce:/internal/x/cc"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "cce:/internal/x/cc"
+          },
+          "messages": []
+        }
+      ]
+    },
+    "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/CompanionDays.ts": {
+      "mTimestamp": {
+        "mtime": 1779239018244.1802,
+        "uuid": "a8f3c2e1-4b6d-4a9e-8f7c-1d2e3f4a5b6c"
+      },
+      "chunkId": "e76afdf2bc61c1d5c6be22889a4ccaf5554f5d00",
+      "imports": [
+        {
+          "value": "cce:/internal/code-quality/cr.mjs",
+          "resolved": "__unresolved_0"
+        },
+        {
+          "value": "cc"
+        },
+        {
+          "value": "cc"
+        },
+        {
+          "value": "cc",
+          "loc": {
+            "start": {
+              "line": 1,
+              "column": 20
+            },
+            "end": {
+              "line": 1,
+              "column": 24
+            }
+          }
+        },
+        {
+          "value": "./DateUtil",
+          "resolved": "__unresolved_1",
+          "loc": {
+            "start": {
+              "line": 2,
+              "column": 59
+            },
+            "end": {
+              "line": 2,
+              "column": 71
+            }
+          }
+        },
+        {
+          "value": "./TipCopy",
+          "resolved": "__unresolved_2",
+          "loc": {
+            "start": {
+              "line": 3,
+              "column": 40
+            },
+            "end": {
+              "line": 3,
+              "column": 51
+            }
+          }
+        }
+      ],
+      "type": "esm",
+      "resolutions": [
+        {
+          "resolved": {
+            "type": "module",
+            "url": "cce:/internal/code-quality/cr.mjs"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "cce:/internal/x/cc"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "cce:/internal/x/cc"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "cce:/internal/x/cc"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/DateUtil.ts"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/TipCopy.ts"
+          },
+          "messages": []
+        }
+      ]
+    },
+    "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/CompanionDaysDisplay.ts": {
+      "mTimestamp": {
+        "mtime": 1779239018263.1807,
+        "uuid": "b7e4d3c2-1a0f-4e5d-9c8b-2a3f4e5d6c7b"
+      },
+      "chunkId": "50595fb6f3fcab195219f445519f04c1de511daf",
+      "imports": [
+        {
+          "value": "cce:/internal/code-quality/cr.mjs",
+          "resolved": "__unresolved_0"
+        },
+        {
+          "value": "cc"
+        },
+        {
+          "value": "cc"
+        },
+        {
+          "value": "cc",
+          "loc": {
+            "start": {
+              "line": 1,
+              "column": 57
+            },
+            "end": {
+              "line": 1,
+              "column": 61
+            }
+          }
+        },
+        {
+          "value": "./CompanionDays",
+          "resolved": "__unresolved_1",
+          "loc": {
+            "start": {
+              "line": 2,
+              "column": 94
+            },
+            "end": {
+              "line": 2,
+              "column": 111
+            }
+          }
+        }
+      ],
+      "type": "esm",
+      "resolutions": [
+        {
+          "resolved": {
+            "type": "module",
+            "url": "cce:/internal/code-quality/cr.mjs"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "cce:/internal/x/cc"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "cce:/internal/x/cc"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "cce:/internal/x/cc"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/CompanionDays.ts"
+          },
+          "messages": []
+        }
+      ]
+    },
+    "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/CarePanel.ts": {
+      "mTimestamp": {
+        "mtime": 1779194211965.1687,
+        "uuid": "c4e5f6a7-8b9c-4d0e-1f2a-3b4c5d6e7f8a"
+      },
+      "chunkId": "cd399a16852b24a36f77881525d4652be47191f6",
+      "imports": [
+        {
+          "value": "cce:/internal/code-quality/cr.mjs",
+          "resolved": "__unresolved_0"
+        },
+        {
+          "value": "cc"
+        },
+        {
+          "value": "cc"
+        },
+        {
+          "value": "cc",
+          "loc": {
+            "start": {
+              "line": 1,
+              "column": 83
+            },
+            "end": {
+              "line": 1,
+              "column": 87
+            }
+          }
+        },
+        {
+          "value": "./SharedBtnCounts",
+          "resolved": "__unresolved_1",
+          "loc": {
+            "start": {
+              "line": 2,
+              "column": 32
+            },
+            "end": {
+              "line": 2,
+              "column": 51
+            }
+          }
+        },
+        {
+          "value": "./HomePopupMask",
+          "resolved": "__unresolved_2",
+          "loc": {
+            "start": {
+              "line": 3,
+              "column": 30
+            },
+            "end": {
+              "line": 3,
+              "column": 47
+            }
+          }
+        },
+        {
+          "value": "./PetInfoBar",
+          "resolved": "__unresolved_3",
+          "loc": {
+            "start": {
+              "line": 4,
+              "column": 27
+            },
+            "end": {
+              "line": 4,
+              "column": 41
+            }
+          }
+        },
+        {
+          "value": "./CheckInPanel",
+          "resolved": "__unresolved_4",
+          "loc": {
+            "start": {
+              "line": 5,
+              "column": 29
+            },
+            "end": {
+              "line": 5,
+              "column": 45
+            }
+          }
+        },
+        {
+          "value": "./CarePanelBridge",
+          "resolved": "__unresolved_5",
+          "loc": {
+            "start": {
+              "line": 6,
+              "column": 39
+            },
+            "end": {
+              "line": 6,
+              "column": 58
+            }
+          }
+        }
+      ],
+      "type": "esm",
+      "resolutions": [
+        {
+          "resolved": {
+            "type": "module",
+            "url": "cce:/internal/code-quality/cr.mjs"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "cce:/internal/x/cc"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "cce:/internal/x/cc"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "cce:/internal/x/cc"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/SharedBtnCounts.ts"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/HomePopupMask.ts"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/PetInfoBar.ts"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/CheckInPanel.ts"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/CarePanelBridge.ts"
+          },
+          "messages": []
+        }
+      ]
+    },
+    "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/CarePanelBridge.ts": {
+      "mTimestamp": {
+        "mtime": 1779194204690.9146,
+        "uuid": "d5e6f7a8-9b0c-4d1e-2f3a-4b5c6d7e8f9a"
+      },
+      "chunkId": "4b291ca177a9716effafc7a051dfe6bf87032ec7",
+      "imports": [
+        {
+          "value": "cc"
+        }
+      ],
+      "type": "esm",
+      "resolutions": [
+        {
+          "resolved": {
+            "type": "module",
+            "url": "cce:/internal/x/cc"
+          },
+          "messages": []
+        }
+      ]
+    },
+    "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/PetUnlock.ts": {
+      "mTimestamp": {
+        "mtime": 1779244783324.7605,
+        "uuid": "a8f4c2e1-9b3d-4f6a-8c1e-2d5e7f9a0b1c"
+      },
+      "chunkId": "7805a296752b1e752ac8bc690badf703970c1054",
+      "imports": [
+        {
+          "value": "cce:/internal/code-quality/cr.mjs",
+          "resolved": "__unresolved_0"
+        },
+        {
+          "value": "cc"
+        },
+        {
+          "value": "cc"
+        },
+        {
+          "value": "cc",
+          "loc": {
+            "start": {
+              "line": 1,
+              "column": 30
+            },
+            "end": {
+              "line": 1,
+              "column": 34
+            }
+          }
+        },
+        {
+          "value": "./RandomPlayPetAni",
+          "resolved": "__unresolved_1",
+          "loc": {
+            "start": {
+              "line": 2,
+              "column": 33
+            },
+            "end": {
+              "line": 2,
+              "column": 53
+            }
+          }
+        }
+      ],
+      "type": "esm",
+      "resolutions": [
+        {
+          "resolved": {
+            "type": "module",
+            "url": "cce:/internal/code-quality/cr.mjs"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "cce:/internal/x/cc"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "cce:/internal/x/cc"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "cce:/internal/x/cc"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/RandomPlayPetAni.ts"
+          },
+          "messages": []
+        }
+      ]
+    },
+    "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/CustomizeScene.ts": {
+      "mTimestamp": {
+        "mtime": 1779243319881.6677,
+        "uuid": "68db3ed6-f749-49b8-9edf-2267bb8855c2"
+      },
+      "chunkId": "53ee14933195dc7a8005ffc13a3748a816fd255d",
+      "imports": [
+        {
+          "value": "cce:/internal/code-quality/cr.mjs",
+          "resolved": "__unresolved_0"
+        },
+        {
+          "value": "cc"
+        },
+        {
+          "value": "cc"
+        },
+        {
+          "value": "cc",
+          "loc": {
+            "start": {
+              "line": 4,
+              "column": 7
+            },
+            "end": {
+              "line": 4,
+              "column": 11
+            }
+          }
+        },
+        {
+          "value": "./TipCopy",
+          "resolved": "__unresolved_1",
+          "loc": {
+            "start": {
+              "line": 5,
+              "column": 76
+            },
+            "end": {
+              "line": 5,
+              "column": 87
+            }
+          }
+        },
+        {
+          "value": "./Lang",
+          "resolved": "__unresolved_2",
+          "loc": {
+            "start": {
+              "line": 6,
+              "column": 21
+            },
+            "end": {
+              "line": 6,
+              "column": 29
+            }
+          }
+        },
+        {
+          "value": "./PetUnlock",
+          "resolved": "__unresolved_3",
+          "loc": {
+            "start": {
+              "line": 7,
+              "column": 66
+            },
+            "end": {
+              "line": 7,
+              "column": 79
+            }
+          }
+        }
+      ],
+      "type": "esm",
+      "resolutions": [
+        {
+          "resolved": {
+            "type": "module",
+            "url": "cce:/internal/code-quality/cr.mjs"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "cce:/internal/x/cc"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "cce:/internal/x/cc"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "cce:/internal/x/cc"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/TipCopy.ts"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/Lang.ts"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/PetUnlock.ts"
+          },
+          "messages": []
+        }
+      ]
+    },
+    "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/ShopPurchase.ts": {
+      "mTimestamp": {
+        "mtime": 1779243085354.9202,
+        "uuid": "b2e4f6a8-1c3d-4e5f-9a0b-1d2e3f4a5b6c"
+      },
+      "chunkId": "d0f5cdc5f40ffcbae6797373797242abb7e1f4cd",
+      "imports": [
+        {
+          "value": "cce:/internal/code-quality/cr.mjs",
+          "resolved": "__unresolved_0"
+        },
+        {
+          "value": "cc"
+        },
+        {
+          "value": "./PetUnlock",
+          "resolved": "__unresolved_1",
+          "loc": {
+            "start": {
+              "line": 3,
+              "column": 7
+            },
+            "end": {
+              "line": 3,
+              "column": 20
+            }
+          }
+        }
+      ],
+      "type": "esm",
+      "resolutions": [
+        {
+          "resolved": {
+            "type": "module",
+            "url": "cce:/internal/code-quality/cr.mjs"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "cce:/internal/x/cc"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/PetUnlock.ts"
+          },
+          "messages": []
+        }
+      ]
+    },
+    "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/ShopScene.ts": {
+      "mTimestamp": {
+        "mtime": 1779244967502.2966,
+        "uuid": "d4e5f6a7-8b9c-4d0e-9f1a-2b3c4d5e6f70"
+      },
+      "chunkId": "6384ae7720d55fd22ceca8fbec1986b339c18c0d",
+      "imports": [
+        {
+          "value": "cce:/internal/code-quality/cr.mjs",
+          "resolved": "__unresolved_0"
+        },
+        {
+          "value": "cc"
+        },
+        {
+          "value": "cc"
+        },
+        {
+          "value": "cc",
+          "loc": {
+            "start": {
+              "line": 5,
+              "column": 7
+            },
+            "end": {
+              "line": 5,
+              "column": 11
+            }
+          }
+        },
+        {
+          "value": "./TipCopy",
+          "resolved": "__unresolved_1",
+          "loc": {
+            "start": {
+              "line": 9,
+              "column": 7
+            },
+            "end": {
+              "line": 9,
+              "column": 18
+            }
+          }
+        },
+        {
+          "value": "./PetUnlock",
+          "resolved": "__unresolved_2",
+          "loc": {
+            "start": {
+              "line": 12,
+              "column": 7
+            },
+            "end": {
+              "line": 12,
+              "column": 20
+            }
+          }
+        },
+        {
+          "value": "./ShopPurchase",
+          "resolved": "__unresolved_3",
+          "loc": {
+            "start": {
+              "line": 13,
+              "column": 56
+            },
+            "end": {
+              "line": 13,
+              "column": 72
+            }
+          }
+        }
+      ],
+      "type": "esm",
+      "resolutions": [
+        {
+          "resolved": {
+            "type": "module",
+            "url": "cce:/internal/code-quality/cr.mjs"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "cce:/internal/x/cc"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "cce:/internal/x/cc"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "cce:/internal/x/cc"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/TipCopy.ts"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/PetUnlock.ts"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "file:///Users/zengxiaoqiao/Documents/GitHub/CocosPetAI/assets/scripts/ShopPurchase.ts"
           },
           "messages": []
         }

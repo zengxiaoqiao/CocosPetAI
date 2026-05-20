@@ -5,91 +5,48 @@
  */
 import { getLang, isZh } from './Lang';
 
-/** 新安装首次打开时显示的指引文案：第一句（仅一次，不弹 Check-in） */
+/** 新安装首次打开时显示的综合介绍（仅一次） */
 export function getFirstOpenTip(): string {
-    return isZh() ? '点我一下～' : 'Tap me~';
+    return isZh()
+        ? '我是你的宠物伙伴，长按我或麦克风和我聊聊。'
+        : "I'm your pet pal. Hold me or the mic to chat.";
 }
 
-/** 新安装首次打开时显示的指引文案：第二句（紧接第一句之后，仅一次） */
-export function getFirstOpenTipSecond(): string {
-    return isZh() ? '滑一滑摸摸我（心情+5）' : 'Swipe to pet me (mood +5)';
+/** 长按宠物未够时长时的提示 */
+export function getMicHoldPetTip(): string {
+    return isZh() ? '长按我说话' : 'Hold me to talk';
 }
 
-/** 新安装首次打开时显示的指引文案：第三句（喂食提示） */
-export function getFirstOpenTipThird(): string {
-    return isZh() ? '喂我：体力+心情' : 'Feed me: HP & mood up';
+/** 陪伴累计天数 + 连续天数展示（连续未满 2 天不展示「连续」，避免首日出现「连续1天」） */
+export function formatCompanionDaysText(totalDays: number, streakDays: number): string {
+    const total = Math.max(0, totalDays | 0);
+    const streak = Math.max(0, streakDays | 0);
+    if (isZh()) {
+        if (streak >= 2) return `陪伴${total}天，连续${streak}天`;
+        return `陪伴${total}天`;
+    }
+    if (streak >= 2) return `${total} days together, ${streak}-day streak`;
+    return `${total} days together`;
 }
 
-/** 新安装首次打开时显示的指引文案：第四句（玩耍提示） */
-export function getFirstOpenTipFourth(): string {
-    return isZh() ? '陪我玩：心情+20' : 'Play with me (+20 mood)';
+/** 麦克风按钮下方：空闲提示 */
+export function getMicHoldToTalkTip(): string {
+    return isZh() ? '按住 说话' : 'Hold to talk';
 }
 
-/** 新安装首次打开时显示的指引文案：第五句（梳毛提示） */
-export function getFirstOpenTipFifth(): string {
-    return isZh() ? '给我梳毛：心情更好' : 'Brush me: mood up';
+/** 麦克风：已按下、尚未进入录音 */
+export function getMicKeepHoldingTip(): string {
+    return isZh() ? '继续按住…' : 'Keep holding…';
 }
 
-/** Open‑Meteo weathercode → 人性化短文案（仅作参考，打招呼用只取 WEATHER_GREETING_CODES） */
-export function getWeatherText(code: number): string {
-    const zh: Record<number, string> = {
-        0: '今天天气不错～',
-        1: '天气还可以～',
-        2: '有点云',
-        3: '阴阴的',
-        45: '起雾了，慢点走',
-        48: '雾好大，小心点',
-        51: '在下小雨～',
-        53: '毛毛雨，带伞哦',
-        55: '雨有点大～',
-        61: '下雨啦，带伞～',
-        63: '雨不小，别淋着',
-        65: '大雨，别出门～',
-        71: '下雪啦～',
-        73: '雪有点大',
-        75: '大雪，注意保暖～',
-        80: '阵雨，记得带伞',
-        81: '阵雨有点大～',
-        82: '雷阵雨，躲一躲',
-        95: '打雷啦，别怕～',
-        96: '雷雨冰雹，别出门',
-        99: '雷暴冰雹，小心～',
-    };
-    const en: Record<number, string> = {
-        0: 'Nice weather~',
-        1: 'Weather is okay~',
-        2: 'Cloudy',
-        3: 'Overcast',
-        45: 'Foggy, walk slow',
-        48: 'Heavy fog, be careful',
-        51: 'Drizzle~',
-        53: 'Light rain, take umbrella',
-        55: 'Rainy~',
-        61: 'Raining, take umbrella~',
-        63: 'Heavy rain, stay dry',
-        65: 'Downpour, stay in~',
-        71: 'Snowing~',
-        73: 'Snowy',
-        75: 'Heavy snow, keep warm~',
-        80: 'Showers, take umbrella',
-        81: 'Heavy showers~',
-        82: 'Thunderstorm, stay inside',
-        95: 'Thunder, don’t be scared~',
-        96: 'Storm with hail, stay in',
-        99: 'Severe storm, be careful~',
-    };
-    const map = isZh() ? zh : en;
-    return map[code] || '';
+/** 麦克风：录音中 */
+export function getMicRecordingTip(): string {
+    return isZh() ? '松开发送' : 'Release to send';
 }
 
-/** 适合做打招呼话题的天气码（排除「有点云」「阴阴的」等不咸不淡的） */
-export const WEATHER_GREETING_CODES = new Set<number>([
-    0,    // 天气不错呀～
-    45, 48, 51, 53, 55, 61, 63, 65, 80, 81, 82, 95, 96, 99, 71, 73, 75,
-]);
-
-export function isWeatherGoodForGreeting(code: number): boolean {
-    return WEATHER_GREETING_CODES.has(code);
+/** 麦克风：等待 AI 回复 */
+export function getMicThinkingTip(): string {
+    return isZh() ? '我想想…' : 'Thinking…';
 }
 
 export type TimeRuleId = 'morning' | 'noon' | 'night';
@@ -160,6 +117,92 @@ export function getCheckinAlreadyClaimedTip(): string {
 /** 体力为 0 或较低时的提示（配合 14 姿态），宠物口吻且简短 */
 export function getHpZeroTip(): string {
     return isZh() ? '没力气啦，喂我～' : 'No energy, feed me~';
+}
+
+/** 体力不足时，对话框内喂食引导（有喂食次数） */
+export function getLowHpFeedBubbleTip(): string {
+    return isZh() ? '我累了，喂我吃饭吧' : "I'm tired… feed me please";
+}
+
+/** 体力不足但喂食次数为 0 */
+export function getLowHpFeedEmptyTip(): string {
+    return isZh() ? '粮食不够啦，帮我补一点？' : 'No food left… help refill?';
+}
+
+/** 睡觉动画（03）时对话框内容 */
+export function getSleepBubbleTip(): string {
+    return isZh() ? 'Z z z …' : 'Zzz …';
+}
+
+/** 点击未解锁的猫：提示去商店订阅 */
+export function getCatUnlockTip(): string {
+    return isZh() ? '在商店订阅即可解锁猫咪' : 'Subscribe in the Shop to unlock the cat';
+}
+
+/** 商店界面固定英文（不随系统语言切换） */
+export function getShopTitle(): string {
+    return 'Shop';
+}
+
+export function getShopBackLabel(): string {
+    return 'Back';
+}
+
+export function getShopSubscribeLabel(): string {
+    return 'Subscribe';
+}
+
+export function getShopCatPriceLabel(): string {
+    return '$0.99';
+}
+
+export function getShopCustomizePriceLabel(): string {
+    return '$9.99';
+}
+
+/** 看广告获得 +1 道具次数 */
+export function getShopFreeLabel(): string {
+    return 'Free';
+}
+
+export function getShopCustomizePlaceholder(): string {
+    return 'Your pet in the app\n(image placeholder)';
+}
+
+export function getShopOwnedLabel(): string {
+    return 'Owned';
+}
+
+export function getShopEnterCustomizeLabel(): string {
+    return 'Customize';
+}
+
+export function getShopCatProductTitle(): string {
+    return 'Cat Companion';
+}
+
+export function getShopCatProductDesc(): string {
+    return 'Subscribe to switch to the cat with unique animations.';
+}
+
+export function getShopCustomizeProductTitle(): string {
+    return 'Custom Pet';
+}
+
+export function getShopCustomizeProductDesc(): string {
+    return 'Subscribe to create your unique pet look (more coming soon).';
+}
+
+/** 定制页标题 */
+export function getCustomizeComingSoonTitle(): string {
+    return isZh() ? '即将开放' : 'Coming Soon';
+}
+
+/** 定制页副标题 */
+export function getCustomizeComingSoonSubtitle(): string {
+    return isZh()
+        ? '宠物定制功能正在准备中，敬请期待。'
+        : 'Pet customization is on the way. Stay tuned!';
 }
 
 /** 亲密度偏低（心情很差）提示 */

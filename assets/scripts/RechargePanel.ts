@@ -1,5 +1,9 @@
 import { _decorator, Component, Node, director, sys } from 'cc';
 import { SharedBtnCounts } from './SharedBtnCounts';
+import {
+    STORAGE_UNLOCK_INTENT, STORAGE_RECHARGE_RETURN_SCENE,
+    unlockCat, markSelectCatAfterUnlock,
+} from './PetUnlock';
 const { ccclass, property } = _decorator;
 
 /**
@@ -30,6 +34,20 @@ export class RechargePanel extends Component {
     /** 关闭按钮点击时调用（在编辑器中把按钮的 Click Events 绑到此方法） */
     public onCloseButtonClick(): void {
         SharedBtnCounts.init();
+
+        const unlockIntent = sys.localStorage.getItem(STORAGE_UNLOCK_INTENT);
+        if (unlockIntent === 'cat') {
+            unlockCat();
+            markSelectCatAfterUnlock();
+            try {
+                sys.localStorage.removeItem(STORAGE_UNLOCK_INTENT);
+                sys.localStorage.removeItem('recharge_pet');
+                sys.localStorage.removeItem('recharge_button');
+            } catch { /* ignore */ }
+            this._closeAndReturnHome();
+            return;
+        }
+
         const pet = sys.localStorage.getItem('recharge_pet');
         const btnStr = sys.localStorage.getItem('recharge_button');
 
@@ -53,14 +71,19 @@ export class RechargePanel extends Component {
         else if (buttonIndex === 2) SharedBtnCounts.btn2++;
         else SharedBtnCounts.btn3++;
         SharedBtnCounts.save();
+        SharedBtnCounts.onChangeCallback?.();
         this._closeAndReturnHome();
     }
 
     private _closeAndReturnHome() {
-        sys.localStorage.removeItem('recharge_pet');
-        sys.localStorage.removeItem('recharge_button');
-        director.loadScene('home', (err) => {
-            if (err) console.error('[RechargePanel] 无法加载 home 场景', err);
+        const scene = sys.localStorage.getItem(STORAGE_RECHARGE_RETURN_SCENE) || 'home';
+        try {
+            sys.localStorage.removeItem('recharge_pet');
+            sys.localStorage.removeItem('recharge_button');
+            sys.localStorage.removeItem(STORAGE_RECHARGE_RETURN_SCENE);
+        } catch { /* ignore */ }
+        director.loadScene(scene, (err) => {
+            if (err) console.error(`[RechargePanel] 无法加载 ${scene} 场景`, err);
         });
     }
 }

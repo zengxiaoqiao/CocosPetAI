@@ -1,76 +1,77 @@
-import { _decorator, Component, Node, Sprite, SpriteFrame, UITransform, UIOpacity, tween, Vec3, director, find } from 'cc';
+import { _decorator, Component, Node, Sprite, SpriteFrame, UITransform, UIOpacity, tween, Vec3, find, sys, assetManager } from 'cc';
 import { PetValue } from './PetValue';
 const { ccclass, property } = _decorator;
 
+const STORAGE_KEY_PET = 'petai_pet_choice';
+
+/** ui 图集里的 love.png（大爱心），勿用 pet_friendship 小图标 */
+const LOVE_SPRITE_FRAME_UUID = '3ae7a7fa-b2b9-415c-91eb-ceb82a98e659@b8fde';
+
 /**
- * 挂在宠物节点（dog / cat）上：心形像烟花一样从一点爆发、向上方发散。
- * 每隔一段时间一「发」烟花，每发多颗心向斜上方扇形飞出。
- * 心形图需在 Inspector 里指定（可拖 highintimate 下 Sprite 的 spriteFrame）。
+ * 心情高时从宠物头顶略上方冒出爱心：自下往上、略向两侧散开；
+ * 透明度 0 → 实 → 0，无扇形爆发与缩放脉冲。
  */
 @ccclass('HeartBubbleAni')
 export class HeartBubbleAni extends Component {
 
-    @property({ type: SpriteFrame, tooltip: '心形图（可从 highintimate 的 Sprite 拖入其 spriteFrame）' })
+    @property({ type: SpriteFrame, tooltip: 'love 大图（可留空则自动用 ui 图集 love.png）' })
     heartSpriteFrame: SpriteFrame | null = null;
 
-    /** 烟花中心在宠物本地的 Y（爆发点高度） */
-    @property
-    burstCenterY = 50;
+    @property({ tooltip: '在估算头顶位置之上再上浮的像素（起点高度）' })
+    burstCenterY = 28;
 
-    /** 每发烟花的间隔（秒），越大烟花越疏 */
-    @property
-    burstInterval = 0.7;
+    @property({ tooltip: '爆发点整体水平偏移（负值向左）' })
+    burstOffsetX = -100;
 
-    /** 每发烟花炸出多少颗心 */
-    @property
-    heartsPerBurst = 6;
-
-    /** 心飞出去的距离范围（像素），随机在此范围，形成炸开感 */
-    @property
-    minDistance = 65;
+    @property({ tooltip: '爆发点整体垂直偏移（负值向下）' })
+    burstOffsetY = -100;
 
     @property
-    maxDistance = 145;
+    burstInterval = 0.55;
 
-    /** 向上发散的扇形角度（度），例如 80 表示以正上方为中心、左右各 40° */
     @property
-    fanAngleDeg = 80;
+    heartsPerBurst = 3;
 
-    /** 心从飞出到消失的时长（秒），越大飞得越慢 */
-    @property
-    flyDuration = 1.45;
+    @property({ tooltip: '向上飘移最小距离（像素）' })
+    riseMin = 90;
 
-    /** 刚飞出时很小（像火星）；若心形图缩小过，可适当调大以保持视觉大小 */
-    @property
-    startScale = 0.2;
+    @property({ tooltip: '向上飘移最大距离（像素）' })
+    riseMax = 150;
 
-    /** 飞出去后变大的上限；若心形图缩小过，可适当调大以保持视觉大小 */
-    @property
-    endScale = 0.76;
+    @property({ tooltip: '水平散开半宽（像素）' })
+    spreadX = 48;
 
-    /** 同一发内每颗心错开的时间（秒），略错开更像炸开 */
     @property
-    staggerInBurst = 0.018;
+    flyDuration = 0.85;
+
+    @property
+    heartScale = 0.3;
+
+    @property
+    staggerInBurst = 0.06;
+
+    @property({ tooltip: '飘到中段时的峰值不透明度（0~255）' })
+    peakOpacity = 230;
 
     private _spriteFrame: SpriteFrame | null = null;
     private _timer = 0;
 
-    start() {
-        const sp = this.node.getComponent(Sprite);
-        if (this.heartSpriteFrame) {
-            this._spriteFrame = this.heartSpriteFrame;
-        } else if (sp && sp.spriteFrame) {
-            this._spriteFrame = sp.spriteFrame;
-        }
-        if (!this._spriteFrame) return;
+    onLoad() {
+        this._resolveHeartSpriteFrame();
+    }
+
+    onEnable() {
+        this._resolveHeartSpriteFrame();
         this._timer = 0;
     }
 
     update(dt: number) {
-        if (!this._spriteFrame) return;
-        // 优先低值：体力或心情任一低于 20 时不冒爱心，仅心情 > 80 且两者都不低时才播放
+        if (!this._spriteFrame) {
+            this._resolveHeartSpriteFrame();
+            if (!this._spriteFrame) return;
+        }
         const pv = this._getPetValue();
-        if (pv && (!pv.isIntimacyHigh() || pv.isHpLow() || pv.isIntimacyLow())) return;
+        if (pv && (!pv.isMoodHigh() || pv.isHpLow() || pv.isMoodLow())) return;
         this._timer += dt;
         if (this._timer >= this.burstInterval) {
             this._timer = 0;
@@ -78,10 +79,65 @@ export class HeartBubbleAni extends Component {
         }
     }
 
+    /** 加心情等时机可主动飘几颗爱心 */
+    public burstOnce(count = 3) {
+        if (!this._spriteFrame) this._resolveHeartSpriteFrame();
+        if (!this._spriteFrame) return;
+        const n = Math.max(1, count | 0);
+        for (let i = 0; i < n; i++) {
+            const delay = i * this.staggerInBurst;
+            if (delay <= 0) this._spawnOneHeart();
+            else this.scheduleOnce(() => this._spawnOneHeart(), delay);
+        }
+    }
+
+    private _frameUsable(frame: SpriteFrame | null | undefined): frame is SpriteFrame {
+        return !!frame && !!(frame as SpriteFrame).texture;
+    }
+
+    private _resolveHeartSpriteFrame(): void {
+        if (this._frameUsable(this.heartSpriteFrame)) {
+            this._spriteFrame = this.heartSpriteFrame;
+            return;
+        }
+        const hi = find('Canvas/highintimate') ?? this.node;
+        const sp = hi?.getComponent(Sprite);
+        if (this._frameUsable(sp?.spriteFrame)) {
+            this._spriteFrame = sp!.spriteFrame!;
+            this.heartSpriteFrame = this._spriteFrame;
+            return;
+        }
+        assetManager.loadAny({ uuid: LOVE_SPRITE_FRAME_UUID }, (err, asset) => {
+            if (!this.isValid) return;
+            const frame = asset as SpriteFrame;
+            if (!err && this._frameUsable(frame)) {
+                this._spriteFrame = frame;
+                this.heartSpriteFrame = frame;
+            }
+        });
+    }
+
     private _getPetValue(): PetValue | null {
-        const n = find('Canvas/pet_value');
-        if (n) return n.getComponent(PetValue) || null;
-        return director.getScene()?.getComponentInChildren(PetValue) || null;
+        return PetValue.instance ?? find('Canvas/pet_value')?.getComponent(PetValue) ?? null;
+    }
+
+    private _getBurstParent(): Node {
+        const isCat = sys.localStorage.getItem(STORAGE_KEY_PET) === 'cat';
+        const dog = find('Canvas/dog');
+        const cat = find('Canvas/cat');
+        if (isCat && cat?.active) return cat;
+        if (dog?.active) return dog;
+        if (cat?.active) return cat;
+        return this.node;
+    }
+
+    private _resolveBurstCenterY(parent: Node): number {
+        const petUIT = parent.getComponent(UITransform);
+        if (!petUIT) return 300;
+        const h = Math.max(petUIT.contentSize.height, 200);
+        const ap = petUIT.anchorPoint.y;
+        const visibleHeadY = h * (0.9 - ap);
+        return visibleHeadY + this.burstCenterY;
     }
 
     private _fireBurst() {
@@ -96,39 +152,47 @@ export class HeartBubbleAni extends Component {
     }
 
     private _spawnOneHeart() {
+        if (!this._spriteFrame) return;
+
+        const parent = this._getBurstParent();
         const bubble = new Node('HeartBubble');
-        bubble.addComponent(UITransform);
+        const uit = bubble.addComponent(UITransform);
         const sp = bubble.addComponent(Sprite);
-        sp.spriteFrame = this._spriteFrame!;
+        sp.spriteFrame = this._spriteFrame;
+        sp.sizeMode = Sprite.SizeMode.TRIMMED;
+
+        const rect = this._spriteFrame.rect;
+        uit.setContentSize(Math.max(32, rect.width), Math.max(32, rect.height));
+
         const opacity = bubble.addComponent(UIOpacity);
-        opacity.opacity = 255;
+        opacity.opacity = 0;
 
-        this.node.addChild(bubble);
-        bubble.setPosition(0, this.burstCenterY, 0);
-        bubble.setScale(this.startScale, this.startScale, 1);
+        parent.addChild(bubble);
 
-        const halfFanRad = (this.fanAngleDeg / 2) * (Math.PI / 180);
-        const angle = (Math.random() * 2 - 1) * halfFanRad;
-        const dist = this.minDistance + Math.random() * (this.maxDistance - this.minDistance);
-        const endX = Math.sin(angle) * dist;
-        const endY = this.burstCenterY + Math.cos(angle) * dist;
+        const startX = this.burstOffsetX;
+        const startY = this._resolveBurstCenterY(parent) + this.burstOffsetY;
+        const rise = this.riseMin + Math.random() * Math.max(0, this.riseMax - this.riseMin);
+        const endX = startX + (Math.random() * 2 - 1) * this.spreadX;
+        const endY = startY + rise;
+        const s = this.heartScale * (0.92 + Math.random() * 0.16);
+        const duration = this.flyDuration * (0.9 + Math.random() * 0.2);
+        const peak = Math.min(255, Math.max(0, this.peakOpacity | 0));
+        const fadeInTime = duration * 0.32;
+        const fadeOutTime = duration - fadeInTime;
 
-        const duration = this.flyDuration * (0.88 + Math.random() * 0.24);
-        const endS = this.endScale * (0.9 + Math.random() * 0.2);
+        bubble.setPosition(startX, startY, 0);
+        bubble.setScale(s, s, 1);
 
         tween(bubble)
-            .to(duration, {
-                position: new Vec3(endX, endY, 0),
-                scale: new Vec3(endS, endS, 1),
-            }, { easing: 'quadOut' })
-            .start();
-
-        tween(opacity)
-            .delay(duration * 0.35)
-            .to(duration * 0.65, { opacity: 0 }, { easing: 'quadOut' })
+            .to(duration, { position: new Vec3(endX, endY, 0) }, { easing: 'sineOut' })
             .call(() => {
                 if (bubble.isValid) bubble.destroy();
             })
+            .start();
+
+        tween(opacity)
+            .to(fadeInTime, { opacity: peak }, { easing: 'sineOut' })
+            .to(fadeOutTime, { opacity: 0 }, { easing: 'sineIn' })
             .start();
     }
 }

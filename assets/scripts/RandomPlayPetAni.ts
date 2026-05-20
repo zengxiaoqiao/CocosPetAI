@@ -1,5 +1,6 @@
 import { _decorator, Component, Animation, director, find } from 'cc';
 import { PetValue, IS_FIRST_SESSION } from './PetValue';
+import { PetInfoBar } from './PetInfoBar';
 const { ccclass, property } = _decorator;
 
 /**
@@ -25,11 +26,10 @@ export abstract class RandomPlayPetAni extends Component {
     /** 定期检查体力/亲密，不足时切到 13/14，恢复后切回 */
     private _checkInterval: number = 4;
 
-    protected get aniNames(): string[] {
-        return [`${this.prefix}01`, `${this.prefix}02`, `${this.prefix}03`];
-    }
+    protected get clip01(): string { return `${this.prefix}01`; }
+    protected get clip03(): string { return `${this.prefix}03`; }
 
-    /** 每晚 22 点～次日 7 点、或午间 12:00～13:00 只播 03（与夜间同一动画）；其余时段随机 01/02（不含 03）。
+    /** 每晚 22 点～次日 7 点、或午间 12:00～13:00 只播 03；白天播 01，约 6.6 秒后接 04（不用 02/05）。
      *  首次安装首开时（IS_FIRST_SESSION），无论时间点都按白天逻辑处理，不睡觉。 */
     protected get isNightTime(): boolean {
         if (IS_FIRST_SESSION) return false;
@@ -43,7 +43,14 @@ export abstract class RandomPlayPetAni extends Component {
     protected get clip13(): string { return `${this.prefix}13`; }
     protected get clip14(): string { return `${this.prefix}14`; }
     protected get clip04(): string { return `${this.prefix}04`; }
-    protected get clip05(): string { return `${this.prefix}05`; }
+
+    /** 是否处于睡觉循环（03） */
+    public isSleeping(): boolean {
+        if (!this.enabled || !this.aniComponent) return false;
+        const state = this.aniComponent.getState(this.clip03);
+        if (state?.isPlaying) return true;
+        return this.startAniName === this.clip03;
+    }
 
     onLoad() {
         if (!this.aniComponent) this.aniComponent = this.node.getComponent(Animation);
@@ -87,7 +94,7 @@ export abstract class RandomPlayPetAni extends Component {
     }
 
     protected playRandomAni() {
-        if (!this.aniComponent || this.aniNames.length === 0) return;
+        if (!this.aniComponent) return;
         this.cancelSwitchTimer();
         this.cancelLoopTimer();
 
@@ -98,30 +105,31 @@ export abstract class RandomPlayPetAni extends Component {
         } else if (pv && pv.isIntimacyLow()) {
             targetAniName = this.clip13;
         } else if (this.isNightTime) {
-            targetAniName = this.aniNames[2];
+            targetAniName = this.clip03;
         } else {
-            const randomIndex = Math.floor(Math.random() * 2);
-            targetAniName = this.aniNames[randomIndex];
-            // PetValue 可能晚于本组件就绪，若尚未拿到 pv 则稍后重试一次，以便亲密/体力不足时能切到 13/14
-            if (!pv && !this.isNightTime) {
+            targetAniName = this.clip01;
+            if (!pv) {
                 this.scheduleOnce(() => this.playRandomAni(), 0.5);
             }
         }
         this.startAniName = targetAniName;
         this.aniComponent.stop();
         this.aniComponent.play(targetAniName);
+        PetInfoBar.instance?.refreshSleepBubble(targetAniName === this.clip03);
 
         if (targetAniName === this.clip13 || targetAniName === this.clip14) {
             this._setupLoopAnimation(targetAniName);
             return;
         }
-        if (targetAniName === this.aniNames[2]) return; // 03 不切换
+        if (targetAniName === this.clip03) {
+            return;
+        }
+        PetInfoBar.instance?.refreshSleepBubble(false);
         const delayMs = 6600;
         this.switchTimer = setTimeout(() => {
             this.switchTimer = null;
             if (!this.startAniName || !this.aniComponent) return;
-            if (this.startAniName === this.aniNames[0]) this.aniComponent.play(this.clip04);
-            else if (this.startAniName === this.aniNames[1]) this.aniComponent.play(this.clip05);
+            if (this.startAniName === this.clip01) this.aniComponent.play(this.clip04);
         }, delayMs);
     }
 
@@ -153,9 +161,8 @@ export abstract class RandomPlayPetAni extends Component {
         const pv = this._ensurePetValue();
         if (pv && pv.isHpLow()) return this.clip14;
         if (pv && pv.isIntimacyLow()) return this.clip13;
-        if (this.isNightTime) return this.aniNames[2];
-        const randomIndex = Math.floor(Math.random() * 2);
-        return this.aniNames[randomIndex];
+        if (this.isNightTime) return this.clip03;
+        return this.clip01;
     }
 
     private _checkStateAndReselectAni() {

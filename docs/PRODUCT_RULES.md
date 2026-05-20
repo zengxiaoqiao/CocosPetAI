@@ -4,33 +4,43 @@
 
 ---
 
-## 一、核心数值（体力 / 亲密度）
+## 一、核心数值（体力 / 心情 / 陪伴）
 
 | 项目 | 规则 |
 |------|------|
-| 范围 | **0～100**（`PetValue` 中 `MAX_VALUE = 100`） |
-| 首次安装 | 体力 **50**、亲密度 **50**；写入 `petai_first_run_done` 后才从存档读取 |
-| 自然衰减 | **每个设备本地整点**：体力 **-3**、亲密度 **-3**；进游戏或回前台时按「上次记录整点 → 当前整点」**补扣**遗漏小时数 |
-| 持久化键 | `petai_hp`、`petai_intimacy`、`petai_last_update`（整点锚点） |
+| 范围 | 体力、心情 **0～100**（`MAX_VALUE = 100`） |
+| 首次安装 | 体力 **50**、心情 **50** |
+| 心情衰减 | **每设备本地整点 -1**；进游戏/回前台补扣 |
+| 体力衰减 | **不整点扣**；每轮语音/文字聊天 **-8**（主界面不展示） |
+| 主界面展示 | **仅心情**（❤️）；体力低时 **对话框要饭** |
+| 心情存储 | `petai_mood`（兼容读 `petai_intimacy`） |
+| 陪伴 | `CompanionDays.ts` + `CompanionDaysDisplay` 挂在 `companion` 节点 |
+| 道具入口 | 点击 **`ad`** → 显示 `Canvas/btn`（喂食/玩耍/梳毛）；再点或点遮罩收起 |
+
+### 陪伴天数
+
+- **累计**：每个本地自然日首次打开 +1，只增不减；没来过的日子不计。
+- **连续**：若昨日也打开则 +1，否则置 **1**。
+- **展示**：`陪伴{N}天`；连续 ≥ 2 天时追加 `，连续{M}天`（首日/断签后首日不显示「连续1天」）。
+- **存储**：`petai_companion_total_days`、`petai_companion_streak_days`、`petai_companion_last_counted_date`。
 
 ### 阈值语义
 
-- **体力 &lt; 20**（`isHpLow`）：「没力气」表现与提示；info bar / Android Widget 可同步低体力提示文案。
-- **亲密度 &lt; 20**（`isIntimacyLow`）：「心情很差」表现与提示。
-- **亲密度 &gt; 80**（`isIntimacyHigh`）：高亲密；`highintimate`（冒爱心）仅当 **非**低体力且 **非**低亲密时显示。
-- **麦克风可用**（`canUseMicro`）：体力 **≥ 60** 且亲密度 **≥ 60**；低于门槛用于按钮文案区分。
+- **体力 &lt; 20**（`isHpLow`）：累态动画等。
+- **心情 &lt; 20**（`isMoodLow`）：蔫脸动画等。
+- **心情 &gt; 80**（`isMoodHigh`）：冒爱心（且非低体力/低心情）。
+- **麦克风**（`canUseMicro`）：始终可用。
 
 ### 互动带来的数值变化
 
-| 操作 | 体力 | 亲密度 | 其它 |
-|------|------|--------|------|
-| **Button0**（点摸） | 50% **+2** | 50% **+2** | 触发时 **今日撸猫/逗狗次数 +1**（本地日期 `petai_today_pet_date` / `petai_today_pet_count`） |
-| **滑动触发**（`PetButtons` 规则下有效滑动） | — | **+5** | 同样 **+1 今日次数** |
-| **Button1**（喂食） | **+20** | **+5** | 消耗 `SharedBtnCounts.btn1` 1 次 |
-| **Button2**（玩耍） | — | **+20** | 消耗 `btn2` 1 次 |
-| **Button3**（梳毛） | — | **+20** | 消耗 `btn3` 1 次 |
+| **语音/文字聊天** | **-8**（无飘字） | **+3**（桃红飘字） | 收到 AI 回复后结算 |
+| **点摸** | — | **+2** | 短按宠物，可连续点（无每分钟上限） |
+| ~~滑动~~ | — | — | 已移除 |
+| **Button1**（喂食） | **+20** | **+5** | 消耗 btn1 |
+| **Button2**（玩耍） | — | **+20** | 消耗 btn2 |
+| **Button3**（梳毛） | — | **+20** | 消耗 btn3 |
 
-飘字：体力偏黄、亲密偏桃红；数值 **上限 100**，有缩放与加数值音效。
+飘字：体力黄、心情桃红。
 
 ---
 
@@ -56,11 +66,6 @@
 - **Button1/2/3**：仍可点击 → 进入 **`ad` 场景**（`BtnAdGuard` / `PetControllerBase._gotoAdScene`）。
 - **`RechargePanel`**：关闭后根据本地 `recharge_pet`、`recharge_button` 为对应按钮 **+1** 次数并返回 `home`；另有 `ad_reward_{pet}_btn{n}` 统计字段。
 
-### 防刷（每分钟上限）
-
-- **Button0 点击**、**Button0 滑动**、**Button1 / Button2 / Button3** 各自维护滑动窗口：**60 秒内 ≥ 3 次** 则进入约 **1 分钟**的惩罚态：播放 **13** 相关序列、**不加数值 / 不扣次数**，并提示 **「别再点啦，休息一下～」**（`getNotAgainTip`）。  
-- **点击**与**滑动**的计数 **相互独立**。
-
 ---
 
 ## 三、宠物表现（动画）
@@ -72,15 +77,15 @@
 - **体力 &lt; 20**：循环 **14**。
 - **亲密度 &lt; 20**：循环 **13**。
 - **夜间时段**：**22:00～次日 7:00**，以及 **12:00（午休）** 固定 **03**；**首次安装当前进程会话**（`IS_FIRST_SESSION`）不按夜间睡觉逻辑。
-- **白天**：在 **01 / 02** 间随机；约 **6.6 秒**后接 **04** 或 **05**；**03** 不自动切换。
+- **白天**：播 **01**，约 **6.6 秒**后接 **04**（不再使用 **02 / 05**）；**03** 不自动切换。
 - 每 **4 秒**检查体力/亲密，低状态变化会 **重新选择**应播动画。
 
 ### 主要交互与动画片段（节选）
 
 - **Button0 点击**：依当前姿态后缀接 **06 / 07 / 08** 短序列后回 **01**；超频 → **13 → 01**。
-- **Button1**：主段 **09**；若当前为 **02 / 05 / 14** 先 **07**；若为 **03** 先 **08**。
-- **Button2**：主段 **10**；**02 / 05 / 14** 先 **07**；**03** 先 **08**。
-- **Button3**：主段 **11**；规则同上与 **02/05/14**、**03** 的组合。
+- **Button1**：主段 **09**；若当前为 **14** 先 **07**；若为 **03** 先 **08**。
+- **Button2**：主段 **10**；**14** 先 **07**；**03** 先 **08**。
+- **Button3**：主段 **11**；规则同上（**14**、**03**）。
 - **Controller 上简单横滑**（阈值 `swipeThreshold`）：**12 → 01**。
 - **`PetButtons` 复杂滑动**：达到距离与 **反向滑动次数** 等条件时播 **dog12 / cat12** 循环，停手回 **01**；松手时可能触发 **`applySwipe`（+5 亲密）** 并短暂忽略下一次 Button0 以防误触。
 
@@ -100,22 +105,18 @@
 
 ### App 内展示优先级（概要）
 
-1. 新安装首次打开：五句指引队列（`TipCopy.getFirstOpenTip` 系列）。
-2. **夜间 / 午休**（22～7 点、**12 点整**）：非首装会话下不展示「主动类」提示（与随机动画夜间规则一致）。
-3. 低体力 / 低亲密：对应 `getHpZeroTip` / `getIntimacyZeroTip`。
-4. 电池：未充电且电量 **&lt; 20%** 时随机低电量文案。
-5. **「基础姿态」**（非低体低亲、无电池低电量句、无无网句、非充电）下才展示：时段问候、天气、`setExtraText` 扩展句。
-6. **时段问候**：`getTimeRules()`；每个时段 **每天最多一条**（本地 `petai_greet_*`）；**12:00～13:00** 不显示午间问候句。
-7. **天气**：Open-Meteo；仅部分天气码适合作「打招呼话题」；Widget 侧有 **1 小时**展示节流；回到前台可 **强制补一句天气**（一次）。
+1. 新安装首次打开：一句综合介绍（`TipCopy.getFirstOpenTip`）。
+2. 用户触发：`showUserHint`（如语音聊天回复、录音提示等）。
+3. 操作限制：`showPerMinuteLimitHint`（如「别再点啦」、签到已领）。
 
 ### Android Widget
 
 - **回到前台**：清空 Widget 文案（`clearWidgetWeather`）。
-- **退到后台**：将当前应展示句同步到原生（`syncWidgetWeather`），具体集合与 `_getWidgetText` 实现一致。
+- **不再**向 Widget 同步体力/心情/电量/网络/时段问候等主动文案。
 
 ### 短提示时长
 
-- 首装单句 / 时段问候：展示后约 **3 秒**切换或清空。
+- 首装单句：展示后约 **3 秒**切换或清空。
 - 「别再点啦」、签到已领：约 **3 秒**。
 - `showUserHint`（如聊天回复）：默认约 **4 秒**。
 
@@ -131,9 +132,10 @@
 |------|------|
 | **`home`** | 宠物、数值条、互动按钮、`PetValue`、`PetInfoBar`、`TogglePet`、签到入口 `ad` 节点、`WidgetChoosePanel` 等 |
 | **`settings`** | 设置与语言；`HomeNav` 负责与 home 互跳 |
-| **`ad`** | 次数用尽时进入；`RechargePanel` 关闭后回 `home` 并增加对应按钮次数 |
-| **桌面 Widget（原生）** | `WidgetSync` 与 `PetWidgetProvider` / `PetWidgetLargeProvider`、动画前台服务等 |
-| **天气** | `WeatherService`；Android 可用粗略定位 |
+| **`ad`** | 道具次数为 0 时进入；`RechargePanel` 关闭后回 `home` 并增加对应按钮次数 |
+| **`shop`** | 商店：猫咪订阅解锁、专属定制订阅；`TogglePet` 的「+」与未解锁猫进入 |
+| **`customize`** | 定制页（需 `petai_customize_unlocked`）；未解锁会跳 `shop` |
+| **桌面 Widget（原生）** | `WidgetSync` 与 `PetWidgetProvider`（小号）、动画前台服务等 |
 | **语音对话** | `BtnMicroRecord`、`NativeASR`、`AIChatService` 等 |
 | **通知设置** | `NotificationSettings` 跳转系统通知使用权；脚本内说明整点报时开关 **已下线无实际效果** |
 | **运动提示** | `MotionTipService` 在 TS 侧为 **空实现**；若 Widget 有运动相关展示由原生侧处理 |
@@ -157,7 +159,8 @@
 | 互动与动画 | `assets/scripts/PetControllerBase.ts`、`DogController.ts`、`CatController.ts`、`PetButtons.ts` |
 | 随机动画与时段 | `assets/scripts/RandomPlayPetAni.ts`、`RandomPlayDogAni.ts`、`RandomPlayCatAni.ts` |
 | 文案与多语言 | `assets/scripts/PetInfoBar.ts`、`TipCopy.ts`、`Lang.ts` |
-| 切宠与 Widget 数据 | `assets/scripts/TogglePet.ts`、`WidgetSync.ts` |
+| 切宠、商店与解锁 | `TogglePet.ts`（选择条：狗 / 猫? / 定制? / +）、`PetUnlock.ts`、`ShopScene.ts` |
+| 切宠与 Widget 数据 | `assets/scripts/WidgetSync.ts` |
 | 广告补次数界面 | `assets/scripts/RechargePanel.ts`、`BtnAdGuard.ts` |
 
 文档生成自仓库分析，随代码迭代请同步更新本文档。

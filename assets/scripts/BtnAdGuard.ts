@@ -38,6 +38,7 @@ export class BtnAdGuard extends Component {
     }
 
     private _tryGotoAd(buttonIndex: 1 | 2 | 3) {
+        SharedBtnCounts.init();
         const count = buttonIndex === 1 ? SharedBtnCounts.btn1
             : buttonIndex === 2 ? SharedBtnCounts.btn2
                 : SharedBtnCounts.btn3;

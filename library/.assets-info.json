@@ -2,1264 +2,1194 @@
   "version": "1.0.1",
   "map": {
     "animations": {
-      "time": 1777899659968.0461,
+      "time": 1779244582711.6226,
       "uuid": "17d199d6-ddab-4813-9889-8509301ec87c"
     },
     "scripts": {
-      "time": 1777899659973.1077,
+      "time": 1779243044273.4844,
       "uuid": "9641a245-8e6e-448e-805d-444a31897fa6"
     },
     "sounds": {
-      "time": 1777899659980.73,
+      "time": 1778578573093.4514,
       "uuid": "c9de5952-729c-44c5-b6ea-161b3007498e"
     },
     "textures": {
-      "time": 1777899660013.3455,
+      "time": 1779209164775.9155,
       "uuid": "9b71fb03-3eb7-46b7-8668-86f971a847ce"
     },
     "scripts/llm_v2": {
-      "time": 1778047891261.5752,
+      "time": 1778578573084.0198,
       "uuid": "1c0f906e-1b5f-4545-bbfb-3f804380d955"
     },
     "scripts/AIChatService.ts": {
-      "time": 1777899659968.4685,
+      "time": 1778578573076.4783,
       "uuid": "baa991ba-0e99-4195-9d0b-83d33e2477f3"
     },
     "scripts/AIchatDemo.ts": {
-      "time": 1777899659968.5942,
+      "time": 1779239018343.3887,
       "uuid": "af2a5ed3-e98f-469a-a1d4-2de01bdb6a45"
     },
     "scripts/AdButton.ts": {
-      "time": 1777899659968.6873,
+      "time": 1779242419386.0784,
       "uuid": "4a7d96b7-27be-438e-89a1-e7741b057b45"
     },
     "scripts/AppVersion.ts": {
-      "time": 1777899659968.7795,
+      "time": 1778578573076.9534,
       "uuid": "3f7b2da1-6d3e-5c9f-b2e1-23456789abcd"
     },
     "scripts/AudioControl.ts": {
-      "time": 1777899659968.8816,
+      "time": 1778578573077.0962,
       "uuid": "b671c90c-4eba-4911-be37-281049e65c2c"
     },
     "scripts/AudioManager.ts": {
-      "time": 1777899659969.0315,
+      "time": 1778578573077.2969,
       "uuid": "8237643f-c2a0-4f87-97a8-6e56efdcf270"
     },
     "scripts/BtnAdGuard.ts": {
-      "time": 1777899659969.1326,
+      "time": 1779242419945.318,
       "uuid": "83286a29-f288-411e-82e9-6f5a4e45f08c"
     },
     "scripts/BtnMicroRandomText.ts": {
-      "time": 1777899659969.2322,
+      "time": 1779239017917.178,
       "uuid": "abf98aac-1f6e-4f4c-8944-7f0c9d38bc2e"
     },
     "scripts/BtnMicroRecord.ts": {
-      "time": 1777899659969.3572,
+      "time": 1779240656182.8955,
       "uuid": "99339fa7-8077-4992-961c-506564af9935"
     },
     "scripts/CatAnimSound.ts": {
-      "time": 1777899659969.4763,
+      "time": 1778578573077.9336,
       "uuid": "45af8702-6a9a-4400-93bf-59bde762ecc8"
     },
     "scripts/CatController.ts": {
-      "time": 1777899659969.5732,
+      "time": 1778578573078.0762,
       "uuid": "ea96fc79-817e-4c1b-80b2-d1982ba76c67"
     },
     "scripts/CheckInPanel.ts": {
-      "time": 1777899659969.6987,
+      "time": 1779239018314.4858,
       "uuid": "a1b2c3d4-e5f6-4a5b-8c9d-0e1f2a3b4c5d"
     },
     "scripts/DateUtil.ts": {
-      "time": 1777899659969.7925,
+      "time": 1778578573078.4094,
       "uuid": "5bb6843a-f90a-4b3f-ae58-82b1dcf2db0c"
     },
     "scripts/DogAnimSound.ts": {
-      "time": 1777899659969.8872,
+      "time": 1778578573078.572,
       "uuid": "eadae980-ed60-4a78-a441-81641191b033"
     },
     "scripts/DogController.ts": {
-      "time": 1777899659969.9797,
+      "time": 1778578573078.7227,
       "uuid": "e9370e88-48e8-4748-ae12-7e0eefe039e5"
     },
     "scripts/HeartBubbleAni.ts": {
-      "time": 1777899659970.1052,
+      "time": 1779241816636.5352,
       "uuid": "1826e413-d253-4b92-8171-a835cbb0d6c9"
     },
     "scripts/HomeNav.ts": {
-      "time": 1777899659970.2175,
+      "time": 1779243066251.1267,
       "uuid": "e3332eba-4e17-4217-b627-c755868048d3"
     },
     "scripts/HomePopupMask.ts": {
-      "time": 1777899659970.346,
+      "time": 1779239018304.2195,
       "uuid": "b8a9a41f-0aab-4317-9da2-769db651e249"
     },
     "scripts/HomeWidgetButton.ts": {
-      "time": 1777899659970.4521,
+      "time": 1778578573079.3423,
       "uuid": "9384932c-33ba-4507-bd9d-ed9b2ba2818d"
     },
     "scripts/Lang.ts": {
-      "time": 1777899659970.56,
+      "time": 1778578573079.5088,
       "uuid": "135c4980-4b0b-4af7-938a-99bba6d0b817"
     },
     "scripts/MotionTipService.ts": {
-      "time": 1777899659970.6567,
+      "time": 1778578573079.661,
       "uuid": "9db9a4d6-91dc-4b6d-a86c-125716f45b24"
     },
     "scripts/NativeASR.ts": {
-      "time": 1777899659970.7498,
+      "time": 1778578573079.8171,
       "uuid": "6a103f5f-66b7-432b-86f3-1128702139bb"
     },
     "scripts/NotificationSettings.ts": {
-      "time": 1777899659970.8484,
+      "time": 1778578573079.966,
       "uuid": "9a5ca728-a05e-4500-872b-9fd8bc5c27dd"
     },
     "scripts/PetButtons.ts": {
-      "time": 1777899659970.976,
+      "time": 1779239018333.0352,
       "uuid": "ede32bd1-80bc-485e-973a-287269077844"
     },
     "scripts/PetControllerBase.ts": {
-      "time": 1777899659971.1008,
+      "time": 1779240680618.908,
       "uuid": "008ed21c-5fd3-48b8-89cf-d21cd3f5eb67"
     },
     "scripts/PetInfoBar.ts": {
-      "time": 1778046222673.4336,
+      "time": 1779240720899.5403,
       "uuid": "93b5cf0e-5dd6-4c29-ae17-17793be21664"
     },
     "scripts/PetValue.ts": {
-      "time": 1777899659971.393,
+      "time": 1779241983459.8723,
       "uuid": "59c2ba4d-409c-4e04-8b66-1e870e59e7d2"
     },
     "scripts/PetVocalizer.ts": {
-      "time": 1777899659971.4983,
+      "time": 1778578573080.8591,
       "uuid": "f237f789-a545-47a4-9250-6703a8cfa21f"
     },
     "scripts/PetWake.ts": {
-      "time": 1777899659971.619,
+      "time": 1778578573081.0193,
       "uuid": "1f099ee2-e25b-4135-8dbc-12b4b720b81d"
     },
     "scripts/RandomPlayCatAni.ts": {
-      "time": 1777899659971.704,
+      "time": 1778578573081.1575,
       "uuid": "c940761a-65e5-48f8-bd77-b07e3ee8c277"
     },
     "scripts/RandomPlayDogAni.ts": {
-      "time": 1777899659971.7925,
+      "time": 1778578573081.3025,
       "uuid": "34485be1-c6d8-4789-88c2-360d299f65de"
     },
     "scripts/RandomPlayPetAni.ts": {
-      "time": 1777899659971.891,
+      "time": 1779240686344.6165,
       "uuid": "cd02bc68-139a-4685-9fe1-aa718ef4f1a3"
     },
     "scripts/RechargePanel.ts": {
-      "time": 1777899659971.983,
+      "time": 1779244813475.791,
       "uuid": "ef652d2d-28e3-4de8-8f38-0d2ab6915b2c"
     },
     "scripts/SettingsCopy.ts": {
-      "time": 1777899659972.077,
+      "time": 1778578573081.7393,
       "uuid": "2f6a1c90-5c2d-4b8e-a1d0-123456789abc"
     },
     "scripts/SettingsLocale.ts": {
-      "time": 1777899659972.1646,
+      "time": 1778578573081.8906,
       "uuid": "4f8c3eb2-7e4f-6da0-c3f2-3456789abcde"
     },
     "scripts/SharedBtnCounts.ts": {
-      "time": 1777899659972.2852,
+      "time": 1778578573082.0662,
       "uuid": "e059579f-0b1d-4c94-93a8-1ae9e9f1edfe"
     },
     "scripts/SwipeState.ts": {
-      "time": 1777899659972.3691,
+      "time": 1778578573082.2,
       "uuid": "66491fbe-f8a8-44f3-9d74-768396cd7515"
     },
     "scripts/TipCopy.ts": {
-      "time": 1777899659972.615,
+      "time": 1779244793227.5618,
       "uuid": "0ae06131-8773-485b-a22b-9e5db4e2da53"
     },
     "scripts/TogglePet.ts": {
-      "time": 1777899659972.7107,
+      "time": 1779243352654.4983,
       "uuid": "1cdf4315-028f-4c7b-bf38-831e2e0d14e4"
     },
-    "scripts/WeatherService.ts": {
-      "time": 1777899659972.81,
-      "uuid": "104fbf94-9c7e-4197-b454-51339301f58a"
-    },
     "scripts/WidgetChoosePanel.ts": {
-      "time": 1777899659972.901,
+      "time": 1779239018187.462,
       "uuid": "e9433f34-c8d9-4641-90a2-b4ace0e6e8d4"
     },
     "scripts/WidgetSync.ts": {
-      "time": 1777899659972.999,
+      "time": 1779239018170.7954,
       "uuid": "76c75327-73ae-4351-be16-a3003978405b"
     },
     "scripts/llm_v2/ChatContextStore.ts": {
-      "time": 1777899659973.1567,
+      "time": 1778578573083.2422,
       "uuid": "94eaa521-ee17-427b-a3fe-06cb379be7bf"
     },
     "scripts/llm_v2/TokitChatService.ts": {
-      "time": 1778047927872.5723,
+      "time": 1778578573083.989,
       "uuid": "e67c8688-2f26-44a5-b0eb-56623ce5a0b1"
     },
     "animations.meta": {
-      "time": 1777899659964.4114
+      "time": 1778578573069.9827
     },
     "scripts.meta": {
-      "time": 1777899659968.3716
+      "time": 1778578573076.3367
     },
     "sounds.meta": {
-      "time": 1777899659973.5137
+      "time": 1778578573084.314
     },
     "textures.meta": {
-      "time": 1777899659980.7908
+      "time": 1778578573093.5547
     },
     "scripts/llm_v2.meta": {
-      "time": 1777899659973.0862
+      "time": 1778578573083.1245
     },
     "scripts/AIChatService.ts.meta": {
-      "time": 1777899659968.5317
+      "time": 1778578573076.561
     },
     "scripts/AIchatDemo.ts.meta": {
-      "time": 1777899659968.6404
+      "time": 1778578573076.7236
     },
     "scripts/AdButton.ts.meta": {
-      "time": 1777899659968.734
+      "time": 1778578573076.8809
     },
     "scripts/AppVersion.ts.meta": {
-      "time": 1777899659968.8293
+      "time": 1778578573077.0212
     },
     "scripts/AudioControl.ts.meta": {
-      "time": 1777899659968.93
+      "time": 1778578573077.168
     },
     "scripts/AudioManager.ts.meta": {
-      "time": 1777899659969.077
+      "time": 1778578573077.3694
     },
     "scripts/BtnAdGuard.ts.meta": {
-      "time": 1777899659969.1821
+      "time": 1778578573077.5127
     },
     "scripts/BtnMicroRandomText.ts.meta": {
-      "time": 1777899659969.277
+      "time": 1778578573077.6663
     },
     "scripts/BtnMicroRecord.ts.meta": {
-      "time": 1777899659969.4265
+      "time": 1778578573077.8628
     },
     "scripts/CatAnimSound.ts.meta": {
-      "time": 1777899659969.5193
+      "time": 1778578573078.0017
     },
     "scripts/CatController.ts.meta": {
-      "time": 1777899659969.6248
+      "time": 1778578573078.1477
     },
     "scripts/CheckInPanel.ts.meta": {
-      "time": 1777899659969.743
+      "time": 1778578573078.3315
     },
     "scripts/DateUtil.ts.meta": {
-      "time": 1777899659969.8374
+      "time": 1778578573078.4863
     },
     "scripts/DogAnimSound.ts.meta": {
-      "time": 1777899659969.9324
+      "time": 1778578573078.647
     },
     "scripts/DogController.ts.meta": {
-      "time": 1777899659970.0386
+      "time": 1778578573078.7998
     },
     "scripts/HeartBubbleAni.ts.meta": {
-      "time": 1777899659970.1567
+      "time": 1778578573078.962
     },
     "scripts/HomeNav.ts.meta": {
-      "time": 1777899659970.2808
+      "time": 1778578573079.1172
     },
     "scripts/HomePopupMask.ts.meta": {
-      "time": 1777899659970.398
+      "time": 1778578573079.2705
     },
     "scripts/HomeWidgetButton.ts.meta": {
-      "time": 1777899659970.5051
+      "time": 1778578573079.4229
     },
     "scripts/Lang.ts.meta": {
-      "time": 1777899659970.6094
+      "time": 1778578573079.58
     },
     "scripts/MotionTipService.ts.meta": {
-      "time": 1777899659970.7031
+      "time": 1778578573079.7397
     },
     "scripts/NativeASR.ts.meta": {
-      "time": 1777899659970.7966
+      "time": 1778578573079.8865
     },
     "scripts/NotificationSettings.ts.meta": {
-      "time": 1777899659970.8948
+      "time": 1778578573080.0405
     },
     "scripts/PetButtons.ts.meta": {
-      "time": 1777899659971.0256
+      "time": 1778578573080.2205
     },
     "scripts/PetControllerBase.ts.meta": {
-      "time": 1777899659971.1697
+      "time": 1778578573080.3936
     },
     "scripts/PetInfoBar.ts.meta": {
-      "time": 1777899659971.3135
+      "time": 1778578573080.5852
     },
     "scripts/PetValue.ts.meta": {
-      "time": 1777899659971.4517
+      "time": 1778578573080.778
     },
     "scripts/PetVocalizer.ts.meta": {
-      "time": 1777899659971.57
+      "time": 1778578573080.944
     },
     "scripts/PetWake.ts.meta": {
-      "time": 1777899659971.6624
+      "time": 1778578573081.0881
     },
     "scripts/RandomPlayCatAni.ts.meta": {
-      "time": 1777899659971.7485
+      "time": 1778578573081.2295
     },
     "scripts/RandomPlayDogAni.ts.meta": {
-      "time": 1777899659971.8342
+      "time": 1778578573081.3699
     },
     "scripts/RandomPlayPetAni.ts.meta": {
-      "time": 1777899659971.9358
+      "time": 1778578573081.5264
     },
     "scripts/RechargePanel.ts.meta": {
-      "time": 1777899659972.0269
+      "time": 1778578573081.6687
     },
     "scripts/SettingsCopy.ts.meta": {
-      "time": 1777899659972.12
+      "time": 1778578573081.812
     },
     "scripts/SettingsLocale.ts.meta": {
-      "time": 1777899659972.206
+      "time": 1778578573081.9663
     },
     "scripts/SharedBtnCounts.ts.meta": {
-      "time": 1777899659972.3289
+      "time": 1778578573082.1345
     },
     "scripts/SwipeState.ts.meta": {
-      "time": 1777899659972.4106
+      "time": 1778578573082.2673
     },
     "scripts/TipCopy.ts.meta": {
-      "time": 1777899659972.657
+      "time": 1778578573082.4377
     },
     "scripts/TogglePet.ts.meta": {
-      "time": 1777899659972.755
-    },
-    "scripts/WeatherService.ts.meta": {
-      "time": 1777899659972.8516
+      "time": 1778578573082.5923
     },
     "scripts/WidgetChoosePanel.ts.meta": {
-      "time": 1777899659972.945
+      "time": 1778578573082.9028
     },
     "scripts/WidgetSync.ts.meta": {
-      "time": 1777899659973.0425
+      "time": 1778578573083.059
     },
     "scripts/llm_v2/ChatContextStore.ts.meta": {
-      "time": 1777899659973.2078
+      "time": 1778578573083.315
     },
     "scripts/llm_v2/TokitChatService.ts.meta": {
-      "time": 1777899659973.3274
+      "time": 1778578573084.0574
     },
     "ad.scene": {
-      "time": 1777899659964.287,
+      "time": 1778578573069.7969,
       "uuid": "b90ebbaa-1aa1-4622-a4fe-2560e4ccf1eb"
     },
     "home.scene": {
-      "time": 1777899659968.2036,
+      "time": 1779244990202.2588,
       "uuid": "8743c97c-9d45-47a4-b6a1-b9449652d60e"
     },
     "settings.scene": {
-      "time": 1777899659973.3994,
+      "time": 1778578573084.1697,
       "uuid": "5d7c33f6-abf3-4d66-84f6-947222f9f28b"
     },
     "animations/cat01.anim": {
-      "time": 1777899659964.5278,
+      "time": 1779244586189.0188,
       "uuid": "1c1aba00-7569-4db7-8611-d529d9315324"
     },
     "animations/cat02.anim": {
-      "time": 1777899659964.6484,
+      "time": 1778578573070.3286,
       "uuid": "27bf6252-32a9-4094-aee8-132751cb78f5"
     },
     "animations/cat03.anim": {
-      "time": 1777899659964.7722,
+      "time": 1779244424018.5251,
       "uuid": "2222892b-71de-495e-8d0a-4af970dc61c1"
     },
     "animations/cat04.anim": {
-      "time": 1777899659964.8845,
+      "time": 1779244439524.1104,
       "uuid": "eaa69637-83fd-4145-b96d-a36ec065e40c"
     },
     "animations/cat05.anim": {
-      "time": 1777899659964.9866,
+      "time": 1778578573070.8384,
       "uuid": "56479684-11a6-4070-90eb-00f1133c57a8"
     },
     "animations/cat06.anim": {
-      "time": 1777899659965.0935,
+      "time": 1779244455944.9558,
       "uuid": "1e8aff58-98bf-48b3-a67a-9f964572dc26"
     },
     "animations/cat07.anim": {
-      "time": 1777899659965.1936,
+      "time": 1779244464241.7341,
       "uuid": "4262b86e-01e4-4acd-bc1d-f4a56a7277e0"
     },
     "animations/cat08.anim": {
-      "time": 1777899659965.2866,
+      "time": 1779244472342.2168,
       "uuid": "0f65ff09-5019-473c-8bf2-b90d5204fe2d"
     },
     "animations/cat09.anim": {
-      "time": 1777899659965.3906,
+      "time": 1779244483319.4082,
       "uuid": "ec8ce723-5b07-4b64-a3ad-0d15e0ce7bf5"
     },
     "animations/cat10.anim": {
-      "time": 1777899659965.4954,
+      "time": 1779244517123.8477,
       "uuid": "ebade5f7-0e5e-4dc5-9c8e-434a39422df5"
     },
     "animations/cat11.anim": {
-      "time": 1777899659965.6047,
+      "time": 1779244527713.3545,
       "uuid": "0fa1903d-8407-482d-9682-10df018b0e15"
     },
     "animations/cat12.anim": {
-      "time": 1777899659965.7114,
+      "time": 1778578573072.081,
       "uuid": "e42600d4-db85-4bdd-ba8e-41bfad514728"
     },
     "animations/cat13.anim": {
-      "time": 1777899659965.8103,
+      "time": 1778578573072.2473,
       "uuid": "95568c25-1258-49fb-8410-de1a5ce47be5"
     },
     "animations/cat14.anim": {
-      "time": 1777899659965.908,
+      "time": 1779244552162.93,
       "uuid": "f364efb0-cc8b-4ba1-b7fa-7ea2e1290c78"
     },
     "animations/cat15.anim": {
-      "time": 1777899659966.0083,
+      "time": 1778578573072.6326,
       "uuid": "006a5bf1-9504-4a5f-8084-11d74cc3a035"
     },
-    "animations/cat16.anim": {
-      "time": 1777899659966.1055,
-      "uuid": "b53789e0-4707-403d-a884-4e67833c9b49"
-    },
-    "animations/cat_large_01.anim": {
-      "time": 1777899659966.2102,
-      "uuid": "a812024e-f802-4ad2-b6bb-28ddb9800bf0"
-    },
     "animations/dog01.anim": {
-      "time": 1777899659966.3215,
+      "time": 1779243995276.8923,
       "uuid": "b61cab9d-6ebe-4804-97d3-640e275beccc"
     },
-    "animations/dog02.anim": {
-      "time": 1777899659966.4246,
-      "uuid": "82109e6c-be35-4a01-b293-318fb60ab40b"
-    },
     "animations/dog03.anim": {
-      "time": 1777899659966.532,
+      "time": 1779244010908.7642,
       "uuid": "7c387fdf-a7fc-4a82-bc7e-f46af0b98d6d"
     },
     "animations/dog04.anim": {
-      "time": 1777899659966.6335,
+      "time": 1779244027049.9436,
       "uuid": "046d4e00-0e9f-4f3e-9662-0996375fbe28"
     },
-    "animations/dog05.anim": {
-      "time": 1777899659966.7422,
-      "uuid": "a460029f-5c67-4950-9300-6d5a92b23910"
-    },
     "animations/dog06.anim": {
-      "time": 1777899659966.8594,
+      "time": 1779244045472.7078,
       "uuid": "119499fc-4269-4b74-84da-0011b0e145a6"
     },
     "animations/dog07.anim": {
-      "time": 1777899659966.9553,
+      "time": 1779244057768.3923,
       "uuid": "0b950e74-059a-46d8-888f-64ba81b260c0"
     },
     "animations/dog08.anim": {
-      "time": 1777899659967.0527,
+      "time": 1779244069665.213,
       "uuid": "e667fce2-50ca-4a5b-9c4a-45463052231d"
     },
     "animations/dog09.anim": {
-      "time": 1777899659967.1672,
+      "time": 1779244097836.743,
       "uuid": "de65205a-c686-4efd-a8c5-ea8a1d90f2ba"
     },
     "animations/dog10.anim": {
-      "time": 1777899659967.2725,
+      "time": 1779244163086.949,
       "uuid": "08b39cf3-3e34-424b-9628-9db4df9c24bd"
     },
     "animations/dog11.anim": {
-      "time": 1777899659967.375,
+      "time": 1779244182440.333,
       "uuid": "38a11c62-36c9-4b7f-873a-827664dc8630"
     },
     "animations/dog12.anim": {
-      "time": 1777899659967.475,
+      "time": 1779244217002.602,
       "uuid": "252f73ce-1ea6-46bb-9269-7c426b42015e"
     },
     "animations/dog13.anim": {
-      "time": 1777899659967.5728,
+      "time": 1778578573075.006,
       "uuid": "84718b22-cc90-4722-9a69-96e20c85542d"
     },
     "animations/dog14.anim": {
-      "time": 1777899659967.66,
+      "time": 1779244247477.5093,
       "uuid": "f003f00f-b716-4b31-b24e-424d303d2601"
     },
     "animations/dog15.anim": {
-      "time": 1777899659967.7495,
+      "time": 1779244359290.5076,
       "uuid": "f56abdea-5dc2-4381-a398-e203814688a5"
     },
-    "animations/dog16.anim": {
-      "time": 1777899659967.8428,
-      "uuid": "ff0f6ea9-73bc-451a-a65a-a041adffd8a0"
-    },
-    "animations/large_dog01.anim": {
-      "time": 1777899659967.9316,
-      "uuid": "b7cb0b28-3b6d-4a25-b4c7-0e8823074fa1"
-    },
     "animations/love.anim": {
-      "time": 1777899659968.0234,
+      "time": 1778578573075.8047,
       "uuid": "72a12e2f-f2f4-4617-8514-ef8f894c3718"
     },
     "sounds/06_c.MP3": {
-      "time": 1777899659973.695,
+      "time": 1778578573084.5872,
       "uuid": "0b3910e4-55d0-41ce-8445-1f48e7604cce"
     },
     "sounds/06_d.mp3": {
-      "time": 1777899659973.8154,
+      "time": 1778578573084.748,
       "uuid": "0ef0d648-3e09-4612-91b0-62b45f02d78a"
     },
     "sounds/09_dc.MP3": {
-      "time": 1777899659974.1675,
+      "time": 1778578573085.1545,
       "uuid": "951a834a-a3bd-4f63-86b0-b219ad018a40"
     },
     "sounds/10_c.MP3": {
-      "time": 1777899659974.6938,
+      "time": 1778578573085.7734,
       "uuid": "1e873f62-7035-4bcd-a410-000621270e36"
     },
     "sounds/10_d.MP3": {
-      "time": 1777899659975.0847,
+      "time": 1778578573086.2483,
       "uuid": "cd143437-1eda-4475-ba3c-33eb6e748e73"
     },
     "sounds/10_d.m4a": {
-      "time": 1777899659975.4104,
+      "time": 1778578573086.6465,
       "uuid": "e972b83c-d5c1-4544-a31c-0aa614525e32"
     },
     "sounds/11_c.MP3": {
-      "time": 1777899659975.8118,
+      "time": 1778578573087.205,
       "uuid": "8fe57426-4bc5-4ada-b29e-00aaba1211e8"
     },
     "sounds/11_d-n.MP3": {
-      "time": 1777899659976.2295,
+      "time": 1778578573087.73,
       "uuid": "b3dcf73c-572d-4de6-ab64-7d66351231d4"
     },
     "sounds/11_d.MP3": {
-      "time": 1777899659976.667,
+      "time": 1778578573088.246,
       "uuid": "2dbb02fd-9d39-4e48-be03-3aad9cd57a17"
     },
     "sounds/12_c.MP3": {
-      "time": 1777899659976.8735,
+      "time": 1778578573088.5151,
       "uuid": "baba9fe0-7a79-47fe-9f7a-75ae313020a4"
     },
     "sounds/12_d.MP3": {
-      "time": 1777899659977.0688,
+      "time": 1778578573088.792,
       "uuid": "4767b542-db63-4773-b499-cf85d609201b"
     },
     "sounds/13_c.mp3": {
-      "time": 1777899659977.2485,
+      "time": 1778578573089.041,
       "uuid": "b3366391-9816-43ed-9e5d-b4ea42d32346"
     },
     "sounds/13_d.MP3": {
-      "time": 1777899659977.4092,
+      "time": 1778578573089.2827,
       "uuid": "7651b055-354b-40bb-96af-311862a7ab00"
     },
     "sounds/all_click.MP3": {
-      "time": 1777899659977.5403,
+      "time": 1778578573089.4849,
       "uuid": "48e564fc-70e9-48c3-9428-e5bc3e16a473"
     },
     "sounds/bg.MP3": {
-      "time": 1777899659979.7236,
+      "time": 1778578573091.904,
       "uuid": "48934285-0ca9-4644-8730-4f2798fa1ac1"
     },
     "sounds/clock_dc.MP3": {
-      "time": 1777899659979.9949,
+      "time": 1778578573092.246,
       "uuid": "3d8ed1e5-7d73-4284-9867-2ac743c712fe"
     },
     "sounds/message_c.MP3": {
-      "time": 1777899659980.153,
+      "time": 1778578573092.4575,
       "uuid": "c85c3bdd-e2aa-4645-9d99-806d68725a20"
     },
     "sounds/message_d.mp3": {
-      "time": 1777899659980.3013,
+      "time": 1778578573092.6523,
       "uuid": "0de6fdc7-464d-4f35-b707-365e6776afed"
     },
     "sounds/reward.MP3": {
-      "time": 1777899659980.4683,
+      "time": 1778578573092.8577,
       "uuid": "503ce6e3-df51-49f6-b57d-6d1a7f528e8e"
     },
     "sounds/value.MP3": {
-      "time": 1777899659980.694,
+      "time": 1778578573093.133,
       "uuid": "51d1b606-6685-44aa-8857-795712289f6a"
     },
     "textures/ad.png": {
-      "time": 1777899659980.9424,
+      "time": 1778578573093.7576,
       "uuid": "19f245cf-8ffb-4d1d-b5c0-d68aad0d0013"
     },
     "textures/bg.plist": {
-      "time": 1777899659981.046,
+      "time": 1778578573093.91,
       "uuid": "c84514a5-0c29-424b-9323-275b27710662"
     },
     "textures/bg.png": {
-      "time": 1777899659985.2798,
+      "time": 1778578573098.5266,
       "uuid": "ff007c07-40ef-489e-b790-1ea208309dfe"
     },
-    "textures/c_large_01.plist": {
-      "time": 1777899659985.7683,
-      "uuid": "5d21af57-2fe6-4d6c-9553-d6aab667d56a"
-    },
-    "textures/c_large_01.png": {
-      "time": 1777899659986.2537,
-      "uuid": "fd844d35-c9dc-4c1c-b36a-dbba8979af3e"
-    },
     "textures/cat01.plist": {
-      "time": 1777899659986.4268,
+      "time": 1778578573099.5264,
       "uuid": "3a017a15-7aab-4182-8cff-938b6993930e"
     },
     "textures/cat01.png": {
-      "time": 1777899659986.8765,
+      "time": 1778578573100.0364,
       "uuid": "5b58a227-b431-41f0-a231-cc2fa2c353ca"
     },
-    "textures/cat02.plist": {
-      "time": 1777899659987.04,
-      "uuid": "a10d8a4e-81ac-4f05-acb6-48e84431f83a"
-    },
-    "textures/cat02.png": {
-      "time": 1777899659987.4128,
-      "uuid": "2c14e762-d84c-40c8-b07a-0cfae7a1d9ca"
-    },
     "textures/cat03.plist": {
-      "time": 1777899659987.5847,
+      "time": 1778578573100.8638,
       "uuid": "4b12e9f5-2454-40bb-87ea-b616f7dc0dba"
     },
     "textures/cat03.png": {
-      "time": 1777899659988.0908,
+      "time": 1778578573101.4727,
       "uuid": "a8fd94bc-994d-4047-b3d0-cdf033a20f2f"
     },
     "textures/cat04.plist": {
-      "time": 1777899659988.2336,
+      "time": 1778578573101.702,
       "uuid": "6db2b5a6-d750-4212-9c87-bc4966b9ed40"
     },
     "textures/cat04.png": {
-      "time": 1777899659988.8066,
+      "time": 1778578573102.4373,
       "uuid": "5b835d23-2047-4acd-9c38-842e1f9c0cce"
     },
-    "textures/cat05.plist": {
-      "time": 1777899659988.9397,
-      "uuid": "eb173778-2f5c-42c7-ad9e-6c50f0dd35cc"
-    },
-    "textures/cat05.png": {
-      "time": 1777899659989.4365,
-      "uuid": "86501027-8576-441e-a5bb-6d77846e17ff"
-    },
     "textures/cat06.plist": {
-      "time": 1777899659989.5498,
+      "time": 1778578573103.4436,
       "uuid": "bc29b552-fcb4-4c8c-ba35-d7da76368f5f"
     },
     "textures/cat06.png": {
-      "time": 1777899659989.8838,
+      "time": 1778578573103.9387,
       "uuid": "4e507785-dc87-4fb5-889c-3b7c6ad40a0e"
     },
     "textures/cat07.plist": {
-      "time": 1777899659989.9944,
+      "time": 1778578573104.1335,
       "uuid": "2e02b859-1a40-4b81-b1e0-0a827f380c49"
     },
     "textures/cat07.png": {
-      "time": 1777899659990.2566,
+      "time": 1778578573104.485,
       "uuid": "e222ca38-2a50-4834-8a80-8ded3ac0289c"
     },
     "textures/cat08.plist": {
-      "time": 1777899659990.365,
+      "time": 1778578573104.672,
       "uuid": "00479b9e-2caf-4530-ba5f-884ff732e668"
     },
     "textures/cat08.png": {
-      "time": 1777899659990.617,
+      "time": 1778578573104.9993,
       "uuid": "00611ade-8e51-4683-a88e-799531d84823"
     },
     "textures/cat09.plist": {
-      "time": 1777899659990.7493,
+      "time": 1778578573105.1733,
       "uuid": "a09702df-1727-41c2-a80a-1331fae13629"
     },
     "textures/cat09.png": {
-      "time": 1777899659991.371,
+      "time": 1778578573105.9146,
       "uuid": "031ce5ab-81e4-4e6f-a609-d64296ddf1e1"
     },
     "textures/cat10.plist": {
-      "time": 1777899659991.5193,
+      "time": 1778578573106.1243,
       "uuid": "14b66edd-71e4-49b4-aa2e-19a3df39ffd8"
     },
     "textures/cat10.png": {
-      "time": 1777899659992.1855,
+      "time": 1778578573106.8855,
       "uuid": "3d21725b-51cb-4b16-900c-9e48e34181f1"
     },
     "textures/cat11.plist": {
-      "time": 1777899659992.3362,
+      "time": 1778578573107.067,
       "uuid": "cc9b44d6-d4bd-463f-b4a5-efb31568a6b2"
     },
     "textures/cat11.png": {
-      "time": 1777899659992.9575,
+      "time": 1778578573107.7769,
       "uuid": "a4301013-e57a-48aa-97c4-6c39b20c8891"
     },
     "textures/cat12.plist": {
-      "time": 1777899659993.0999,
+      "time": 1778578573107.9558,
       "uuid": "927be802-3fd2-4577-b420-f6e3c3700161"
     },
     "textures/cat12.png": {
-      "time": 1777899659993.7698,
+      "time": 1778578573108.7793,
       "uuid": "01380d4a-2918-429c-b540-95a5d1ab0941"
     },
     "textures/cat13.plist": {
-      "time": 1777899659993.8975,
+      "time": 1778578573108.9763,
       "uuid": "d8a143c9-1957-4bf0-8504-a4ea2a585b2d"
     },
     "textures/cat13.png": {
-      "time": 1777899659994.3489,
+      "time": 1778578573109.52,
       "uuid": "31754f38-95e4-4975-be2b-ddd217095cd5"
     },
     "textures/cat14.plist": {
-      "time": 1777899659994.506,
+      "time": 1778578573109.7046,
       "uuid": "7c4bb834-eb5b-4fc1-94eb-5b5de9a44dc6"
     },
     "textures/cat14.png": {
-      "time": 1777899659995.075,
+      "time": 1778578573110.3508,
       "uuid": "ab5b9ced-e883-45c4-8231-872600c8becc"
     },
     "textures/cat15.plist": {
-      "time": 1777899659995.1938,
+      "time": 1778578573110.5173,
       "uuid": "3be9433d-5019-4440-b36e-577af0bcb390"
     },
     "textures/cat15.png": {
-      "time": 1777899659995.521,
+      "time": 1778578573110.9375,
       "uuid": "72d5618c-f6be-4c0b-af0a-10a92c36333e"
     },
-    "textures/d_large_01.plist": {
-      "time": 1777899659995.6318,
-      "uuid": "30d589ed-9e84-4b73-a5eb-f75a03f7cfc0"
-    },
-    "textures/d_large_01.png": {
-      "time": 1777899659996.3386,
-      "uuid": "e857cbe4-5740-4100-b755-3314647ea55c"
-    },
     "textures/dog01.plist": {
-      "time": 1777899659996.4646,
+      "time": 1778578573112.1226,
       "uuid": "c7599865-9603-433c-9b24-00c0194dfa43"
     },
     "textures/dog01.png": {
-      "time": 1777899659997.2925,
+      "time": 1778578573113.062,
       "uuid": "c6712ed6-57bf-4a6f-8642-e46e14ff9dfb"
     },
-    "textures/dog02.plist": {
-      "time": 1777899659997.4187,
-      "uuid": "b35129e5-6af2-4479-987c-4ab3035f8a7b"
-    },
-    "textures/dog02.png": {
-      "time": 1777899659997.8665,
-      "uuid": "f1d3b98e-ecee-4568-ad39-9104cb00c4f3"
-    },
     "textures/dog03.plist": {
-      "time": 1777899659997.9927,
+      "time": 1778578573113.949,
       "uuid": "ca6126a5-7cbb-47ef-a7ac-97087a7f360f"
     },
     "textures/dog03.png": {
-      "time": 1777899659998.4556,
+      "time": 1778578573114.561,
       "uuid": "c995e968-a783-47cc-b0a2-dde0c25a3331"
     },
     "textures/dog04.plist": {
-      "time": 1777899659998.8042,
+      "time": 1778578573114.7708,
       "uuid": "38be1c73-67ca-41a3-ae86-f41e51571e09"
     },
     "textures/dog04.png": {
-      "time": 1777899659999.6084,
+      "time": 1778578573115.8413,
       "uuid": "ee7e9527-6f06-447f-940c-f8a7512506bd"
     },
-    "textures/dog05.plist": {
-      "time": 1777899659999.743,
-      "uuid": "4a412ba4-a194-40c0-bf31-e348595afb25"
-    },
-    "textures/dog05.png": {
-      "time": 1777899660000.2332,
-      "uuid": "95fbc835-8a2e-4f5b-991f-63430cd86691"
-    },
     "textures/dog06.plist": {
-      "time": 1777899660002.009,
+      "time": 1778578573116.8867,
       "uuid": "151ec486-9a07-44db-a2af-32492cc49101"
     },
     "textures/dog06.png": {
-      "time": 1777899660002.582,
+      "time": 1778578573117.5796,
       "uuid": "d7634aa4-b9bd-4aae-85f6-ac98770d6fbb"
     },
     "textures/dog07.plist": {
-      "time": 1777899660002.6924,
+      "time": 1778578573117.7864,
       "uuid": "79077dfc-c248-4118-888a-97236c52f791"
     },
     "textures/dog07.png": {
-      "time": 1777899660003.2983,
+      "time": 1778578573118.6233,
       "uuid": "d6ef4ec7-f56e-4257-b5a0-b9ced30771e2"
     },
     "textures/dog08.plist": {
-      "time": 1777899660003.3945,
+      "time": 1778578573118.8145,
       "uuid": "74c4a8d4-e135-4d77-a6b2-377d4696034d"
     },
     "textures/dog08.png": {
-      "time": 1777899660003.9067,
+      "time": 1778578573119.5054,
       "uuid": "640804bf-4bfe-470d-93c7-b3d2dd981dbc"
     },
     "textures/dog09.plist": {
-      "time": 1777899660004.0278,
+      "time": 1778578573119.704,
       "uuid": "89024848-1924-45d1-8396-f77d51f77a12"
     },
     "textures/dog09.png": {
-      "time": 1777899660005.3484,
+      "time": 1778578573121.3345,
       "uuid": "5f3a1d4b-6556-4e0e-b8f6-e673e40c184b"
     },
     "textures/dog10.plist": {
-      "time": 1777899660005.6702,
+      "time": 1778578573121.538,
       "uuid": "4ded4065-43ad-45e3-88c4-8531c0746c88"
     },
     "textures/dog10.png": {
-      "time": 1777899660007.0273,
+      "time": 1778578573123.2969,
       "uuid": "6eb8f893-f45a-401e-b6b6-66b0eb6e9465"
     },
     "textures/dog11.plist": {
-      "time": 1777899660007.1704,
+      "time": 1778578573123.8496,
       "uuid": "24be801a-ddac-4c6f-80f9-58dba7ba7c35"
     },
     "textures/dog11.png": {
-      "time": 1777899660008.4097,
+      "time": 1778578573125.5002,
       "uuid": "a5c8344a-c419-48b9-b616-f8bf4749dffa"
     },
     "textures/dog12.plist": {
-      "time": 1777899660008.539,
+      "time": 1778578573125.6848,
       "uuid": "aa862fca-d898-4927-a0e2-a43e981025d6"
     },
     "textures/dog12.png": {
-      "time": 1777899660009.3467,
+      "time": 1778578573126.7368,
       "uuid": "6549822e-9c99-43a7-aa34-cf5429514f79"
     },
     "textures/dog13.plist": {
-      "time": 1777899660009.4678,
+      "time": 1778578573126.9553,
       "uuid": "a222b48b-fcdd-414c-933e-10d0b2bc1ca3"
     },
     "textures/dog13.png": {
-      "time": 1777899660010.25,
+      "time": 1778578573127.9827,
       "uuid": "234c8e84-2bf7-46be-96d9-50f2d885c00a"
     },
     "textures/dog14.plist": {
-      "time": 1777899660010.3684,
+      "time": 1778578573128.161,
       "uuid": "e6c1c232-091e-4d29-bd4a-311d1f06feea"
     },
     "textures/dog14.png": {
-      "time": 1777899660010.7876,
+      "time": 1778578573128.7424,
       "uuid": "f5f58291-07b1-4ce5-ac66-d60081d53ed0"
     },
     "textures/dog15.plist": {
-      "time": 1777899660010.9185,
+      "time": 1778578573128.924,
       "uuid": "c4b2a90c-2478-4d6a-a542-c53d6c1b9861"
     },
     "textures/dog15.png": {
-      "time": 1777899660011.6326,
+      "time": 1778578573129.7468,
       "uuid": "a6288d65-9a62-45d1-a240-639e272e89a1"
     },
-    "textures/ui.plist": {
-      "time": 1777899660011.7544,
-      "uuid": "54e30b11-00cc-4fff-8347-024b9056a775"
-    },
-    "textures/ui.png": {
-      "time": 1777899660013.275,
-      "uuid": "a1aff381-136c-4775-9298-7e8499e237f2"
-    },
     "ad.scene.meta": {
-      "time": 1777899659964.3591
+      "time": 1778578573069.903
     },
     "settings.scene.meta": {
-      "time": 1777899659973.4666
+      "time": 1778578573084.2483
     },
     "animations/cat02.anim.meta": {
-      "time": 1777899659964.6995
+      "time": 1778578573070.404
     },
     "animations/cat01.anim.meta": {
-      "time": 1777899659964.5823
+      "time": 1778578573070.234
     },
     "home.scene.meta": {
-      "time": 1777899659968.2783
+      "time": 1778578573076.1848
     },
     "animations/cat03.anim.meta": {
-      "time": 1777899659964.8232
+      "time": 1778578573070.5825
     },
     "animations/cat04.anim.meta": {
-      "time": 1777899659964.93
+      "time": 1778578573070.7483
     },
     "animations/cat05.anim.meta": {
-      "time": 1777899659965.0317
+      "time": 1778578573070.9126
     },
     "animations/cat06.anim.meta": {
-      "time": 1777899659965.147
+      "time": 1778578573071.0806
     },
     "animations/cat07.anim.meta": {
-      "time": 1777899659965.241
+      "time": 1778578573071.2417
     },
     "animations/cat08.anim.meta": {
-      "time": 1777899659965.335
+      "time": 1778578573071.4163
     },
     "animations/cat09.anim.meta": {
-      "time": 1777899659965.4375
+      "time": 1778578573071.6025
     },
     "animations/cat10.anim.meta": {
-      "time": 1777899659965.5435
+      "time": 1778578573071.7847
     },
     "animations/cat11.anim.meta": {
-      "time": 1777899659965.6553
+      "time": 1778578573071.9744
     },
     "animations/cat12.anim.meta": {
-      "time": 1777899659965.7578
+      "time": 1778578573072.1614
     },
     "animations/cat13.anim.meta": {
-      "time": 1777899659965.8555
+      "time": 1778578573072.3298
     },
     "animations/cat14.anim.meta": {
-      "time": 1777899659965.953
+      "time": 1778578573072.52
     },
     "animations/cat15.anim.meta": {
-      "time": 1777899659966.059
-    },
-    "animations/cat16.anim.meta": {
-      "time": 1777899659966.1565
-    },
-    "animations/cat_large_01.anim.meta": {
-      "time": 1777899659966.2622
-    },
-    "animations/dog02.anim.meta": {
-      "time": 1777899659966.4707
+      "time": 1778578573072.7239
     },
     "animations/dog01.anim.meta": {
-      "time": 1777899659966.3708
+      "time": 1778578573073.218
     },
     "animations/dog03.anim.meta": {
-      "time": 1777899659966.576
+      "time": 1778578573073.5403
     },
     "animations/dog04.anim.meta": {
-      "time": 1777899659966.6792
-    },
-    "animations/dog05.anim.meta": {
-      "time": 1777899659966.7983
+      "time": 1778578573073.701
     },
     "animations/dog06.anim.meta": {
-      "time": 1777899659966.9067
+      "time": 1778578573074.009
     },
     "animations/dog07.anim.meta": {
-      "time": 1777899659967.0051
+      "time": 1778578573074.1562
     },
     "animations/dog08.anim.meta": {
-      "time": 1777899659967.1013
+      "time": 1778578573074.3008
     },
     "animations/dog09.anim.meta": {
-      "time": 1777899659967.2131
+      "time": 1778578573074.4504
     },
     "animations/dog10.anim.meta": {
-      "time": 1777899659967.3171
+      "time": 1778578573074.6025
     },
     "animations/dog11.anim.meta": {
-      "time": 1777899659967.423
+      "time": 1778578573074.7712
     },
     "animations/dog12.anim.meta": {
-      "time": 1777899659967.5215
+      "time": 1778578573074.9236
     },
     "animations/dog13.anim.meta": {
-      "time": 1777899659967.618
+      "time": 1778578573075.0984
     },
     "animations/dog14.anim.meta": {
-      "time": 1777899659967.7034
+      "time": 1778578573075.272
     },
     "animations/dog15.anim.meta": {
-      "time": 1777899659967.7932
-    },
-    "animations/dog16.anim.meta": {
-      "time": 1777899659967.8857
-    },
-    "animations/large_dog01.anim.meta": {
-      "time": 1777899659967.977
+      "time": 1778578573075.426
     },
     "animations/love.anim.meta": {
-      "time": 1777899659968.0635
+      "time": 1778578573075.8813
     },
     "sounds/06_c.MP3.meta": {
-      "time": 1777899659973.7598
+      "time": 1778578573084.6687
     },
     "sounds/06_d.mp3.meta": {
-      "time": 1777899659973.8638
+      "time": 1778578573084.8147
     },
     "sounds/09_dc.MP3.meta": {
-      "time": 1777899659974.2383
+      "time": 1778578573085.2622
     },
     "sounds/10_c.MP3.meta": {
-      "time": 1777899659974.7605
+      "time": 1778578573085.879
     },
     "sounds/10_d.MP3.meta": {
-      "time": 1777899659975.147
+      "time": 1778578573086.341
     },
     "sounds/11_c.MP3.meta": {
-      "time": 1777899659975.8704
+      "time": 1778578573087.3167
     },
     "sounds/11_d-n.MP3.meta": {
-      "time": 1777899659976.302
+      "time": 1778578573087.833
     },
     "sounds/12_c.MP3.meta": {
-      "time": 1777899659976.94
+      "time": 1778578573088.6184
     },
     "sounds/10_d.m4a.meta": {
-      "time": 1777899659975.4695
+      "time": 1778578573086.7805
     },
     "sounds/11_d.MP3.meta": {
-      "time": 1777899659976.7441
+      "time": 1778578573088.348
     },
     "sounds/12_d.MP3.meta": {
-      "time": 1777899659977.1409
+      "time": 1778578573088.895
     },
     "sounds/all_click.MP3.meta": {
-      "time": 1777899659977.5913
+      "time": 1778578573089.5767
     },
     "sounds/13_c.mp3.meta": {
-      "time": 1777899659977.308
+      "time": 1778578573089.1414
     },
     "sounds/bg.MP3.meta": {
-      "time": 1777899659979.7964
+      "time": 1778578573092.0076
     },
     "sounds/13_d.MP3.meta": {
-      "time": 1777899659977.474
+      "time": 1778578573089.3733
     },
     "sounds/clock_dc.MP3.meta": {
-      "time": 1777899659980.0527
+      "time": 1778578573092.3286
     },
     "sounds/message_d.mp3.meta": {
-      "time": 1777899659980.3545
+      "time": 1778578573092.728
     },
     "sounds/value.MP3.meta": {
-      "time": 1777899659980.7466
+      "time": 1778578573093.4917
     },
     "sounds/message_c.MP3.meta": {
-      "time": 1777899659980.199
+      "time": 1778578573092.5295
     },
     "sounds/reward.MP3.meta": {
-      "time": 1777899659980.524
+      "time": 1778578573092.9333
     },
     "textures/bg.plist.meta": {
-      "time": 1777899659981.1033
+      "time": 1778578573093.987
     },
     "textures/ad.png.meta": {
-      "time": 1777899659980.9944
-    },
-    "textures/c_large_01.png.meta": {
-      "time": 1777899659986.332
-    },
-    "textures/c_large_01.plist.meta": {
-      "time": 1777899659985.8962
+      "time": 1778578573093.8342
     },
     "textures/cat01.png.meta": {
-      "time": 1777899659986.9583
+      "time": 1778578573100.1245
     },
     "textures/bg.png.meta": {
-      "time": 1777899659985.6807
-    },
-    "textures/cat02.png.meta": {
-      "time": 1777899659987.4814
+      "time": 1778578573098.647
     },
     "textures/cat03.png.meta": {
-      "time": 1777899659988.152
+      "time": 1778578573101.5686
     },
     "textures/cat01.plist.meta": {
-      "time": 1777899659986.5088
-    },
-    "textures/cat02.plist.meta": {
-      "time": 1777899659987.1086
+      "time": 1778578573099.619
     },
     "textures/cat04.png.meta": {
-      "time": 1777899659988.865
+      "time": 1778578573102.5508
     },
     "textures/cat03.plist.meta": {
-      "time": 1777899659987.661
-    },
-    "textures/cat05.png.meta": {
-      "time": 1777899659989.5015
+      "time": 1778578573100.9548
     },
     "textures/cat06.png.meta": {
-      "time": 1777899659989.9438
+      "time": 1778578573104.0305
     },
     "textures/cat06.plist.meta": {
-      "time": 1777899659989.644
+      "time": 1778578573103.564
     },
     "textures/cat04.plist.meta": {
-      "time": 1777899659988.3037
+      "time": 1778578573101.8303
     },
     "textures/cat07.plist.meta": {
-      "time": 1777899659990.0728
-    },
-    "textures/cat05.plist.meta": {
-      "time": 1777899659989.0066
+      "time": 1778578573104.2415
     },
     "textures/cat07.png.meta": {
-      "time": 1777899659990.32
+      "time": 1778578573104.5737
     },
     "textures/cat08.plist.meta": {
-      "time": 1777899659990.4387
+      "time": 1778578573104.7651
     },
     "textures/cat08.png.meta": {
-      "time": 1777899659990.6768
+      "time": 1778578573105.0762
     },
     "textures/cat09.png.meta": {
-      "time": 1777899659991.4373
+      "time": 1778578573106.0127
     },
     "textures/cat10.png.meta": {
-      "time": 1777899659992.2554
+      "time": 1778578573106.9697
     },
     "textures/cat11.png.meta": {
-      "time": 1777899659993.0261
+      "time": 1778578573107.852
     },
     "textures/cat09.plist.meta": {
-      "time": 1777899659990.8064
+      "time": 1778578573105.2454
     },
     "textures/cat10.plist.meta": {
-      "time": 1777899659991.5789
+      "time": 1778578573106.2053
     },
     "textures/cat11.plist.meta": {
-      "time": 1777899659992.409
+      "time": 1778578573107.1404
     },
     "textures/cat12.png.meta": {
-      "time": 1777899659993.8337
+      "time": 1778578573108.8594
     },
     "textures/cat12.plist.meta": {
-      "time": 1777899659993.1628
+      "time": 1778578573108.044
     },
     "textures/cat13.png.meta": {
-      "time": 1777899659994.4165
+      "time": 1778578573109.6057
     },
     "textures/cat13.plist.meta": {
-      "time": 1777899659993.9548
+      "time": 1778578573109.0647
     },
     "textures/cat14.png.meta": {
-      "time": 1777899659995.1453
+      "time": 1778578573110.428
     },
     "textures/cat15.png.meta": {
-      "time": 1777899659995.5874
+      "time": 1778578573111.028
     },
     "textures/cat15.plist.meta": {
-      "time": 1777899659995.2751
-    },
-    "textures/d_large_01.png.meta": {
-      "time": 1777899659996.4004
+      "time": 1778578573110.624
     },
     "textures/cat14.plist.meta": {
-      "time": 1777899659994.5645
-    },
-    "textures/d_large_01.plist.meta": {
-      "time": 1777899659995.7234
+      "time": 1778578573109.7778
     },
     "textures/dog01.png.meta": {
-      "time": 1777899659997.3518
-    },
-    "textures/dog02.png.meta": {
-      "time": 1777899659997.9338
+      "time": 1778578573113.1318
     },
     "textures/dog01.plist.meta": {
-      "time": 1777899659996.5266
+      "time": 1778578573112.1924
     },
     "textures/dog03.png.meta": {
-      "time": 1777899659998.737
-    },
-    "textures/dog02.plist.meta": {
-      "time": 1777899659997.4788
+      "time": 1778578573114.6572
     },
     "textures/dog04.png.meta": {
-      "time": 1777899659999.6736
+      "time": 1778578573115.9363
     },
     "textures/dog03.plist.meta": {
-      "time": 1777899659998.0417
+      "time": 1778578573114.0212
     },
     "textures/dog06.png.meta": {
-      "time": 1777899660002.6455
-    },
-    "textures/dog05.png.meta": {
-      "time": 1777899660001.9253
+      "time": 1778578573117.684
     },
     "textures/dog04.plist.meta": {
-      "time": 1777899659998.8643
+      "time": 1778578573114.8484
     },
     "textures/dog06.plist.meta": {
-      "time": 1777899660002.111
-    },
-    "textures/dog05.plist.meta": {
-      "time": 1777899659999.797
+      "time": 1778578573116.9924
     },
     "textures/dog08.png.meta": {
-      "time": 1777899660003.9575
+      "time": 1778578573119.5974
     },
     "textures/dog07.png.meta": {
-      "time": 1777899660003.348
+      "time": 1778578573118.73
     },
     "textures/dog07.plist.meta": {
-      "time": 1777899660002.7654
+      "time": 1778578573117.9019
     },
     "textures/dog08.plist.meta": {
-      "time": 1777899660003.4653
+      "time": 1778578573118.9177
     },
     "textures/dog09.png.meta": {
-      "time": 1777899660005.5894
+      "time": 1778578573121.4253
     },
     "textures/dog10.png.meta": {
-      "time": 1777899660007.091
+      "time": 1778578573123.73
     },
     "textures/dog11.png.meta": {
-      "time": 1777899660008.4658
+      "time": 1778578573125.582
     },
     "textures/dog09.plist.meta": {
-      "time": 1777899660004.067
+      "time": 1778578573119.7798
     },
     "textures/dog10.plist.meta": {
-      "time": 1777899660005.7168
+      "time": 1778578573121.6252
     },
     "textures/dog11.plist.meta": {
-      "time": 1777899660007.216
+      "time": 1778578573123.9456
     },
     "textures/dog12.plist.meta": {
-      "time": 1777899660008.589
+      "time": 1778578573125.7686
     },
     "textures/dog12.png.meta": {
-      "time": 1777899660009.402
+      "time": 1778578573126.8435
     },
     "textures/dog13.png.meta": {
-      "time": 1777899660010.3079
+      "time": 1778578573128.0605
     },
     "textures/dog13.plist.meta": {
-      "time": 1777899660009.5146
+      "time": 1778578573127.0486
     },
     "textures/dog14.png.meta": {
-      "time": 1777899660010.8538
+      "time": 1778578573128.827
     },
     "textures/dog15.png.meta": {
-      "time": 1777899660011.7036
+      "time": 1778578573129.838
     },
     "textures/dog15.plist.meta": {
-      "time": 1777899660011.0208
+      "time": 1778578573129.0442
     },
     "textures/dog14.plist.meta": {
-      "time": 1777899660010.4111
-    },
-    "textures/ui.png.meta": {
-      "time": 1777899660013.3652
-    },
-    "textures/ui.plist.meta": {
-      "time": 1777899660011.827
+      "time": 1778578573128.2407
     },
     "scripts/llm_v2/LlmConfigParams.ts.meta": {
-      "time": 1778045579985.908
+      "time": 1778578573083.589
     },
     "scripts/llm_v2/LlmRemoteConfig.ts.meta": {
-      "time": 1778045581849.5388
+      "time": 1778578573083.7417
     },
     "scripts/llm_v2/LlmConfigParams.ts": {
-      "time": 1778047046214.6355,
+      "time": 1778578573083.5222,
       "uuid": "f8a3b2c1-4d5e-6f70-a8b9-0c1d2e3f4a5b"
     },
     "scripts/llm_v2/LlmRemoteConfig.ts": {
-      "time": 1778047910571.3618,
+      "time": 1778578573083.6682,
       "uuid": "e7b2a1c9-3f4e-5d60-b7c8-1a2b3c4d5e6f"
     },
     "scripts/llm_v2/HttpTimeouts.ts.meta": {
-      "time": 1778047889541.634
+      "time": 1778578573083.4492
     },
     "scripts/llm_v2/NativeXhrHttp.ts.meta": {
-      "time": 1778047891261.7104
+      "time": 1778578573083.887
     },
     "scripts/llm_v2/HttpTimeouts.ts": {
-      "time": 1778047882220.5918,
+      "time": 1778578573083.381,
       "uuid": "a3c4d5e6-7081-92a3-b4c5-d6e7f8091a2b"
     },
     "scripts/llm_v2/NativeXhrHttp.ts": {
-      "time": 1778047887569.3726,
+      "time": 1778578573083.8152,
       "uuid": "b4d5e6f7-8192-a3b4-c5d6-e7f8091a2b3c"
+    },
+    "scripts/MicWaveform.ts.meta": {
+      "time": 1779181997590.0742
+    },
+    "scripts/MicWaveform.ts": {
+      "time": 1779239018100.837,
+      "uuid": "149e416a-d026-497b-9c3c-396f280e0c1d"
+    },
+    "scripts/CompanionDays.ts.meta": {
+      "time": 1779239018253.623
+    },
+    "scripts/CompanionDays.ts": {
+      "time": 1779239018244.1802,
+      "uuid": "a8f3c2e1-4b6d-4a9e-8f7c-1d2e3f4a5b6c"
+    },
+    "scripts/CompanionDaysDisplay.ts.meta": {
+      "time": 1779239018271.6497
+    },
+    "scripts/CompanionDaysDisplay.ts": {
+      "time": 1779239018263.1807,
+      "uuid": "b7e4d3c2-1a0f-4e5d-9c8b-2a3f4e5d6c7b"
+    },
+    "textures/ui.plist.meta": {
+      "time": 1779209170657.8032
+    },
+    "textures/ui.png.meta": {
+      "time": 1779209170639.642
+    },
+    "textures/ui.png": {
+      "time": 1779209164775.5474,
+      "uuid": "e432de70-40e9-48a6-bba8-2fb941bfc739"
+    },
+    "textures/ui.plist": {
+      "time": 1779209164776.244,
+      "uuid": "3ae7a7fa-b2b9-415c-91eb-ceb82a98e659"
+    },
+    "scripts/PetUnlock.ts.meta": {
+      "time": 1779241121564.508
+    },
+    "scripts/PetUnlock.ts": {
+      "time": 1779244783324.7605,
+      "uuid": "a8f4c2e1-9b3d-4f6a-8c1e-2d5e7f9a0b1c"
+    },
+    "scripts/CustomizeScene.ts.meta": {
+      "time": 1779241057054.757
+    },
+    "scripts/CustomizeScene.ts": {
+      "time": 1779243319881.6677,
+      "uuid": "68db3ed6-f749-49b8-9edf-2267bb8855c2"
+    },
+    "customize.scene.meta": {
+      "time": 1779241120137.3484
+    },
+    "customize.scene": {
+      "time": 1779241454563.922,
+      "uuid": "2bd78fbe-44af-46ea-b1ec-3f4efca5f5e0"
+    },
+    "scripts/ShopPurchase.ts.meta": {
+      "time": 1779243009591.0647
+    },
+    "scripts/ShopScene.ts.meta": {
+      "time": 1779243044273.6306
+    },
+    "scripts/ShopPurchase.ts": {
+      "time": 1779243085354.9202,
+      "uuid": "b2e4f6a8-1c3d-4e5f-9a0b-1d2e3f4a5b6c"
+    },
+    "scripts/ShopScene.ts": {
+      "time": 1779244967502.2966,
+      "uuid": "d4e5f6a7-8b9c-4d0e-9f1a-2b3c4d5e6f70"
+    },
+    "shop.scene.meta": {
+      "time": 1779243076237.7048
+    },
+    "shop.scene": {
+      "time": 1779243074448.2146,
+      "uuid": "f8e3a1b2-4c5d-6e7f-8a9b-0c1d2e3f4a5b"
     }
   },
   "missing": {}

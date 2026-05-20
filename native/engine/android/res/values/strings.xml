@@ -1,5 +1,4 @@
 <resources>
     <!-- app_name 由构建时 proj/res 提供，此处仅放 Widget 用字符串，避免 Duplicate resources -->
     <string name="widget_pet_desc">宠物桌面小组件</string>
-    <string name="widget_pet_large_desc">宠物桌面大号小组件</string>
 </resources>

@@ -124,29 +124,17 @@
       "textures\\ui.plist": [
         "textures\\ui.png"
       ],
-      "textures/cat04.plist": [
-        "textures/cat04.png"
-      ],
-      "textures/dog10.plist": [
-        "textures/dog10.png"
+      "textures/cat03.plist": [
+        "textures/cat03.png"
       ],
       "textures/bg.plist": [
         "textures/bg.png"
       ],
-      "textures/c_large_01.plist": [
-        "textures/c_large_01.png"
-      ],
       "textures/cat01.plist": [
         "textures/cat01.png"
       ],
-      "textures/cat02.plist": [
-        "textures/cat02.png"
-      ],
-      "textures/cat03.plist": [
-        "textures/cat03.png"
-      ],
-      "textures/cat05.plist": [
-        "textures/cat05.png"
+      "textures/cat04.plist": [
+        "textures/cat04.png"
       ],
       "textures/cat06.plist": [
         "textures/cat06.png"
@@ -163,17 +151,14 @@
       "textures/cat10.plist": [
         "textures/cat10.png"
       ],
-      "textures/cat13.plist": [
-        "textures/cat13.png"
-      ],
       "textures/cat11.plist": [
         "textures/cat11.png"
       ],
       "textures/cat12.plist": [
         "textures/cat12.png"
       ],
-      "textures/d_large_01.plist": [
-        "textures/d_large_01.png"
+      "textures/cat13.plist": [
+        "textures/cat13.png"
       ],
       "textures/cat15.plist": [
         "textures/cat15.png"
@@ -184,9 +169,6 @@
       "textures/dog01.plist": [
         "textures/dog01.png"
       ],
-      "textures/dog02.plist": [
-        "textures/dog02.png"
-      ],
       "textures/dog03.plist": [
         "textures/dog03.png"
       ],
@@ -196,17 +178,17 @@
       "textures/dog06.plist": [
         "textures/dog06.png"
       ],
-      "textures/dog08.plist": [
-        "textures/dog08.png"
-      ],
-      "textures/dog05.plist": [
-        "textures/dog05.png"
-      ],
       "textures/dog07.plist": [
         "textures/dog07.png"
       ],
+      "textures/dog08.plist": [
+        "textures/dog08.png"
+      ],
       "textures/dog09.plist": [
         "textures/dog09.png"
+      ],
+      "textures/dog10.plist": [
+        "textures/dog10.png"
       ],
       "textures/dog12.plist": [
         "textures/dog12.png"
@@ -217,11 +199,11 @@
       "textures/dog13.plist": [
         "textures/dog13.png"
       ],
-      "textures/dog14.plist": [
-        "textures/dog14.png"
-      ],
       "textures/dog15.plist": [
         "textures/dog15.png"
+      ],
+      "textures/dog14.plist": [
+        "textures/dog14.png"
       ],
       "textures/ui.plist": [
         "textures/ui.png"

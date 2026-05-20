@@ -1,11 +1,20 @@
 import { _decorator, Component, Animation, Node, EventTouch, Vec2, director, sys, Label, find, Button } from 'cc';
 import { RandomPlayPetAni } from './RandomPlayPetAni';
-import { SwipeState } from './SwipeState';
 import { PetValue } from './PetValue';
 import { SharedBtnCounts } from './SharedBtnCounts';
 import { PetInfoBar } from './PetInfoBar';
 import { HeartBubbleAni } from './HeartBubbleAni';
+import { SwipeState } from './SwipeState';
 const { ccclass } = _decorator;
+
+/** 仅声明宠物长按所需接口，避免 import BtnMicroRecord 造成循环引用 */
+interface IPetMicroTouch {
+    onPetTouchStart(): void;
+    onPetTouchEnd(): void;
+    onPetTouchCancel(): void;
+    /** 短按结束：返回 true 表示未进入录音，由宠物逻辑处理点摸 */
+    consumePetShortTap(): boolean;
+}
 
 const CLIP_SUFFIXES = ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12', '13', '14', '15', '16', '17'] as const;
 const SHORT_SUFFIX = new Set(['06', '07', '08']);
@@ -43,17 +52,6 @@ export abstract class PetControllerBase extends Component {
     protected btn2Toad: Node | null = null;
     protected btn3Toad: Node | null = null;
 
-    protected static readonly BTN_COUNT_WINDOW_MS = 60000;
-    protected _btn0ClickTimes: number[] = [];
-    protected _btn0SwipeTimes: number[] = [];
-    protected _btn1ClickTimes: number[] = [];
-    protected _btn2ClickTimes: number[] = [];
-    protected _btn3ClickTimes: number[] = [];
-    protected _btn0Mode13Until: number = 0;
-    protected _btn0SwipeMode13Until: number = 0;
-    protected _btn1Mode13Until: number = 0;
-    protected _btn2Mode13Until: number = 0;
-    protected _btn3Mode13Until: number = 0;
     protected _btn1IgnoreUntil: number = 0;
     protected _btn2IgnoreUntil: number = 0;
     protected _btn3IgnoreUntil: number = 0;
@@ -63,7 +61,9 @@ export abstract class PetControllerBase extends Component {
     protected isPlayingSequence: boolean = false;
     protected sequenceTimer: number | null = null;
     protected _randomAniDisabledByUser: boolean = false;
-    protected _swipeTouchStart: Vec2 = new Vec2();
+    protected _petTouchStart: Vec2 = new Vec2();
+    private _petTouchMovedTooFar = false;
+    private static readonly PET_TOUCH_MOVE_CANCEL_PX = 28;
 
     protected clip(suffix: string): string {
         return `${this.prefix}${suffix}`;
@@ -76,12 +76,10 @@ export abstract class PetControllerBase extends Component {
         SharedBtnCounts.onChangeCallback = () => this._updateCountLabels();
         this._updateCountLabels();
 
-        const swipeNode = this.swipeAreaNode || this.scrollViewForSwipe;
-        if (swipeNode) {
-            swipeNode.on(Node.EventType.TOUCH_START, this._onSwipeTouchStart, this);
-            swipeNode.on(Node.EventType.TOUCH_END, this._onSwipeTouchEnd, this);
-            swipeNode.on(Node.EventType.TOUCH_CANCEL, this._onSwipeTouchEnd, this);
-        }
+        this.node.on(Node.EventType.TOUCH_START, this._onPetTouchStart, this);
+        this.node.on(Node.EventType.TOUCH_MOVE, this._onPetTouchMove, this);
+        this.node.on(Node.EventType.TOUCH_END, this._onPetTouchEnd, this);
+        this.node.on(Node.EventType.TOUCH_CANCEL, this._onPetTouchEnd, this);
     }
 
     onEnable() {
@@ -108,24 +106,44 @@ export abstract class PetControllerBase extends Component {
             this.sequenceTimer = null;
         }
         this.isPlayingSequence = false;
-        const swipeNode = this.swipeAreaNode || this.scrollViewForSwipe;
-        if (swipeNode) {
-            swipeNode.off(Node.EventType.TOUCH_START, this._onSwipeTouchStart, this);
-            swipeNode.off(Node.EventType.TOUCH_END, this._onSwipeTouchEnd, this);
-            swipeNode.off(Node.EventType.TOUCH_CANCEL, this._onSwipeTouchEnd, this);
+        this.node.off(Node.EventType.TOUCH_START, this._onPetTouchStart, this);
+        this.node.off(Node.EventType.TOUCH_MOVE, this._onPetTouchMove, this);
+        this.node.off(Node.EventType.TOUCH_END, this._onPetTouchEnd, this);
+        this.node.off(Node.EventType.TOUCH_CANCEL, this._onPetTouchEnd, this);
+    }
+
+    private _onPetTouchStart(e: EventTouch) {
+        if (!this.node.active || this.isPlayingSequence) return;
+        e.getUILocation(this._petTouchStart);
+        this._petTouchMovedTooFar = false;
+        this._getMicroRecord()?.onPetTouchStart();
+    }
+
+    private _onPetTouchMove(e: EventTouch) {
+        if (this._petTouchMovedTooFar) return;
+        const cur = new Vec2();
+        e.getUILocation(cur);
+        const dx = cur.x - this._petTouchStart.x;
+        const dy = cur.y - this._petTouchStart.y;
+        if (dx * dx + dy * dy > PetControllerBase.PET_TOUCH_MOVE_CANCEL_PX * PetControllerBase.PET_TOUCH_MOVE_CANCEL_PX) {
+            this._petTouchMovedTooFar = true;
+            this._getMicroRecord()?.onPetTouchCancel();
         }
     }
 
-    private _onSwipeTouchStart(e: EventTouch) { e.getUILocation(this._swipeTouchStart); }
-    private _onSwipeTouchEnd(e: EventTouch) {
-        const end = new Vec2();
-        e.getUILocation(end);
-        const deltaX = end.x - this._swipeTouchStart.x;
-        const deltaY = end.y - this._swipeTouchStart.y;
-        if (Math.abs(deltaX) >= this.swipeThreshold && Math.abs(deltaX) > Math.abs(deltaY)) {
-            (e as any).stopPropagation?.();
-            this.playSwipe12Sequence();
+    private _onPetTouchEnd() {
+        if (this._petTouchMovedTooFar) return;
+        const micro = this._getMicroRecord();
+        if (micro?.consumePetShortTap()) {
+            this.onBtn0Click();
+            return;
         }
+        micro?.onPetTouchEnd();
+    }
+
+    private _getMicroRecord(): IPetMicroTouch | null {
+        const n = find('Canvas/btn_micro');
+        return n?.getComponent('BtnMicroRecord') as IPetMicroTouch | null;
     }
 
     start() {
@@ -277,9 +295,8 @@ export abstract class PetControllerBase extends Component {
     /** 数值变化时暂时隐藏 info bar，若已经在隐藏状态则简单覆盖持续时间。 */
     protected _hideInfoBarTemporarily(seconds: number = 2) {
         PetInfoBar.setGlobalVisible(false);
-        // 使用组件自己的 scheduleOnce，info bar 的节点状态不影响这里的计时
         this.scheduleOnce(() => {
-            PetInfoBar.setGlobalVisible(true);
+            PetInfoBar.instance?.syncPassiveBubble();
         }, seconds);
     }
 
@@ -345,61 +362,20 @@ export abstract class PetControllerBase extends Component {
         return this.petValue;
     }
 
-    protected _pruneClickTimes(arr: number[], windowMs: number) {
-        const now = Date.now();
-        while (arr.length > 0 && now - arr[0] > windowMs) arr.shift();
-    }
-    protected _shouldPlay13(clickTimes: number[]) {
-        this._pruneClickTimes(clickTimes, PetControllerBase.BTN_COUNT_WINDOW_MS);
-        return clickTimes.length >= 3;
-    }
-
-    /** 按钮每分钟 3 次上限时的提示：在当前宠物节点上方显示 */
-    protected _showPerMinuteLimitHint() {
-        try {
-            const pv = this._ensurePetValue();
-            const anyPv = pv as any;
-            if (anyPv && typeof anyPv.showPerMinuteLimitHint === 'function') {
-                anyPv.showPerMinuteLimitHint(undefined, this.node);
-            }
-        } catch (e) {
-            console.warn('[PetControllerBase] showPerMinuteLimitHint error', e);
-        }
-    }
-
+    /** 点摸宠物：心情 +2，可连续点；长按仍走语音 */
     public onBtn0Click() {
         if (!this.node.active) return;
         if (SwipeState.ignoreNextBtn0Click) return;
-        if (this.isPlayingSequence) return;
         this._disableRandomAniAfterUserInteraction();
-        const now = Date.now();
-        // 每分钟超过 3 次：播放 dog13/cat13，不加数值
-        if (this._btn0Mode13Until && now < this._btn0Mode13Until) {
-            this._showPerMinuteLimitHint();
-            if (!this.isPlayingSequence) {
-                this.playSequence([this.clip('13'), this.clip('01')]);
-            }
-            return;
-        }
-        if (this._btn0Mode13Until && now >= this._btn0Mode13Until) {
-            this._btn0Mode13Until = 0;
-            this._btn0ClickTimes = [];
-        }
-        if (this._shouldPlay13(this._btn0ClickTimes)) {
-            this._btn0Mode13Until = now + PetControllerBase.BTN_COUNT_WINDOW_MS;
-            this._btn0ClickTimes.push(now);
-            this._showPerMinuteLimitHint();
-            this.playSequence([this.clip('13'), this.clip('01')]);
-            return;
-        }
-        this._btn0ClickTimes.push(now);
         const pv = this._ensurePetValue();
         if (pv) {
             pv.applyBtn0(this.node);
-            this._hideInfoBarTemporarily();
         }
         const cur = this._syncCurrentClip();
         const s = cur.slice(this.prefix.length);
+        if (s === '03') {
+            PetInfoBar.instance?.refreshSleepBubble(false);
+        }
         let seq: string[] = [];
         if (s === '01' || s === '04') seq = [this.clip('06'), this.clip('01')];
         else if (s === '02' || s === '05' || s === '14') seq = [this.clip('07'), this.clip('01')];
@@ -408,36 +384,9 @@ export abstract class PetControllerBase extends Component {
         this.playSequence(seq);
     }
 
-    /** Button0 滑动：独立于点击的每分钟 3 次限制，超限播放 dog13/cat13 */
-    public onBtn0Swipe(petNode?: Node) {
-        if (!this.node.active) return;
-        if (this.isPlayingSequence) return;
-        this._disableRandomAniAfterUserInteraction();
-        const now = Date.now();
-        if (this._btn0SwipeMode13Until && now < this._btn0SwipeMode13Until) {
-            this._showPerMinuteLimitHint();
-            if (!this.isPlayingSequence) {
-                this.playSequence([this.clip('13'), this.clip('01')]);
-            }
-            return;
-        }
-        if (this._btn0SwipeMode13Until && now >= this._btn0SwipeMode13Until) {
-            this._btn0SwipeMode13Until = 0;
-            this._btn0SwipeTimes = [];
-        }
-        if (this._shouldPlay13(this._btn0SwipeTimes)) {
-            this._btn0SwipeMode13Until = now + PetControllerBase.BTN_COUNT_WINDOW_MS;
-            this._btn0SwipeTimes.push(now);
-            this._showPerMinuteLimitHint();
-            this.playSequence([this.clip('13'), this.clip('01')]);
-            return;
-        }
-        this._btn0SwipeTimes.push(now);
-        const pv = this._ensurePetValue();
-        if (pv) {
-            pv.applySwipe(petNode || this.node);
-            this._hideInfoBarTemporarily();
-        }
+    /** 已移除滑动抚摸 */
+    public onBtn0Swipe(_petNode?: Node) {
+        // no-op
     }
 
     public onBtn1Click() {
@@ -447,28 +396,9 @@ export abstract class PetControllerBase extends Component {
         const now = Date.now();
         if (now < this._btn1IgnoreUntil) { this._btn1IgnoreUntil = 0; return; }
         if (SharedBtnCounts.btn1 < 1) { this._gotoAdScene(1); return; }
-        if (this._btn1Mode13Until && now < this._btn1Mode13Until) {
-            this._showPerMinuteLimitHint();
-            if (!this.isPlayingSequence) {
-                this.playSequence([this.clip('13'), this.clip('01')]);
-            }
-            return;
-        }
-        if (this._btn1Mode13Until && now >= this._btn1Mode13Until) {
-            this._btn1Mode13Until = 0;
-            this._btn1ClickTimes = [];
-        }
-        if (this._shouldPlay13(this._btn1ClickTimes)) {
-            this._btn1Mode13Until = now + PetControllerBase.BTN_COUNT_WINDOW_MS;
-            this._btn1ClickTimes.push(now);
-            this._showPerMinuteLimitHint();
-            this.playSequence([this.clip('13'), this.clip('01')]);
-            return;
-        }
         SharedBtnCounts.btn1--;
         SharedBtnCounts.save();
         this._updateCountLabels();
-        this._btn1ClickTimes.push(now);
         // 数值：Button1 体力 +20、亲密 +5（具体数值变更逻辑交给 PetValue，内部已处理上限 100）
         const pv1 = this._ensurePetValue();
         if (pv1) {
@@ -478,7 +408,7 @@ export abstract class PetControllerBase extends Component {
         const cur = this._syncCurrentClip();
         const s = cur.slice(this.prefix.length);
         let seq: string[] = [];
-        if (s === '02' || s === '05' || s === '14') seq = [this.clip('07'), this.clip('09'), this.clip('01')];
+        if (s === '14') seq = [this.clip('07'), this.clip('09'), this.clip('01')];
         else if (s === '03') seq = [this.clip('08'), this.clip('09'), this.clip('01')];
         else seq = [this.clip('09'), this.clip('01')];
         this.playSequence(seq);
@@ -491,28 +421,9 @@ export abstract class PetControllerBase extends Component {
         const now = Date.now();
         if (now < this._btn2IgnoreUntil) { this._btn2IgnoreUntil = 0; return; }
         if (SharedBtnCounts.btn2 < 1) { this._gotoAdScene(2); return; }
-        if (this._btn2Mode13Until && now < this._btn2Mode13Until) {
-            this._showPerMinuteLimitHint();
-            if (!this.isPlayingSequence) {
-                this.playSequence([this.clip('13'), this.clip('01')]);
-            }
-            return;
-        }
-        if (this._btn2Mode13Until && now >= this._btn2Mode13Until) {
-            this._btn2Mode13Until = 0;
-            this._btn2ClickTimes = [];
-        }
-        if (this._shouldPlay13(this._btn2ClickTimes)) {
-            this._btn2Mode13Until = now + PetControllerBase.BTN_COUNT_WINDOW_MS;
-            this._btn2ClickTimes.push(now);
-            this._showPerMinuteLimitHint();
-            this.playSequence([this.clip('13'), this.clip('01')]);
-            return;
-        }
         SharedBtnCounts.btn2--;
         SharedBtnCounts.save();
         this._updateCountLabels();
-        this._btn2ClickTimes.push(now);
         // 数值：Button2 亲密 +20（具体数值变更逻辑交给 PetValue，内部已处理上限 100）
         const pv2 = this._ensurePetValue();
         if (pv2) {
@@ -522,7 +433,7 @@ export abstract class PetControllerBase extends Component {
         const cur = this._syncCurrentClip();
         const s = cur.slice(this.prefix.length);
         let seq: string[] = [];
-        if (s === '02' || s === '05' || s === '14') seq = [this.clip('07'), this.clip('10'), this.clip('01')];
+        if (s === '14') seq = [this.clip('07'), this.clip('10'), this.clip('01')];
         else if (s === '03') seq = [this.clip('08'), this.clip('10'), this.clip('01')];
         else seq = [this.clip('10'), this.clip('01')];
         this.playSequence(seq);
@@ -535,28 +446,9 @@ export abstract class PetControllerBase extends Component {
         const now = Date.now();
         if (now < this._btn3IgnoreUntil) { this._btn3IgnoreUntil = 0; return; }
         if (SharedBtnCounts.btn3 < 1) { this._gotoAdScene(3); return; }
-        if (this._btn3Mode13Until && now < this._btn3Mode13Until) {
-            this._showPerMinuteLimitHint();
-            if (!this.isPlayingSequence) {
-                this.playSequence([this.clip('13'), this.clip('01')]);
-            }
-            return;
-        }
-        if (this._btn3Mode13Until && now >= this._btn3Mode13Until) {
-            this._btn3Mode13Until = 0;
-            this._btn3ClickTimes = [];
-        }
-        if (this._shouldPlay13(this._btn3ClickTimes)) {
-            this._btn3Mode13Until = now + PetControllerBase.BTN_COUNT_WINDOW_MS;
-            this._btn3ClickTimes.push(now);
-            this._showPerMinuteLimitHint();
-            this.playSequence([this.clip('13'), this.clip('01')]);
-            return;
-        }
         SharedBtnCounts.btn3--;
         SharedBtnCounts.save();
         this._updateCountLabels();
-        this._btn3ClickTimes.push(now);
         // 数值：Button3 亲密 +20（具体数值变更逻辑交给 PetValue，内部已处理上限 100）
         const pv3 = this._ensurePetValue();
         if (pv3) {
@@ -566,7 +458,7 @@ export abstract class PetControllerBase extends Component {
         const cur = this._syncCurrentClip();
         const s = cur.slice(this.prefix.length);
         let seq: string[] = [];
-        if (s === '02' || s === '05' || s === '14') seq = [this.clip('07'), this.clip('11'), this.clip('01')];
+        if (s === '14') seq = [this.clip('07'), this.clip('11'), this.clip('01')];
         else if (s === '03') seq = [this.clip('08'), this.clip('11'), this.clip('01')];
         else seq = [this.clip('11'), this.clip('01')];
         this.playSequence(seq);
@@ -610,6 +502,7 @@ export abstract class PetControllerBase extends Component {
         const cur = this._syncCurrentClip();
         const s = cur.slice(this.prefix.length);
         if (s === '03') {
+            PetInfoBar.instance?.refreshSleepBubble(false);
             // Sleep -> wake: 08 (sit up) then 04 (look around)
             this.playSequence([this.clip('08'), this.clip('04'), this.clip('01')]);
         } else {
@@ -624,6 +517,7 @@ export abstract class PetControllerBase extends Component {
         const cur = this._syncCurrentClip();
         const s = cur.slice(this.prefix.length);
         if (s === '03') {
+            PetInfoBar.instance?.refreshSleepBubble(false);
             // Sleep -> wake (08->04) -> respond (15)
             this.playSequence([this.clip('08'), this.clip('04'), this.clip('15'), this.clip('01')]);
         } else {

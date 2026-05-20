@@ -1,5 +1,7 @@
 import { _decorator, Component, director } from 'cc';
 import { applySettingsSceneLocale } from './SettingsLocale';
+import './ShopScene';
+import './CustomizeScene';
 
 const { ccclass } = _decorator;
 
@@ -14,6 +16,8 @@ export class HomeNav extends Component {
         if (scene && scene.name === 'home') {
             director.preloadScene('settings');
             director.preloadScene('ad');
+            director.preloadScene('shop');
+            director.preloadScene('customize');
         }
     }
 
